@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Złap oddech, złap sen - Bezdech Senny i Terapia CPAP | Rafał Myrta</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%231d1d1f'/><text x='16' y='22' text-anchor='middle' fill='white' font-family='system-ui' font-size='16' font-weight='600'>RM</text></svg>">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <meta name="description" content="Złap oddech, złap sen - kompletny poradnik bezdechu sennego i terapii CPAP. Bez marketingowej ściemy. Bestseller Rafała Myrty, eksperta CPAPblog.pl.">
+  <meta property="og:title" content="Złap oddech, złap sen - Bezdech Senny i Terapia CPAP">
+  <meta property="og:description" content="Bezdech senny i terapia CPAP. Kompletny poradnik. 92 strony praktycznej wiedzy.">
+  <meta property="og:type" content="book">
+  <meta property="og:url" content="https://myrta.me/ksiazka.html">
+  <meta property="og:image" content="https://myrta.me/book-cover.jpg">
+  <meta property="og:locale" content="pl_PL">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://myrta.me/ksiazka.html">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Book",
+    "name": "Złap oddech, złap sen",
+    "author": {"@type": "Person", "name": "Rafał Myrta"},
+    "description": "Bezdech senny i terapia CPAP. Kompletny poradnik.",
+    "isbn": "978-83-969670-0-8",
+    "publisher": {"@type": "Organization", "name": "Wydawnictwo RM"},
+    "numberOfPages": 92,
+    "inLanguage": "pl",
+    "image": "https://myrta.me/book-cover.jpg",
+    "url": "https://myrta.me/ksiazka.html"
+  }
+  </script>
+  <style>
+    :root {
+      --ink: #1d1d1f;
+      --gray: #86868b;
+      --gray-light: #d2d2d7;
+      --card-bg: #fbfbfd;
+      --white: #ffffff;
+      --sans: -apple-system, "system-ui", "SF Pro Display", "SF Pro Text", "Segoe UI", Roboto, sans-serif;
+      --max-w: 980px;
+      --gap: 24px;
+      --radius: 12px;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html, body {
+      font-family: var(--sans);
+      background-color: var(--white);
+      color: var(--ink);
+    }
+
+    /* Navigation — mobile-first */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: 49px;
+      background: rgba(255,255,255,0.8);
+      backdrop-filter: blur(24px);
+      border-bottom: 1px solid var(--gray-light);
+      z-index: 1000;
+    }
+
+    .nav-content {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 var(--gap);
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      font-size: 17px;
+      font-weight: 600;
+      text-decoration: none;
+      color: var(--ink);
+      letter-spacing: -0.3px;
+    }
+
+    .nav-hamburger {
+      display: block;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+      color: var(--ink);
+    }
+
+    .nav-hamburger svg {
+      width: 22px;
+      height: 22px;
+    }
+
+    .nav-links {
+      display: none;
+      position: absolute;
+      top: 49px; left: 0; right: 0;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(20px);
+      flex-direction: column;
+      padding: 16px var(--gap) 24px;
+      gap: 0;
+      list-style: none;
+      border-bottom: 1px solid var(--gray-light);
+    }
+
+    .nav-links.open { display: flex; }
+
+    .nav-links li {
+      padding-top: 12px; padding-bottom: 12px;
+      border-bottom: 1px solid rgba(0,0,0,0.04);
+    }
+
+    .nav-links li:last-child {
+      border-bottom: none;
+      padding-top: 16px;
+    }
+
+    .nav-links a {
+      font-size: 16px;
+      font-weight: 400;
+      color: var(--gray);
+      text-decoration: none;
+      transition: opacity 0.3s cubic-bezier(0.4,0,0.2,1);
+    }
+
+    .nav-links a:hover { opacity: 0.7; }
+
+    /* Main content */
+    main {
+      padding-top: 49px;
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 var(--gap);
+    }
+
+    /* Hero section */
+    .book-hero {
+      display: grid;
+      grid-template-columns: 320px 1fr;
+      gap: 64px;
+      align-items: start;
+      padding: 80px 0 60px 0;
+    }
+
+    .book-cover {
+      position: sticky;
+      top: 80px;
+    }
+
+    .book-cover img {
+      width: 100%;
+      border-radius: 8px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.12), 0 4px 20px rgba(0,0,0,0.08);
+    }
+
+    .book-info h1 {
+      font-size: 42px;
+      font-weight: 600;
+      line-height: 1.15;
+      letter-spacing: -0.5px;
+      margin-bottom: 8px;
+    }
+
+    .book-subtitle {
+      font-size: 18px;
+      color: var(--gray);
+      margin-bottom: 32px;
+      line-height: 1.5;
+    }
+
+    .book-quote {
+      font-size: 16px;
+      font-style: italic;
+      color: var(--gray);
+      line-height: 1.7;
+      padding: 24px 0;
+      border-top: 1px solid var(--gray-light);
+      border-bottom: 1px solid var(--gray-light);
+      margin-bottom: 32px;
+    }
+
+    .book-meta {
+      font-size: 14px;
+      color: var(--gray);
+      line-height: 1.8;
+      margin-bottom: 32px;
+    }
+
+    .book-meta span {
+      display: block;
+    }
+
+    .buy-btn {
+      display: inline-block;
+      background: var(--ink);
+      color: var(--white);
+      padding: 14px 36px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 500;
+      transition: opacity 0.2s;
+      letter-spacing: -0.2px;
+    }
+
+    .buy-btn:hover { opacity: 0.85; }
+
+    /* Mockups gallery */
+    .mockups-section {
+      padding: 60px 0;
+      overflow: hidden;
+    }
+
+    .mockups-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .mockups-grid img {
+      width: 100%;
+      border-radius: 12px;
+      object-fit: cover;
+      aspect-ratio: 4/3;
+    }
+
+    @media (max-width: 480px) {
+      .mockups-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Divider */
+    .section-divider {
+      height: 1px;
+      background-color: var(--gray-light);
+      margin: 0;
+    }
+
+    /* TOC Section */
+    .toc-section {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 80px 0;
+    }
+
+    .toc-section h2 {
+      font-size: 28px;
+      font-weight: 600;
+      letter-spacing: -0.3px;
+      margin-bottom: 40px;
+    }
+
+    .toc-list {
+      list-style: none;
+    }
+
+    .toc-list li {
+      font-size: 17px;
+      line-height: 1.6;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(0,0,0,0.04);
+      color: var(--ink);
+    }
+
+    .toc-list li .ch-num {
+      display: inline-block;
+      width: 32px;
+      color: var(--gray);
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .toc-appendix {
+      margin-top: 24px;
+      padding-top: 24px;
+      border-top: 1px solid var(--gray-light);
+    }
+
+    .toc-appendix li {
+      font-size: 15px;
+      color: var(--gray);
+      border-bottom: none !important;
+      padding: 6px 0;
+    }
+
+    /* Prolog section */
+    .prolog-section {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 80px 0;
+    }
+
+    .prolog-section h2 {
+      font-size: 28px;
+      font-weight: 600;
+      letter-spacing: -0.3px;
+      margin-bottom: 40px;
+    }
+
+    .prolog-section p {
+      font-size: 17px;
+      line-height: 1.8;
+      color: var(--ink);
+      margin-bottom: 20px;
+    }
+
+    .read-more-note {
+      font-size: 15px;
+      color: var(--gray);
+      font-style: italic;
+      margin-top: 32px;
+      padding-top: 24px;
+      border-top: 1px solid var(--gray-light);
+    }
+
+    /* CTA bottom */
+    .cta-bottom {
+      background: var(--card-bg);
+      border-top: 1px solid var(--gray-light);
+      border-bottom: 1px solid var(--gray-light);
+      padding: 60px var(--gap);
+      text-align: center;
+      margin-bottom: 0;
+    }
+
+    .cta-bottom h2 {
+      font-size: 24px;
+      font-weight: 600;
+      margin-bottom: 12px;
+      letter-spacing: -0.3px;
+    }
+
+    .cta-bottom p {
+      font-size: 16px;
+      color: var(--gray);
+      margin-bottom: 28px;
+      line-height: 1.6;
+    }
+
+    .cta-links {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      margin-top: 24px;
+      flex-wrap: wrap;
+    }
+
+    .cta-links a {
+      font-size: 14px;
+      color: var(--gray);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .cta-links a:hover { color: var(--ink); }
+
+    /* Footer */
+    footer {
+      background-color: var(--card-bg);
+      border-top: 1px solid var(--gray-light);
+      padding: 48px var(--gap);
+      margin-top: 0;
+    }
+
+    .footer-content {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 14px;
+      color: var(--gray);
+    }
+
+    .footer-links {
+      display: flex;
+      list-style: none;
+      gap: 32px;
+    }
+
+    .footer-links a {
+      color: var(--gray);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: var(--ink); }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      body { overflow-x: hidden; }
+      .container { padding: 0 20px; }
+      .book-hero { grid-template-columns: 1fr; gap: 32px; padding: 48px 0 32px; }
+      .book-cover { position: static; max-width: 240px; margin: 0 auto; }
+      .book-info h1 { font-size: 28px; }
+      .toc-section { padding: 48px 0; }
+      .footer-content { flex-direction: column; gap: 16px; text-align: center; }
+      .footer-links { gap: 16px; }
+    }
+
+    @media (min-width: 769px) {
+      .nav-hamburger { display: none; }
+      .nav-links {
+        display: flex;
+        position: static;
+        background: none;
+        backdrop-filter: none;
+        flex-direction: row;
+        padding: 0;
+        gap: 32px;
+        border-bottom: none;
+      }
+      .nav-links li {
+        padding: 0;
+        border-bottom: none;
+      }
+      .nav-links li:last-child { padding-top: 0; }
+      .nav-links a { font-size: 12px; }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="nav-content">
+      <a href="index.html" class="nav-logo">Rafał Myrta</a>
+      <button class="nav-hamburger" onclick="document.querySelector('.nav-links').classList.toggle('open')">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+      <ul class="nav-links">
+        <li><a href="index.html#about">O mnie</a></li>
+        <li><a href="index.html#kompetencje">Kompetencje</a></li>
+        <li><a href="index.html#projekty">Projekty</a></li>
+        <li><a href="index.html#artykuly">Artykuły</a></li>
+        <li><a href="mapa.html">Mapa</a></li>
+        <li><a href="index.html#kontakt">Kontakt</a></li>
+        <li><button class="lang-toggle" onclick="toggleLang()">EN</button></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    <div class="container">
+      <div class="book-hero">
+        <div class="book-cover">
+          <img src="book-cover.jpg" alt="Okładka książki Złap oddech, złap sen">
+        </div>
+
+        <div class="book-info">
+          <h1>Złap oddech, złap sen</h1>
+          <p class="book-subtitle">Bezdech senny i terapia CPAP. Kompletny poradnik.</p>
+
+          <div class="book-quote">
+            "Wszystkie istotne aspekty leczenia bezdechu wyjaśnione prostym językiem. Dużo praktycznych wskazówek. Nie tylko dla pacjentów!"
+          </div>
+
+          <div class="book-meta">
+            <span>Autor: Rafał Myrta</span>
+            <span>Wydawnictwo RM</span>
+            <span>ISBN: 978-83-969670-0-8</span>
+            <span>92 strony, format PDF</span>
+          </div>
+
+          <a href="https://www.naffy.io/rafal-m/zlap-oddech-zlap-sen-MeC" class="buy-btn" target="_blank" rel="noopener">Kup książkę</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="mockups-section">
+        <div class="mockups-grid">
+          <img loading="lazy" src="book-mockup-1.jpg" alt="Książka Złap oddech, złap sen">
+          <img loading="lazy" src="book-mockup-2.jpg" alt="Książka Złap oddech, złap sen - okładka">
+        </div>
+      </div>
+    </div>
+
+    <div class="section-divider"></div>
+
+    <div class="container">
+      <div class="toc-section">
+        <h2>Spis treści</h2>
+        <ol class="toc-list">
+          <li><span class="ch-num"></span>Prolog</li>
+          <li><span class="ch-num">1.</span>Czym jest bezdech senny</li>
+          <li><span class="ch-num">2.</span>Porozmawiajmy o diagnostyce</li>
+          <li><span class="ch-num">3.</span>Nie tylko CPAP</li>
+          <li><span class="ch-num">4.</span>I co teraz będzie?</li>
+          <li><span class="ch-num">5.</span>Powiedz, który lepszy</li>
+          <li><span class="ch-num">6.</span>Dobra maska to podstawa</li>
+          <li><span class="ch-num">7.</span>Przygodę czas zacząć</li>
+          <li><span class="ch-num">8.</span>Spodziewaj się najlepszego</li>
+          <li><span class="ch-num">9.</span>Komfort ponad wszystko</li>
+          <li><span class="ch-num">10.</span>Częste mycie wydłuża życie</li>
+          <li><span class="ch-num">11.</span>Kontrola formą zaufania</li>
+          <li><span class="ch-num">12.</span>Adaptuj się!</li>
+          <li><span class="ch-num">13.</span>Czarna lista skutków ubocznych</li>
+          <li><span class="ch-num">14.</span>Chory miś</li>
+          <li><span class="ch-num">15.</span>Podróżować jest bosko</li>
+          <li><span class="ch-num">16.</span>Każdego może trafić</li>
+          <li><span class="ch-num">16.</span>Śpij słodko aniołku</li>
+          <li><span class="ch-num">17.</span>Tylko dla nerdów</li>
+          <li><span class="ch-num">18.</span>Na dobry koniec (załączniki)</li>
+        </ol>
+        <ol class="toc-list toc-appendix">
+          <li>Troubleshooting terapii CPAP</li>
+          <li>Karta samooceny terapii CPAP</li>
+          <li>Słownik pojęć</li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="section-divider"></div>
+
+    <div class="container">
+      <div class="prolog-section">
+        <h2>Prolog</h2>
+
+        <p>Obudziłem się nad ranem wyraźnie czując, że coś nie jest w porządku. Szybko dotarło do mnie, że nie mogę się poruszać, a ledwie sekundę później, że nie mogę także mówić ani oddychać. Żona spała obok, ale nie mogłem jej dać znać, że coś się ze mną dzieje. Najpierw zalało mnie uczucie totalnej paniki i oblał zimny pot.</p>
+
+        <p>Po chwili nieco się uspokoiłem i dokonałem szybkiej analizy sytuacji. To musi być udar! Dwóch dziadków tak zmarło. Nieszczególnie dbałem ostatnio o zdrowie, więc w sumie sam się prosiłem. Życie dosłownie przemknęło mi przed oczami i zdążyłem nawet pomyśleć o tym, co wydarży po moim odejściu.</p>
+
+        <p>W pewnym momencie zaczęło robić się ciemno i wtedy opanował mnie totalny spokój. Pogodziłem się ze śmiercią i odpłynąłem w nicość. Pamiętam nawet, że jeszcze w ostatniej sekundzie pomyślałem, że nie jest wcale tak źle...</p>
+
+        <p>Szczęśliwie, nie było to doświadczenie śmierci, a jedynie ciężki przypadek bezdechu sennego połączony z paraliżem przysennym. Teraz wiem, że nie było to bezpośrednie zagrożenie życia i jestem sobie w stanie to zracjonalizować. Niemniej nadal mam w głowie to uczucie. Jestem przekonany, że akt pogodzenia się ze śmiercią zmienia człowieka już na zawsze i nie zapomnę tego doświadczenia nigdy.</p>
+
+        <p>To, co się zmieniło w tamtej chwili, to fakt, że jeszcze tego samego dnia kupiłem swój pierwszy aparat CPAP, aby już nigdy nie poczuć czegoś podobnego. Nie chciałem czekać ani dnia, więc aparat zakupiłem za gotówkę, nie czekając nawet na wizytę u lekarza i wniosek refundacyjny.</p>
+
+        <p class="read-more-note">Dalszą część prologu i całą książkę znajdziesz po zakupie.</p>
+      </div>
+    </div>
+
+    <div class="cta-bottom">
+      <h2>92 strony praktycznej wiedzy o bezdechu sennym</h2>
+      <p>Bez marketingowej ściemy. Od diagnostyki, przez dobór sprzętu, po codzienne życie z CPAP.</p>
+      <a href="https://www.naffy.io/rafal-m/zlap-oddech-zlap-sen-MeC" class="buy-btn" target="_blank" rel="noopener">Kup książkę</a>
+      <div class="cta-links">
+        <a href="https://cpapblog.pl" target="_blank" rel="noopener">CPAPblog.pl</a>
+        <a href="https://www.youtube.com/%40CPAPblog" target="_blank" rel="noopener">YouTube</a>
+        <a href="https://www.facebook.com/groups/bezdechsenny" target="_blank" rel="noopener">Grupa na Facebooku</a>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <div>&copy; 2026 Rafał Myrta</div>
+      <ul class="footer-links">
+        <li><a href="https://linkedin.com/in/rafalmyrta">LinkedIn</a></li>
+        <li><a href="https://cpapblog.pl">CPAPblog</a></li>
+      </ul>
+    </div>
+  </footer>
+</body>
+</html>

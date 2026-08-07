@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dlaczego 80% wdrożeń systemów zarządzania się nie udaje - Rafał Myrta</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%231d1d1f'/><text x='16' y='22' text-anchor='middle' fill='white' font-family='system-ui' font-size='16' font-weight='600'>RM</text></svg>">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <meta name="description" content="Dlaczego 80% wdrożeń systemów zarządzania się nie udaje i jak tego uniknąć. Lekcje z rzeczywistych projektów restrukturyzacji sieci handlowych i aptek.">
+  <meta property="og:title" content="Dlaczego 80% wdrożeń systemów zarządzania się nie udaje">
+  <meta property="og:description" content="Dlaczego 80% wdrożeń systemów zarządzania się nie udaje i jak tego uniknąć. Lekcje z rzeczywistych projektów restrukturyzacji sieci handlowych i aptek.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://myrta.me/art-80-procent-wdrozen.html">
+  <meta property="og:locale" content="pl_PL">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://myrta.me/art-80-procent-wdrozen.html">
+  <style>
+    :root {
+      --ink: #1d1d1f;
+      --gray: #86868b;
+      --gray-light: #d2d2d7;
+      --card-bg: #fbfbfd;
+      --white: #ffffff;
+      --sans: -apple-system, "system-ui", "SF Pro Display", "SF Pro Text", "Segoe UI", Roboto, sans-serif;
+      --max-w: 980px;
+      --gap: 24px;
+      --radius: 12px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      font-family: var(--sans);
+      background-color: var(--white);
+      color: var(--ink);
+    }
+
+    /* Navigation — mobile-first */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: 49px;
+      background: rgba(255,255,255,0.8);
+      backdrop-filter: blur(24px);
+      border-bottom: 1px solid var(--gray-light);
+      z-index: 1000;
+    }
+
+    .nav-content {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 var(--gap);
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      font-size: 17px;
+      font-weight: 600;
+      text-decoration: none;
+      color: var(--ink);
+      letter-spacing: -0.3px;
+    }
+
+    .nav-hamburger {
+      display: block;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+      color: var(--ink);
+    }
+
+    .nav-hamburger svg {
+      width: 22px;
+      height: 22px;
+    }
+
+    .nav-links {
+      display: none;
+      position: absolute;
+      top: 49px; left: 0; right: 0;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(20px);
+      flex-direction: column;
+      padding: 16px var(--gap) 24px;
+      gap: 0;
+      list-style: none;
+      border-bottom: 1px solid var(--gray-light);
+    }
+
+    .nav-links.open { display: flex; }
+
+    .nav-links li {
+      padding-top: 12px; padding-bottom: 12px;
+      border-bottom: 1px solid rgba(0,0,0,0.04);
+    }
+
+    .nav-links li:last-child {
+      border-bottom: none;
+      padding-top: 16px;
+    }
+
+    .nav-links a {
+      font-size: 16px;
+      font-weight: 400;
+      color: var(--gray);
+      text-decoration: none;
+      transition: opacity 0.3s cubic-bezier(0.4,0,0.2,1);
+    }
+
+    .nav-links a:hover { opacity: 0.7; }
+
+    .lang-toggle {
+      font-size: 12px;
+      font-weight: 400;
+      color: var(--gray);
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-family: var(--sans);
+      transition: opacity 0.3s cubic-bezier(0.4,0,0.2,1);
+    }
+
+    .lang-toggle:hover { opacity: 0.7; }
+
+    /* Main content */
+    main {
+      padding-top: 49px;
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 var(--gap);
+    }
+
+    /* Article header */
+    .article-header {
+      padding: 80px 0 60px 0;
+    }
+
+    .article-header h1 {
+      font-size: 48px;
+      font-weight: 600;
+      line-height: 1.2;
+      margin-bottom: 24px;
+      color: var(--ink);
+      letter-spacing: -0.5px;
+    }
+
+    .article-lead {
+      font-size: 18px;
+      color: var(--gray);
+      font-style: italic;
+      line-height: 1.7;
+      margin-bottom: 32px;
+      font-weight: 400;
+    }
+
+    .article-divider {
+      height: 1px;
+      background-color: var(--gray-light);
+      margin-bottom: 48px;
+    }
+
+    /* Article body */
+    .article-body {
+      max-width: 720px;
+      margin: 0 auto 100px auto;
+    }
+
+    .article-body p {
+      font-size: 17px;
+      line-height: 1.8;
+      color: var(--ink);
+      margin-bottom: 20px;
+    }
+
+    .article-body h2 {
+      font-size: 24px;
+      font-weight: 600;
+      color: var(--ink);
+      margin-top: 40px;
+      margin-bottom: 16px;
+      letter-spacing: -0.3px;
+    }
+
+    .article-body h2:first-child {
+      margin-top: 0;
+    }
+
+    /* Author bio */
+    .author-bio {
+      max-width: 720px;
+      margin: 80px auto 100px auto;
+      padding-top: 24px;
+      border-top: 1px solid var(--gray-light);
+      font-size: 14px;
+      color: var(--gray);
+      line-height: 1.6;
+      font-style: italic;
+    }
+
+    /* Back link */
+    .back-link {
+      max-width: 720px;
+      margin: 0 auto 60px auto;
+      font-size: 14px;
+    }
+
+    .back-link a {
+      color: var(--gray);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .back-link a:hover {
+      color: var(--ink);
+    }
+
+    /* Footer */
+    footer {
+      background-color: var(--card-bg);
+      border-top: 1px solid var(--gray-light);
+      padding: 48px var(--gap);
+      margin-top: 100px;
+    }
+
+    .footer-content {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 14px;
+      color: var(--gray);
+    }
+
+    .footer-links {
+      display: flex;
+      list-style: none;
+      gap: 32px;
+    }
+
+    .footer-links a {
+      color: var(--gray);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover {
+      color: var(--ink);
+    }
+
+    /* PL/EN toggle handler */
+    .lang-only-en {
+      display: none;
+    }
+
+    html[lang="en"] .lang-only-pl {
+      display: none;
+    }
+
+    html[lang="en"] .lang-only-en {
+      display: block;
+    }
+
+    html[lang="en"] .lang-only-pl .article-body,
+    html[lang="en"] .lang-only-pl .article-header,
+    html[lang="en"] .lang-only-pl .author-bio,
+    html[lang="en"] .lang-only-pl .back-link {
+      display: none;
+    }
+
+    .en-placeholder {
+      display: none;
+    }
+
+    .en-placeholder .article-header,
+    .en-placeholder .article-body,
+    .en-placeholder .author-bio,
+    .en-placeholder .back-link {
+      display: none;
+    }
+
+    html[lang="en"] .en-placeholder {
+      display: block;
+    }
+
+    html[lang="en"] .en-placeholder .article-header,
+    html[lang="en"] .en-placeholder .article-body,
+    html[lang="en"] .en-placeholder .author-bio,
+    html[lang="en"] .en-placeholder .back-link {
+      display: block;
+    }
+    @media (max-width: 768px) {
+      body { overflow-x: hidden; }
+      .container { padding: 0 20px; }
+      .article-header h1 { font-size: 28px; }
+      .article-header { padding: 48px 0 32px 0; }
+      .article-body p { font-size: 16px; }
+      .footer-content { flex-direction: column; gap: 16px; text-align: center; }
+      .footer-links { gap: 16px; }
+    }
+    @media (min-width: 769px) {
+      .nav-hamburger { display: none; }
+      .nav-links {
+        display: flex;
+        position: static;
+        background: none;
+        backdrop-filter: none;
+        flex-direction: row;
+        padding: 0;
+        gap: 32px;
+        border-bottom: none;
+      }
+      .nav-links li {
+        padding: 0;
+        border-bottom: none;
+      }
+      .nav-links li:last-child { padding-top: 0; }
+      .nav-links a { font-size: 12px; }
+      .article-header h1 { font-size: 48px; }
+    }</style>
+</head>
+<body>
+  <nav>
+    <div class="nav-content">
+      <a href="index.html" class="nav-logo">Rafał Myrta</a>
+      <button class="nav-hamburger" onclick="document.querySelector('.nav-links').classList.toggle('open')">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+      <ul class="nav-links">
+        <li><a href="index.html#about">O mnie</a></li>
+        <li><a href="index.html#kompetencje">Kompetencje</a></li>
+        <li><a href="index.html#projekty">Projekty</a></li>
+        <li><a href="index.html#artykuly">Artykuły</a></li>
+        <li><a href="mapa.html">Mapa</a></li>
+        <li><a href="index.html#kontakt">Kontakt</a></li>
+        <li><button class="lang-toggle" onclick="toggleLang()">EN</button></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    <div class="container">
+      <div class="lang-only-pl">
+        <div class="article-header">
+          <h1>Dlaczego 80% wdrożeń systemów zarządzania się nie udaje</h1>
+          <p class="article-lead">Jeśli Twoja firma miała już „projekt wdrożenia systemu zarządzania" i skończyło się na segregatorze w szafie, ten tekst wyjaśni dlaczego.</p>
+          <div class="article-divider"></div>
+        </div>
+
+        <article class="article-body">
+          <p>Osiem. Tyle razy firma, do której dołączyłem, próbowała wdrożyć „system zarządzania". Osiem różnych podejść, osiem firm konsultingowych, osiem zestawów pięknej dokumentacji. Efekt za każdym razem ten sam: segregator na półce, PowerPoint w archiwum i ludzie, którzy na dźwięk słowa „metodyka" robili się nerwowi.</p>
+
+          <p>Równolegle odkryłem coś jeszcze ciekawszego. W firmie toczyło się ponad sto projektów. Ponad sto. Nikt nie miał pełnego obrazu, nikt nie zarządzał portfelem, nikt nie wiedział które z nich się pokrywają, a które są ze sobą sprzeczne. Połowa z nich nie miała nawet sponsora, który umiałby wyjaśnić po co istnieją.</p>
+
+          <p>Pytanie, które sobie wtedy zadałem, nie brzmiało „jaka metodyka jest najlepsza?". Brzmiało: „dlaczego żadna z ośmiu nie zadziałała?".</p>
+
+          <h2>Po czym poznać, że Twoje wdrożenie zmierza do szuflady</h2>
+
+          <p>Zanim opowiem co zadziałało, sprawdź u siebie. Jeśli rozpoznajesz dwie lub więcej z tych sytuacji, prawdopodobnie jesteś na tej samej ścieżce co tamte osiem prób:</p>
+
+          <p>System zarządzania zaprojektował zespół konsultantów lub zarząd, a ludzie na dole dowiedzieli się o nim na szkoleniu. Dokumentacja jest piękna, ale nikt jej nie otwiera w codziennej pracy. Ludzie traktują nowe procesy jako „dodatkową robotę" obok normalnej pracy. Po wyjeździe konsultantów nikt nie pilnuje wdrożenia. Na pytanie „po co nam ten system?" ludzie wzruszają ramionami.</p>
+
+          <p>To nie jest kwestia złej metodyki. To jest kwestia złego podejścia do wdrożenia.</p>
+
+          <h2>Konsultanci wyjechali, segregatory zostały</h2>
+
+          <p>Odpowiedź okazała się banalnie prosta. Za każdym razem scenariusz wyglądał identycznie: przyjeżdża firma doradcza, robi warsztaty z zarządem, projektuje piękny system, pisze dokumentację, szkoli ludzi i wyjeżdża. Zarząd ogłasza „od teraz pracujemy tak". Ludzie kiwają głowami, wracają do biurek i pracują po staremu.</p>
+
+          <p>Nikt nie zapytał ludzi, którzy mieli w tym pracować, czy widzą w tym sens. Nikt nie sprawdził, czy ta piękna metodyka ma jakikolwiek związek z ich codzienną robotą. System zarządzania był czymś „z góry", obcym ciałem w organizmie firmy. A organizm, jak to organizm, odrzucał przeszczep.</p>
+
+          <h2>60% metodyki, 99% potrzeb</h2>
+
+          <p>Problem wielu wdrożeń jest taki, że kupujesz metodykę jak gotowy garnitur i próbujesz go naciągnąć na firmę, która ma zupełnie inną budowę ciała. Postanowiłem zrobić coś kompletnie innego. Zamiast wdrażać kolejną gotową metodykę, rozłożyłem ją na czynniki pierwsze. Wzięliśmy każdy element z osobna i zadaliśmy sobie uczciwe pytanie: czy to jest nam potrzebne? Nie czy „powinno być", nie czy „tak mówi standard". Czy ludzie, którzy mają tego używać, widzą w tym sens.</p>
+
+          <p>Okazało się, że mniej więcej 60% dowolnej standardowej metodyki zarządzania pokrywa 99% tego, czego potrzebujesz w codziennej pracy. Reszta to egzotyczne przypadki, które zdarzają się raz na kwartał albo nigdy. Po co komuś 200 stron procedur, jeżeli 120 z nich dotyczy sytuacji, które nie nastąpią?</p>
+
+          <p>Wyciągnęliśmy to co istotne. Uprościliśmy. I zaczęliśmy wdrażać od dołu, nie od góry.</p>
+
+          <h2>PMO w dwanaście miesięcy</h2>
+
+          <p>Budowa szła stopniowo. Zaczęliśmy od uporządkowania portfela projektów, bo tam był największy chaos. Sto niezarządzanych inicjatyw trzeba było najpierw zinwentaryzować, potem ocenić, a potem bezlitośnie wyciąć te bez uzasadnienia. Połowa odpadła już na etapie inwentaryzacji, bo nikt nie umiał wyjaśnić po co w ogóle istnieją.</p>
+
+          <p>Cały obszar zarządzania zmianą postawiliśmy na poziomie B-1 w strukturze, czyli bezpośrednio pod zarządem. Nie przy IT, nie w dziale wsparcia, nie w bocznym korytarzu. Tam, gdzie podejmowane są decyzje. Bez tego nie miałoby to szans, bo każdy dyrektor mógłby olać „sugestie" z bocznego działu.</p>
+
+          <p>W ciągu dwunastu miesięcy od firmy bez jakiegokolwiek zarządzania portfelem doszliśmy do działającego PMO z pełnym pipeline'em projektów, priorytetyzacją i raportowaniem.</p>
+
+          <h2>A potem ludzie zaczęli domagać się więcej</h2>
+
+          <p>Wprowadziliśmy ownership procesowy. Każdy kluczowy proces dostał swojego właściciela, jasne cele i sposób pomiaru. Ludzie zaczęli traktować swoje procesy jak własne. Zaczęli je ulepszać z własnej inicjatywy.</p>
+
+          <p>I tu wydarzyło się coś, czego się nie spodziewałem. Kiedy daliśmy ludziom uproszczoną wersję i powiedzieliśmy „to jest wasze, róbcie z tym co uważacie za sensowne", stało się coś paradoksalnego. Zaczęli domagać się więcej. Przychodzili i pytali: „a nie powinniśmy jeszcze mierzyć tego?", „a może dodajmy raportowanie tamtego?". Ludzie, którzy rok wcześniej mieli alergię na słowo „proces", teraz sami rozbudowywali system, bo czuli że jest ich.</p>
+
+          <p>Pamiętam galę, na której nagradzaliśmy najlepszych właścicieli procesów. Ludzie przychodzili po certyfikaty z dumą. W firmie, która osiem razy odrzuciła wdrożenie systemu zarządzania.</p>
+
+          <h2>Od czego zacząć, żeby nie wylądować w szufladzie</h2>
+
+          <p>Więc dlaczego osiem poprzednich prób się nie udało, a ta jedna tak? Nie dlatego, że miałem lepszą metodykę. Nie dlatego, że byłem mądrzejszy od konsultantów, którzy byli przede mną. Udało się dlatego, że to było pierwsze podejście, które nie próbowało być idealne.</p>
+
+          <p>Jeśli planujesz wdrożenie systemu zarządzania, trzy rzeczy zrób inaczej niż zwykle:</p>
+
+          <p>Zacznij od ludzi, nie od dokumentacji. Zanim napiszesz jedną stronę procedury, zapytaj ludzi, którzy mają w tym pracować, czego im brakuje. Co im przeszkadza. Gdzie tracą czas. To jest Twoja prawdziwa specyfikacja wymagań.</p>
+
+          <p>Wyrzuć 40% metodyki. Weź dowolny framework i odrzuć wszystko, co nie dotyczy codziennej pracy. 60% pokryje 99% Twoich potrzeb. Resztę zawsze możesz dodać później.</p>
+
+          <p>Daj ludziom ownership. Jeden proces, jeden właściciel, jasne cele. Nie wdrażaj „systemu". Daj ludziom narzędzie, które jest ich, nie zarządu.</p>
+
+          <p>System zarządzania zaczyna działać dopiero wtedy, gdy przestaje być projektem konsultingowym, a zaczyna być narzędziem ludzi, którzy w nim pracują.</p>
+
+          <p>A jeśli Twoje wdrożenie zaczyna się od trzydniowych warsztatów strategicznych z zarządem... to prawdopodobnie skończy się dokładnie tam, gdzie siedem poprzednich. W szufladzie.</p>
+        </article>
+
+        <div class="author-bio">
+          Rafał Myrta - buduje działy rozwoju i systemy zarządzania zmianą w dużych i małych organizacjach.
+        </div>
+
+        <div class="back-link">
+          <a href="index.html#artykuly">← Wszystkie artykuły</a>
+        </div>
+      </div>
+
+      <div class="en-placeholder">
+        <div class="article-header">
+          <h1>Why 80% of Management System Implementations Fail</h1>
+          <p class="article-lead">If your company has already had a "management system implementation project" and it ended up in a filing cabinet, this article will explain why.</p>
+          <div class="article-divider"></div>
+        </div>
+
+        <article class="article-body">
+          <p>Eight. That's how many times the company I joined tried to implement a "management system". Eight different approaches, eight consulting firms, eight sets of beautiful documentation. The result was always the same: a filing cabinet on the shelf, PowerPoint in the archive, and people who got nervous at the word "methodology".</p>
+
+          <p>At the same time, I discovered something even more interesting. The company was running over a hundred projects. Over a hundred. Nobody had the full picture, nobody was managing the portfolio, nobody knew which ones overlapped and which ones contradicted each other. Half of them didn't even have a sponsor who could explain why they existed.</p>
+
+          <p>The question I asked myself then wasn't "what methodology is best?". It was: "why didn't any of those eight work?".</p>
+
+          <h2>How to tell your implementation is heading for the drawer</h2>
+
+          <p>Before I explain what worked, take a look at your own situation. If you recognize two or more of these scenarios, you're probably on the same path as those eight failed attempts:</p>
+
+          <p>A management system designed by consultants or the executive team, with people on the ground finding out about it at a training session. The documentation is beautiful, but nobody opens it in their daily work. People treat new processes as "extra work" on top of their normal job. After consultants leave, nobody enforces the implementation. When you ask "why do we need this system?" people just shrug.</p>
+
+          <p>It's not a question of bad methodology. It's a question of bad approach to implementation.</p>
+
+          <h2>The consultants left, the filing cabinets stayed</h2>
+
+          <p>The answer turned out to be strikingly simple. Every single time it played out the same way: a consulting firm shows up, runs workshops with the executive team, designs a beautiful system, writes documentation, trains people, and leaves. Management announces "from now on we work this way". People nod, go back to their desks, and work the same as before.</p>
+
+          <p>Nobody asked the people who had to actually work with it if they saw the point. Nobody checked if this beautiful methodology had anything to do with their daily work. The management system was something imposed from above, a foreign object in the company organism. And organisms, as they do, reject the transplant.</p>
+
+          <h2>60% of methodology, 99% of needs</h2>
+
+          <p>The problem with many implementations is that you buy a ready-made methodology like an off-the-rack suit and try to squeeze it onto a company with a completely different body shape. I decided to do something completely different. Instead of implementing another packaged methodology, I broke it down into components. We took each element separately and asked ourselves an honest question: do we actually need this? Not "should we have it", not "that's what the standard says". Do the people who will actually use it see the point.</p>
+
+          <p>It turned out that roughly 60% of any standard management methodology covers 99% of what you need in daily work. The rest is exotic edge cases that happen once a quarter or never. Why would someone need 200 pages of procedures if 120 of them cover situations that will never happen?</p>
+
+          <p>We extracted what was essential. Simplified. And started implementing from the bottom up, not from the top down.</p>
+
+          <h2>PMO in twelve months</h2>
+
+          <p>The build-out was gradual. We started by organizing the project portfolio, because that's where the biggest chaos was. A hundred unmanaged initiatives needed first to be inventoried, then evaluated, then ruthlessly cut if they had no justification. Half of them dropped out during the inventory stage because nobody could explain why they existed in the first place.</p>
+
+          <p>We placed the entire change management function at the B-1 level in the structure, which means directly reporting to management. Not in IT, not in a support department, not in some side hallway. Where decisions get made. Without that, it wouldn't have stood a chance, because any director could just ignore suggestions from a sidelined department.</p>
+
+          <p>Within twelve months, we went from a company with no portfolio management whatsoever to having a working PMO with a full pipeline of projects, prioritization, and reporting.</p>
+
+          <h2>Then people started demanding more</h2>
+
+          <p>We introduced process ownership. Every key process got its own owner, clear goals, and a way to measure them. People started treating their processes like their own. They started improving them on their own initiative.</p>
+
+          <p>And then something happened that I didn't expect. When we gave people a simplified version and said "this is yours, do what you think makes sense", something paradoxical happened. They started asking for more. They'd come by and ask: "shouldn't we also be measuring this?", "maybe we should add reporting on that?". People who a year earlier had an allergy to the word "process" were now building out the system themselves because they felt ownership of it.</p>
+
+          <p>I remember a ceremony where we recognized the best process owners. People came to collect their certificates with pride. In a company that had rejected a management system implementation eight times.</p>
+
+          <h2>Where to start so you don't end up in a drawer</h2>
+
+          <p>So why did the eight previous attempts fail while this one succeeded? Not because I had a better methodology. Not because I was smarter than the consultants who came before me. It worked because this was the first approach that didn't try to be perfect.</p>
+
+          <p>If you're planning a management system implementation, do three things differently than usual:</p>
+
+          <p>Start with people, not documentation. Before you write a single page of procedure, ask the people who will actually work with it what they're missing. What's getting in their way. Where they're wasting time. That's your real requirements specification.</p>
+
+          <p>Throw out 40% of the methodology. Take any framework and discard everything that doesn't apply to daily work. 60% will cover 99% of your needs. You can always add the rest later.</p>
+
+          <p>Give people ownership. One process, one owner, clear goals. Don't implement a "system". Give people a tool that belongs to them, not to management.</p>
+
+          <p>A management system only starts working when it stops being a consulting project and becomes a tool for the people who work with it.</p>
+
+          <p>And if your implementation starts with three-day strategic workshops with the executive team... it will probably end up exactly where the seven before it did. In a drawer.</p>
+        </article>
+
+        <div class="author-bio">
+          Rafał Myrta - builds growth departments and change management systems in organizations large and small.
+        </div>
+
+        <div class="back-link">
+          <a href="index.html#artykuly">← All articles</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <div>© 2026 Rafał Myrta</div>
+      <ul class="footer-links">
+        <li><a href="https://linkedin.com/in/rafalmyrta">LinkedIn</a></li>
+        <li><a href="https://cpapblog.pl">CPAPblog</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script>
+    function toggleLang() {
+      const html = document.documentElement;
+      const currentLang = html.getAttribute('lang') || 'pl';
+      const newLang = currentLang === 'pl' ? 'en' : 'pl';
+      html.setAttribute('lang', newLang);
+      localStorage.setItem('preferredLang', newLang);
+
+      const btn = document.querySelector('.lang-toggle');
+      btn.textContent = newLang === 'pl' ? 'EN' : 'PL';
+    }
+
+    // Load preferred language on page load
+    document.addEventListener('DOMContentLoaded', function() {
+      const preferredLang = localStorage.getItem('preferredLang') || 'pl';
+      document.documentElement.setAttribute('lang', preferredLang);
+      const btn = document.querySelector('.lang-toggle');
+      btn.textContent = preferredLang === 'pl' ? 'EN' : 'PL';
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>~*~ RaFaL MyrTa ~*~ OfIcJaLnA StRoNa DoMoWa ~*~</title>
+  <meta name="robots" content="noindex, nofollow">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap');
+
+    * { margin: 0; padding: 0; box-sizing: border-box; cursor: crosshair; }
+
+    body {
+      font-family: 'Comic Neue', 'Comic Sans MS', cursive;
+      background: #000080;
+      background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='40' height='40' fill='%23000080'/%3E%3Ccircle cx='20' cy='20' r='1.5' fill='%23ffff00' opacity='0.4'/%3E%3Ccircle cx='5' cy='8' r='1' fill='%23ff00ff' opacity='0.3'/%3E%3Ccircle cx='35' cy='32' r='1' fill='%2300ffff' opacity='0.3'/%3E%3C/svg%3E");
+      color: #00ff00;
+      overflow-x: hidden;
+      min-height: 100vh;
+    }
+
+    @keyframes rainbow { 0%{color:#f00} 14%{color:#ff7f00} 28%{color:#ff0} 42%{color:#0f0} 57%{color:#00f} 71%{color:#4b0082} 85%{color:#9400d3} 100%{color:#f00} }
+    @keyframes blink { 0%,49%{opacity:1} 50%,100%{opacity:0} }
+    @keyframes spin { from{transform:rotate(0)} to{transform:rotate(360deg)} }
+    @keyframes shake { 0%,100%{transform:translateX(0)} 25%{transform:translateX(-3px) rotate(-1deg)} 75%{transform:translateX(3px) rotate(1deg)} }
+    @keyframes glow { 0%,100%{text-shadow:0 0 5px #ff0,0 0 10px #ff0,0 0 20px #ff0} 50%{text-shadow:0 0 10px #f0f,0 0 20px #f0f,0 0 40px #f0f} }
+    @keyframes fire { 0%{text-shadow:0 0 4px #fff,0 -5px 4px #ff3,2px -10px 6px #fd2,-2px -15px 11px #f80,2px -25px 18px #f20} 50%{text-shadow:0 0 4px #fff,2px -5px 4px #ff3,-2px -10px 6px #fd2,2px -15px 11px #f80,-2px -20px 18px #f20} }
+    @keyframes scroll-left { 0%{transform:translateX(100vw)} 100%{transform:translateX(-100%)} }
+    @keyframes pulse-bg { 0%,100%{background-position:0% 50%} 50%{background-position:100% 50%} }
+    @keyframes typing { from{width:0} to{width:100%} }
+
+    .container { max-width: 800px; margin: 0 auto; padding: 10px; }
+
+    .top-banner {
+      background: linear-gradient(90deg, #f00, #ff7f00, #ff0, #0f0, #00f, #4b0082, #9400d3);
+      padding: 4px; text-align: center; margin-bottom: 10px;
+    }
+    .top-banner-inner {
+      background: #000; padding: 8px; font-size: 11px; color: #0f0; font-family: 'Courier New', monospace;
+    }
+
+    .header-table {
+      width: 100%; border: 3px ridge #c0c0c0; background: #800080; margin-bottom: 15px;
+    }
+    .header-table td { padding: 10px; vertical-align: middle; }
+
+    h1 {
+      font-family: 'Comic Neue', 'Comic Sans MS', cursive;
+      font-size: 32px; animation: rainbow 3s linear infinite;
+      text-align: center; letter-spacing: 3px;
+    }
+    h1 .tilde { animation: blink 0.8s step-end infinite; color: #ff0; }
+
+    .subtitle {
+      text-align: center; color: #ff0; font-size: 18px; font-weight: bold;
+      margin: 5px 0; animation: glow 2s ease-in-out infinite;
+    }
+
+    .marquee-bar {
+      background: #c0c0c0; border: 2px inset #808080; padding: 6px 0; margin: 10px 0; overflow: hidden;
+    }
+    .marquee-content {
+      display: inline-block; white-space: nowrap; animation: scroll-left 20s linear infinite;
+      color: #800000; font-weight: bold; font-size: 16px;
+    }
+
+    .section {
+      border: 3px ridge #c0c0c0; background: #000; margin: 15px 0; padding: 0;
+    }
+    .section-header {
+      background: linear-gradient(180deg, #000080 0%, #0000cd 100%);
+      color: #fff; padding: 6px 10px; font-size: 14px; font-weight: bold;
+      border-bottom: 2px groove #c0c0c0;
+    }
+    .section-body { padding: 12px; }
+
+    .about-table { width: 100%; }
+    .about-table td { vertical-align: top; padding: 5px; }
+
+    .photo-frame {
+      border: 4px ridge gold; padding: 3px; background: #800080;
+      display: inline-block; transform: rotate(-3deg);
+    }
+    .photo-frame img { width: 130px; display: block; filter: saturate(2) contrast(1.3) hue-rotate(20deg); }
+    .photo-caption { text-align: center; color: #ff0; font-size: 10px; margin-top: 3px; animation: blink 1.2s step-end infinite; }
+
+    .txt { color: #0f0; font-size: 14px; line-height: 1.8; }
+    .txt .hl { color: #ff0; font-weight: bold; }
+    .txt .fire { animation: fire 0.8s ease-in-out infinite; display: inline; }
+    .txt .hot { animation: blink 0.5s step-end infinite; color: #f00; font-weight: bold; }
+
+    .cv-item { padding: 6px 0; color: #0ff; font-size: 13px; border-bottom: 1px dashed #333; }
+    .cv-item .year { color: #f0f; font-weight: bold; min-width: 100px; display: inline-block; }
+    .cv-item .joke { color: #808080; font-size: 11px; font-style: italic; display: block; margin-top: 2px; padding-left: 15px; }
+
+    .skill-row { padding: 4px 0; color: #0ff; font-size: 13px; }
+    .skill-row::before { content: '>> '; color: #f0f; }
+    .skill-bar-bg { display: inline-block; width: 120px; height: 12px; background: #333; border: 1px inset #808080; vertical-align: middle; margin-left: 6px; }
+    .skill-bar { height: 100%; background: linear-gradient(90deg, #0f0, #ff0); }
+    .skill-label { color: #ff0; font-size: 10px; margin-left: 4px; }
+
+    .guestbook { border: 2px groove #808080; background: #1a1a2e; padding: 10px; margin-top: 10px; }
+    .gb-entry { border-bottom: 1px dashed #444; padding: 8px 0; font-size: 12px; }
+    .gb-entry .author { color: #f0f; font-weight: bold; }
+    .gb-entry .date { color: #666; font-size: 10px; }
+    .gb-entry .msg { color: #0ff; margin-top: 3px; }
+
+    .badges { text-align: center; padding: 10px; display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
+    .badge { display: inline-block; border: 1px solid; padding: 3px 8px; font-size: 10px; font-family: 'Courier New', monospace; font-weight: bold; }
+    .b1{background:#000;color:#0f0;border-color:#0f0} .b2{background:#800000;color:#ff0;border-color:#ff0}
+    .b3{background:#000080;color:#0ff;border-color:#0ff} .b4{background:#800080;color:#f0f;border-color:#f0f}
+    .b5{background:#006400;color:#fff;border-color:#0f0}
+
+    .midi-player {
+      background: #c0c0c0; border: 2px outset #dfdfdf; padding: 4px 8px;
+      display: inline-flex; align-items: center; gap: 5px; font-size: 11px; color: #000; margin: 8px 0;
+    }
+    .midi-btn { background: #c0c0c0; border: 2px outset #dfdfdf; padding: 1px 6px; font-size: 10px; cursor: pointer; font-family: 'Courier New', monospace; }
+    .midi-btn:active { border-style: inset; }
+    .midi-btn-big { padding: 5px 15px; font-size: 13px; }
+
+    .under-construction { text-align: center; padding: 15px; animation: shake 0.5s ease-in-out infinite; }
+    .construction-text { color: #ff0; font-size: 20px; font-weight: bold; animation: blink 0.7s step-end infinite; }
+    .hard-hat { font-size: 40px; display: inline-block; animation: spin 3s linear infinite; }
+
+    .webring { text-align: center; border: 2px ridge #c0c0c0; background: #1a0033; padding: 10px; margin: 15px 0; }
+
+    .visitor-counter { text-align: center; margin: 15px 0; font-family: 'Courier New', monospace; }
+    .counter-display { display: inline-block; background: #000; border: 2px inset #808080; padding: 4px 8px; color: #0f0; font-size: 18px; letter-spacing: 3px; font-weight: bold; }
+
+    .separator { text-align: center; padding: 5px 0; color: #f0f; font-size: 10px; letter-spacing: 2px; opacity: 0.6; }
+
+    .status-online { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #0f0; animation: blink 2s ease-in-out infinite; margin-right: 4px; }
+
+    a { color: #0ff; } a:visited { color: #f0f; } a:hover { color: #ff0; background: #800000; }
+
+    .footer { text-align: center; padding: 15px; font-size: 11px; color: #808080; border-top: 1px dashed #333; margin-top: 20px; }
+
+    .sparkle { position: fixed; pointer-events: none; font-size: 14px; z-index: 9999; animation: sparkle-fade 1s ease-out forwards; }
+    @keyframes sparkle-fade { 0%{opacity:1;transform:translateY(0) scale(1)} 100%{opacity:0;transform:translateY(-30px) scale(0.5)} }
+
+    .facts-table { width: 100%; border-collapse: collapse; }
+    .facts-table td { padding: 4px 8px; font-size: 13px; border-bottom: 1px dashed #333; }
+    .facts-table .label { color: #f0f; width: 45%; text-align: right; padding-right: 12px; }
+    .facts-table .value { color: #0ff; }
+
+    .disclaimer { background: #330000; border: 2px dashed #f00; padding: 10px; margin: 15px 0; color: #ff0; font-size: 11px; text-align: center; }
+
+    .back-link {
+      position: fixed; bottom: 10px; right: 10px; background: rgba(0,0,0,0.8);
+      border: 1px solid #333; padding: 6px 12px; font-size: 11px; color: #666;
+      text-decoration: none; font-family: system-ui, sans-serif; border-radius: 4px;
+      transition: all 0.3s; z-index: 100;
+    }
+    .back-link:hover { color: #999; background: rgba(0,0,0,0.9); border-color: #555; }
+
+    @media (max-width: 600px) {
+      h1 { font-size: 20px; }
+      .photo-frame img { width: 90px; }
+      .container { padding: 5px; }
+      .about-table td { display: block; width: 100%; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- Top banner -->
+  <div class="top-banner">
+    <div class="top-banner-inner">
+      <span class="status-online"></span> Jestes gosciem nr <span id="visitorNum">---</span> na tej stronie! | Ostatnia aktualizacja: kiedy mialem czas | Netscape Navigator 4.0+ | Rozdzielczosc: DUZA
+    </div>
+  </div>
+
+  <!-- Header -->
+  <table class="header-table" cellspacing="0">
+    <tr>
+      <td style="width:100%; text-align:center;">
+        <h1><span class="tilde">~*~</span> RaFaL MyRtA <span class="tilde">~*~</span></h1>
+        <div class="subtitle">{ Cyfrowa Twierdza Strategii i Farmacji }</div>
+        <div style="margin-top:8px;">
+          <div class="midi-player">
+            <span>macarena_final_FINAL2.mid</span>
+            <button class="midi-btn" onclick="document.getElementById('midiStatus').textContent='&#9835; Gra!'">&#9654;</button>
+            <button class="midi-btn" onclick="document.getElementById('midiStatus').textContent='Stop'">&#9632;</button>
+            <span id="midiStatus" style="color:#800000;">Stop</span>
+          </div>
+        </div>
+      </td>
+    </tr>
+  </table>
+
+  <!-- Marquee -->
+  <div class="marquee-bar">
+    <div class="marquee-content">
+      *** UWAGA!!! Strona zoptymalizowana dla Internet Explorer 4.0 *** Nie kopiuj kodow zrodlowych bez zgody!!! *** Szukasz PM-a? Dobrze trafiles, ziom! *** Kto nie pije kawy, ten nie restrukturyzuje! *** Pozdro dla wszystkich serferow z Katowic! ***
+    </div>
+  </div>
+
+  <div class="separator">-=*=- -=- -=*=- -=- -=*=- -=- -=*=- -=- -=*=-</div>
+
+  <!-- O MNIE -->
+  <div class="section">
+    <div class="section-header">&#128190; MOJA TAJNA BAZA DANYCH</div>
+    <div class="section-body">
+      <table class="about-table">
+        <tr>
+          <td style="width:160px;">
+            <div class="photo-frame">
+              <img src="profile-retro.jpg" alt="Rafal Myrta" onerror="this.src='profile.jpg'">
+            </div>
+            <div class="photo-caption">* to ja! (serio) *</div>
+          </td>
+          <td>
+            <div class="txt">
+              <p>Witaj w moim zakatku sieci!!!</p>
+              <br>
+              <p>Jestem <span class="hl">Rafal</span>. W dzien zarzadzam projektami (no dobra, czesciej gasie pozary), a w nocy... tez pracuje, bo mam portfolio firm wielkosci <span class="fire">ksiazki telefonicznej</span>.</p>
+              <br>
+              <p>Restrukturyzowalem firmy, ktore tego nie chcialy. Budowalem systemy, ktore tego nie potrzebowaly. Teraz <span class="hl">sprzedaje rozwiazania</span>, ktore bola jak feedback po prezentacji, ale dzialaja szybciej niz Ctrl+Z. Jesli Twoja firma ledwo dycha, to jestem Twoim cyfrowym <span class="hl">defibrylatorem</span>.</p>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="separator">*.* *.* *.* *.* *.* *.* *.* *.* *.*</div>
+
+  <!-- FAKTY -->
+  <div class="section">
+    <div class="section-header">&#128161; SZYBKIE FAKTY (100% prawdziwe*)</div>
+    <div class="section-body">
+      <table class="facts-table">
+        <tr><td class="label">Zarzadzane apteki:</td><td class="value">3800 (wiecej niz gwiazd na niebie nad Katowicami)</td></tr>
+        <tr><td class="label">Poziom restrukturyzacji:</td><td class="value">Brutalny, ale sprawiedliwy</td></tr>
+        <tr><td class="label">Zjedzone drozdzowki:</td><td class="value">Dane niedostepne (brak pamieci RAM)</td></tr>
+        <tr><td class="label">Cierpliwosc do PMO:</td><td class="value">W budowie (czekam na patcha)</td></tr>
+        <tr><td class="label">Glowny procesor:</td><td class="value">Kawa 5.0 Turbo Boost</td></tr>
+        <tr><td class="label">Pierwsza apteka online w PL:</td><td class="value">DOZ.pl - tak, to ja. Prosze, prosze</td></tr>
+        <tr><td class="label">Ulubiony sport:</td><td class="value">Ctrl+Z</td></tr>
+        <tr><td class="label">Ukryte talenty:</td><td class="value">web design (dowod: ta strona)</td></tr>
+        <tr><td class="label">Napisane ksiazki:</td><td class="value">1 (bestseller! ok, w niszowej kategorii, ale SIE LICZY)</td></tr>
+      </table>
+      <p style="color:#444; font-size:9px; margin-top:8px; text-align:right;">* moze 97% prawdziwe. Drozdzowki sa niedoszacowane.</p>
+    </div>
+  </div>
+
+  <div class="separator">~^~^~^~^~^~^~^~^~^~^~^~^~^~^~</div>
+
+  <!-- OSIAGNIECIA -->
+  <div class="section">
+    <div class="section-header">&#127919; OSIAGNIECIA ODBLOKOWANE</div>
+    <div class="section-body">
+      <div class="cv-item">
+        <span style="color:#0f0;">&#9745;</span> Skonczyc studia. Zignorowac plan kariery. Zbudowac wlasny.
+        <span class="joke">"ale miales byc..." - wszyscy, do dzis</span>
+      </div>
+      <div class="cv-item">
+        <span style="color:#0f0;">&#9745;</span> Zbudowac pierwsza apteke internetowa w Polsce zanim ktokolwiek wierzyl ze to ma sens.
+        <span class="joke">"ale po co apteka W INTERNECIE?" - ludzie w 2003. No wlasnie.</span>
+      </div>
+      <div class="cv-item">
+        <span style="color:#0f0;">&#9745;</span> Zarzadzac ~3800 aptekami naraz. Trzy. Tysiace. Osiemset.
+        <span class="joke">Nie, nie pomylilem sie z przecinkiem.</span>
+      </div>
+      <div class="cv-item">
+        <span style="color:#0f0;">&#9745;</span> Byc CEO 5 spolek jednoczesnie dla portugalskiego funduszu. +33% marzy w rok.
+        <span class="joke">Portugalczycy nie rozumieli polskiego rynku aptek. Ale wyniki rozumieli.</span>
+      </div>
+      <div class="cv-item">
+        <span style="color:#0f0;">&#9745;</span> Gasic pozary w firmach jako interim manager (i konsultant u Deloitte).
+        <span class="joke">Ulubione narzedzia: Excel i szczerosc. Drugie bardziej bolesne.</span>
+      </div>
+      <div class="cv-item">
+        <span style="color:#0f0;">&#9745;</span> Napisac bestseller o bezdechu sennym. Blog: 50k odwiedzin/mies.
+        <span class="joke">Od farmaceuty do influencera snu. Co za timeline.</span>
+      </div>
+      <div class="cv-item">
+        <span style="color:#0f0;">&#9745;</span> Zrobic te strone. CELOWO brzydka. I jestem z niej dumny.
+      </div>
+      <div class="cv-item">
+        <span style="color:#f00;">&#9744;</span> <span style="color:#666;">Odpoczac.</span>
+        <span class="joke">Osiagniecie zablokowane. Wymagane: cierpliwosc (brak).</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="separator">*~*~*~*~*~*~*~*~*~*~*~*~*~*~*</div>
+
+  <!-- SKILLE -->
+  <div class="section">
+    <div class="section-header">&#128170; SKILLE (uczciwa samoocena)</div>
+    <div class="section-body">
+      <div class="skill-row">Strategia biznesowa <span class="skill-bar-bg"><span class="skill-bar" style="width:95%"></span></span> <span class="skill-label">LEVEL BOSS</span></div>
+      <div class="skill-row">Excel <span class="skill-bar-bg"><span class="skill-bar" style="width:110%"></span></span> <span class="skill-label">MAKRO-MISTRZ / MAGIA</span></div>
+      <div class="skill-row">Restrukturyzacja <span class="skill-bar-bg"><span class="skill-bar" style="width:92%"></span></span> <span class="skill-label">SAPER (rzadko wybucha)</span></div>
+      <div class="skill-row">Mowienie ludziom rzeczy ktorych nie chca slyszec <span class="skill-bar-bg"><span class="skill-bar" style="width:99%"></span></span> <span class="skill-label">TRAFIENIE KRYTYCZNE</span></div>
+      <div class="skill-row">Zaczynanie nowych projektow <span class="skill-bar-bg"><span class="skill-bar" style="width:100%"></span></span> <span class="skill-label">TURBO MODE</span></div>
+      <div class="skill-row">Konczenie nowych projektow <span class="skill-bar-bg"><span class="skill-bar" style="width:35%"></span></span> <span class="skill-label">LOADING... 35%</span></div>
+      <div class="skill-row">Farmacja <span class="skill-bar-bg"><span class="skill-bar" style="width:88%"></span></span> <span class="skill-label">ALCHEMIK 99 LVL</span></div>
+      <div class="skill-row">Gotowanie <span class="skill-bar-bg"><span class="skill-bar" style="width:45%"></span></span> <span class="skill-label">jajecznica</span></div>
+      <div class="skill-row">Web design <span class="skill-bar-bg"><span class="skill-bar" style="width:12%"></span></span> <span class="skill-label">dowod: ta strona</span></div>
+      <div class="skill-row">Pokora <span class="skill-bar-bg"><span class="skill-bar" style="width:5%"></span></span> <span class="skill-label">w budowie</span></div>
+    </div>
+  </div>
+
+  <div class="separator">-=- oOo -=- oOo -=- oOo -=- oOo -=-</div>
+
+  <!-- BADGES -->
+  <div class="section">
+    <div class="section-header">&#127942; ODZNAKI I OSIAGNIECIA</div>
+    <div class="section-body">
+      <div class="badges">
+        <span class="badge b1">[ MADE WITH NOTEPAD ]</span>
+        <span class="badge b2">[ Y2K SURVIVED ]</span>
+        <span class="badge b3">[ 800x600 GANG ]</span>
+        <span class="badge b4">[ NETSCAPE FOREVER ]</span>
+        <span class="badge b5">[ POWERED BY KAWA ]</span>
+        <span class="badge b1">[ MULTITASKING LVL 99 ]</span>
+        <span class="badge b2">[ 3800 APTEK ]</span>
+        <span class="badge b3">[ COMIC SANS UNIRONICALLY ]</span>
+        <span class="badge b4">[ <blink>BLINK</blink> TAG FAN ]</span>
+        <span class="badge b5">[ ZERO COOKIES* ]</span>
+        <span class="badge b1">[ BESTSELLING AUTHOR** ]</span>
+        <span class="badge b2">[ CTRL+Z MASTER ]</span>
+      </div>
+      <p style="color:#444; font-size:9px; margin-top:6px; text-align:center;">* bo nie umiem ich zrobic &nbsp; ** w kategorii "bezdech senny, Polska, 2020-2025"</p>
+    </div>
+  </div>
+
+  <div class="separator">*.~.*.~.*.~.*.~.*.~.*.~.*.~.*</div>
+
+  <!-- DISCLAIMER -->
+  <div class="disclaimer">
+    &#9888; UWAGA: Strona ktora wlasnie ogladasz jest CELOWYM przestepstwem przeciwko web designowi.<br>
+    Normalna, powaznie wygladajaca strona jest pod adresem <a href="index.html" style="color:#0ff;">myrta.me</a>.<br>
+    Ta istnieje bo kazdy potrzebuje troche absurdu w zyciu. I bo moge.
+  </div>
+
+  <!-- KSIEGA GOSCI -->
+  <div class="section">
+    <div class="section-header">&#128214; KSIEGA GOSCI</div>
+    <div class="section-body">
+      <div class="guestbook">
+        <div class="gb-entry">
+          <span class="author">~Haker_Zdzichu~</span> <span class="date">[14.03.2026, 23:47]</span>
+          <div class="msg">Fajne ramki, ziomus! Skad masz skrypt na te gwiazdki przy kursorze? Wypas strona, daje 10/10 w rankingu Onetu!</div>
+        </div>
+        <div class="gb-entry">
+          <span class="author">Pan_Prezes_Z_Katowic</span> <span class="date">[12.03.2026, 16:22]</span>
+          <div class="msg">Rafal, Excel ktory mi wyslales, zawiesil mi komputer, ale firma nagle zaczela zarabiac. Nie wiem jak to robisz, ale szacun.</div>
+        </div>
+        <div class="gb-entry">
+          <span class="author">Uzytkownik_Modemu</span> <span class="date">[10.03.2026, 09:15]</span>
+          <div class="msg">Czekalem 15 minut az sie zdjecia zaladuja, ale bylo warto. Pozdro z IRC-a!</div>
+        </div>
+        <div class="gb-entry">
+          <span class="author">~~RecruiterKasia~~</span> <span class="date">[08.03.2026, 14:33]</span>
+          <div class="msg">Szukalam Pana profilu na LinkedIn a trafiam na COMIC SANS. Chce Pana zatrudnic NATYCHMIAST.</div>
+        </div>
+        <div class="gb-entry">
+          <span class="author">Deloitte_Official</span> <span class="date">[05.03.2026, 11:01]</span>
+          <div class="msg">To nie jest zgodne z naszym brand bookiem. Ale podoba nam sie. Nie mow nikomu.</div>
+        </div>
+        <div class="gb-entry">
+          <span class="author">mama_rafala</span> <span class="date">[01.03.2026, 20:15]</span>
+          <div class="msg">Synku, po co Ci ta strona? Miales byc lekarzem. Zadzwon do mamy.</div>
+        </div>
+      </div>
+      <div style="margin-top:10px; text-align:center;">
+        <button class="midi-btn midi-btn-big" onclick="alert('Niestety CGI-BIN nie dziala na tym serwerze :(\n\nAle mozesz napisac na rafalmyrta@gmail.com\ni powiedziec ze tu byles!')">PODPISZ KSIEGE!</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="separator">*~*~*~*~*~*~*~*~*~*~*~*~*~*~*</div>
+
+  <!-- ULUBIONE GIFY -->
+  <div class="section">
+    <div class="section-header">&#127912; MOJE ULUBIONE GIFy</div>
+    <div class="section-body" style="text-align:center; padding:30px 12px;">
+      <div style="border:2px dashed #444; padding:25px; color:#666; font-size:13px;">
+        <p style="font-size:18px; margin-bottom:8px;">&#128247; &#128247; &#128247;</p>
+        <p>[ Tu mialy byc moje ulubione GIFy z kotami ]</p>
+        <p style="margin-top:6px; color:#444; font-size:11px;">Niestety Geocities zamknelo serwer z obrazkami w 2009.</p>
+        <p style="margin-top:4px; color:#333; font-size:10px;">RIP darmowy hosting. Pamietamy.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="separator">~*~ ~*~ ~*~ ~*~ ~*~ ~*~ ~*~ ~*~ ~*~</div>
+
+  <!-- UNDER CONSTRUCTION -->
+  <div class="under-construction">
+    <div class="hard-hat">&#128679;</div>
+    <div class="construction-text">!!! STRONA W CIAGLEJ BUDOWIE !!!</div>
+    <p style="color:#ff0; font-size:12px; margin-top:8px;">(od 1999 roku. Kiedys skonczymy. Pewnie nie.)</p>
+    <p style="color:#808080; font-size:11px; margin-top:5px;">Planowane sekcje: Ranking aptek | Moje ulubione GIFy z kotami | Tajna receptura na kaca | TOP 10 powodow zeby nie spac</p>
+    <div class="hard-hat">&#128679;</div>
+  </div>
+
+  <!-- Webring -->
+  <div class="webring">
+    <p style="color:#ff0; font-size:12px; margin-bottom:5px;">&#127760; POLSKIE WEBRING DORADCOW CO POWINNI ROBIC COS INNEGO &#127760;</p>
+    <a href="#">&lt;&lt; Poprzedni</a> |
+    <a href="#">[ Lista stron ]</a> |
+    <a href="#">Nastepny &gt;&gt;</a> |
+    <a href="#">? Losowy ?</a>
+  </div>
+
+  <!-- Visitor counter -->
+  <div class="visitor-counter">
+    <div style="color:#ff0; font-size:11px; margin-bottom:3px;">LICZNIK ODWIEDZIN</div>
+    <div class="counter-display" id="counter">000000</div>
+    <div style="color:#808080; font-size:10px; margin-top:4px;">(ten licznik jest tak samo prawdziwy jak moja cierpliwosc do Excela)</div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <p>Copyright &copy; 1999-2026 Rafal Myrta. Wszelkie prawa zastrzezone.</p>
+    <p>Kopiowanie tej strony jest jak restrukturyzacja bez audytu - mozliwe, ale po co?</p>
+    <br>
+    <p style="color:#0f0; font-size:13px;">&#9993; rafalmyrta [malpa] gmail [kropka] com</p>
+    <br>
+    <p style="color:#444;">Strona wykonana recznie w NOTATNIKU. Zaden designer nie ucierpal (bo zadnego nie bylo).</p>
+    <p style="color:#444;">Ta strona uzywa ZERO cookies, ZERO frameworkow i ZERO dobrego smaku.</p>
+    <br>
+    <p style="color:#333; font-size:10px;">Najlepsza rozdzielczosc: 800x600 | 256 kolorow | Modem 56k | Cierpliwosc: nieograniczona</p>
+  </div>
+
+  <div class="top-banner" style="margin-top:10px; margin-bottom:0;">
+    <div class="top-banner-inner">
+      Dziekuje za wizyte!!! Powiedz znajomym!!! Albo nie mow - niech sami znajda!!! &#127775;
+    </div>
+  </div>
+
+</div>
+
+<!-- Link back -->
+<a href="index.html" class="back-link" title="Powrot do normalnosci">&#8592; normalnosc</a>
+
+<script>
+  // Counter animation
+  (function() {
+    var target = 1337;
+    var el = document.getElementById('counter');
+    var current = 0;
+    var step = Math.ceil(target / 80);
+    function tick() {
+      current = Math.min(current + step, target);
+      el.textContent = String(current).padStart(6, '0');
+      if (current < target) requestAnimationFrame(tick);
+    }
+    setTimeout(tick, 800);
+  })();
+
+  // Sparkle on click
+  document.addEventListener('click', function(e) {
+    var sparkles = ['*', '+', '~', 'o', '&#10024;'];
+    var colors = ['#ff0', '#0ff', '#f0f', '#0f0', '#f00'];
+    for (var i = 0; i < 5; i++) {
+      var s = document.createElement('span');
+      s.className = 'sparkle';
+      s.textContent = sparkles[Math.floor(Math.random() * sparkles.length)];
+      s.style.left = (e.clientX + (Math.random() - 0.5) * 30) + 'px';
+      s.style.top = (e.clientY + (Math.random() - 0.5) * 30) + 'px';
+      s.style.color = colors[Math.floor(Math.random() * colors.length)];
+      document.body.appendChild(s);
+      setTimeout(function(el) { el.remove(); }, 1000, s);
+    }
+  });
+
+  // Konami code - easter egg w easter eggu
+  var konami = [38,38,40,40,37,39,37,39,66,65];
+  var ki = 0;
+  document.addEventListener('keydown', function(e) {
+    if (e.keyCode === konami[ki]) {
+      ki++;
+      if (ki === konami.length) {
+        document.body.style.transform = 'rotate(180deg)';
+        document.body.style.transition = 'transform 2s';
+        alert('GRATULACJE!!! Znalazles EASTER EGGA w EASTER EGGU!\n\nJestes prawdziwym hackerem internetu.\nMoim szacunkiem nie da sie zaplacic rachunkow,\nale masz go pelno.');
+        ki = 0;
+      }
+    } else { ki = 0; }
+  });
+
+  // Console messages for devs
+  console.log('%c~~~ WITAJ W KODZIE ZRODLOWYM ~~~', 'color:#0f0; background:#000; font-size:16px; font-family:Comic Sans MS;');
+  console.log('%cTak, ta strona jest CELOWO brzydka.', 'color:#ff0; font-size:12px;');
+  console.log('%cNormalna wersja: myrta.me', 'color:#0ff; font-size:12px;');
+  console.log('%cKonami code dziala ;)', 'color:#f0f; font-size:12px;');
+  console.log('%cPS. Jesli to czytasz, to pewnie jestes typem ktory uzywa devtools na randce. Szacun.', 'color:#f00; font-size:11px;');
+</script>
+
+</body>
+</html>

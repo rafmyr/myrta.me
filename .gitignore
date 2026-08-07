@@ -1,0 +1,15 @@
+# macOS
+.DS_Store
+._*
+.Spotlight-V100
+.Trashes
+.fseventsd
+
+# edytory
+*.swp
+*~
+.vscode/
+.idea/
+
+# lokalne
+*.log

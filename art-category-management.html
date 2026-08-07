@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Category management, czyli jak przestać zgadywać na czym zarabiasz - Rafał Myrta</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%231d1d1f'/><text x='16' y='22' text-anchor='middle' fill='white' font-family='system-ui' font-size='16' font-weight='600'>RM</text></svg>">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <meta name="description" content="Category management w aptekach i sieciach handlowych. Jak przestać zgadywać skąd bierze się zysk i zbudować system oparty na danych, nie intuicji.">
+  <meta property="og:title" content="Category management: przestań zgadywać skąd się bierze zysk">
+  <meta property="og:description" content="Category management w aptekach i sieciach handlowych. Jak przestać zgadywać skąd bierze się zysk i zbudować system oparty na danych, nie intuicji.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://myrta.me/art-category-management.html">
+  <meta property="og:locale" content="pl_PL">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://myrta.me/art-category-management.html">
+  <style>
+    :root {
+      --ink: #1d1d1f;
+      --gray: #86868b;
+      --gray-light: #d2d2d7;
+      --card-bg: #fbfbfd;
+      --white: #ffffff;
+      --sans: -apple-system, "system-ui", "SF Pro Display", "SF Pro Text", "Segoe UI", Roboto, sans-serif;
+      --max-w: 980px;
+      --gap: 24px;
+      --radius: 12px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      font-family: var(--sans);
+      background-color: var(--white);
+      color: var(--ink);
+    }
+
+    /* Navigation — mobile-first */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: 49px;
+      background: rgba(255,255,255,0.8);
+      backdrop-filter: blur(24px);
+      border-bottom: 1px solid var(--gray-light);
+      z-index: 1000;
+    }
+
+    .nav-content {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 var(--gap);
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      font-size: 17px;
+      font-weight: 600;
+      text-decoration: none;
+      color: var(--ink);
+      letter-spacing: -0.3px;
+    }
+
+    .nav-hamburger {
+      display: block;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+      color: var(--ink);
+    }
+
+    .nav-hamburger svg {
+      width: 22px;
+      height: 22px;
+    }
+
+    .nav-links {
+      display: none;
+      position: absolute;
+      top: 49px; left: 0; right: 0;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(20px);
+      flex-direction: column;
+      padding: 16px var(--gap) 24px;
+      gap: 0;
+      list-style: none;
+      border-bottom: 1px solid var(--gray-light);
+    }
+
+    .nav-links.open { display: flex; }
+
+    .nav-links li {
+      padding-top: 12px; padding-bottom: 12px;
+      border-bottom: 1px solid rgba(0,0,0,0.04);
+    }
+
+    .nav-links li:last-child {
+      border-bottom: none;
+      padding-top: 16px;
+    }
+
+    .nav-links a {
+      font-size: 16px;
+      font-weight: 400;
+      color: var(--gray);
+      text-decoration: none;
+      transition: opacity 0.3s cubic-bezier(0.4,0,0.2,1);
+    }
+
+    .nav-links a:hover { opacity: 0.7; }
+
+    .lang-toggle {
+      font-size: 12px;
+      font-weight: 400;
+      color: var(--gray);
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-family: var(--sans);
+      transition: opacity 0.3s cubic-bezier(0.4,0,0.2,1);
+    }
+
+    .lang-toggle:hover { opacity: 0.7; }
+
+    /* Main content */
+    main {
+      padding-top: 49px;
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 var(--gap);
+    }
+
+    /* Article header */
+    .article-header {
+      padding: 80px 0 60px 0;
+    }
+
+    .article-header h1 {
+      font-size: 48px;
+      font-weight: 600;
+      line-height: 1.2;
+      margin-bottom: 24px;
+      color: var(--ink);
+      letter-spacing: -0.5px;
+    }
+
+    .article-lead {
+      font-size: 18px;
+      color: var(--gray);
+      font-style: italic;
+      line-height: 1.7;
+      margin-bottom: 32px;
+      font-weight: 400;
+    }
+
+    .article-divider {
+      height: 1px;
+      background-color: var(--gray-light);
+      margin-bottom: 48px;
+    }
+
+    /* Article body */
+    .article-body {
+      max-width: 720px;
+      margin: 0 auto 100px auto;
+    }
+
+    .article-body p {
+      font-size: 17px;
+      line-height: 1.8;
+      color: var(--ink);
+      margin-bottom: 20px;
+    }
+
+    .article-body h2 {
+      font-size: 24px;
+      font-weight: 600;
+      color: var(--ink);
+      margin-top: 40px;
+      margin-bottom: 16px;
+      letter-spacing: -0.3px;
+    }
+
+    .article-body h2:first-child {
+      margin-top: 0;
+    }
+
+    /* Author bio */
+    .author-bio {
+      max-width: 720px;
+      margin: 80px auto 100px auto;
+      padding-top: 24px;
+      border-top: 1px solid var(--gray-light);
+      font-size: 14px;
+      color: var(--gray);
+      line-height: 1.6;
+      font-style: italic;
+    }
+
+    /* Back link */
+    .back-link {
+      max-width: 720px;
+      margin: 0 auto 60px auto;
+      font-size: 14px;
+    }
+
+    .back-link a {
+      color: var(--gray);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .back-link a:hover {
+      color: var(--ink);
+    }
+
+    /* Footer */
+    footer {
+      background-color: var(--card-bg);
+      border-top: 1px solid var(--gray-light);
+      padding: 48px var(--gap);
+      margin-top: 100px;
+    }
+
+    .footer-content {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 14px;
+      color: var(--gray);
+    }
+
+    .footer-links {
+      display: flex;
+      list-style: none;
+      gap: 32px;
+    }
+
+    .footer-links a {
+      color: var(--gray);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover {
+      color: var(--ink);
+    }
+
+    /* PL/EN toggle handler */
+    .lang-only-en {
+      display: none;
+    }
+
+    html[lang="en"] .lang-only-pl {
+      display: none;
+    }
+
+    html[lang="en"] .lang-only-en {
+      display: block;
+    }
+
+    html[lang="en"] .lang-only-pl .article-body,
+    html[lang="en"] .lang-only-pl .article-header,
+    html[lang="en"] .lang-only-pl .author-bio,
+    html[lang="en"] .lang-only-pl .back-link {
+      display: none;
+    }
+
+    .en-placeholder {
+      display: none;
+    }
+
+    .en-placeholder .article-header,
+    .en-placeholder .article-body,
+    .en-placeholder .author-bio,
+    .en-placeholder .back-link {
+      display: none;
+    }
+
+    html[lang="en"] .en-placeholder {
+      display: block;
+    }
+
+    html[lang="en"] .en-placeholder .article-header,
+    html[lang="en"] .en-placeholder .article-body,
+    html[lang="en"] .en-placeholder .author-bio,
+    html[lang="en"] .en-placeholder .back-link {
+      display: block;
+    }
+    @media (max-width: 768px) {
+      body { overflow-x: hidden; }
+      .container { padding: 0 20px; }
+      .article-header h1 { font-size: 28px; }
+      .article-header { padding: 48px 0 32px 0; }
+      .article-body p { font-size: 16px; }
+      .footer-content { flex-direction: column; gap: 16px; text-align: center; }
+      .footer-links { gap: 16px; }
+    }
+    @media (min-width: 769px) {
+      .nav-hamburger { display: none; }
+      .nav-links {
+        display: flex;
+        position: static;
+        background: none;
+        backdrop-filter: none;
+        flex-direction: row;
+        padding: 0;
+        gap: 32px;
+        border-bottom: none;
+      }
+      .nav-links li {
+        padding: 0;
+        border-bottom: none;
+      }
+      .nav-links li:last-child { padding-top: 0; }
+      .nav-links a { font-size: 12px; }
+      .article-header h1 { font-size: 48px; }
+    }</style>
+</head>
+<body>
+  <nav>
+    <div class="nav-content">
+      <a href="index.html" class="nav-logo">Rafał Myrta</a>
+      <button class="nav-hamburger" onclick="document.querySelector('.nav-links').classList.toggle('open')">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+      <ul class="nav-links">
+        <li><a href="index.html#about">O mnie</a></li>
+        <li><a href="index.html#kompetencje">Kompetencje</a></li>
+        <li><a href="index.html#projekty">Projekty</a></li>
+        <li><a href="index.html#artykuly">Artykuły</a></li>
+        <li><a href="mapa.html">Mapa</a></li>
+        <li><a href="index.html#kontakt">Kontakt</a></li>
+        <li><button class="lang-toggle" onclick="toggleLang()">EN</button></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    <div class="container">
+      <div class="lang-only-pl">
+        <div class="article-header">
+          <h1>Category management, czyli jak przestać zgadywać na czym zarabiasz</h1>
+          <p class="article-lead">Jeśli Twoja strategia marżowa kończy się na negocjacjach z dostawcą, ten tekst pokaże Ci czego nie widzisz.</p>
+          <div class="article-divider"></div>
+        </div>
+
+        <article class="article-body">
+          <p>Pamiętam moment, kiedy w jednej kategorii sprzętu rehabilitacyjnego rentowność wzrosła o około 25%. Nie zmieniliśmy dostawcy. Nie wynegocjowaliśmy lepszych rabatów. Nie zwiększyliśmy sprzedaży. Zmieniliśmy tylko sposób zarządzania kategorią.</p>
+
+          <p>Co dokładnie zrobiliśmy? Trzy rzeczy. Ograniczyliśmy liczbę indeksów, bo połowa produktów na półce miała znikomą rotację i blokowała miejsce lepszym. Przebudowaliśmy price ladder, tak żeby różnice cenowe między produktami w kategorii miały logikę dla klienta. I zmieniliśmy ekspozycję, żeby produkty z najwyższą rentownością miały proporcjonalnie więcej miejsca. Żadnej magii. Dane, decyzja, wdrożenie.</p>
+
+          <p>To łamie intuicję większości ludzi w handlu. Bo większość ludzi w handlu jest przekonana, że marżę buduje się przy stole negocjacyjnym z dostawcą. I to jest prawda, ale to jest może 30% równania.</p>
+
+          <p>Pozostałe 70% to to, co robisz z towarem po tym, jak go kupisz.</p>
+
+          <h2>Po czym poznać, że masz ten problem</h2>
+
+          <p>Zanim przejdę do metody, sprawdź u siebie. Jeśli rozpoznajesz dwie lub więcej z tych sytuacji, prawdopodobnie oddajesz pieniądze na stole:</p>
+
+          <p>Nie wiesz, które 20% produktów generuje 80% zysku kategorii. Decyzje asortymentowe podejmuje kupiec „na czuja" albo na podstawie relacji z dostawcą, a nie danych o rentowności. Masz produkty na półce, które stoją miesiącami, ale nikt nie podejmuje decyzji o wycofaniu. Nie porównujesz rentowności kategorii ze sobą. Nie masz jasnej odpowiedzi na pytanie: „na czym dokładnie zarabiamy najwięcej?"</p>
+
+          <p>Jeśli tak, to nie jest kwestia złych ludzi. To jest kwestia braku systemu zarządzania asortymentem.</p>
+
+          <h2>Rentowność powstaje na półce</h2>
+
+          <p>Jak wyeksponujesz towar, jak go wycenisz, jak dobierzesz asortyment, jak zarządzasz przestrzenią półkową, czego zdecydujesz się nie zamawiać. Właśnie tym zajmuje się category management. I właśnie dlatego firma ze średnimi warunkami zakupowymi, ale dobrym CM, potrafi zarabiać więcej niż firma z rewelacyjnymi warunkami, która asortymentem zarządza intuicyjnie.</p>
+
+          <p>Na jednym ze szkoleń w Torfarm ktoś z działu zakupów powiedział mi: „Największy wpływ na marżę mamy przy negocjacjach z dostawcą." Odpowiedziałem, że w wielu firmach dział zakupów uważa, że zarządza marżą. W rzeczywistości zarządza tylko ceną zakupu. A to nie jest to samo.</p>
+
+          <h2>Osiem kroków, zero magii</h2>
+
+          <p>Category management nie jest czarną magią. W klasycznym ujęciu (model Harrisa) to osiem kroków: definicja kategorii, rola kategorii, ocena, scorecard, strategia, taktyki, wdrożenie, przegląd. W praktyce nie musisz wdrażać wszystkich ośmiu, żeby zobaczyć efekty. Ale musisz wdrożyć przynajmniej trzy: zdefiniować kategorie, zmierzyć ich rentowność i podejmować decyzje na bazie danych, a nie przeczuć.</p>
+
+          <p>Problem w wielu polskich firmach handlowych jest taki, że asortymentem zarządzają intuicyjnie. Kupiec kupuje to, co uważa za dobre. Dział sprzedaży promuje to, co najłatwiej sprzedać. Nikt nie patrzy na całość. A potem wszyscy się dziwią, że połowa półki nie rotuje, a na to co się sprzedaje jest za mało miejsca.</p>
+
+          <p>CM zastępuje intuicję danymi. Nie eliminuje ludzkiego osądu, ale daje mu fundamenty. Zamiast „wydaje mi się, że ten produkt dobrze idzie" masz „ten produkt ma rotację X, rentowność Y i generuje Z procent zysku kategorii". Na tej bazie podejmujesz decyzje. Na tej bazie też rozmawiasz z dostawcami, bo nagle wiesz co jest warte negocjacji, a co nie.</p>
+
+          <h2>Uproszczenie, którego nikt się nie spodziewał</h2>
+
+          <p>Moim zdaniem najcenniejsza rzecz w CM to nie sama rentowność. To uproszczenie zarządzania. Firma, która wdroży category management, nagle odkrywa, że zarządzanie asortymentem przestaje być sztuką, a zaczyna być rzemiosłem. Kategoria ma właściciela, ma cele, ma plan, ma mierzalne wyniki.</p>
+
+          <p>To zmienia sposób rozmowy w firmie. Zamiast „bo ja uważam, że powinniśmy mieć więcej produktów X" masz „dane pokazują, że produkty X mają rentowność 8% i rotację 2 tygodnie, a produkty Y mają rentowność 22% i rotację 3 dni. Może porozmawiajmy o proporcjach?"</p>
+
+          <h2>„To jest dla dużych sieci"</h2>
+
+          <p>To częsty mit. CM kojarzy się z Tesco, z Biedronką, z wielkimi sieciami które mają działy po dwadzieścia osób. I tak, tam to powstało.</p>
+
+          <p>Ale wdrażałem CM w firmach mających kilkanaście lokalizacji. Zamiast dwudziestu analityków robił to jeden człowiek z Excelem. Efekty? Porównywalne. Bo zasada jest ta sama: zamiast zgadywać, mierzysz.</p>
+
+          <p>CM nie wymaga zespołów analityków ani wielkich systemów. Wymaga raportu sprzedaży, dyscypliny decyzji i jednej osoby, która poczuje się właścicielem kategorii. Dlatego CM jest jedną z nielicznych metod, która naprawdę wyrównuje szanse mniejszych firm. Bo nie wymaga dużych pieniędzy. Wymaga konsekwencji.</p>
+
+          <h2>Od czego zacząć</h2>
+
+          <p>Pracuję z category managementem od 2006 roku i jedno obserwuję konsekwentnie: niewiele polskich firm handlowych to robi systemowo. A mimo to dane, żeby zacząć, ma każdy kto ma kasę fiskalną.</p>
+
+          <p>Trzy kroki na najbliższy miesiąc:</p>
+
+          <p>Wyciągnij raport sprzedaży za ostatnie 6 miesięcy i pogrupuj produkty w kategorie. Dla każdej kategorii policz trzy liczby: udział w obrocie, udział w zysku i rotację. Znajdź kategorie, w których udział w zysku jest nieproporcjonalnie niski do zajmowanego miejsca na półce.</p>
+
+          <p>To jest punkt wyjścia. Nie potrzebujesz systemu za milion złotych. Potrzebujesz Excela i decyzji, żeby zacząć mierzyć zamiast zgadywać.</p>
+
+          <p>A jeśli Twoja strategia rentowności kończy się na negocjacjach z dostawcą, to oddajesz większość pieniędzy przypadkowi.</p>
+        </article>
+
+        <div class="author-bio">
+          Rafał Myrta - buduje działy rozwoju i systemy zarządzania zmianą w dużych i małych organizacjach.
+        </div>
+
+        <div class="back-link">
+          <a href="index.html#artykuly">← Wszystkie artykuły</a>
+        </div>
+      </div>
+
+      <div class="en-placeholder">
+        <div class="article-header">
+          <h1>Category management: stop guessing where your profit comes from</h1>
+          <p class="article-lead">If your margin strategy ends at the negotiation table with your supplier, this article will show you what you're missing.</p>
+          <div class="article-divider"></div>
+        </div>
+
+        <article class="article-body">
+          <p>I remember the moment when profitability in one category of rehabilitation equipment jumped by about 25%. We didn't change suppliers. We didn't negotiate better discounts. We didn't increase sales. We just changed how we managed the category.</p>
+
+          <p>What exactly did we do? Three things. We cut the number of SKUs because half the products on the shelf had barely any rotation and were taking up space that better products needed. We rebuilt the price ladder so the price differences between products made sense to the customer. And we changed the space allocation so our highest-margin products got proportionally more shelf space. No magic. Data, decision, execution.</p>
+
+          <p>This breaks the intuition of most people in retail. Because most retailers are convinced that you build margin at the negotiation table with your supplier. That's true, but it's maybe 30% of the equation.</p>
+
+          <p>The other 70% is what you do with the product after you buy it.</p>
+
+          <h2>Signs you have this problem</h2>
+
+          <p>Before I get into the method, check yourself. If you recognize two or more of these situations, you're probably leaving money on the table:</p>
+
+          <p>You don't know which 20% of products generate 80% of the category profit. Assortment decisions are made by the buyer's gut feel or based on supplier relationships, not profitability data. You have products sitting on the shelf for months, but nobody decides to pull them. You don't compare profitability across categories. You can't clearly answer: "what exactly are we making the most money on?"</p>
+
+          <p>If that's you, it's not about bad people. It's about a lack of assortment management system.</p>
+
+          <h2>Profitability is made on the shelf</h2>
+
+          <p>How you display the product, how you price it, what assortment you choose, how you manage shelf space, what you decide not to order. That's what category management is about. And that's why a company with average buying terms but solid CM can make more money than a company with fantastic supplier deals but intuitive assortment management.</p>
+
+          <p>At a training session at Torfarm, someone from the procurement department told me: "We have the biggest impact on margin when we negotiate with suppliers." I said that in many companies, procurement thinks they manage margin. In reality, they only manage purchase price. Those aren't the same thing.</p>
+
+          <h2>Eight steps, zero magic</h2>
+
+          <p>Category management isn't black magic. In the classic framework (Harris model), there are eight steps: category definition, category role, assessment, scorecard, strategy, tactics, implementation, review. In practice, you don't have to implement all eight to see results. But you do need to implement at least three: define your categories, measure their profitability, and make decisions based on data, not gut feel.</p>
+
+          <p>The problem in many Polish retail companies is that assortment is managed intuitively. The buyer buys what they think is good. Sales promotes what's easiest to sell. Nobody looks at the whole picture. And then everyone's surprised that half the shelf doesn't move and there's not enough space for what actually sells.</p>
+
+          <p>CM replaces intuition with data. It doesn't eliminate human judgment, but it gives it a foundation. Instead of "it seems like this product is moving well," you have "this product has rotation X, profitability Y, and generates Z% of category profit." You make decisions on that basis. You also talk to suppliers differently, because suddenly you know what's worth negotiating and what isn't.</p>
+
+          <h2>The simplification nobody expected</h2>
+
+          <p>In my view, the most valuable thing about CM isn't profitability itself. It's the simplification of management. A company that implements category management suddenly discovers that assortment management stops being an art and starts being a craft. A category has an owner, goals, a plan, measurable results.</p>
+
+          <p>This changes how the company talks to itself. Instead of "I think we should have more of product X," you get "the data shows product X has 8% profitability and 2-week rotation, while product Y has 22% profitability and 3-day rotation. Should we talk about the allocation?"</p>
+
+          <h2>"This is only for big chains"</h2>
+
+          <p>That's a common myth. CM is associated with Tesco, Biedronka, big networks with twenty-person departments. And yes, that's where it started.</p>
+
+          <p>But I've implemented CM in companies with a dozen locations. Instead of twenty analysts, one person with Excel did it. The results? Comparable. Because the principle is the same: instead of guessing, you measure.</p>
+
+          <p>CM doesn't need analyst teams or big systems. It needs a sales report, decision discipline, and one person who feels ownership of the category. That's why CM is one of the few methods that actually levels the playing field for smaller companies. Because it doesn't cost money. It costs consistency.</p>
+
+          <h2>How to start</h2>
+
+          <p>I've been working with category management since 2006 and I see one thing consistently: very few Polish retail companies do it systematically. Yet anyone with a cash register has the data to start.</p>
+
+          <p>Three steps for the next month:</p>
+
+          <p>Pull your sales report for the last 6 months and group products into categories. For each category, calculate three numbers: share of sales, share of profit, and rotation rate. Find categories where the profit share is disproportionately low compared to the shelf space they occupy.</p>
+
+          <p>That's your starting point. You don't need a million-zloty system. You need Excel and the decision to measure instead of guess.</p>
+
+          <p>And if your profitability strategy ends at the supplier negotiation table, you're handing most of your money to chance.</p>
+        </article>
+
+        <div class="author-bio">
+          Rafał Myrta - builds growth departments and change management systems in organizations large and small.
+        </div>
+
+        <div class="back-link">
+          <a href="index.html#artykuly">← All articles</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <div>© 2026 Rafał Myrta</div>
+      <ul class="footer-links">
+        <li><a href="https://linkedin.com/in/rafalmyrta">LinkedIn</a></li>
+        <li><a href="https://cpapblog.pl">CPAPblog</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script>
+    function toggleLang() {
+      const html = document.documentElement;
+      const currentLang = html.getAttribute('lang') || 'pl';
+      const newLang = currentLang === 'pl' ? 'en' : 'pl';
+      html.setAttribute('lang', newLang);
+      localStorage.setItem('preferredLang', newLang);
+
+      const btn = document.querySelector('.lang-toggle');
+      btn.textContent = newLang === 'pl' ? 'EN' : 'PL';
+    }
+
+    // Load preferred language on page load
+    document.addEventListener('DOMContentLoaded', function() {
+      const preferredLang = localStorage.getItem('preferredLang') || 'pl';
+      document.documentElement.setAttribute('lang', preferredLang);
+      const btn = document.querySelector('.lang-toggle');
+      btn.textContent = preferredLang === 'pl' ? 'EN' : 'PL';
+    });
+  </script>
+</body>
+</html>

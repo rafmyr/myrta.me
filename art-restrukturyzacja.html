@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Restrukturyzacja zaczyna się od procesów, nie od etatów - Rafał Myrta</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%231d1d1f'/><text x='16' y='22' text-anchor='middle' fill='white' font-family='system-ui' font-size='16' font-weight='600'>RM</text></svg>">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <meta name="description" content="Restrukturyzacja zaczyna się od procesów, nie od ludzi. Case study sieci Świat Zdrowia i lekcje z transformacji organizacyjnej.">
+  <meta property="og:title" content="Restrukturyzacja zaczyna się od procesów, nie od etatów">
+  <meta property="og:description" content="Restrukturyzacja zaczyna się od procesów, nie od ludzi. Case study sieci Świat Zdrowia i lekcje z transformacji organizacyjnej.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://myrta.me/art-restrukturyzacja.html">
+  <meta property="og:locale" content="pl_PL">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://myrta.me/art-restrukturyzacja.html">
+  <style>
+    :root {
+      --ink: #1d1d1f;
+      --gray: #86868b;
+      --gray-light: #d2d2d7;
+      --card-bg: #fbfbfd;
+      --white: #ffffff;
+      --sans: -apple-system, "system-ui", "SF Pro Display", "SF Pro Text", "Segoe UI", Roboto, sans-serif;
+      --max-w: 980px;
+      --gap: 24px;
+      --radius: 12px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      font-family: var(--sans);
+      background-color: var(--white);
+      color: var(--ink);
+    }
+
+    /* Navigation — mobile-first */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: 49px;
+      background: rgba(255,255,255,0.8);
+      backdrop-filter: blur(24px);
+      border-bottom: 1px solid var(--gray-light);
+      z-index: 1000;
+    }
+
+    .nav-content {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 var(--gap);
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      font-size: 17px;
+      font-weight: 600;
+      text-decoration: none;
+      color: var(--ink);
+      letter-spacing: -0.3px;
+    }
+
+    .nav-hamburger {
+      display: block;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+      color: var(--ink);
+    }
+
+    .nav-hamburger svg {
+      width: 22px;
+      height: 22px;
+    }
+
+    .nav-links {
+      display: none;
+      position: absolute;
+      top: 49px; left: 0; right: 0;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(20px);
+      flex-direction: column;
+      padding: 16px var(--gap) 24px;
+      gap: 0;
+      list-style: none;
+      border-bottom: 1px solid var(--gray-light);
+    }
+
+    .nav-links.open { display: flex; }
+
+    .nav-links li {
+      padding-top: 12px; padding-bottom: 12px;
+      border-bottom: 1px solid rgba(0,0,0,0.04);
+    }
+
+    .nav-links li:last-child {
+      border-bottom: none;
+      padding-top: 16px;
+    }
+
+    .nav-links a {
+      font-size: 16px;
+      font-weight: 400;
+      color: var(--gray);
+      text-decoration: none;
+      transition: opacity 0.3s cubic-bezier(0.4,0,0.2,1);
+    }
+
+    .nav-links a:hover { opacity: 0.7; }
+
+    .lang-toggle {
+      font-size: 12px;
+      font-weight: 400;
+      color: var(--gray);
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-family: var(--sans);
+      transition: opacity 0.3s cubic-bezier(0.4,0,0.2,1);
+    }
+
+    .lang-toggle:hover { opacity: 0.7; }
+
+    /* Main content */
+    main {
+      padding-top: 49px;
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 var(--gap);
+    }
+
+    /* Article header */
+    .article-header {
+      padding: 80px 0 60px 0;
+    }
+
+    .article-header h1 {
+      font-size: 48px;
+      font-weight: 600;
+      line-height: 1.2;
+      margin-bottom: 24px;
+      color: var(--ink);
+      letter-spacing: -0.5px;
+    }
+
+    .article-lead {
+      font-size: 18px;
+      color: var(--gray);
+      font-style: italic;
+      line-height: 1.7;
+      margin-bottom: 32px;
+      font-weight: 400;
+    }
+
+    .article-divider {
+      height: 1px;
+      background-color: var(--gray-light);
+      margin-bottom: 48px;
+    }
+
+    /* Article body */
+    .article-body {
+      max-width: 720px;
+      margin: 0 auto 100px auto;
+    }
+
+    .article-body p {
+      font-size: 17px;
+      line-height: 1.8;
+      color: var(--ink);
+      margin-bottom: 20px;
+    }
+
+    .article-body h2 {
+      font-size: 24px;
+      font-weight: 600;
+      color: var(--ink);
+      margin-top: 40px;
+      margin-bottom: 16px;
+      letter-spacing: -0.3px;
+    }
+
+    .article-body h2:first-child {
+      margin-top: 0;
+    }
+
+    /* Author bio */
+    .author-bio {
+      max-width: 720px;
+      margin: 80px auto 100px auto;
+      padding-top: 24px;
+      border-top: 1px solid var(--gray-light);
+      font-size: 14px;
+      color: var(--gray);
+      line-height: 1.6;
+      font-style: italic;
+    }
+
+    /* Back link */
+    .back-link {
+      max-width: 720px;
+      margin: 0 auto 60px auto;
+      font-size: 14px;
+    }
+
+    .back-link a {
+      color: var(--gray);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .back-link a:hover {
+      color: var(--ink);
+    }
+
+    /* Footer */
+    footer {
+      background-color: var(--card-bg);
+      border-top: 1px solid var(--gray-light);
+      padding: 48px var(--gap);
+      margin-top: 100px;
+    }
+
+    .footer-content {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 14px;
+      color: var(--gray);
+    }
+
+    .footer-links {
+      display: flex;
+      list-style: none;
+      gap: 32px;
+    }
+
+    .footer-links a {
+      color: var(--gray);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover {
+      color: var(--ink);
+    }
+
+    /* PL/EN toggle handler */
+    .lang-only-en {
+      display: none;
+    }
+
+    html[lang="en"] .lang-only-pl {
+      display: none;
+    }
+
+    html[lang="en"] .lang-only-en {
+      display: block;
+    }
+
+    html[lang="en"] .lang-only-pl .article-body,
+    html[lang="en"] .lang-only-pl .article-header,
+    html[lang="en"] .lang-only-pl .author-bio,
+    html[lang="en"] .lang-only-pl .back-link {
+      display: none;
+    }
+
+    .en-placeholder {
+      display: none;
+    }
+
+    .en-placeholder .article-header,
+    .en-placeholder .article-body,
+    .en-placeholder .author-bio,
+    .en-placeholder .back-link {
+      display: none;
+    }
+
+    html[lang="en"] .en-placeholder {
+      display: block;
+    }
+
+    html[lang="en"] .en-placeholder .article-header,
+    html[lang="en"] .en-placeholder .article-body,
+    html[lang="en"] .en-placeholder .author-bio,
+    html[lang="en"] .en-placeholder .back-link {
+      display: block;
+    }
+    @media (max-width: 768px) {
+      body { overflow-x: hidden; }
+      .container { padding: 0 20px; }
+      .article-header h1 { font-size: 28px; }
+      .article-header { padding: 48px 0 32px 0; }
+      .article-body p { font-size: 16px; }
+      .footer-content { flex-direction: column; gap: 16px; text-align: center; }
+      .footer-links { gap: 16px; }
+    }
+    @media (min-width: 769px) {
+      .nav-hamburger { display: none; }
+      .nav-links {
+        display: flex;
+        position: static;
+        background: none;
+        backdrop-filter: none;
+        flex-direction: row;
+        padding: 0;
+        gap: 32px;
+        border-bottom: none;
+      }
+      .nav-links li {
+        padding: 0;
+        border-bottom: none;
+      }
+      .nav-links li:last-child { padding-top: 0; }
+      .nav-links a { font-size: 12px; }
+      .article-header h1 { font-size: 48px; }
+    }</style>
+</head>
+<body>
+  <nav>
+    <div class="nav-content">
+      <a href="index.html" class="nav-logo">Rafał Myrta</a>
+      <button class="nav-hamburger" onclick="document.querySelector('.nav-links').classList.toggle('open')">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+      <ul class="nav-links">
+        <li><a href="index.html#about">O mnie</a></li>
+        <li><a href="index.html#kompetencje">Kompetencje</a></li>
+        <li><a href="index.html#projekty">Projekty</a></li>
+        <li><a href="index.html#artykuly">Artykuły</a></li>
+        <li><a href="mapa.html">Mapa</a></li>
+        <li><a href="index.html#kontakt">Kontakt</a></li>
+        <li><button class="lang-toggle" onclick="toggleLang()">EN</button></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    <div class="container">
+      <div class="lang-only-pl">
+        <div class="article-header">
+          <h1>Restrukturyzacja zaczyna się od procesów, nie od etatów</h1>
+          <p class="article-lead">Jeśli Twoja firma rośnie, a problemy rosną szybciej, ten tekst pokaże Ci gdzie zwykle leży przyczyna.</p>
+          <div class="article-divider"></div>
+        </div>
+
+        <article class="article-body">
+          <p>Jedną z ciekawszych rzeczy, jakie mi się przydarzyły w karierze, było zlecenie, które zaczęło się od audytu, a skończyło na restrukturyzacji całej spółki. Nie planowałem tego. Nikt tego nie planował. Ale tak to już bywa, gdy ktoś pociągnie za odpowiedni sznurek... na końcu okazuje się, że cały sweter się pruje.</p>
+
+          <h2>Raport, który zmienił wszystko</h2>
+
+          <p>Zarząd Świata Zdrowia poprosił mnie o przygotowanie raportu diagnostycznego. Chodziło o to, żeby sprawdzić jak naprawdę działa struktura operacyjna spółki. Na papierze wyglądała pięknie. Wyniki jakoś nie chciały nadążyć za ambicjami.</p>
+
+          <p>Zrobiłem to, co zwykle robię w takich sytuacjach: odłożyłem na bok schematy organizacyjne i zacząłem patrzeć na to, jak procesy rzeczywiście przebiegają. Kto co robi, kto komu raportuje, gdzie informacja się gubi, gdzie decyzje utykają.</p>
+
+          <p>Raport diagnostyczny miał kilkadziesiąt stron. Najważniejsze wnioski mieściły się jednak w jednym zdaniu: firma nie ma problemu z ludźmi. Ma problem z konstrukcją organizacji.</p>
+
+          <p>Raport trafił do właścicieli. Po weryfikacji postawionych tez został zwolniony cały zarząd spółki.</p>
+
+          <p>A mnie powiedzieli: „Jeżeli jesteś taki mądry, to teraz to poukładaj."</p>
+
+          <h2>Po czym poznać, że Twoja organizacja ma ten problem</h2>
+
+          <p>Zanim opowiem co zrobiliśmy, sprawdź u siebie. Te symptomy powtarzają się w większości firm, z którymi pracowałem:</p>
+
+          <p>Na pytanie „kto za to odpowiada?" najczęściej pada odpowiedź: „To zależy." W wielu miejscach trzy osoby robią podobną pracę, ale jednocześnie są obszary, których nie pilnuje nikt. Każdy nowy problem generuje nowe stanowisko zamiast pytania „czy problem leży w procesie?". Ludzie są zajęci, a wyniki nie rosną proporcjonalnie do zatrudnienia. Decyzje utykają, bo nikt nie wie kto ma je podejmować.</p>
+
+          <p>Jeśli rozpoznajesz trzy lub więcej z tych sytuacji, to zwykle nie jest kwestia ludzi. To jest kwestia tego, jak organizacja jest zaprojektowana.</p>
+
+          <h2>Od diagnozy do skalpela</h2>
+
+          <p>Jedno to napisać raport i wskazać co nie działa. Drugie to wziąć za to odpowiedzialność i naprawić.</p>
+
+          <p>Można restrukturyzować na dwa sposoby. Pierwszy jest szybki: idziesz z maczetą, tłuczesz koszty, zwalniasz ludzi, tniesz struktury. Szybko widać efekt na P&L, ale po roku okazuje się, że firma nie ma już kim obsługiwać klientów. Ci którzy zostali są tak przestraszeni, że robią minimum.</p>
+
+          <p>Drugi sposób jest trudniejszy, ale trwalszy: zamiast ciąć ludzi, przebudowujesz procesy. Patrzysz na to, jak naprawdę przepływa praca. Gdzie są duplikaty, gdzie są pętle, gdzie siedzi dziesięć osób i robi to, co mogą zrobić trzy. Nie dlatego, że tamte siedem jest leniwe, tylko dlatego, że proces jest tak zaprojektowany, że wymaga dziesięciu.</p>
+
+          <h2>Co ujawnił audyt procesów</h2>
+
+          <p>Gdy zacząłem mapować realne przepływy pracy, obraz był (delikatnie mówiąc) przygnębiający. Struktury powielały się wzajemnie. Ludzie na różnych stanowiskach robili de facto to samo, tylko nazywali to inaczej. Informacja krążyła pętlami, a odpowiedzialność była tak rozproszona, że w praktyce nikt za nic konkretnie nie odpowiadał.</p>
+
+          <p>Klasyczny obraz firmy, która rosła szybko i dobudowywała kolejne działy reaktywnie, w odpowiedzi na problemy, zamiast projektować organizację pod procesy. To jest błąd, który widzę w wielu polskich firmach: zamiast naprawić proces, zatrudniamy następną osobę.</p>
+
+          <h2>75%</h2>
+
+          <p>W wyniku restrukturyzacji zatrudnienie w spółce spadło o 75%. Dotyczyło to centrali operacyjnej, nie aptek. Redukcja była rozłożona na kilka miesięcy i była konsekwencją przebudowy procesów, a nie decyzją „tniemy koszty".</p>
+
+          <p>Gdy uporządkowałeś przepływ pracy, gdy wyeliminowałeś duplikaty i pętle, gdy dałeś ludziom narzędzia zamiast dodatkowych rąk do pracy, okazywało się, że duża część etatów po prostu nie ma uzasadnienia. Ciągłość obsługi klientów została zachowana. Procesy zaczęły działać sprawniej, bo było mniej „rąk" przez które przechodziła informacja.</p>
+
+          <p>To jest fundamentalna różnica między cięciem kosztów a optymalizacją procesową. W pierwszym przypadku wycinasz zasoby i masz nadzieję, że jakoś to będzie. W drugim przebudowujesz maszynę tak, żeby potrzebowała mniej paliwa, ale jechała szybciej.</p>
+
+          <h2>Reakcja, której się nie spodziewałem</h2>
+
+          <p>Najbardziej zaskakujące nie była sama redukcja. Najbardziej zaskakujące było to, że część ludzi, którzy zostali, odetchnęła z ulgą. Chaos decyzyjny, duplikacja pracy, brak jasnych priorytetów... to nie było tylko nieefektywne. To było frustrujące dla ludzi, którzy w tym pracowali na co dzień.</p>
+
+          <p>Po uporządkowaniu ludzie w końcu wiedzieli za co odpowiadają. Mieli jasne cele, jasne procesy, jasne granice. I paradoksalnie, mniejsza organizacja zaczęła robić więcej.</p>
+
+          <h2>Od czego zacząć u siebie</h2>
+
+          <p>Jeśli czujesz, że Twoja organizacja ma za dużo ludzi na za mało wyniku, nie zaczynaj od zwalniania. Zrób najpierw trzy rzeczy:</p>
+
+          <p>Zmapuj jeden kluczowy proces od początku do końca. Nie z perspektywy schematu organizacyjnego, tylko z perspektywy tego jak naprawdę przepływa praca. Ile rąk dotyka jedna decyzja? Ile razy informacja wraca do punktu wyjścia? Gdzie ludzie czekają na coś, co mogliby mieć od razu?</p>
+
+          <p>Przy każdym stanowisku zadaj pytanie: „Gdybyśmy projektowali tę organizację od zera, czy to stanowisko by istniało?" Nie chodzi o to, żeby kogoś zwolnić. Chodzi o to, żeby zobaczyć czy struktura jest zaprojektowana pod proces, czy pod historyczne nawyki.</p>
+
+          <p>Sprawdź ile procesów ma jasnego właściciela. Jednego. Nie „wszyscy trochę", nie „to zależy". Jednego człowieka, który jest rozliczany z wyniku.</p>
+
+          <p>Większość firm projektuje najpierw strukturę, a potem wpycha w nią procesy. To tak, jakbyś najpierw kupił meble, a potem szukał mieszkania, do którego się zmieszczą.</p>
+
+          <p>Restrukturyzacja nie polega na zwalnianiu ludzi. Polega na tym, że organizacja w końcu zaczyna wiedzieć, kto za co odpowiada. Firmy najczęściej nie mają problemów z liczbą ludzi. Mają problem z tym, że nikt nie odpowiada za wynik.</p>
+        </article>
+
+        <div class="author-bio">
+          Rafał Myrta - buduje działy rozwoju i systemy zarządzania zmianą w dużych i małych organizacjach.
+        </div>
+
+        <div class="back-link">
+          <a href="index.html#artykuly">← Wszystkie artykuły</a>
+        </div>
+      </div>
+
+      <div class="en-placeholder">
+        <div class="article-header">
+          <h1>Restructuring starts with processes, not headcount</h1>
+          <p class="article-lead">If your company is growing but problems are growing faster, this article will show you where the real problem usually sits.</p>
+          <div class="article-divider"></div>
+        </div>
+
+        <article class="article-body">
+          <p>One of the more interesting things that happened to me in my career was an assignment that started with an audit and ended with restructuring an entire company. I didn't plan it. Nobody did. But that's how it goes when you pull on the right thread and the whole sweater starts to unravel.</p>
+
+          <h2>The report that changed everything</h2>
+
+          <p>The management of Swiat Zdrowia asked me to prepare a diagnostic report. The idea was to check how the operating structure actually worked. On paper it looked great. The results just wouldn't keep up with ambitions.</p>
+
+          <p>I did what I usually do in these situations: I put the org charts aside and started looking at how processes actually flowed. Who did what, who reported to whom, where information got lost, where decisions got stuck.</p>
+
+          <p>The diagnostic report ran dozens of pages. But the key finding fit in one sentence: the company didn't have a people problem. It had an organizational design problem.</p>
+
+          <p>The report went to the owners. After they verified the findings, the entire management board was fired.</p>
+
+          <p>And they told me: "If you're so smart, go fix it."</p>
+
+          <h2>Signs your organization has this problem</h2>
+
+          <p>Before I tell you what we did, check yourself. These symptoms repeat in most companies I've worked with:</p>
+
+          <p>When you ask "who's responsible for this?" the answer is usually "it depends." In many places, three people do the same job at the same time, while other areas have nobody watching them. Every new problem spawns a new job instead of anyone asking "is the problem in the process?" People are busy, but results don't scale with headcount. Decisions get stuck because nobody knows who decides.</p>
+
+          <p>If you recognize three or more of these, it's usually not about people. It's about how the organization is designed.</p>
+
+          <h2>From diagnosis to the scalpel</h2>
+
+          <p>Writing a report and pointing out what's broken is one thing. Taking responsibility and fixing it is another.</p>
+
+          <p>You can restructure two ways. The fast way: you grab a machete, slash costs, fire people, cut structures. You see results on the P&L fast, but a year later you realize the company has nobody left to serve customers. The ones who stayed are so scared they do minimum work.</p>
+
+          <p>The hard way is more durable: instead of cutting people, you rebuild processes. You look at how work actually flows. Where there's duplication, where there's loops, where ten people are doing what three could do. Not because those seven are lazy, but because the process is designed to need ten.</p>
+
+          <h2>What the process audit revealed</h2>
+
+          <p>When I started mapping how work actually flowed, the picture was (mildly put) depressing. Structures were duplicating each other. People in different roles were doing basically the same thing, just calling it different names. Information circled in loops, and responsibility was so spread out that in practice nobody was accountable for anything specific.</p>
+
+          <p>A classic picture of a company that grew fast and reactively added departments in response to problems instead of designing the organization around processes. This is the mistake I see in many Polish companies: instead of fixing the process, we hire another person.</p>
+
+          <h2>75%</h2>
+
+          <p>As a result of restructuring, headcount at the company fell by 75%. This was at head office operations, not stores. The reduction was spread over several months and came from redesigning processes, not from "let's cut costs."</p>
+
+          <p>Once you clean up the workflow, once you eliminate duplication and loops, once you give people tools instead of extra hands, it turns out a lot of positions just don't have reason to exist. Customer service continuity was maintained. Processes started running smoother because there were fewer hands the information had to pass through.</p>
+
+          <p>This is the fundamental difference between cost-cutting and process optimization. With the first, you pull out resources and hope it works. With the second, you rebuild the machine to burn less fuel but go faster.</p>
+
+          <h2>A reaction I didn't expect</h2>
+
+          <p>The surprise wasn't the headcount reduction itself. The surprise was that some of the people who stayed actually felt relieved. Decision chaos, duplicate work, unclear priorities... that wasn't just inefficient. It was frustrating for people working in it every day.</p>
+
+          <p>After we straightened it out, people finally knew what they were responsible for. Clear goals, clear processes, clear boundaries. And oddly, a smaller organization started doing more.</p>
+
+          <h2>Where to start in your company</h2>
+
+          <p>If you feel like your organization has too many people for the output you're getting, don't start with firing. Do three things first:</p>
+
+          <p>Map one key process from start to finish. Not from an org chart perspective, but from how work actually flows. How many hands touch one decision? How many times does information loop back? Where do people wait for something they could have immediately?</p>
+
+          <p>For every position ask: "If we were designing this organization from scratch, would this job exist?" You're not trying to fire anyone. You're trying to see if the structure is designed around the process or around historical habits.</p>
+
+          <p>Check how many processes have a clear owner. One. Not "everyone a little," not "it depends." One person who is accountable for the result.</p>
+
+          <p>Most companies design the structure first and then force processes into it. It's like buying furniture first and then looking for an apartment that fits.</p>
+
+          <p>Restructuring isn't about firing people. It's about the organization finally knowing who is responsible for what. Companies usually don't have a people problem. They have a problem where nobody is accountable for results.</p>
+        </article>
+
+        <div class="author-bio">
+          Rafał Myrta - builds growth departments and change management systems in organizations large and small.
+        </div>
+
+        <div class="back-link">
+          <a href="index.html#artykuly">← All articles</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <div>© 2026 Rafał Myrta</div>
+      <ul class="footer-links">
+        <li><a href="https://linkedin.com/in/rafalmyrta">LinkedIn</a></li>
+        <li><a href="https://cpapblog.pl">CPAPblog</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script>
+    function toggleLang() {
+      const html = document.documentElement;
+      const currentLang = html.getAttribute('lang') || 'pl';
+      const newLang = currentLang === 'pl' ? 'en' : 'pl';
+      html.setAttribute('lang', newLang);
+      localStorage.setItem('preferredLang', newLang);
+
+      const btn = document.querySelector('.lang-toggle');
+      btn.textContent = newLang === 'pl' ? 'EN' : 'PL';
+    }
+
+    // Load preferred language on page load
+    document.addEventListener('DOMContentLoaded', function() {
+      const preferredLang = localStorage.getItem('preferredLang') || 'pl';
+      document.documentElement.setAttribute('lang', preferredLang);
+      const btn = document.querySelector('.lang-toggle');
+      btn.textContent = preferredLang === 'pl' ? 'EN' : 'PL';
+    });
+  </script>
+</body>
+</html>

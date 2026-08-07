@@ -1,0 +1,1442 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rafał Myrta - Doradztwo Strategiczne, Zarządzanie Projektami, Restrukturyzacja</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2032%2032'%3E%3Crect%20width='32'%20height='32'%20rx='6'%20fill='%231d1d1f'/%3E%3Ctext%20x='16'%20y='22'%20text-anchor='middle'%20fill='white'%20font-family='system-ui'%20font-size='16'%20font-weight='600'%3ERM%3C/text%3E%3C/svg%3E">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <meta name="description" content="Rafał Myrta - strategia biznesowa, zarządzanie projektami i restrukturyzacja. 20 lat doświadczenia w sieciach handlowych, farmacji i transformacji cyfrowej.">
+  <meta property="og:title" content="Rafał Myrta - Doradztwo Strategiczne, Zarządzanie Projektami, Restrukturyzacja">
+  <meta property="og:description" content="Rafał Myrta - strategia biznesowa, zarządzanie projektami i restrukturyzacja. 20 lat doświadczenia w sieciach handlowych, farmacji i transformacji cyfrowej.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://myrta.me">
+  <meta property="og:image" content="https://myrta.me/og-image.png">
+  <meta property="og:locale" content="pl_PL">
+  <meta property="og:locale:alternate" content="en_US">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Rafał Myrta">
+  <meta name="twitter:description" content="Pomagam firmom rosnąć mądrzej. Strategia, zarządzanie projektami, restrukturyzacja.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://myrta.me/">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Rafał Myrta",
+    "url": "https://myrta.me",
+    "jobTitle": "Business Strategy Consultant",
+    "description": "Strategia biznesowa, zarządzanie projektami, restrukturyzacja, sieci handlowe.",
+    "sameAs": [
+      "https://linkedin.com/in/rafalmyrta",
+      "https://cpapblog.pl",
+      "https://www.youtube.com/%40CPAPblog"
+    ],
+    "knowsAbout": ["Business Strategy", "Project Management", "Retail Networks", "Pharmacy", "CPAP Therapy", "M&A", "Restructuring"]
+  }
+  </script>
+  <style>
+    /* ============================================
+       MYRTA.ME — v3 clean rewrite 2026-03-15
+       Mobile-first: base = mobile, min-width = desktop
+       ============================================ */
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --ink: #1d1d1f;
+      --gray: #86868b;
+      --gray-light: #d2d2d7;
+      --card-bg: #fbfbfd;
+      --white: #ffffff;
+      --sans: -apple-system, “system-ui”, “SF Pro Display”, “SF Pro Text”, “Segoe UI”, Roboto, sans-serif;
+      --max-w: 980px;
+      --radius: 12px;
+      --mobile-pad: 24px;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+    }
+
+    body {
+      font-family: var(--sans);
+      background: var(--white);
+      color: var(--ink);
+      line-height: 1.6;
+      overflow-x: hidden;
+      overflow-wrap: break-word;
+      word-break: break-word;
+    }
+
+    /* ── CONTAINER ── */
+    .container {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 var(--mobile-pad);
+    }
+
+    /* ── NAV (mobile-first: hamburger visible) ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: 49px;
+      background: rgba(255,255,255,0.8);
+      backdrop-filter: blur(24px);
+      border-bottom: 1px solid var(--gray-light);
+      z-index: 1000;
+    }
+
+    .nav-content {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 var(--mobile-pad);
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--ink);
+      letter-spacing: -0.3px;
+    }
+
+    .nav-hamburger {
+      display: block;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+      color: var(--ink);
+    }
+
+    .nav-hamburger svg {
+      width: 22px;
+      height: 22px;
+    }
+
+    .nav-links {
+      display: none;
+      position: absolute;
+      top: 49px; left: 0; right: 0;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(20px);
+      flex-direction: column;
+      padding: 16px var(--mobile-pad) 24px;
+      gap: 0;
+      list-style: none;
+      border-bottom: 1px solid var(--gray-light);
+    }
+
+    .nav-links.open { display: flex; }
+
+    .nav-links li {
+      padding-top: 12px; padding-bottom: 12px;
+      border-bottom: 1px solid rgba(0,0,0,0.04);
+    }
+
+    .nav-links li:last-child {
+      border-bottom: none;
+      padding-top: 16px;
+    }
+
+    .nav-links a {
+      font-size: 16px;
+      font-weight: 400;
+      color: var(--gray);
+      text-decoration: none;
+      transition: opacity 0.3s cubic-bezier(0.4,0,0.2,1);
+    }
+
+    .nav-links a:hover { opacity: 0.7; }
+
+    .lang-toggle {
+      font-size: 12px;
+      font-weight: 400;
+      color: var(--gray);
+      background: none;
+      border: none;
+      cursor: pointer;
+      transition: opacity 0.3s cubic-bezier(0.4,0,0.2,1);
+    }
+
+    .lang-toggle:hover { opacity: 0.7; }
+
+    /* ── MAIN ── */
+    main { margin-top: 49px; }
+
+    /* ── REVEAL ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ── HERO (mobile-first) ── */
+    .hero {
+      padding-top: 40px; padding-bottom: 16px;
+      text-align: center;
+    }
+
+    .hero-label {
+      font-size: 12px;
+      font-weight: 400;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gray);
+      margin-bottom: 16px;
+    }
+
+    .hero-headline {
+      font-size: 32px;
+      font-weight: 700;
+      letter-spacing: -1.5px;
+      line-height: 1.1;
+      color: var(--ink);
+      margin-bottom: 24px;
+    }
+
+    .hero-subtitle {
+      font-size: 16px;
+      font-weight: 400;
+      color: var(--gray);
+      max-width: 580px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    .hero-subtitle::after {
+      content: “”;
+      display: block;
+      width: 48px;
+      height: 2px;
+      background: var(--gray-light);
+      margin: 20px auto 0;
+    }
+
+    .hero-cta {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--ink);
+      border: 1px solid var(--gray-light);
+      border-radius: 980px;
+      text-decoration: none;
+      transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
+    }
+
+    .hero-cta:hover {
+      background: var(--ink);
+      color: var(--white);
+      border-color: var(--ink);
+    }
+
+    /* ── ABOUT (mobile-first: 1 column) ── */
+    .about { padding-top: 40px; padding-bottom: 40px; }
+
+    .section-header {
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 8px;
+    }
+
+    .section-subtitle {
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--gray);
+      margin-bottom: 24px;
+    }
+
+    .about-title {
+      font-size: 24px;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 20px;
+    }
+
+    .about-content {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 32px;
+      align-items: center;
+    }
+
+    .about-text p {
+      font-size: 16px;
+      font-weight: 400;
+      color: var(--ink);
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+
+    .photo-wrapper {
+      overflow: visible;
+      border-radius: var(--radius);
+      position: relative;
+      padding-bottom: 0;
+      margin-bottom: 0;
+    }
+
+    .photo-easter {
+      display: none;
+      position: absolute;
+      bottom: 4px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 11px;
+      color: var(--gray-light);
+      text-decoration: none;
+      opacity: 0;
+      transition: opacity 0.4s ease 3s;
+      pointer-events: none;
+      white-space: nowrap;
+      font-style: italic;
+      z-index: 2;
+    }
+
+    .about-photo {
+      width: 100%;
+      display: block;
+      aspect-ratio: auto;
+      object-fit: contain;
+      object-position: center center;
+      border-radius: var(--radius);
+    }
+
+    /* ── STATEMENT ── */
+    .statement {
+      background: var(--ink);
+      color: var(--white);
+      padding-top: 36px; padding-bottom: 36px;
+      text-align: center;
+    }
+
+    .statement-blockquote {
+      font-size: 20px;
+      font-weight: 500;
+      line-height: 1.6;
+      letter-spacing: -0.3px;
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .statement-cta {
+      color: var(--white);
+      border-color: rgba(255,255,255,0.3);
+    }
+
+    .statement-cta:hover {
+      background: var(--white);
+      color: var(--ink);
+      border-color: var(--white);
+    }
+
+    /* ── KOMPETENCJE (mobile: 1 col) ── */
+    .kompetencje { padding-top: 36px; padding-bottom: 36px; }
+
+    .kompetencje-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+
+    .kompetencje-item {
+      padding: 20px 24px;
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      border: 1px solid var(--gray-light);
+      cursor: default;
+    }
+
+    .kompetencje-title {
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--ink);
+      margin-bottom: 8px;
+    }
+
+    .kompetencje-desc {
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--gray);
+      line-height: 1.6;
+    }
+
+    /* ── MAPA CARD (mobile: stacked) ── */
+    .mapa-card { padding-top: 32px; padding-bottom: 48px; }
+
+    .mapa-card a {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      padding: 20px;
+      text-decoration: none;
+      color: var(--ink);
+      transition: box-shadow 0.3s cubic-bezier(0.4,0,0.2,1);
+      overflow: hidden;
+    }
+
+    .mapa-card a:hover { box-shadow: 0 4px 24px rgba(0,0,0,0.06); }
+
+    .mapa-card-canvas {
+      flex-shrink: 0;
+      width: 100%;
+      height: 140px;
+      border-radius: 8px;
+      background: var(--card-bg);
+    }
+
+    .mapa-card-text { flex: 1; }
+
+    .mapa-card-title {
+      font-size: 18px;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      margin-bottom: 6px;
+    }
+
+    .mapa-card-desc {
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--gray);
+      line-height: 1.5;
+      margin-bottom: 14px;
+    }
+
+    .mapa-card-link {
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--ink);
+      opacity: 0.5;
+      transition: opacity 0.3s;
+    }
+
+    .mapa-card a:hover .mapa-card-link { opacity: 1; }
+
+    /* ── PROJEKTY (mobile: 1 col) ── */
+    .projekty { padding-top: 36px; padding-bottom: 36px; }
+
+    .projekty-list {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+
+    .projekt-item {
+      padding: 24px;
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      border: 1px solid var(--gray-light);
+      cursor: default;
+    }
+
+    .projekt-title {
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--ink);
+      margin-bottom: 4px;
+    }
+
+    .projekt-company {
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--gray);
+      margin-bottom: 8px;
+    }
+
+    .projekt-desc {
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--ink);
+      line-height: 1.6;
+    }
+
+    /* ── SOCIAL PROOF ── */
+    .social-proof {
+      padding-top: 32px; padding-bottom: 32px;
+      text-align: center;
+    }
+
+    .testimonial-carousel {
+      max-width: 680px;
+      margin: 0 auto 24px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .testimonial-slide {
+      opacity: 0;
+      transform: translateY(12px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      pointer-events: none;
+    }
+
+    .testimonial-slide.active {
+      opacity: 1;
+      transform: translateY(0);
+      position: relative;
+      pointer-events: auto;
+    }
+
+    .testimonial-quote {
+      font-size: 17px;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--ink);
+      line-height: 1.7;
+      margin-bottom: 16px;
+    }
+
+    .testimonial-quote::before {
+      content: “\201E”;
+      font-size: 28px;
+      color: var(--gray-light);
+      line-height: 0;
+      vertical-align: -8px;
+      margin-right: 2px;
+    }
+
+    .testimonial-quote::after {
+      content: “\201D”;
+      font-size: 28px;
+      color: var(--gray-light);
+      line-height: 0;
+      vertical-align: -8px;
+      margin-left: 2px;
+    }
+
+    .testimonial-author {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .testimonial-name {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    .testimonial-role {
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--gray);
+    }
+
+    .testimonial-dots {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 16px;
+    }
+
+    .testimonial-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--gray-light);
+      border: none;
+      padding: 0;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .testimonial-dot.active {
+      background: var(--gray);
+    }
+
+    .client-logos {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
+      padding-top: 32px;
+      border-top: 1px solid var(--gray-light);
+    }
+
+    .client-logo-text {
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: var(--gray-light);
+      text-transform: uppercase;
+    }
+
+    /* ── CPAP MINI ── */
+    .cpap-mini {
+      padding-top: 20px; padding-bottom: 20px;
+      border-top: 1px solid var(--gray-light);
+    }
+
+    .cpap-mini-text {
+      font-size: 14px;
+      color: var(--gray);
+      text-align: center;
+      line-height: 1.6;
+    }
+
+    .cpap-mini-text a {
+      color: var(--ink);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .cpap-mini-text a:hover { opacity: 0.7; }
+
+    /* ── CPAP (unused in current layout but kept) ── */
+    .cpap {
+      padding-top: 48px; padding-bottom: 48px;
+      background: var(--card-bg);
+      border-top: 1px solid var(--gray-light);
+      border-bottom: 1px solid var(--gray-light);
+    }
+
+    .cpap-card {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      padding: 48px;
+    }
+
+    .cpap-title { font-size: 20px; font-weight: 600; color: var(--ink); margin-bottom: 4px; }
+    .cpap-subtitle { font-size: 14px; font-weight: 400; color: var(--gray); margin-bottom: 20px; }
+    .cpap-text { font-size: 16px; font-weight: 400; color: var(--ink); line-height: 1.7; margin-bottom: 24px; }
+    .cpap-links { display: flex; gap: 12px; flex-wrap: wrap; }
+
+    .pill-btn {
+      border-radius: 980px;
+      font-size: 14px;
+      font-weight: 500;
+      border: 1px solid var(--gray-light);
+      padding: 8px 20px;
+      background: var(--white);
+      color: var(--ink);
+      text-decoration: none;
+      cursor: pointer;
+      transition: opacity 0.3s cubic-bezier(0.4,0,0.2,1);
+    }
+
+    .pill-btn:hover { opacity: 0.7; }
+
+    /* ── ARTYKUŁY (mobile: 1 col) ── */
+    .artykuly { padding-top: 36px; padding-bottom: 36px; }
+
+    .artykuly-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+
+    .artykuly-item {
+      border-bottom: 1px solid var(--gray-light);
+      border-radius: 8px;
+    }
+
+    .artykuly-link {
+      display: block;
+      text-decoration: none;
+      color: var(--ink);
+      padding: 16px 12px;
+      margin: 0 -12px;
+      border-radius: 8px;
+      transition: background 0.2s;
+      cursor: pointer;
+    }
+
+    .artykuly-link:hover,
+    .artykuly-link:active { background: var(--card-bg); }
+
+    .artykuly-title-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .artykuly-title {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--ink);
+    }
+
+    .artykuly-arrow {
+      color: var(--gray);
+      font-size: 18px;
+      transition: color 0.2s, transform 0.2s;
+      flex-shrink: 0;
+      margin-left: 12px;
+    }
+
+    .artykuly-link:hover .artykuly-arrow,
+    .artykuly-link:active .artykuly-arrow {
+      color: var(--ink);
+      transform: translateX(4px);
+    }
+
+    .artykuly-desc {
+      font-size: 13px;
+      color: var(--gray);
+      margin-top: 4px;
+      line-height: 1.5;
+    }
+
+    /* ── KONTAKT ── */
+    .kontakt { padding-top: 36px; padding-bottom: 36px; }
+
+    .kontakt-links {
+      display: flex;
+      gap: 12px;
+      margin-top: 24px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .kontakt-location {
+      margin-top: 16px;
+      font-size: 13px;
+      color: var(--gray);
+      text-align: center;
+    }
+
+    /* ── FOOTER (mobile: stacked) ── */
+    footer {
+      background: var(--ink);
+      color: var(--gray);
+      padding-top: 24px; padding-bottom: 24px;
+      font-size: 12px;
+    }
+
+    .footer-content {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 var(--mobile-pad);
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      align-items: center;
+    }
+
+
+    /* =============================================
+       DESKTOP — min-width: 769px
+       Jedyny breakpoint. Wszystko powyżej = desktop.
+       ============================================= */
+    @media (min-width: 769px) {
+
+      /* Nav: inline links, no hamburger */
+      .nav-hamburger { display: none; }
+
+      .nav-links {
+        display: flex;
+        position: static;
+        background: none;
+        backdrop-filter: none;
+        flex-direction: row;
+        padding: 0;
+        gap: 32px;
+        border-bottom: none;
+      }
+
+      .nav-links li {
+        padding: 0;
+        border-bottom: none;
+      }
+
+      .nav-links li:last-child { padding-top: 0; }
+
+      .nav-links a { font-size: 12px; }
+
+      /* Hero */
+      .hero { padding-top: 60px; padding-bottom: 40px; }
+      .hero-headline { font-size: 48px; }
+      .hero-subtitle { font-size: 18px; }
+      .hero-subtitle::after { margin: 32px auto 0; }
+      .hero-cta {
+        margin-top: 32px;
+        padding: 10px 24px;
+        font-size: 14px;
+      }
+
+      /* About: 2 columns */
+      .about { padding-top: 48px; padding-bottom: 48px; }
+      .about-title { font-size: 28px; margin-bottom: 24px; }
+
+      .about-content {
+        grid-template-columns: 3fr 2fr;
+        gap: 48px;
+      }
+
+      .about-photo {
+        aspect-ratio: 3 / 4;
+        object-fit: cover;
+        object-position: center 30%;
+      }
+
+      .photo-wrapper {
+        padding-bottom: 36px;
+        margin-bottom: -36px;
+      }
+
+      .photo-easter {
+        display: block;
+      }
+
+      .photo-wrapper:hover .photo-easter {
+        opacity: 1;
+        pointer-events: auto;
+        cursor: pointer;
+      }
+
+      .photo-easter:hover { color: var(--gray); }
+
+      /* Statement */
+      .statement { padding-top: 48px; padding-bottom: 48px; }
+      .statement-blockquote { font-size: 24px; }
+
+      /* Kompetencje: 2 columns */
+      .kompetencje { padding-top: 48px; padding-bottom: 48px; }
+      .kompetencje-grid { grid-template-columns: 1fr 1fr; }
+
+      /* Mapa card: row layout */
+      .mapa-card a {
+        flex-direction: row;
+        gap: 32px;
+        padding: 28px 32px;
+      }
+
+      .mapa-card-canvas {
+        width: 200px;
+        height: 160px;
+      }
+
+      /* Projekty: 2 columns */
+      .projekty { padding-top: 48px; padding-bottom: 48px; }
+      .projekty-list { grid-template-columns: 1fr 1fr; }
+
+      /* Social proof */
+      .social-proof { padding-top: 48px; padding-bottom: 48px; }
+      .testimonial { margin: 0 auto 40px; }
+      .client-logos { gap: 48px; flex-wrap: nowrap; }
+
+      /* CPAP mini */
+      .cpap-mini { padding-top: 24px; padding-bottom: 24px; }
+
+      /* Artykuly: 2 columns + hover bleed */
+      .artykuly { padding-top: 48px; padding-bottom: 48px; }
+      .artykuly-list { grid-template-columns: 1fr 1fr; }
+      .artykuly-item {
+        margin: 0 -12px;
+        padding: 16px 12px;
+      }
+
+      /* Kontakt */
+      .kontakt { padding-top: 48px; padding-bottom: 48px; }
+
+      /* Footer: row */
+      .footer-content {
+        flex-direction: row;
+        justify-content: center;
+      }
+    }
+
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="nav-content">
+      <div class="nav-logo">Rafał Myrta</div>
+      <button class="nav-hamburger" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+      <ul class="nav-links">
+        <li><a href="#about">O mnie</a></li>
+        <li><a href="#kompetencje">Kompetencje</a></li>
+        <li><a href="#projekty">Projekty</a></li>
+        <li><a href="#artykuly">Artykuły</a></li>
+        <li><a href="mapa.html">Mapa</a></li>
+        <li><a href="#kontakt">Kontakt</a></li>
+        <li><button class="lang-toggle" id="langToggle">EN</button></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero container reveal">
+      <div class="hero-label" id="heroLabel">STRATEG · ANALITYK · PM</div>
+      <h1 class="hero-headline" id="heroHeadline">Pomagam firmom rosnąć mądrzej</h1>
+      <p class="hero-subtitle" id="heroSubtitle">Pomagam właścicielom firm zamienić chaos w strukturę, która działa. Strategia, procesy, wdrożenie.</p>
+    <a href="#kontakt" class="hero-cta" id="heroCTA">Porozmawiajmy o Twoim projekcie →</a>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="about container reveal" id="about">
+      <div class="about-content">
+        <div class="about-text">
+          <h2 class="about-title" id="aboutTitle">Rozwijam firmy. Każda inna, podobny wzór.</h2>
+          <p id="aboutP1">Zarządzałem sieciami od kilkunastu do kilku tysięcy lokalizacji. Prowadziłem grupę kapitałową pięciu spółek dla portugalskiego funduszu. Analizowałem rynki, robiłem fuzje i przejęcia, samodzielnie i w zespołach Deloitte. Restrukturyzowałem firmy, których właściciele nie wiedzieli od czego zacząć. Z wykształcenia jestem farmaceutą, i to się przydaje częściej niż myślisz.</p>
+          <p id="aboutP2">Dzisiaj pracuję na styku analizy biznesowej i zarządzania projektami. Wchodzę do firmy, rozkładam problem na części, buduję plan i pilnuję żeby się zrealizował. Nie jestem teoretykiem. Działam tam, gdzie strategia spotyka się z Excelem i ludźmi, którzy muszą ją wdrożyć.</p>
+          <p id="aboutP3">Większość problemów w firmach wygląda inaczej, ale działa tak samo: brak struktury, niejasne odpowiedzialności, decyzje podejmowane za późno. Widziałem to w sieciach handlowych, w startupach i w korporacjach. Dobra zmiana to taka, która sama się utrzymuje i doskonali w czasie.</p>
+        </div>
+        <div class="photo-wrapper"><img class="about-photo" src="profile.jpg" alt="Rafał Myrta"><a href="wizytowka.html" class="photo-easter">ta strona ma swoje sekrety</a></div>
+      </div>
+    </section>
+
+    <!-- STATEMENT -->
+    <div class="statement reveal">
+      <div class="container">
+        <blockquote class="statement-blockquote" id="statementText">Lubię firmy, które mają bałagan, bo to znaczy, że rosną. Nie wierzę w rewolucję, chyba że nie ma wyjścia. Zazwyczaj lepszy efekt dają małe zmiany robione konsekwentnie, które po roku dają efekt nie do poznania.</blockquote>
+      </div>
+    </div>
+
+    <!-- KOMPETENCJE -->
+    <section class="kompetencje container reveal" id="kompetencje">
+      <h2 class="section-header" id="kompetencjeTitle">Kompetencje</h2>
+      <p class="section-subtitle" id="kompetencjeSubtitle">Co robię i w czym mogę pomóc.</p>
+      <div class="kompetencje-grid">
+        <div class="kompetencje-item">
+          <div class="kompetencje-title" id="komp1-title">Strategia i rozwój</div>
+          <div class="kompetencje-desc" id="komp1-desc">Analiza rynku, modele biznesowe, skalowanie organizacji.</div>
+        </div>
+        <div class="kompetencje-item">
+          <div class="kompetencje-title" id="komp2-title">Zarządzanie projektami</div>
+          <div class="kompetencje-desc" id="komp2-desc">Wdrożenia systemów, PMO, koordynacja zespołów.</div>
+        </div>
+        <div class="kompetencje-item">
+          <div class="kompetencje-title" id="komp3-title">Restrukturyzacja i M&A</div>
+          <div class="kompetencje-desc" id="komp3-desc">Fuzje, przejęcia, due diligence, turnaround.</div>
+        </div>
+        <div class="kompetencje-item">
+          <div class="kompetencje-title" id="komp4-title">Sieci handlowe</div>
+          <div class="kompetencje-desc" id="komp4-desc">Franczyza, category management, omnichannel.</div>
+        </div>
+        <div class="kompetencje-item">
+          <div class="kompetencje-title" id="komp5-title">Zarządzanie zmianą</div>
+          <div class="kompetencje-desc" id="komp5-desc">Procesy, ludzie, systemy zarządzania.</div>
+        </div>
+        <div class="kompetencje-item">
+          <div class="kompetencje-title" id="komp6-title">Farmacja i rynek zdrowia</div>
+          <div class="kompetencje-desc" id="komp6-desc">Sieci aptek, sprzęt medyczny, CPAP, regulacje.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MAPA CARD -->
+    <div class="mapa-card container reveal">
+      <a href="mapa.html">
+        <canvas class="mapa-card-canvas" id="mapaPreview"></canvas>
+        <div class="mapa-card-text">
+          <div class="mapa-card-title" id="mapaCardTitle">Jak to wszystko się łączy?</div>
+          <div class="mapa-card-desc" id="mapaCardDesc">Kompetencje, biznesy, projekty i misja - na interaktywnej mapie powiązań. Kliknij i obróć.</div>
+          <div class="mapa-card-link" id="mapaCardLink">Otwórz mapę →</div>
+        </div>
+      </a>
+    </div>
+
+    <!-- PROJEKTY -->
+    <section class="projekty container reveal" id="projekty">
+      <h2 class="section-header" id="projektyTitle">Wybrane projekty</h2>
+      <div class="projekty-list">
+        <div class="projekt-item">
+          <div class="projekt-title" id="proj1-title">Pierwsza apteka click-and-collect w Polsce</div>
+          <div class="projekt-company" id="proj1-company">Pelion / PGF S.A.</div>
+          <div class="projekt-desc" id="proj1-desc">Zaprojektowałem i uruchomiłem od zera doz.pl, pierwszą aptekę internetową w Polsce w modelu click-and-collect. Rok 2003, Internet Explorer 6, zero precedensów. Nikt nie wierzył, że apteka może działać online.</div>
+        </div>
+        <div class="projekt-item">
+          <div class="projekt-title" id="proj2-title">Sieć partnerska i franczyzowa</div>
+          <div class="projekt-company" id="proj2-company">NEUCA S.A.</div>
+          <div class="projekt-desc" id="proj2-desc">Zarządzałem największą wirtualną siecią aptek w Polsce. ~3 800 punktów, w tym marka Świat Zdrowia (~1 200 lokalizacji). Zespół 60 przedstawicieli terenowych i 200 osób w telesales. Strategia od zera: PMO, system MBO, marka własna.</div>
+        </div>
+        <div class="projekt-item">
+          <div class="projekt-title" id="proj3-title">Turnaround grupy kapitałowej</div>
+          <div class="projekt-company" id="proj3-company">Moja Farmacja (portugalski VC)</div>
+          <div class="projekt-desc" id="proj3-desc">CEO grupy 5 spółek. W 12 miesięcy. sprzedaż +12,7%, marża brutto +33,3%. Wdrożyłem Lean Startup, zbudowałem system budżetowy online, zrestrukturyzowałem operacje.</div>
+        </div>
+        <div class="projekt-item">
+          <div class="projekt-title" id="proj4-title">Nowa kategoria w sieci aptek</div>
+          <div class="projekt-company" id="proj4-company">Pelion / PGF S.A.</div>
+          <div class="projekt-desc" id="proj4-desc">Wprowadziłem sprzęt rehabilitacyjny jako nową kategorię produktową do ogólnopolskiej sieci aptek. Efekt: +25% rentowności kategorii. Pełny cykl od negocjacji z dostawcami po planogramy.</div>
+        </div>
+        <div class="projekt-item">
+          <div class="projekt-title" id="proj5-title">Prawo farmaceutyczne</div>
+          <div class="projekt-company" id="proj5-company">Związek Pracodawców Hurtowni Farmaceutycznych</div>
+          <div class="projekt-desc" id="proj5-desc">Prowadziłem projekt lobbingowy wpływający na kształt regulacji farmaceutycznych w Polsce. Praca na poziomie ministerstw i komisji parlamentarnych.</div>
+        </div>
+        <div class="projekt-item">
+          <div class="projekt-title" id="proj6-title">Konsulting niezależny</div>
+          <div class="projekt-company" id="proj6-company">RM Consulting / Deloitte</div>
+          <div class="projekt-desc" id="proj6-desc">Audyty organizacyjne, restrukturyzacje, optymalizacja modeli biznesowych. Firmy od kilkunastu do kilkuset osób. Praca samodzielna i w zespołach Deloitte.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SOCIAL PROOF -->
+    <div class="social-proof container reveal" id="socialproof">
+      <div class="testimonial-carousel" id="testimonialCarousel">
+        <div class="testimonial-slide active">
+          <blockquote class="testimonial-quote">Ambitny i skuteczny menedżer, mocno zorientowany na cele. Bez wątpienia osoba bardzo dobrze znająca rynek farmaceutyczny w Polsce. Bardzo merytoryczny i analityczny. Potrafiący w unikalny sposób łączyć praktykę i doświadczenie biznesowe z wiedzą teoretyczną.</blockquote>
+          <div class="testimonial-author">
+            <span class="testimonial-name">Piotr Sucharski</span>
+            <span class="testimonial-role">Prezes Zarządu, NEUCA S.A.</span>
+          </div>
+        </div>
+        <div class="testimonial-slide">
+          <blockquote class="testimonial-quote">Z powodzeniem budował dobrze działające zespoły składające się z osób zatrudnionych w różnych częściach organizacji. Gdy sytuacja tego wymagała — bezkompromisowy, ale zjednujący sobie współpracowników i umiejący logicznie argumentować swoje decyzje.</blockquote>
+          <div class="testimonial-author">
+            <span class="testimonial-name">Robert Chwiłka</span>
+            <span class="testimonial-role">Dyrektor, NEUCA S.A.</span>
+          </div>
+        </div>
+        <div class="testimonial-slide">
+          <blockquote class="testimonial-quote">Wiarygodny lider, nastawiony na dobrą współpracę z zespołem, ceniąc sobie szczerą komunikację i integrację zespołu. Koncentracja na wspólnych celach oraz duża odpowiedzialność biznesowa.</blockquote>
+          <div class="testimonial-author">
+            <span class="testimonial-name">Daniel Farmas</span>
+            <span class="testimonial-role">NEUCA S.A.</span>
+          </div>
+        </div>
+        <div class="testimonial-dots">
+          <button class="testimonial-dot active" onclick="goToSlide(0)"></button>
+          <button class="testimonial-dot" onclick="goToSlide(1)"></button>
+          <button class="testimonial-dot" onclick="goToSlide(2)"></button>
+        </div>
+      </div>
+      <div class="client-logos" id="clientLogos">
+        <span class="client-logo-text">NEUCA</span>
+        <span class="client-logo-text">PELION</span>
+        <span class="client-logo-text">PGF</span>
+        <span class="client-logo-text">DELOITTE</span>
+      </div>
+    </div>
+
+    <!-- CPAP -->
+    <div class="cpap-mini container reveal">
+      <p class="cpap-mini-text" id="cpapMiniText">Od 2020 roku prowadzę też <a href="https://cpapblog.pl" target="_blank" rel="noopener">CPAPblog.pl</a> - największy w Polsce niezależny serwis o bezdechu sennym (50 000+ odwiedzin/mies.).<br>Napisałem <a href="ksiazka.html">książkę</a> o terapii CPAP.</p>
+    </div>
+
+    <!-- ARTYKUŁY -->
+    <section class="artykuly container reveal" id="artykuly">
+      <h2 class="section-header" id="artykulyTitle">Artykuły</h2>
+      <p class="section-subtitle" id="artykulySubtitle">Piszę o strategii, zarządzaniu i tym co widzę w firmach.</p>
+      <ul class="artykuly-list">
+        <li class="artykuly-item">
+          <a href="art-dzial-rozwoju.html" class="artykuly-link" id="art1">
+            <div class="artykuly-title-row"><span class="artykuly-title">Dział Rozwoju</span><span class="artykuly-arrow">→</span></div>
+            <p class="artykuly-desc">Dlaczego każda firma powyżej 50 osób potrzebuje działu, którego jedynym zadaniem jest myślenie do przodu.</p>
+          </a>
+        </li>
+        <li class="artykuly-item">
+          <a href="art-z-operacji-do-strategii.html" class="artykuly-link" id="art2">
+            <div class="artykuly-title-row"><span class="artykuly-title">Z operacji do strategii</span><span class="artykuly-arrow">→</span></div>
+            <p class="artykuly-desc">Kiedy właściciel przestaje gasić pożary i zaczyna budować systemy.</p>
+          </a>
+        </li>
+        <li class="artykuly-item">
+          <a href="art-80-procent-wdrozen.html" class="artykuly-link" id="art3">
+            <div class="artykuly-title-row"><span class="artykuly-title">Dlaczego 80% wdrożeń się nie udaje</span><span class="artykuly-arrow">→</span></div>
+            <p class="artykuly-desc">Nie chodzi o technologię. Chodzi o ludzi, którzy mają z nią pracować.</p>
+          </a>
+        </li>
+        <li class="artykuly-item">
+          <a href="art-sieci-male-vs-duze.html" class="artykuly-link" id="art4">
+            <div class="artykuly-title-row"><span class="artykuly-title">Sieci małe vs duże</span><span class="artykuly-arrow">→</span></div>
+            <p class="artykuly-desc">Inne problemy, inne narzędzia, ten sam cel.</p>
+          </a>
+        </li>
+        <li class="artykuly-item">
+          <a href="art-category-management.html" class="artykuly-link" id="art5">
+            <div class="artykuly-title-row"><span class="artykuly-title">Category Management</span><span class="artykuly-arrow">→</span></div>
+            <p class="artykuly-desc">Jak zarządzać asortymentem tak, żeby każdy metr półki zarabiał.</p>
+          </a>
+        </li>
+        <li class="artykuly-item">
+          <a href="art-restrukturyzacja.html" class="artykuly-link" id="art6">
+            <div class="artykuly-title-row"><span class="artykuly-title">Restrukturyzacja: Świat Zdrowia</span><span class="artykuly-arrow">→</span></div>
+            <p class="artykuly-desc">Case study. jak uporządkować sieć 1 200 aptek.</p>
+          </a>
+        </li>
+      </ul>
+    </section>
+
+    <!-- KONTAKT -->
+    <section class="kontakt container reveal" id="kontakt">
+      <h2 class="section-header" id="kontaktTitle">Kontakt</h2>
+      <p class="section-subtitle" id="kontaktSubtitle">Szukasz kogoś, kto ogarnie projekt od strategii po wdrożenie? Odezwij się.</p>
+      <div class="kontakt-links">
+        <a href="mailto:rafal@myrta.me" class="pill-btn">rafal@myrta.me</a>
+        <a href="https://linkedin.com/in/rafalmyrta" target="_blank" rel="noopener" class="pill-btn">LinkedIn</a>
+        <a href="https://cpapblog.pl" target="_blank" rel="noopener" class="pill-btn">CPAPblog</a>
+      </div>
+      <p class="kontakt-location" id="kontaktLocation">Katowice, Polska</p>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <div id="footerCopy">© 2026 Rafał Myrta <a href="wizytowka.html" style="color:#2a2a2e; text-decoration:none; font-size:10px; margin-left:6px; transition:color 0.3s;" onmouseover="this.style.color='#3a3a3e'" onmouseout="this.style.color='#2a2a2e'">v0.1</a></div>
+    </div>
+  </footer>
+
+  <script>
+    const content = {
+      pl: {
+        heroLabel: "STRATEG · ANALITYK · PM",
+        heroHeadline: "Pomagam firmom rosnąć mądrzej",
+        heroSubtitle: "Pomagam właścicielom firm zamienić chaos w strukturę, która działa. Strategia, procesy, wdrożenie.",
+        aboutTitle: "Rozwijam firmy. Każda inna, podobny wzór.",
+        aboutP1: "Zarządzałem sieciami od kilkunastu do kilku tysięcy lokalizacji. Prowadziłem grupę kapitałową pięciu spółek dla portugalskiego funduszu. Analizowałem rynki, robiłem fuzje i przejęcia, samodzielnie i w zespołach Deloitte. Restrukturyzowałem firmy, których właściciele nie wiedzieli od czego zacząć. Z wykształcenia jestem farmaceutą, i to się przydaje częściej niż myślisz.",
+        aboutP2: "Dzisiaj pracuję na styku analizy biznesowej i zarządzania projektami. Wchodzę do firmy, rozkładam problem na części, buduję plan i pilnuję żeby się zrealizował. Nie jestem teoretykiem. Działam tam, gdzie strategia spotyka się z Excelem i ludźmi, którzy muszą ją wdrożyć.",
+        aboutP3: "Większość problemów w firmach wygląda inaczej, ale działa tak samo: brak struktury, niejasne odpowiedzialności, decyzje podejmowane za późno. Widziałem to w sieciach handlowych, w startupach i w korporacjach. Dobra zmiana to taka, która sama się utrzymuje i doskonali w czasie.",
+        statementText: "Lubię firmy, które mają bałagan, bo to znaczy, że rosną. Nie wierzę w rewolucję, chyba że nie ma wyjścia. Zazwyczaj lepszy efekt dają małe zmiany robione konsekwentnie, które po roku dają efekt nie do poznania.",
+        kompetencjeTitle: "Kompetencje",
+        kompetencjeSubtitle: "Co robię i w czym mogę pomóc.",
+        komp1: { title: "Strategia i rozwój", desc: "Analiza rynku, modele biznesowe, skalowanie organizacji." },
+        komp2: { title: "Zarządzanie projektami", desc: "Wdrożenia systemów, PMO, koordynacja zespołów." },
+        komp3: { title: "Restrukturyzacja i M&A", desc: "Fuzje, przejęcia, due diligence, turnaround." },
+        komp4: { title: "Sieci handlowe", desc: "Franczyza, category management, omnichannel." },
+        komp5: { title: "Zarządzanie zmianą", desc: "Procesy, ludzie, systemy zarządzania." },
+        komp6: { title: "Farmacja i rynek zdrowia", desc: "Sieci aptek, sprzęt medyczny, CPAP, regulacje." },
+        mapaCardTitle: "Jak to wszystko się łączy?",
+        mapaCardDesc: "Kompetencje, biznesy, projekty i misja - na interaktywnej mapie powiązań. Kliknij i obróć.",
+        mapaCardLink: "Otwórz mapę →",
+        projektyTitle: "Wybrane projekty",
+        proj1: { title: "Pierwsza apteka click-and-collect w Polsce", company: "Pelion / PGF S.A.", desc: "Zaprojektowałem i uruchomiłem od zera doz.pl, pierwszą aptekę internetową w Polsce w modelu click-and-collect. Rok 2003, Internet Explorer 6, zero precedensów. Nikt nie wierzył, że apteka może działać online." },
+        proj2: { title: "Sieć partnerska i franczyzowa", company: "NEUCA S.A.", desc: "Zarządzałem największą wirtualną siecią aptek w Polsce. ~3 800 punktów, w tym marka Świat Zdrowia (~1 200 lokalizacji). Zespół 60 przedstawicieli terenowych i 200 osób w telesales. Strategia od zera: PMO, system MBO, marka własna." },
+        proj3: { title: "Turnaround grupy kapitałowej", company: "Moja Farmacja (portugalski VC)", desc: "CEO grupy 5 spółek. W 12 miesięcy. sprzedaż +12,7%, marża brutto +33,3%. Wdrożyłem Lean Startup, zbudowałem system budżetowy online, zrestrukturyzowałem operacje." },
+        proj4: { title: "Nowa kategoria w sieci aptek", company: "Pelion / PGF S.A.", desc: "Wprowadziłem sprzęt rehabilitacyjny jako nową kategorię produktową do ogólnopolskiej sieci aptek. Efekt: +25% rentowności kategorii. Pełny cykl od negocjacji z dostawcami po planogramy." },
+        proj5: { title: "Prawo farmaceutyczne", company: "Związek Pracodawców Hurtowni Farmaceutycznych", desc: "Prowadziłem projekt lobbingowy wpływający na kształt regulacji farmaceutycznych w Polsce. Praca na poziomie ministerstw i komisji parlamentarnych." },
+        proj6: { title: "Konsulting niezależny", company: "RM Consulting / Deloitte", desc: "Audyty organizacyjne, restrukturyzacje, optymalizacja modeli biznesowych. Firmy od kilkunastu do kilkuset osób. Praca samodzielna i w zespołach Deloitte." },
+        cpapTitle: "CPAPblog",
+        cpapSubtitle: "",
+        cpapText: "Od 2020 roku prowadzę CPAPblog.pl, największy w Polsce niezależny serwis o bezdechu sennym i terapii CPAP. Ponad 50 000 odwiedzin miesięcznie. Napisałem najbardziej kompleksową książkę o terapii CPAP w Polsce. Ale najważniejsze: dzięki blogowi tysiące osób dowiedziały się, że ich problem ma nazwę i rozwiązanie.",
+        heroCTA: "Porozmawiajmy o Twoim projekcie →",
+        projektyCTA: "Masz podobny problem? Napisz →",
+        cpapMiniText: "Od 2020 roku prowadzę też <a href=\"https://cpapblog.pl\" target=\"_blank\" rel=\"noopener\">CPAPblog.pl</a> - największy w Polsce niezależny serwis o bezdechu sennym (50 000+ odwiedzin/mies.).<br>Napisałem <a href=\"ksiazka.html\">książkę</a> o terapii CPAP.",
+        artykulyTitle: "Artykuły",
+        artykulySubtitle: "Piszę o strategii, zarządzaniu i tym co widzę w firmach.",
+        articles: ["Dział Rozwoju", "Właściciel: z operacji do strategii", "Dlaczego 80% wdrożeń się nie udaje", "Sieci małe vs duże", "Category Management", "Restrukturyzacja: Świat Zdrowia"],
+        kontaktTitle: "Kontakt",
+        kontaktSubtitle: "Szukasz kogoś, kto ogarnie projekt od strategii po wdrożenie? Odezwij się.",
+        kontaktLocation: "Katowice, Polska",
+        footerCopy: "© 2026 Rafał Myrta"
+      },
+      en: {
+        heroLabel: "STRATEGIST · ANALYST · PM",
+        heroHeadline: "I help companies grow smarter",
+        heroSubtitle: "I help business owners turn chaos into structure that works. from strategy through processes to implementation.",
+        aboutTitle: "I grow businesses. Each one different, similar pattern.",
+        aboutP1: "I've managed networks from a few dozen to several thousand locations. I ran a holding company of five subsidiaries for a foreign fund. I analyzed markets, did mergers and acquisitions. independently and with Deloitte teams. I restructured companies whose owners didn't know where to start. I'm a pharmacist by education. and it comes in handy more often than you'd think.",
+        aboutP2: "Today I work at the intersection of business analysis and project management. I walk into a company, break the problem into parts, build a plan and make sure it gets done. I'm not a theorist. I operate where strategy meets Excel and the people who have to implement it.",
+        aboutP3: "Most problems in companies look different but work the same way. lack of structure, unclear responsibilities, decisions made too late. I've seen it in retail chains, startups, and corporations. I build management systems so that every level in the company. from owner to frontline employee. gets real value from it. Good change is change that sustains and improves itself over time.",
+        statementText: "I like companies that are messy, because it means they're growing. I don't believe in revolution unless there's no other way. Usually small changes made consistently produce better results, beyond recognition after a year.",
+        kompetencjeTitle: "Competencies",
+        kompetencjeSubtitle: "What I do and how I can help.",
+        komp1: { title: "Strategy & Growth", desc: "Market analysis, business models, scaling organizations." },
+        komp2: { title: "Project Management", desc: "System implementations, PMO, team coordination." },
+        komp3: { title: "Restructuring & M&A", desc: "Mergers, acquisitions, due diligence, turnaround." },
+        komp4: { title: "Retail Networks", desc: "Franchise, category management, omnichannel." },
+        komp5: { title: "Change Management", desc: "Processes, people, management systems." },
+        komp6: { title: "Pharma & Health", desc: "Pharmacy networks, medical devices, CPAP, regulations." },
+        mapaCardTitle: "How does it all connect?",
+        mapaCardDesc: "Competencies, businesses, projects and mission - on an interactive map of connections. Click and rotate.",
+        mapaCardLink: "Open map →",
+        projektyTitle: "Selected projects",
+        proj1: { title: "First click-and-collect pharmacy in Poland", company: "Pelion / PGF S.A.", desc: "I designed and launched doz.pl from scratch, Poland's first click-and-collect online pharmacy. Year 2003, Internet Explorer 6, zero precedent. Nobody believed a pharmacy could operate online." },
+        proj2: { title: "Partner and franchise network", company: "NEUCA S.A.", desc: "I managed Poland's largest pharmacy network. ~3,800 locations, including Świat Zdrowia brand (~1,200 locations). Team of 60 field representatives and 200 telesales staff. Board strategy, PMO, MBO system." },
+        proj3: { title: "Turnaround of holding company", company: "Moja Farmacja (Portuguese VC)", desc: "CEO of 5 subsidiaries. In 12 months: sales +12.7%, gross margin +33.3%. I implemented Lean Startup, built an online budgeting system, restructured operations." },
+        proj4: { title: "New category in pharmacy network", company: "Pelion / PGF S.A.", desc: "I introduced rehabilitation equipment as a new product category in a nationwide pharmacy network. Result: +25% category profitability. Full cycle from supplier negotiations to planograms." },
+        proj5: { title: "Pharmaceutical law", company: "NEUCA S.A.", desc: "I initiated a lobbying project influencing pharmaceutical regulations in Poland. Work at ministry and parliamentary commission level." },
+        proj6: { title: "Independent consulting", company: "RM Consulting / Deloitte", desc: "Organizational audits, restructuring, business model optimization. Companies from a dozen to several hundred employees. Independent work and Deloitte team collaboration." },
+        cpapTitle: "CPAPblog",
+        cpapSubtitle: "",
+        cpapText: "Since 2020 I run CPAPblog.pl. Poland's largest independent resource on sleep apnea and CPAP therapy. Over 50,000 visits per month. I wrote the most comprehensive book on CPAP therapy in Poland. But most importantly. thanks to the blog, thousands of people learned that their problem has a name and a solution.",
+        heroCTA: "Let\'s talk about your project →",
+        projektyCTA: "Facing a similar challenge? Let\'s talk →",
+        cpapMiniText: "Since 2020, I also run <a href=\"https://cpapblog.pl\" target=\"_blank\" rel=\"noopener\">CPAPblog.pl</a> - Poland\'s largest independent resource on sleep apnea (50,000+ visits/month).<br>I wrote a <a href=\"ksiazka.html\">book</a> on CPAP therapy.",
+        artykulyTitle: "Articles",
+        artykulySubtitle: "I write about strategy, management, and what I see in companies.",
+        articles: ["Growth Department", "Owner: From Operations to Strategy", "Why 80% of Implementations Fail", "Small vs. Large Networks", "Category Management", "Restructuring: Świat Zdrowia"],
+        kontaktTitle: "Contact",
+        kontaktSubtitle: "Looking for someone to take your project from strategy to execution? Get in touch.",
+        kontaktLocation: "Katowice, Poland",
+        footerCopy: "© 2026 Rafał Myrta"
+      }
+    };
+
+    let currentLang = 'pl';
+
+    document.getElementById('langToggle').addEventListener('click', function() {
+      currentLang = currentLang === 'pl' ? 'en' : 'pl';
+      this.textContent = currentLang === 'pl' ? 'EN' : 'PL';
+      updateContent();
+    });
+
+    function updateContent() {
+      const data = content[currentLang];
+      document.getElementById('heroLabel').textContent = data.heroLabel;
+      document.getElementById('heroHeadline').textContent = data.heroHeadline;
+      document.getElementById('heroSubtitle').textContent = data.heroSubtitle;
+      document.getElementById('heroCTA').textContent = data.heroCTA;
+      document.getElementById('aboutTitle').textContent = data.aboutTitle;
+      document.getElementById('aboutP1').textContent = data.aboutP1;
+      document.getElementById('aboutP2').textContent = data.aboutP2;
+      document.getElementById('aboutP3').textContent = data.aboutP3;
+      document.getElementById('statementText').textContent = data.statementText;
+      document.getElementById('kompetencjeTitle').textContent = data.kompetencjeTitle;
+      document.getElementById('kompetencjeSubtitle').textContent = data.kompetencjeSubtitle;
+      for (let i = 1; i <= 6; i++) {
+        document.getElementById(`komp${i}-title`).textContent = data[`komp${i}`].title;
+        document.getElementById(`komp${i}-desc`).textContent = data[`komp${i}`].desc;
+      }
+      document.getElementById('mapaCardTitle').textContent = data.mapaCardTitle;
+      document.getElementById('mapaCardDesc').textContent = data.mapaCardDesc;
+      document.getElementById('mapaCardLink').textContent = data.mapaCardLink;
+      document.getElementById('projektyTitle').textContent = data.projektyTitle;
+            for (let i = 1; i <= 6; i++) {
+        document.getElementById(`proj${i}-title`).textContent = data[`proj${i}`].title;
+        document.getElementById(`proj${i}-company`).textContent = data[`proj${i}`].company;
+        document.getElementById(`proj${i}-desc`).textContent = data[`proj${i}`].desc;
+      }
+      if (document.getElementById('cpapTitle')) document.getElementById('cpapTitle').textContent = data.cpapTitle;
+      if (document.getElementById('cpapSubtitle')) document.getElementById('cpapSubtitle').textContent = data.cpapSubtitle;
+      if (document.getElementById('cpapText')) document.getElementById('cpapText').textContent = data.cpapText;
+      document.getElementById('artykulyTitle').textContent = data.artykulyTitle;
+      document.getElementById('artykulySubtitle').textContent = data.artykulySubtitle;
+      data.articles.forEach((article, index) => {
+        const el = document.getElementById(`art${index + 1}`);
+        const textSpan = el.querySelector('span');
+        if (textSpan) textSpan.textContent = article;
+        else el.textContent = article;
+      });
+      document.getElementById('kontaktTitle').textContent = data.kontaktTitle;
+      document.getElementById('kontaktSubtitle').textContent = data.kontaktSubtitle;
+      document.getElementById('kontaktLocation').textContent = data.kontaktLocation;
+      document.getElementById('footerCopy').textContent = data.footerCopy;
+      document.getElementById('projektyCTA').textContent = data.projektyCTA;
+      document.getElementById('cpapMiniText').innerHTML = data.cpapMiniText;
+    }
+
+    const revealElements = document.querySelectorAll('.reveal');
+    const revealOnScroll = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealOnScroll.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    revealElements.forEach(el => revealOnScroll.observe(el));
+
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', (e) => {
+        const href = link.getAttribute('href');
+        if (href.startsWith('#')) {
+          e.preventDefault();
+          const section = document.querySelector(href);
+          if (section) {
+            section.scrollIntoView({ behavior: 'smooth' });
+          }
+        }
+      });
+    });
+    // ── Mini mapa preview ──
+    (function() {
+      var mc = document.getElementById('mapaPreview');
+      if (!mc) return;
+      var mctx = mc.getContext('2d');
+      var dpr = window.devicePixelRatio || 1;
+
+      function sizeCanvas() {
+        var rect = mc.getBoundingClientRect();
+        mc.width = rect.width * dpr;
+        mc.height = rect.height * dpr;
+        mctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      }
+      sizeCanvas();
+      window.addEventListener('resize', sizeCanvas);
+
+      var cats = {
+        dna:   [120,120,120],
+        biz:   [140,140,140],
+        skill: [100,100,100],
+        misja: [130,130,130],
+        meta:  [110,110,110]
+      };
+
+      // Generate mini nodes on sphere
+      var N = 28;
+      var golden = Math.PI * (3 - Math.sqrt(5));
+      var mnodes = [];
+      var catKeys = Object.keys(cats);
+      for (var i = 0; i < N; i++) {
+        var y = 1 - (i / (N - 1)) * 2;
+        var rr = Math.sqrt(1 - y * y);
+        var th = golden * i;
+        mnodes.push({
+          x: Math.cos(th) * rr,
+          y: y,
+          z: Math.sin(th) * rr,
+          c: cats[catKeys[i % catKeys.length]],
+          s: 2 + Math.random() * 3
+        });
+      }
+
+      // Pre-generate some edges
+      var medges = [];
+      for (var j = 0; j < N; j++) {
+        var nearest = -1, nd = Infinity;
+        for (var k = 0; k < N; k++) {
+          if (k === j) continue;
+          var dx = mnodes[j].x - mnodes[k].x;
+          var dy = mnodes[j].y - mnodes[k].y;
+          var dz = mnodes[j].z - mnodes[k].z;
+          var d = dx*dx + dy*dy + dz*dz;
+          if (d < nd) { nd = d; nearest = k; }
+        }
+        if (nearest >= 0) medges.push([j, nearest]);
+      }
+
+      var mt = 0;
+      function renderMini() {
+        mt += 0.003;
+        var rect = mc.getBoundingClientRect();
+        var w = rect.width, h = rect.height;
+        if (w === 0 || h === 0) { requestAnimationFrame(renderMini); return; }
+
+        mctx.clearRect(0, 0, w, h);
+
+        // BG
+        var bg = mctx.createRadialGradient(w/2, h/2, 0, w/2, h/2, w*0.7);
+        bg.addColorStop(0, '#fafafa');
+        bg.addColorStop(1, '#f5f5f7');
+        mctx.fillStyle = bg;
+        mctx.fillRect(0, 0, w, h);
+
+        var R = Math.min(w, h) * 0.36;
+        var persp = 300;
+        var ry = mt;
+        var rx = -0.25;
+
+        function proj(nx, ny, nz) {
+          var x1 = nx * Math.cos(ry) - nz * Math.sin(ry);
+          var z1 = nx * Math.sin(ry) + nz * Math.cos(ry);
+          var y1 = ny * Math.cos(rx) - z1 * Math.sin(rx);
+          var z2 = ny * Math.sin(rx) + z1 * Math.cos(rx);
+          var sc = persp / (persp + z2 * R);
+          return { x: w/2 + x1 * R * sc, y: h/2 + y1 * R * sc, z: z2, s: sc };
+        }
+
+        // Edges
+        medges.forEach(function(e) {
+          var a = proj(mnodes[e[0]].x, mnodes[e[0]].y, mnodes[e[0]].z);
+          var b = proj(mnodes[e[1]].x, mnodes[e[1]].y, mnodes[e[1]].z);
+          var avgD = 1 - ((a.z + b.z) / 2 + 1) / 2;
+          mctx.globalAlpha = 0.06 + avgD * 0.1;
+          mctx.strokeStyle = '#bbb';
+          mctx.lineWidth = 0.5;
+          mctx.beginPath();
+          mctx.moveTo(a.x, a.y);
+          mctx.lineTo(b.x, b.y);
+          mctx.stroke();
+        });
+        mctx.globalAlpha = 1;
+
+        // Nodes sorted by z
+        var projected = mnodes.map(function(n) {
+          var p = proj(n.x, n.y, n.z);
+          return { px: p.x, py: p.y, pz: p.z, ps: p.s, c: n.c, s: n.s };
+        });
+        projected.sort(function(a, b) { return b.pz - a.pz; });
+
+        projected.forEach(function(n) {
+          var depth = 1 - (n.pz + 1) / 2;
+          var alpha = 0.2 + depth * 0.8;
+          var r = n.s * n.ps;
+
+          // Glow
+          var glow = mctx.createRadialGradient(n.px, n.py, r*0.2, n.px, n.py, r*2.5);
+          glow.addColorStop(0, 'rgba('+n.c[0]+','+n.c[1]+','+n.c[2]+','+(alpha*0.1)+')');
+          glow.addColorStop(1, 'rgba('+n.c[0]+','+n.c[1]+','+n.c[2]+',0)');
+          mctx.fillStyle = glow;
+          mctx.beginPath();
+          mctx.arc(n.px, n.py, r*2.5, 0, Math.PI*2);
+          mctx.fill();
+
+          // Dot
+          mctx.beginPath();
+          mctx.arc(n.px, n.py, r, 0, Math.PI*2);
+          mctx.fillStyle = 'rgba('+n.c[0]+','+n.c[1]+','+n.c[2]+','+(alpha*0.3)+')';
+          mctx.fill();
+          mctx.strokeStyle = 'rgba('+n.c[0]+','+n.c[1]+','+n.c[2]+','+(alpha*0.5)+')';
+          mctx.lineWidth = 0.5;
+          mctx.stroke();
+        });
+
+        requestAnimationFrame(renderMini);
+      }
+
+      // Start when visible
+      var io = new IntersectionObserver(function(entries) {
+        if (entries[0].isIntersecting) {
+          renderMini();
+          io.disconnect();
+        }
+      }, { threshold: 0.1 });
+      io.observe(mc);
+    })();
+
+    // ── Testimonial carousel ──
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.testimonial-slide');
+    const dots = document.querySelectorAll('.testimonial-dot');
+
+    function goToSlide(n) {
+      slides[currentSlide].classList.remove('active');
+      dots[currentSlide].classList.remove('active');
+      currentSlide = n;
+      slides[currentSlide].classList.add('active');
+      dots[currentSlide].classList.add('active');
+    }
+
+    function nextSlide() {
+      goToSlide((currentSlide + 1) % slides.length);
+    }
+
+    let carouselTimer = setInterval(nextSlide, 25000);
+
+    // Pause on hover, reset timer on manual click
+    const carousel = document.getElementById('testimonialCarousel');
+    carousel.addEventListener('mouseenter', () => clearInterval(carouselTimer));
+    carousel.addEventListener('mouseleave', () => {
+      carouselTimer = setInterval(nextSlide, 25000);
+    });
+
+    document.querySelectorAll('.testimonial-dot').forEach((dot, i) => {
+      dot.addEventListener('click', () => {
+        clearInterval(carouselTimer);
+        goToSlide(i);
+        carouselTimer = setInterval(nextSlide, 25000);
+      });
+    });
+    </script>
+</body>
+</html>

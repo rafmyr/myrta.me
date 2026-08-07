@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sieci handlowe: to co działa na 20 lokalizacji, zabije cię na 200 - Rafał Myrta</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%231d1d1f'/><text x='16' y='22' text-anchor='middle' fill='white' font-family='system-ui' font-size='16' font-weight='600'>RM</text></svg>">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <meta name="description" content="Co działa na 20 lokalizacji, zabije Cię na 200. O przejściu z zarządzania ludźmi na zarządzanie modelem w sieciach handlowych.">
+  <meta property="og:title" content="Sieci handlowe: to co działa na 20 lokalizacji, zabije cię na 200">
+  <meta property="og:description" content="Co działa na 20 lokalizacji, zabije Cię na 200. O przejściu z zarządzania ludźmi na zarządzanie modelem w sieciach handlowych.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://myrta.me/art-sieci-male-vs-duze.html">
+  <meta property="og:locale" content="pl_PL">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://myrta.me/art-sieci-male-vs-duze.html">
+  <style>
+    :root {
+      --ink: #1d1d1f;
+      --gray: #86868b;
+      --gray-light: #d2d2d7;
+      --card-bg: #fbfbfd;
+      --white: #ffffff;
+      --sans: -apple-system, "system-ui", "SF Pro Display", "SF Pro Text", "Segoe UI", Roboto, sans-serif;
+      --max-w: 980px;
+      --gap: 24px;
+      --radius: 12px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      font-family: var(--sans);
+      background-color: var(--white);
+      color: var(--ink);
+    }
+
+    /* Navigation — mobile-first */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: 49px;
+      background: rgba(255,255,255,0.8);
+      backdrop-filter: blur(24px);
+      border-bottom: 1px solid var(--gray-light);
+      z-index: 1000;
+    }
+
+    .nav-content {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 var(--gap);
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      font-size: 17px;
+      font-weight: 600;
+      text-decoration: none;
+      color: var(--ink);
+      letter-spacing: -0.3px;
+    }
+
+    .nav-hamburger {
+      display: block;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+      color: var(--ink);
+    }
+
+    .nav-hamburger svg {
+      width: 22px;
+      height: 22px;
+    }
+
+    .nav-links {
+      display: none;
+      position: absolute;
+      top: 49px; left: 0; right: 0;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(20px);
+      flex-direction: column;
+      padding: 16px var(--gap) 24px;
+      gap: 0;
+      list-style: none;
+      border-bottom: 1px solid var(--gray-light);
+    }
+
+    .nav-links.open { display: flex; }
+
+    .nav-links li {
+      padding-top: 12px; padding-bottom: 12px;
+      border-bottom: 1px solid rgba(0,0,0,0.04);
+    }
+
+    .nav-links li:last-child {
+      border-bottom: none;
+      padding-top: 16px;
+    }
+
+    .nav-links a {
+      font-size: 16px;
+      font-weight: 400;
+      color: var(--gray);
+      text-decoration: none;
+      transition: opacity 0.3s cubic-bezier(0.4,0,0.2,1);
+    }
+
+    .nav-links a:hover { opacity: 0.7; }
+
+    .lang-toggle {
+      font-size: 12px;
+      font-weight: 400;
+      color: var(--gray);
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-family: var(--sans);
+      transition: opacity 0.3s cubic-bezier(0.4,0,0.2,1);
+    }
+
+    .lang-toggle:hover { opacity: 0.7; }
+
+    /* Main content */
+    main {
+      padding-top: 49px;
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 var(--gap);
+    }
+
+    /* Article header */
+    .article-header {
+      padding: 80px 0 60px 0;
+    }
+
+    .article-header h1 {
+      font-size: 48px;
+      font-weight: 600;
+      line-height: 1.2;
+      margin-bottom: 24px;
+      color: var(--ink);
+      letter-spacing: -0.5px;
+    }
+
+    .article-lead {
+      font-size: 18px;
+      color: var(--gray);
+      font-style: italic;
+      line-height: 1.7;
+      margin-bottom: 32px;
+      font-weight: 400;
+    }
+
+    .article-divider {
+      height: 1px;
+      background-color: var(--gray-light);
+      margin-bottom: 48px;
+    }
+
+    /* Article body */
+    .article-body {
+      max-width: 720px;
+      margin: 0 auto 100px auto;
+    }
+
+    .article-body p {
+      font-size: 17px;
+      line-height: 1.8;
+      color: var(--ink);
+      margin-bottom: 20px;
+    }
+
+    .article-body h2 {
+      font-size: 24px;
+      font-weight: 600;
+      color: var(--ink);
+      margin-top: 40px;
+      margin-bottom: 16px;
+      letter-spacing: -0.3px;
+    }
+
+    .article-body h2:first-child {
+      margin-top: 0;
+    }
+
+    /* Author bio */
+    .author-bio {
+      max-width: 720px;
+      margin: 80px auto 100px auto;
+      padding-top: 24px;
+      border-top: 1px solid var(--gray-light);
+      font-size: 14px;
+      color: var(--gray);
+      line-height: 1.6;
+      font-style: italic;
+    }
+
+    /* Back link */
+    .back-link {
+      max-width: 720px;
+      margin: 0 auto 60px auto;
+      font-size: 14px;
+    }
+
+    .back-link a {
+      color: var(--gray);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .back-link a:hover {
+      color: var(--ink);
+    }
+
+    /* Footer */
+    footer {
+      background-color: var(--card-bg);
+      border-top: 1px solid var(--gray-light);
+      padding: 48px var(--gap);
+      margin-top: 100px;
+    }
+
+    .footer-content {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 14px;
+      color: var(--gray);
+    }
+
+    .footer-links {
+      display: flex;
+      list-style: none;
+      gap: 32px;
+    }
+
+    .footer-links a {
+      color: var(--gray);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover {
+      color: var(--ink);
+    }
+
+    /* PL/EN toggle handler */
+    .lang-only-en {
+      display: none;
+    }
+
+    html[lang="en"] .lang-only-pl {
+      display: none;
+    }
+
+    html[lang="en"] .lang-only-en {
+      display: block;
+    }
+
+    html[lang="en"] .lang-only-pl .article-body,
+    html[lang="en"] .lang-only-pl .article-header,
+    html[lang="en"] .lang-only-pl .author-bio,
+    html[lang="en"] .lang-only-pl .back-link {
+      display: none;
+    }
+
+    .en-placeholder {
+      display: none;
+    }
+
+    .en-placeholder .article-header,
+    .en-placeholder .article-body,
+    .en-placeholder .author-bio,
+    .en-placeholder .back-link {
+      display: none;
+    }
+
+    html[lang="en"] .en-placeholder {
+      display: block;
+    }
+
+    html[lang="en"] .en-placeholder .article-header,
+    html[lang="en"] .en-placeholder .article-body,
+    html[lang="en"] .en-placeholder .author-bio,
+    html[lang="en"] .en-placeholder .back-link {
+      display: block;
+    }
+    @media (max-width: 768px) {
+      body { overflow-x: hidden; }
+      .container { padding: 0 20px; }
+      .article-header h1 { font-size: 28px; }
+      .article-header { padding: 48px 0 32px 0; }
+      .article-body p { font-size: 16px; }
+      .footer-content { flex-direction: column; gap: 16px; text-align: center; }
+      .footer-links { gap: 16px; }
+    }
+    @media (min-width: 769px) {
+      .nav-hamburger { display: none; }
+      .nav-links {
+        display: flex;
+        position: static;
+        background: none;
+        backdrop-filter: none;
+        flex-direction: row;
+        padding: 0;
+        gap: 32px;
+        border-bottom: none;
+      }
+      .nav-links li {
+        padding: 0;
+        border-bottom: none;
+      }
+      .nav-links li:last-child { padding-top: 0; }
+      .nav-links a { font-size: 12px; }
+      .article-header h1 { font-size: 48px; }
+    }</style>
+</head>
+<body>
+  <nav>
+    <div class="nav-content">
+      <a href="index.html" class="nav-logo">Rafał Myrta</a>
+      <button class="nav-hamburger" onclick="document.querySelector('.nav-links').classList.toggle('open')">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+      <ul class="nav-links">
+        <li><a href="index.html#about">O mnie</a></li>
+        <li><a href="index.html#kompetencje">Kompetencje</a></li>
+        <li><a href="index.html#projekty">Projekty</a></li>
+        <li><a href="index.html#artykuly">Artykuły</a></li>
+        <li><a href="mapa.html">Mapa</a></li>
+        <li><a href="index.html#kontakt">Kontakt</a></li>
+        <li><button class="lang-toggle" onclick="toggleLang()">EN</button></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    <div class="container">
+      <div class="lang-only-pl">
+        <div class="article-header">
+          <h1>Sieci handlowe: to co działa na 20 lokalizacji, zabije cię na 200</h1>
+          <p class="article-lead">Jeśli połowa decyzji operacyjnych w Twojej sieci nadal kończy się u właściciela, ten tekst jest dla Ciebie.</p>
+          <div class="article-divider"></div>
+        </div>
+
+        <article class="article-body">
+          <p>W pewnym momencie właściciel firmy z sześćdziesięcioma lokalizacjami powiedział mi: „Kiedy mieliśmy piętnaście punktów, wszystko działało idealnie."</p>
+
+          <p>Problem polegał na tym, że nadal zarządzał firmą jakby miała piętnaście. Znał wszystkich kierowników z imienia. Każdy problem rozwiązywał telefonem. Decyzje podejmował na korytarzu. I to naprawdę działało... dopóki nie przestało.</p>
+
+          <p>Telefon zaczął dzwonić bez przerwy. Kierownicy czekali na jego decyzje, bo nie mieli jasnych reguł na jakiej podstawie podejmować je sami. Właściciel pracował po czternaście godzin dziennie. Firma rosła. System zarządzania nie.</p>
+
+          <h2>Piętnaście punktów: królestwo ludzi</h2>
+
+          <p>Gdy sieć ma kilkanaście lokalizacji, całe zarządzanie opiera się na ludziach. I to jest w porządku. Szef zna każdego kierownika, wie kto jest solidny, kto wymaga nadzoru, kto ma potencjał. Problemy rozwiązuje się przy kawie. Informacja przepływa naturalnie, bo wszyscy się znają.</p>
+
+          <p>Na tym etapie kluczowa kompetencja to zarządzanie ludźmi. Dobry szef w małej sieci to ktoś, kto potrafi dobierać ludzi, motywować ich i budować relacje. System? Excel, dobra pamięć i telefon wystarczą.</p>
+
+          <p>To działa. Naprawdę działa. Do pewnego momentu.</p>
+
+          <h2>Po czym poznać, że już jesteś za tą granicą</h2>
+
+          <p>Ten moment przychodzi zawsze i prawie zawsze zaskakuje. Ale ma konkretne symptomy. Jeśli rozpoznajesz u siebie trzy lub więcej z tych sytuacji, prawdopodobnie już tam jesteś:</p>
+
+          <p>Wyniki poszczególnych lokalizacji zależą bardziej od konkretnego kierownika niż od standardu firmy. Ta sama promocja w jednym sklepie daje świetne wyniki, a w drugim leży, i nikt nie umie wyjaśnić dlaczego. Kierownik regionu zarządzający piętnastoma punktami fizycznie nie jest w stanie odwiedzić każdego częściej niż raz na dwa tygodnie. Regionalni nie mają wspólnego rytmu przeglądu wyników. Właściciel zatwierdza zbyt wiele decyzji operacyjnych, bo nie ma jasnej matrycy kto o czym decyduje.</p>
+
+          <p>To jest moment, w którym zarządzanie przez ludzi zaczyna zawodzić. Nie dlatego, że ludzie są gorsi. Dlatego, że skala przerasta pojemność ludzkiego mózgu i doby.</p>
+
+          <p>Przy 1200 aptekach Świata Zdrowia i ponad 3800 w całej sieci partnerskiej jedno mogę powiedzieć z pełnym przekonaniem: nikt nie zarządza tym przez telefon.</p>
+
+          <h2>Duża sieć: królestwo modelu</h2>
+
+          <p>Na skali robimy coś fundamentalnie innego. Nie zarządzamy już ludźmi. Zarządzamy modelem działania. W praktyce ten model składa się z trzech rzeczy:</p>
+
+          <p>Standard operacyjny placówki, czyli jak wygląda „dobrze prowadzona lokalizacja" niezależnie od tego, kto akurat jest kierownikiem. Dashboard KPI, który pozwala porównywać lokalizacje ze sobą i reagować na odchylenia zanim staną się problemem. I jasna matryca decyzji: co decyduje lokalizacja, co region, co centrala.</p>
+
+          <p>To nie jest kwestia biurokracji. To jest kwestia przetrwania. Z mojego doświadczenia wiele polskich sieci handlowych nie robi tego przejścia świadomie. Rośnie, dopóki nie wejdzie w kryzys operacyjny. A sieć, która ma 200 lokalizacji i zarządza nimi jak dwudziestoma, wcześniej czy później ten kryzys zalicza.</p>
+
+          <p>Z mojego doświadczenia sieci ze świetnym modelem i przeciętnymi ludźmi mają często lepsze wyniki niż sieci z fantastycznymi ludźmi i kiepskim modelem. Bo system ciągnie ludzi do góry, zamiast ich hamować. Najlepsze sieci nie opierają wyniku na wyjątkowych ludziach. Mają model, w którym normalni ludzie podejmują dobre decyzje.</p>
+
+          <h2>Pułapka w środku</h2>
+
+          <p>Najtrudniej jest firmom, które utknęły pośrodku. Za duże, żeby zarządzać po staremu. Za małe, żeby uzasadnić pełną infrastrukturę. To jest moment, w którym wielu właścicieli traci cierpliwość i albo hamuje wzrost („nie będę się dalej rozwijał, bo nie daję rady"), albo rośnie na siłę i zalicza kryzys.</p>
+
+          <p>Rozwiązanie nie polega na wyborze „ludzie albo system". Polega na świadomym przejściu z jednego modelu zarządzania w drugi. I to przejście trzeba zaplanować zanim go potrzebujesz.</p>
+
+          <h2>Od czego zacząć</h2>
+
+          <p>Jeżeli masz kilkanaście lokalizacji i myślisz o wzroście, trzy rzeczy możesz zrobić w ciągu najbliższego miesiąca:</p>
+
+          <p>Spisz standard operacyjny jednej lokalizacji. Nie sto stron procedur. Jedną stronę: jak wygląda dobrze prowadzony punkt. Co musi się wydarzyć codziennie, co tygodniowo, co miesięcznie. Jeśli nie jesteś w stanie tego spisać, to jest Twój pierwszy problem.</p>
+
+          <p>Zdefiniuj 3-5 KPI, które pozwolą Ci porównywać lokalizacje ze sobą. Nie dwadzieścia. Trzy do pięciu. Takich, na które patrząc raz w tygodniu, wiesz czy jest dobrze.</p>
+
+          <p>Narysuj matrycę decyzji: co decyduje kierownik sam, co wymaga zgody regionu, co trafia do Ciebie. Jeśli wszystko trafia do Ciebie, to nie jest firma. To jest bardzo drogie stanowisko pracy.</p>
+
+          <p>Wzrost bez systemu to tylko większy bałagan. A jeśli twoja sieć działa tylko dlatego, że znasz wszystkich osobiście... to tak naprawdę nie masz sieci. Masz bardzo dużą grupę znajomych.</p>
+        </article>
+
+        <div class="author-bio">
+          Rafał Myrta - buduje działy rozwoju i systemy zarządzania zmianą w dużych i małych organizacjach.
+        </div>
+
+        <div class="back-link">
+          <a href="index.html#artykuly">← Wszystkie artykuły</a>
+        </div>
+      </div>
+
+      <div class="en-placeholder">
+        <div class="article-header">
+          <h1>Retail Networks: What Works at 20 Locations Will Kill You at 200</h1>
+          <p class="article-lead">If half of the operational decisions in your network still end up on the owner's desk, this article is for you.</p>
+          <div class="article-divider"></div>
+        </div>
+
+        <article class="article-body">
+          <p>At some point, the owner of a sixty-location chain told me: "When we had fifteen points, everything worked perfectly."</p>
+
+          <p>The problem was he was still running the company as if it had fifteen locations. He knew all the managers by their first names. He handled every problem with a phone call. He made decisions in the hallway. And it really did work... until it didn't.</p>
+
+          <p>The phone started ringing non-stop. Managers were waiting for his decisions because they didn't have clear rules for making them themselves. The owner was working fourteen hours a day. The company was growing. The management system wasn't.</p>
+
+          <h2>Fifteen locations: the kingdom of people</h2>
+
+          <p>When a network has around fifteen locations, all management is based on people. And that's fine. The boss knows every manager, knows who's solid, who needs supervision, who has potential. You solve problems over coffee. Information flows naturally because everyone knows each other.</p>
+
+          <p>At this stage, the key competency is people management. A good boss at a small chain is someone who can pick the right people, motivate them, and build relationships. A system? Excel, a good memory, and a phone are enough.</p>
+
+          <p>It works. It really does. Up to a point.</p>
+
+          <h2>How to tell you've crossed that line</h2>
+
+          <p>That moment always comes and it almost always surprises you. But it has specific warning signs. If you recognize three or more of these situations in your own operation, you've probably already crossed it:</p>
+
+          <p>The results at different locations depend more on the individual manager than on company standards. The same promotion works great in one store and falls flat in another, and nobody can explain why. A regional manager overseeing fifteen locations physically can't visit each one more than once every two weeks. Regional managers don't have a common rhythm for reviewing results. The owner approves too many operational decisions because there's no clear matrix of who decides what.</p>
+
+          <p>This is the moment when management by people starts to fail. Not because the people are worse. Because the scale exceeds the capacity of the human brain and a 24-hour day.</p>
+
+          <p>Running 1200 Swiat Zdrowia pharmacies and over 3800 across the entire partner network, I can say one thing with complete confidence: nobody manages that by phone.</p>
+
+          <h2>Large network: the kingdom of the model</h2>
+
+          <p>At scale, we do something fundamentally different. We don't manage people. We manage the operating model. In practice, this model consists of three things:</p>
+
+          <p>An operational standard for each location - what "running a location well" looks like regardless of who the current manager is. A KPI dashboard that lets you compare locations against each other and react to deviations before they become problems. And a clear decision matrix: what does a location decide, what does a region decide, what comes to headquarters.</p>
+
+          <p>This isn't about bureaucracy. It's about survival. From my experience, many Polish retail chains don't make this transition consciously. They grow until they hit an operational crisis. A network with 200 locations that manages them like they have twenty will sooner or later hit that crisis.</p>
+
+          <p>From my experience, networks with a solid model and average people often outperform networks with fantastic people and a weak model. Because the system pulls people upward instead of holding them back. The best networks don't build results on exceptional people. They have a model where normal people make good decisions.</p>
+
+          <h2>The trap in the middle</h2>
+
+          <p>The toughest spot is companies stuck in the middle. Too big to manage the old way. Too small to justify full-scale infrastructure. This is when many owners lose patience and either slow growth ("I won't expand further because I can't handle it") or push growth and hit a crisis.</p>
+
+          <p>The solution isn't choosing "people or system". It's making a conscious transition from one management model to the next. And you need to plan that transition before you need it.</p>
+
+          <h2>Where to start</h2>
+
+          <p>If you have around fifteen locations and you're thinking about growth, three things you can do within the next month:</p>
+
+          <p>Write down the operational standard for one location. Not a hundred pages of procedures. One page: what does a well-run location look like. What must happen daily, weekly, monthly. If you can't write it down, that's your first problem.</p>
+
+          <p>Define 3-5 KPIs that let you compare locations against each other. Not twenty. Three to five. The kind where looking at them once a week, you know if things are good.</p>
+
+          <p>Draw a decision matrix: what does a manager decide on their own, what needs regional approval, what comes to you. If everything comes to you, that's not a company. That's a very expensive job title.</p>
+
+          <p>Growth without a system is just bigger chaos. And if your network only works because you know everyone personally... then honestly, you don't have a network. You have a very large group of acquaintances.</p>
+        </article>
+
+        <div class="author-bio">
+          Rafał Myrta - builds growth departments and change management systems in organizations large and small.
+        </div>
+
+        <div class="back-link">
+          <a href="index.html#artykuly">← All articles</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <div>© 2026 Rafał Myrta</div>
+      <ul class="footer-links">
+        <li><a href="https://linkedin.com/in/rafalmyrta">LinkedIn</a></li>
+        <li><a href="https://cpapblog.pl">CPAPblog</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script>
+    function toggleLang() {
+      const html = document.documentElement;
+      const currentLang = html.getAttribute('lang') || 'pl';
+      const newLang = currentLang === 'pl' ? 'en' : 'pl';
+      html.setAttribute('lang', newLang);
+      localStorage.setItem('preferredLang', newLang);
+
+      const btn = document.querySelector('.lang-toggle');
+      btn.textContent = newLang === 'pl' ? 'EN' : 'PL';
+    }
+
+    // Load preferred language on page load
+    document.addEventListener('DOMContentLoaded', function() {
+      const preferredLang = localStorage.getItem('preferredLang') || 'pl';
+      document.documentElement.setAttribute('lang', preferredLang);
+      const btn = document.querySelector('.lang-toggle');
+      btn.textContent = preferredLang === 'pl' ? 'EN' : 'PL';
+    });
+  </script>
+</body>
+</html>
