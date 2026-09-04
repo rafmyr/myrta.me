@@ -12,13 +12,36 @@
   <meta property="og:description" content="Co działa na 20 lokalizacji, zabije Cię na 200. O przejściu z zarządzania ludźmi na zarządzanie modelem w sieciach handlowych.">
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://myrta.me/art-sieci-male-vs-duze.html">
+  <meta property="og:image" content="https://myrta.me/og-image.png">
   <meta property="og:locale" content="pl_PL">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://myrta.me/art-sieci-male-vs-duze.html">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Sieci handlowe: to co działa na 20 lokalizacji, zabije cię na 200",
+    "description": "Co działa na 20 lokalizacji, zabije Cię na 200. O przejściu z zarządzania ludźmi na zarządzanie modelem w sieciach handlowych.",
+    "datePublished": "2026-02-24",
+    "dateModified": "2026-02-24",
+    "inLanguage": "pl",
+    "mainEntityOfPage": "https://myrta.me/art-sieci-male-vs-duze.html",
+    "author": {
+      "@type": "Person",
+      "name": "Rafał Myrta",
+      "url": "https://myrta.me"
+    },
+    "publisher": {
+      "@type": "Person",
+      "name": "Rafał Myrta",
+      "url": "https://myrta.me"
+    }
+  }
+  </script>
   <style>
     :root {
       --ink: #1d1d1f;
-      --gray: #86868b;
+      --gray: #6e6e73;
       --gray-light: #d2d2d7;
       --card-bg: #fbfbfd;
       --white: #ffffff;
@@ -330,19 +353,63 @@
       .nav-links li:last-child { padding-top: 0; }
       .nav-links a { font-size: 12px; }
       .article-header h1 { font-size: 48px; }
-    }</style>
+    }
+    /* ── dodatki 07.2026: meta, author box, artnav, progress, checklisty ── */
+    .article-meta { font-size: 13px; color: var(--gray); margin-bottom: 12px; }
+
+    .read-progress { position: fixed; top: 0; left: 0; height: 2px; width: 0; background: var(--ink); z-index: 2000; }
+
+    .author-box { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; max-width: 720px; margin: 48px auto 0; padding: 24px 0 0; border-top: 1px solid #e8e8ed; }
+    .author-photo { width: 56px; height: 56px; object-fit: cover; object-position: center 25%; border-radius: 14px; flex-shrink: 0; }
+    .author-info { flex: 1; min-width: 220px; }
+    .author-name { font-size: 15px; font-weight: 600; color: var(--ink); }
+    .author-desc { font-size: 14px; color: var(--gray); line-height: 1.5; margin-top: 2px; }
+    .author-cta { font-size: 13px; font-weight: 500; color: var(--ink); text-decoration: none; border: 1px solid var(--gray-light); border-radius: 980px; padding: 9px 18px; white-space: nowrap; transition: all 0.3s cubic-bezier(0.4,0,0.2,1); }
+    .author-cta:hover { background: var(--ink); color: var(--white); border-color: var(--ink); }
+
+    .artnav { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; max-width: 720px; margin: 32px auto 0; }
+    .artnav a { display: block; padding: 16px 18px; border: 1px solid #e8e8ed; border-radius: 12px; text-decoration: none; background: var(--card-bg); transition: transform 0.3s cubic-bezier(0.16,1,0.3,1), border-color 0.3s ease; }
+    .artnav a:hover { transform: translateY(-2px); border-color: #c7c7cc; }
+    .artnav a.next { text-align: right; grid-column: 2; }
+    .artnav a.prev { grid-column: 1; }
+    .artnav-dir { font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gray); margin-bottom: 4px; }
+    .artnav-title { font-size: 14px; font-weight: 600; color: var(--ink); }
+
+    .symptom-list { list-style: none; padding: 0; margin: 0 0 20px; max-width: 720px; }
+    .symptom-list li { position: relative; padding: 10px 0 10px 30px; border-bottom: 1px solid #e8e8ed; font-size: 16px; line-height: 1.65; color: var(--ink); }
+    .symptom-list li:last-child { border-bottom: none; }
+    .symptom-list li::before { content: "\2192"; position: absolute; left: 2px; color: var(--gray); }
+
+    @keyframes artIn { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+    .article-header { animation: artIn 0.7s cubic-bezier(0.16,1,0.3,1) both; }
+    .article-body { animation: artIn 0.7s cubic-bezier(0.16,1,0.3,1) 0.15s both; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .article-header, .article-body { animation: none; }
+      .artnav a:hover { transform: none; }
+    }
+
+    @media (max-width: 768px) {
+      .artnav { grid-template-columns: 1fr; }
+      .artnav a.next { grid-column: 1; text-align: left; }
+    }
+    
+    a:focus-visible, button:focus-visible { outline: 2px solid #1d1d1f; outline-offset: 2px; }
+  </style>
 </head>
 <body>
+  <div class="read-progress" aria-hidden="true"></div>
   <nav>
     <div class="nav-content">
       <a href="index.html" class="nav-logo">Rafał Myrta</a>
-      <button class="nav-hamburger" onclick="document.querySelector('.nav-links').classList.toggle('open')">
+      <button class="nav-hamburger" aria-label="Menu" aria-expanded="false" onclick="var n=document.querySelector('.nav-links');n.classList.toggle('open');this.setAttribute('aria-expanded',n.classList.contains('open'))">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
       </button>
       <ul class="nav-links">
         <li><a href="index.html#about">O mnie</a></li>
         <li><a href="index.html#kompetencje">Kompetencje</a></li>
         <li><a href="index.html#projekty">Projekty</a></li>
+        <li><a href="index.html#standardy">Standardy</a></li>
         <li><a href="index.html#artykuly">Artykuły</a></li>
         <li><a href="mapa.html">Mapa</a></li>
         <li><a href="index.html#kontakt">Kontakt</a></li>
@@ -356,7 +423,8 @@
       <div class="lang-only-pl">
         <div class="article-header">
           <h1>Sieci handlowe: to co działa na 20 lokalizacji, zabije cię na 200</h1>
-          <p class="article-lead">Jeśli połowa decyzji operacyjnych w Twojej sieci nadal kończy się u właściciela, ten tekst jest dla Ciebie.</p>
+          <p class="article-meta">24 lutego 2026</p>
+          <p class="article-lead">Przy piętnastu punktach wystarczą telefon i dobra pamięć. Przy dwustu ten sam telefon dusi firmę. Pytanie, gdzie leży granica i jak ją przejść.</p>
           <div class="article-divider"></div>
         </div>
 
@@ -377,9 +445,15 @@
 
           <h2>Po czym poznać, że już jesteś za tą granicą</h2>
 
-          <p>Ten moment przychodzi zawsze i prawie zawsze zaskakuje. Ale ma konkretne symptomy. Jeśli rozpoznajesz u siebie trzy lub więcej z tych sytuacji, prawdopodobnie już tam jesteś:</p>
+          <p>Ten moment przychodzi zawsze i prawie zawsze zaskakuje. Ale ma konkretne symptomy. Trzy lub więcej z listy niżej i już tam jesteś:</p>
 
-          <p>Wyniki poszczególnych lokalizacji zależą bardziej od konkretnego kierownika niż od standardu firmy. Ta sama promocja w jednym sklepie daje świetne wyniki, a w drugim leży, i nikt nie umie wyjaśnić dlaczego. Kierownik regionu zarządzający piętnastoma punktami fizycznie nie jest w stanie odwiedzić każdego częściej niż raz na dwa tygodnie. Regionalni nie mają wspólnego rytmu przeglądu wyników. Właściciel zatwierdza zbyt wiele decyzji operacyjnych, bo nie ma jasnej matrycy kto o czym decyduje.</p>
+          <ul class="symptom-list">
+            <li>Wyniki poszczególnych lokalizacji zależą bardziej od konkretnego kierownika niż od standardu firmy.</li>
+            <li>Ta sama promocja w jednym sklepie daje świetne wyniki, a w drugim leży, i nikt nie umie wyjaśnić dlaczego.</li>
+            <li>Kierownik regionu zarządzający piętnastoma punktami fizycznie nie jest w stanie odwiedzić każdego częściej niż raz na dwa tygodnie.</li>
+            <li>Regionalni nie mają wspólnego rytmu przeglądu wyników.</li>
+            <li>Właściciel zatwierdza zbyt wiele decyzji operacyjnych, bo nie ma jasnej matrycy kto o czym decyduje.</li>
+          </ul>
 
           <p>To jest moment, w którym zarządzanie przez ludzi zaczyna zawodzić. Nie dlatego, że ludzie są gorsi. Dlatego, że skala przerasta pojemność ludzkiego mózgu i doby.</p>
 
@@ -391,7 +465,7 @@
 
           <p>Standard operacyjny placówki, czyli jak wygląda „dobrze prowadzona lokalizacja" niezależnie od tego, kto akurat jest kierownikiem. Dashboard KPI, który pozwala porównywać lokalizacje ze sobą i reagować na odchylenia zanim staną się problemem. I jasna matryca decyzji: co decyduje lokalizacja, co region, co centrala.</p>
 
-          <p>To nie jest kwestia biurokracji. To jest kwestia przetrwania. Z mojego doświadczenia wiele polskich sieci handlowych nie robi tego przejścia świadomie. Rośnie, dopóki nie wejdzie w kryzys operacyjny. A sieć, która ma 200 lokalizacji i zarządza nimi jak dwudziestoma, wcześniej czy później ten kryzys zalicza.</p>
+          <p>To nie jest kwestia biurokracji. To jest kwestia przetrwania. Wiele polskich sieci handlowych nie robi tego przejścia świadomie. Rośnie, dopóki nie wejdzie w kryzys operacyjny. A sieć, która ma 200 lokalizacji i zarządza nimi jak dwudziestoma, wcześniej czy później ten kryzys zalicza.</p>
 
           <p>Z mojego doświadczenia sieci ze świetnym modelem i przeciętnymi ludźmi mają często lepsze wyniki niż sieci z fantastycznymi ludźmi i kiepskim modelem. Bo system ciągnie ludzi do góry, zamiast ich hamować. Najlepsze sieci nie opierają wyniku na wyjątkowych ludziach. Mają model, w którym normalni ludzie podejmują dobre decyzje.</p>
 
@@ -414,9 +488,8 @@
           <p>Wzrost bez systemu to tylko większy bałagan. A jeśli twoja sieć działa tylko dlatego, że znasz wszystkich osobiście... to tak naprawdę nie masz sieci. Masz bardzo dużą grupę znajomych.</p>
         </article>
 
-        <div class="author-bio">
-          Rafał Myrta - buduje działy rozwoju i systemy zarządzania zmianą w dużych i małych organizacjach.
-        </div>
+        <div class="author-box"><img src="profile.jpg" alt="Rafał Myrta" class="author-photo" loading="lazy"><div class="author-info"><div class="author-name">Rafał Myrta</div><div class="author-desc">Buduje działy rozwoju i systemy zarządzania zmianą w dużych i małych organizacjach.</div></div><a href="index.html#kontakt" class="author-cta">Porozmawiajmy →</a></div>
+        <div class="artnav"><a class="prev" href="art-80-procent-wdrozen.html"><div class="artnav-dir">← Poprzedni</div><div class="artnav-title">Dlaczego 80% wdrożeń się nie udaje</div></a><a class="next" href="art-category-management.html"><div class="artnav-dir">Następny →</div><div class="artnav-title">Category Management</div></a></div>
 
         <div class="back-link">
           <a href="index.html#artykuly">← Wszystkie artykuły</a>
@@ -426,7 +499,8 @@
       <div class="en-placeholder">
         <div class="article-header">
           <h1>Retail Networks: What Works at 20 Locations Will Kill You at 200</h1>
-          <p class="article-lead">If half of the operational decisions in your network still end up on the owner's desk, this article is for you.</p>
+          <p class="article-meta">February 24, 2026</p>
+          <p class="article-lead">With fifteen locations, a phone and good memory are enough. With two hundred, that same phone strangles the company. The question is where the line is and how to cross it.</p>
           <div class="article-divider"></div>
         </div>
 
@@ -449,7 +523,13 @@
 
           <p>That moment always comes and it almost always surprises you. But it has specific warning signs. If you recognize three or more of these situations in your own operation, you've probably already crossed it:</p>
 
-          <p>The results at different locations depend more on the individual manager than on company standards. The same promotion works great in one store and falls flat in another, and nobody can explain why. A regional manager overseeing fifteen locations physically can't visit each one more than once every two weeks. Regional managers don't have a common rhythm for reviewing results. The owner approves too many operational decisions because there's no clear matrix of who decides what.</p>
+          <ul class="symptom-list">
+            <li>The results at different locations depend more on the individual manager than on company standards.</li>
+            <li>The same promotion works great in one store and falls flat in another, and nobody can explain why.</li>
+            <li>A regional manager overseeing fifteen locations physically can't visit each one more than once every two weeks.</li>
+            <li>Regional managers don't have a common rhythm for reviewing results.</li>
+            <li>The owner approves too many operational decisions because there's no clear matrix of who decides what.</li>
+          </ul>
 
           <p>This is the moment when management by people starts to fail. Not because the people are worse. Because the scale exceeds the capacity of the human brain and a 24-hour day.</p>
 
@@ -484,9 +564,8 @@
           <p>Growth without a system is just bigger chaos. And if your network only works because you know everyone personally... then honestly, you don't have a network. You have a very large group of acquaintances.</p>
         </article>
 
-        <div class="author-bio">
-          Rafał Myrta - builds growth departments and change management systems in organizations large and small.
-        </div>
+        <div class="author-box"><img src="profile.jpg" alt="Rafał Myrta" class="author-photo" loading="lazy"><div class="author-info"><div class="author-name">Rafał Myrta</div><div class="author-desc">Builds growth departments and change management systems in organizations large and small.</div></div><a href="index.html#kontakt" class="author-cta">Let's talk →</a></div>
+        <div class="artnav"><a class="prev" href="art-80-procent-wdrozen.html"><div class="artnav-dir">← Previous</div><div class="artnav-title">Why 80% of Implementations Fail</div></a><a class="next" href="art-category-management.html"><div class="artnav-dir">Next →</div><div class="artnav-title">Category Management</div></a></div>
 
         <div class="back-link">
           <a href="index.html#artykuly">← All articles</a>
@@ -524,6 +603,18 @@
       const btn = document.querySelector('.lang-toggle');
       btn.textContent = preferredLang === 'pl' ? 'EN' : 'PL';
     });
+
+    // Pasek postępu czytania
+    (function() {
+      var bar = document.querySelector('.read-progress');
+      if (!bar) return;
+      function upd() {
+        var h = document.documentElement.scrollHeight - window.innerHeight;
+        bar.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
+      }
+      window.addEventListener('scroll', upd, { passive: true });
+      upd();
+    })();
   </script>
 </body>
 </html>

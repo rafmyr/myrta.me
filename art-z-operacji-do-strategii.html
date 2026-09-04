@@ -12,13 +12,36 @@
   <meta property="og:description" content="Jak właściciel firmy przechodzi od zarządzania operacyjnego do myślenia strategicznego. Praktyczny przewodnik transformacji roli.">
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://myrta.me/art-z-operacji-do-strategii.html">
+  <meta property="og:image" content="https://myrta.me/og-image.png">
   <meta property="og:locale" content="pl_PL">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://myrta.me/art-z-operacji-do-strategii.html">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Właściciel: z operacji do strategii",
+    "description": "Jak właściciel firmy przechodzi od zarządzania operacyjnego do myślenia strategicznego. Praktyczny przewodnik transformacji roli.",
+    "datePublished": "2025-11-26",
+    "dateModified": "2025-11-26",
+    "inLanguage": "pl",
+    "mainEntityOfPage": "https://myrta.me/art-z-operacji-do-strategii.html",
+    "author": {
+      "@type": "Person",
+      "name": "Rafał Myrta",
+      "url": "https://myrta.me"
+    },
+    "publisher": {
+      "@type": "Person",
+      "name": "Rafał Myrta",
+      "url": "https://myrta.me"
+    }
+  }
+  </script>
   <style>
     :root {
       --ink: #1d1d1f;
-      --gray: #86868b;
+      --gray: #6e6e73;
       --gray-light: #d2d2d7;
       --card-bg: #fbfbfd;
       --white: #ffffff;
@@ -330,19 +353,63 @@
       .nav-links li:last-child { padding-top: 0; }
       .nav-links a { font-size: 12px; }
       .article-header h1 { font-size: 48px; }
-    }</style>
+    }
+    /* ── dodatki 07.2026: meta, author box, artnav, progress, checklisty ── */
+    .article-meta { font-size: 13px; color: var(--gray); margin-bottom: 12px; }
+
+    .read-progress { position: fixed; top: 0; left: 0; height: 2px; width: 0; background: var(--ink); z-index: 2000; }
+
+    .author-box { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; max-width: 720px; margin: 48px auto 0; padding: 24px 0 0; border-top: 1px solid #e8e8ed; }
+    .author-photo { width: 56px; height: 56px; object-fit: cover; object-position: center 25%; border-radius: 14px; flex-shrink: 0; }
+    .author-info { flex: 1; min-width: 220px; }
+    .author-name { font-size: 15px; font-weight: 600; color: var(--ink); }
+    .author-desc { font-size: 14px; color: var(--gray); line-height: 1.5; margin-top: 2px; }
+    .author-cta { font-size: 13px; font-weight: 500; color: var(--ink); text-decoration: none; border: 1px solid var(--gray-light); border-radius: 980px; padding: 9px 18px; white-space: nowrap; transition: all 0.3s cubic-bezier(0.4,0,0.2,1); }
+    .author-cta:hover { background: var(--ink); color: var(--white); border-color: var(--ink); }
+
+    .artnav { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; max-width: 720px; margin: 32px auto 0; }
+    .artnav a { display: block; padding: 16px 18px; border: 1px solid #e8e8ed; border-radius: 12px; text-decoration: none; background: var(--card-bg); transition: transform 0.3s cubic-bezier(0.16,1,0.3,1), border-color 0.3s ease; }
+    .artnav a:hover { transform: translateY(-2px); border-color: #c7c7cc; }
+    .artnav a.next { text-align: right; grid-column: 2; }
+    .artnav a.prev { grid-column: 1; }
+    .artnav-dir { font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gray); margin-bottom: 4px; }
+    .artnav-title { font-size: 14px; font-weight: 600; color: var(--ink); }
+
+    .symptom-list { list-style: none; padding: 0; margin: 0 0 20px; max-width: 720px; }
+    .symptom-list li { position: relative; padding: 10px 0 10px 30px; border-bottom: 1px solid #e8e8ed; font-size: 16px; line-height: 1.65; color: var(--ink); }
+    .symptom-list li:last-child { border-bottom: none; }
+    .symptom-list li::before { content: "\2192"; position: absolute; left: 2px; color: var(--gray); }
+
+    @keyframes artIn { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+    .article-header { animation: artIn 0.7s cubic-bezier(0.16,1,0.3,1) both; }
+    .article-body { animation: artIn 0.7s cubic-bezier(0.16,1,0.3,1) 0.15s both; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .article-header, .article-body { animation: none; }
+      .artnav a:hover { transform: none; }
+    }
+
+    @media (max-width: 768px) {
+      .artnav { grid-template-columns: 1fr; }
+      .artnav a.next { grid-column: 1; text-align: left; }
+    }
+    
+    a:focus-visible, button:focus-visible { outline: 2px solid #1d1d1f; outline-offset: 2px; }
+  </style>
 </head>
 <body>
+  <div class="read-progress" aria-hidden="true"></div>
   <nav>
     <div class="nav-content">
       <a href="index.html" class="nav-logo">Rafał Myrta</a>
-      <button class="nav-hamburger" onclick="document.querySelector('.nav-links').classList.toggle('open')">
+      <button class="nav-hamburger" aria-label="Menu" aria-expanded="false" onclick="var n=document.querySelector('.nav-links');n.classList.toggle('open');this.setAttribute('aria-expanded',n.classList.contains('open'))">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
       </button>
       <ul class="nav-links">
         <li><a href="index.html#about">O mnie</a></li>
         <li><a href="index.html#kompetencje">Kompetencje</a></li>
         <li><a href="index.html#projekty">Projekty</a></li>
+        <li><a href="index.html#standardy">Standardy</a></li>
         <li><a href="index.html#artykuly">Artykuły</a></li>
         <li><a href="mapa.html">Mapa</a></li>
         <li><a href="index.html#kontakt">Kontakt</a></li>
@@ -356,7 +423,8 @@
       <div class="lang-only-pl">
         <div class="article-header">
           <h1>Właściciel: z operacji do strategii</h1>
-          <p class="article-lead">Jeśli pracujesz po 12 godzin dziennie, a firma dalej nie rośnie bez Twojego udziału w każdej decyzji, ten tekst jest dla Ciebie.</p>
+          <p class="article-meta">26 listopada 2025</p>
+          <p class="article-lead">Czterdzieści trzy decyzje operacyjne jednego dnia. Tyle policzyliśmy u właściciela, który „nie ma czasu na strategię”. Sprawdź, ile Ty podjąłeś wczoraj.</p>
           <div class="article-divider"></div>
         </div>
 
@@ -369,13 +437,19 @@
 
           <p>Znam tę sytuację, bo widziałem ją w kilkunastu firmach. I za każdym razem diagnoza brzmiała tak samo: „ludzie nie dowożą".</p>
 
-          <h2>Po czym poznać, że to Twój problem</h2>
+          <h2>Pięć sygnałów, że utknąłeś w operacji</h2>
 
-          <p>Zanim przejdę dalej, sprawdź u siebie. Jeśli rozpoznajesz trzy lub więcej z tych sytuacji, prawdopodobnie nie masz problemu z ludźmi:</p>
+          <p>Policz trafienia. Trzy lub więcej oznaczają, że problemem nie są ludzie:</p>
 
-          <p>Wymieniłeś już kilku menedżerów, a wyniki dalej Cię nie satysfakcjonują. Pracujesz ponad 10 godzin dziennie i większość tego czasu to decyzje operacyjne. Na pytanie „kto jest właścicielem procesu X?" nie ma jednoznacznej odpowiedzi. Ludzie przychodzą do Ciebie z problemami, bo nie wiedzą na jakiej podstawie podjąć decyzję sami. Firma bez Ciebie przez tydzień zaczyna się „sypać".</p>
+          <ul class="symptom-list">
+            <li>Wymieniłeś już kilku menedżerów, a wyniki dalej Cię nie satysfakcjonują.</li>
+            <li>Pracujesz ponad 10 godzin dziennie i większość tego czasu to decyzje operacyjne.</li>
+            <li>Na pytanie „kto jest właścicielem procesu X?" nie ma jednoznacznej odpowiedzi.</li>
+            <li>Ludzie przychodzą do Ciebie z problemami, bo nie wiedzą na jakiej podstawie podjąć decyzję sami.</li>
+            <li>Firma bez Ciebie przez tydzień zaczyna się „sypać".</li>
+          </ul>
 
-          <p>Jeśli tak, to z mojego doświadczenia problem prawie nigdy nie leży w ludziach. Leży w systemie.</p>
+          <p>Jeśli tak, to problem prawie nigdy nie leży w ludziach. Leży w systemie.</p>
 
           <h2>„Ludzie nie dowożą"</h2>
 
@@ -422,9 +496,8 @@
           <p>Ludzie nie są słabi. Słabe bywają systemy, w których muszą pracować. A jeśli wszystko w firmie kończy się na właścicielu, to nie jest firma. To jest bardzo drogie stanowisko pracy.</p>
         </article>
 
-        <div class="author-bio">
-          Rafał Myrta - buduje działy rozwoju i systemy zarządzania zmianą w dużych i małych organizacjach.
-        </div>
+        <div class="author-box"><img src="profile.jpg" alt="Rafał Myrta" class="author-photo" loading="lazy"><div class="author-info"><div class="author-name">Rafał Myrta</div><div class="author-desc">Buduje działy rozwoju i systemy zarządzania zmianą w dużych i małych organizacjach.</div></div><a href="index.html#kontakt" class="author-cta">Porozmawiajmy →</a></div>
+        <div class="artnav"><a class="prev" href="art-dzial-rozwoju.html"><div class="artnav-dir">← Poprzedni</div><div class="artnav-title">Dział Rozwoju</div></a><a class="next" href="art-80-procent-wdrozen.html"><div class="artnav-dir">Następny →</div><div class="artnav-title">Dlaczego 80% wdrożeń się nie udaje</div></a></div>
 
         <div class="back-link">
           <a href="index.html#artykuly">← Wszystkie artykuły</a>
@@ -434,7 +507,8 @@
       <div class="en-placeholder">
         <div class="article-header">
           <h1>Owner: From Operations to Strategy</h1>
-          <p class="article-lead">If you're working 12 hours a day and your company still can't grow without your input on every decision, this is for you.</p>
+          <p class="article-meta">November 26, 2025</p>
+          <p class="article-lead">Forty-three operational decisions in a single day. That's what we counted for an owner who “has no time for strategy”. Check how many you made yesterday.</p>
           <div class="article-divider"></div>
         </div>
 
@@ -447,11 +521,17 @@
 
           <p>I know this situation because I've seen it in dozens of companies. And every time the diagnosis sounded the same: "people don't deliver."</p>
 
-          <h2>How to tell if this is your problem</h2>
+          <h2>Five signals you're stuck in operations</h2>
 
           <p>Before I go on, check yourself. If you recognize three or more of these situations, the problem probably isn't your people:</p>
 
-          <p>You've already replaced several managers and results still don't satisfy you. You work more than 10 hours a day and most of it is operational decisions. When you ask "who owns process X?" there's no clear answer. People come to you with problems because they don't know what basis to use to decide for themselves. The company starts falling apart after a week without you.</p>
+          <ul class="symptom-list">
+            <li>You've already replaced several managers and results still don't satisfy you.</li>
+            <li>You work more than 10 hours a day and most of it is operational decisions.</li>
+            <li>When you ask "who owns process X?" there's no clear answer.</li>
+            <li>People come to you with problems because they don't know what basis to use to decide for themselves.</li>
+            <li>The company starts falling apart after a week without you.</li>
+          </ul>
 
           <p>If this sounds like you, the problem almost never comes down to people. It comes down to systems.</p>
 
@@ -500,9 +580,8 @@
           <p>People aren't weak. Weak systems are. And if everything in your company comes down to the owner, that's not a company. That's a very expensive job title.</p>
         </article>
 
-        <div class="author-bio">
-          Rafał Myrta builds growth departments and change management systems in organizations large and small.
-        </div>
+        <div class="author-box"><img src="profile.jpg" alt="Rafał Myrta" class="author-photo" loading="lazy"><div class="author-info"><div class="author-name">Rafał Myrta</div><div class="author-desc">Builds growth departments and change management systems in organizations large and small.</div></div><a href="index.html#kontakt" class="author-cta">Let's talk →</a></div>
+        <div class="artnav"><a class="prev" href="art-dzial-rozwoju.html"><div class="artnav-dir">← Previous</div><div class="artnav-title">Growth Department</div></a><a class="next" href="art-80-procent-wdrozen.html"><div class="artnav-dir">Next →</div><div class="artnav-title">Why 80% of Implementations Fail</div></a></div>
 
         <div class="back-link">
           <a href="index.html#artykuly">← All articles</a>
@@ -540,6 +619,18 @@
       const btn = document.querySelector('.lang-toggle');
       btn.textContent = preferredLang === 'pl' ? 'EN' : 'PL';
     });
+
+    // Pasek postępu czytania
+    (function() {
+      var bar = document.querySelector('.read-progress');
+      if (!bar) return;
+      function upd() {
+        var h = document.documentElement.scrollHeight - window.innerHeight;
+        bar.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
+      }
+      window.addEventListener('scroll', upd, { passive: true });
+      upd();
+    })();
   </script>
 </body>
 </html>

@@ -12,13 +12,36 @@
   <meta property="og:description" content="Restrukturyzacja zaczyna się od procesów, nie od ludzi. Case study sieci Świat Zdrowia i lekcje z transformacji organizacyjnej.">
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://myrta.me/art-restrukturyzacja.html">
+  <meta property="og:image" content="https://myrta.me/og-image.png">
   <meta property="og:locale" content="pl_PL">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://myrta.me/art-restrukturyzacja.html">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Restrukturyzacja zaczyna się od procesów, nie od etatów",
+    "description": "Restrukturyzacja zaczyna się od procesów, nie od ludzi. Case study sieci Świat Zdrowia i lekcje z transformacji organizacyjnej.",
+    "datePublished": "2026-05-19",
+    "dateModified": "2026-05-19",
+    "inLanguage": "pl",
+    "mainEntityOfPage": "https://myrta.me/art-restrukturyzacja.html",
+    "author": {
+      "@type": "Person",
+      "name": "Rafał Myrta",
+      "url": "https://myrta.me"
+    },
+    "publisher": {
+      "@type": "Person",
+      "name": "Rafał Myrta",
+      "url": "https://myrta.me"
+    }
+  }
+  </script>
   <style>
     :root {
       --ink: #1d1d1f;
-      --gray: #86868b;
+      --gray: #6e6e73;
       --gray-light: #d2d2d7;
       --card-bg: #fbfbfd;
       --white: #ffffff;
@@ -330,19 +353,63 @@
       .nav-links li:last-child { padding-top: 0; }
       .nav-links a { font-size: 12px; }
       .article-header h1 { font-size: 48px; }
-    }</style>
+    }
+    /* ── dodatki 07.2026: meta, author box, artnav, progress, checklisty ── */
+    .article-meta { font-size: 13px; color: var(--gray); margin-bottom: 12px; }
+
+    .read-progress { position: fixed; top: 0; left: 0; height: 2px; width: 0; background: var(--ink); z-index: 2000; }
+
+    .author-box { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; max-width: 720px; margin: 48px auto 0; padding: 24px 0 0; border-top: 1px solid #e8e8ed; }
+    .author-photo { width: 56px; height: 56px; object-fit: cover; object-position: center 25%; border-radius: 14px; flex-shrink: 0; }
+    .author-info { flex: 1; min-width: 220px; }
+    .author-name { font-size: 15px; font-weight: 600; color: var(--ink); }
+    .author-desc { font-size: 14px; color: var(--gray); line-height: 1.5; margin-top: 2px; }
+    .author-cta { font-size: 13px; font-weight: 500; color: var(--ink); text-decoration: none; border: 1px solid var(--gray-light); border-radius: 980px; padding: 9px 18px; white-space: nowrap; transition: all 0.3s cubic-bezier(0.4,0,0.2,1); }
+    .author-cta:hover { background: var(--ink); color: var(--white); border-color: var(--ink); }
+
+    .artnav { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; max-width: 720px; margin: 32px auto 0; }
+    .artnav a { display: block; padding: 16px 18px; border: 1px solid #e8e8ed; border-radius: 12px; text-decoration: none; background: var(--card-bg); transition: transform 0.3s cubic-bezier(0.16,1,0.3,1), border-color 0.3s ease; }
+    .artnav a:hover { transform: translateY(-2px); border-color: #c7c7cc; }
+    .artnav a.next { text-align: right; grid-column: 2; }
+    .artnav a.prev { grid-column: 1; }
+    .artnav-dir { font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gray); margin-bottom: 4px; }
+    .artnav-title { font-size: 14px; font-weight: 600; color: var(--ink); }
+
+    .symptom-list { list-style: none; padding: 0; margin: 0 0 20px; max-width: 720px; }
+    .symptom-list li { position: relative; padding: 10px 0 10px 30px; border-bottom: 1px solid #e8e8ed; font-size: 16px; line-height: 1.65; color: var(--ink); }
+    .symptom-list li:last-child { border-bottom: none; }
+    .symptom-list li::before { content: "\2192"; position: absolute; left: 2px; color: var(--gray); }
+
+    @keyframes artIn { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+    .article-header { animation: artIn 0.7s cubic-bezier(0.16,1,0.3,1) both; }
+    .article-body { animation: artIn 0.7s cubic-bezier(0.16,1,0.3,1) 0.15s both; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .article-header, .article-body { animation: none; }
+      .artnav a:hover { transform: none; }
+    }
+
+    @media (max-width: 768px) {
+      .artnav { grid-template-columns: 1fr; }
+      .artnav a.next { grid-column: 1; text-align: left; }
+    }
+    
+    a:focus-visible, button:focus-visible { outline: 2px solid #1d1d1f; outline-offset: 2px; }
+  </style>
 </head>
 <body>
+  <div class="read-progress" aria-hidden="true"></div>
   <nav>
     <div class="nav-content">
       <a href="index.html" class="nav-logo">Rafał Myrta</a>
-      <button class="nav-hamburger" onclick="document.querySelector('.nav-links').classList.toggle('open')">
+      <button class="nav-hamburger" aria-label="Menu" aria-expanded="false" onclick="var n=document.querySelector('.nav-links');n.classList.toggle('open');this.setAttribute('aria-expanded',n.classList.contains('open'))">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
       </button>
       <ul class="nav-links">
         <li><a href="index.html#about">O mnie</a></li>
         <li><a href="index.html#kompetencje">Kompetencje</a></li>
         <li><a href="index.html#projekty">Projekty</a></li>
+        <li><a href="index.html#standardy">Standardy</a></li>
         <li><a href="index.html#artykuly">Artykuły</a></li>
         <li><a href="mapa.html">Mapa</a></li>
         <li><a href="index.html#kontakt">Kontakt</a></li>
@@ -356,7 +423,8 @@
       <div class="lang-only-pl">
         <div class="article-header">
           <h1>Restrukturyzacja zaczyna się od procesów, nie od etatów</h1>
-          <p class="article-lead">Jeśli Twoja firma rośnie, a problemy rosną szybciej, ten tekst pokaże Ci gdzie zwykle leży przyczyna.</p>
+          <p class="article-meta">19 maja 2026</p>
+          <p class="article-lead">Audyt, który miał skończyć się raportem, skończył się wymianą zarządu i restrukturyzacją całej spółki. O tym, dlaczego tnie się procesy, a nie etaty.</p>
           <div class="article-divider"></div>
         </div>
 
@@ -375,13 +443,19 @@
 
           <p>A mnie powiedzieli: „Jeżeli jesteś taki mądry, to teraz to poukładaj."</p>
 
-          <h2>Po czym poznać, że Twoja organizacja ma ten problem</h2>
+          <h2>Test na konstrukcję organizacji</h2>
 
-          <p>Zanim opowiem co zrobiliśmy, sprawdź u siebie. Te symptomy powtarzają się w większości firm, z którymi pracowałem:</p>
+          <p>Te symptomy powtarzają się w większości firm, z którymi pracowałem. Odhacz swoje:</p>
 
-          <p>Na pytanie „kto za to odpowiada?" najczęściej pada odpowiedź: „To zależy." W wielu miejscach trzy osoby robią podobną pracę, ale jednocześnie są obszary, których nie pilnuje nikt. Każdy nowy problem generuje nowe stanowisko zamiast pytania „czy problem leży w procesie?". Ludzie są zajęci, a wyniki nie rosną proporcjonalnie do zatrudnienia. Decyzje utykają, bo nikt nie wie kto ma je podejmować.</p>
+          <ul class="symptom-list">
+            <li>Na pytanie „kto za to odpowiada?" najczęściej pada odpowiedź: „To zależy."</li>
+            <li>W wielu miejscach trzy osoby robią podobną pracę, ale jednocześnie są obszary, których nie pilnuje nikt.</li>
+            <li>Każdy nowy problem generuje nowe stanowisko zamiast pytania „czy problem leży w procesie?".</li>
+            <li>Ludzie są zajęci, a wyniki nie rosną proporcjonalnie do zatrudnienia.</li>
+            <li>Decyzje utykają, bo nikt nie wie kto ma je podejmować.</li>
+          </ul>
 
-          <p>Jeśli rozpoznajesz trzy lub więcej z tych sytuacji, to zwykle nie jest kwestia ludzi. To jest kwestia tego, jak organizacja jest zaprojektowana.</p>
+          <p>Trzy lub więcej trafień? Zostaw ludzi w spokoju. Przyczyna siedzi w projekcie organizacji.</p>
 
           <h2>Od diagnozy do skalpela</h2>
 
@@ -426,9 +500,8 @@
           <p>Restrukturyzacja nie polega na zwalnianiu ludzi. Polega na tym, że organizacja w końcu zaczyna wiedzieć, kto za co odpowiada. Firmy najczęściej nie mają problemów z liczbą ludzi. Mają problem z tym, że nikt nie odpowiada za wynik.</p>
         </article>
 
-        <div class="author-bio">
-          Rafał Myrta - buduje działy rozwoju i systemy zarządzania zmianą w dużych i małych organizacjach.
-        </div>
+        <div class="author-box"><img src="profile.jpg" alt="Rafał Myrta" class="author-photo" loading="lazy"><div class="author-info"><div class="author-name">Rafał Myrta</div><div class="author-desc">Buduje działy rozwoju i systemy zarządzania zmianą w dużych i małych organizacjach.</div></div><a href="index.html#kontakt" class="author-cta">Porozmawiajmy →</a></div>
+        <div class="artnav"><a class="prev" href="art-category-management.html"><div class="artnav-dir">← Poprzedni</div><div class="artnav-title">Category Management</div></a></div>
 
         <div class="back-link">
           <a href="index.html#artykuly">← Wszystkie artykuły</a>
@@ -438,7 +511,8 @@
       <div class="en-placeholder">
         <div class="article-header">
           <h1>Restructuring starts with processes, not headcount</h1>
-          <p class="article-lead">If your company is growing but problems are growing faster, this article will show you where the real problem usually sits.</p>
+          <p class="article-meta">May 19, 2026</p>
+          <p class="article-lead">An audit that was supposed to end with a report ended with the board replaced and the whole company restructured. On why you cut processes, not headcount.</p>
           <div class="article-divider"></div>
         </div>
 
@@ -457,11 +531,17 @@
 
           <p>And they told me: "If you're so smart, go fix it."</p>
 
-          <h2>Signs your organization has this problem</h2>
+          <h2>A test of your organization's design</h2>
 
           <p>Before I tell you what we did, check yourself. These symptoms repeat in most companies I've worked with:</p>
 
-          <p>When you ask "who's responsible for this?" the answer is usually "it depends." In many places, three people do the same job at the same time, while other areas have nobody watching them. Every new problem spawns a new job instead of anyone asking "is the problem in the process?" People are busy, but results don't scale with headcount. Decisions get stuck because nobody knows who decides.</p>
+          <ul class="symptom-list">
+            <li>When you ask "who's responsible for this?" the answer is usually "it depends."</li>
+            <li>In many places, three people do the same job at the same time, while other areas have nobody watching them.</li>
+            <li>Every new problem spawns a new job instead of anyone asking "is the problem in the process?"</li>
+            <li>People are busy, but results don't scale with headcount.</li>
+            <li>Decisions get stuck because nobody knows who decides.</li>
+          </ul>
 
           <p>If you recognize three or more of these, it's usually not about people. It's about how the organization is designed.</p>
 
@@ -508,9 +588,8 @@
           <p>Restructuring isn't about firing people. It's about the organization finally knowing who is responsible for what. Companies usually don't have a people problem. They have a problem where nobody is accountable for results.</p>
         </article>
 
-        <div class="author-bio">
-          Rafał Myrta - builds growth departments and change management systems in organizations large and small.
-        </div>
+        <div class="author-box"><img src="profile.jpg" alt="Rafał Myrta" class="author-photo" loading="lazy"><div class="author-info"><div class="author-name">Rafał Myrta</div><div class="author-desc">Builds growth departments and change management systems in organizations large and small.</div></div><a href="index.html#kontakt" class="author-cta">Let's talk →</a></div>
+        <div class="artnav"><a class="prev" href="art-category-management.html"><div class="artnav-dir">← Previous</div><div class="artnav-title">Category Management</div></a></div>
 
         <div class="back-link">
           <a href="index.html#artykuly">← All articles</a>
@@ -548,6 +627,18 @@
       const btn = document.querySelector('.lang-toggle');
       btn.textContent = preferredLang === 'pl' ? 'EN' : 'PL';
     });
+
+    // Pasek postępu czytania
+    (function() {
+      var bar = document.querySelector('.read-progress');
+      if (!bar) return;
+      function upd() {
+        var h = document.documentElement.scrollHeight - window.innerHeight;
+        bar.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
+      }
+      window.addEventListener('scroll', upd, { passive: true });
+      upd();
+    })();
   </script>
 </body>
 </html>

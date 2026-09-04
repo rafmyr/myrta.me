@@ -8,6 +8,32 @@ RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 RewriteCond %{HTTP_HOST} ^www\.myrta\.me [NC]
 RewriteRule ^(.*)$ https://myrta.me/$1 [L,R=301]
 
+# ── Seria "AI, procesy, transformacja": publikacja sterowana datą serwera ──
+# Cała seria opublikowana 17.08.2026 — reguły poniżej są już nieaktywne (data minęła).
+# Mechanizm zostaje na przyszłość: nowa data w regule = artykuł czeka do tego dnia. Po dacie: normalna strona.
+# %{TIME} = YYYYMMDDHHMMSS wg zegara serwera. Reguły można bezpiecznie usunąć
+# po 27.10.2026 — wtedy wszystkie artykuły są już publiczne.
+RewriteCond %{TIME} <20260817060000
+RewriteRule ^art-ai-zrodlo-prawdy\.html$ - [R=404,L]
+RewriteCond %{TIME} <20260817060000
+RewriteRule ^art-ai-feature-to-nie-strategia\.html$ - [R=404,L]
+RewriteCond %{TIME} <20260817060000
+RewriteRule ^art-ai-czego-agent-nie-wie-o-aptece\.html$ - [R=404,L]
+RewriteCond %{TIME} <20260817060000
+RewriteRule ^art-ai-falszywe-i-gotowe\.html$ - [R=404,L]
+RewriteCond %{TIME} <20260817060000
+RewriteRule ^art-ai-zarzadzanie-agentami\.html$ - [R=404,L]
+RewriteCond %{TIME} <20260817060000
+RewriteRule ^art-ai-zly-projekt\.html$ - [R=404,L]
+RewriteCond %{TIME} <20260817060000
+RewriteRule ^art-ai-pilot-i-skalowanie\.html$ - [R=404,L]
+RewriteCond %{TIME} <20260817060000
+RewriteRule ^art-ai-mbo-kontra-ai\.html$ - [R=404,L]
+RewriteCond %{TIME} <20260817060000
+RewriteRule ^art-ai-sredni-szczebel\.html$ - [R=404,L]
+RewriteCond %{TIME} <20260817060000
+RewriteRule ^art-ai-restrukturyzacja\.html$ - [R=404,L]
+
 # Security headers
 <IfModule mod_headers.c>
     Header set X-Content-Type-Options "nosniff"

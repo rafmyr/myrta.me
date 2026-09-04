@@ -34,7 +34,7 @@
   <style>
     :root {
       --ink: #1d1d1f;
-      --gray: #86868b;
+      --gray: #6e6e73;
       --gray-light: #d2d2d7;
       --card-bg: #fbfbfd;
       --white: #ffffff;
@@ -429,19 +429,22 @@
       .nav-links li:last-child { padding-top: 0; }
       .nav-links a { font-size: 12px; }
     }
+  
+    a:focus-visible, button:focus-visible { outline: 2px solid #1d1d1f; outline-offset: 2px; }
   </style>
 </head>
 <body>
   <nav>
     <div class="nav-content">
       <a href="index.html" class="nav-logo">Rafał Myrta</a>
-      <button class="nav-hamburger" onclick="document.querySelector('.nav-links').classList.toggle('open')">
+      <button class="nav-hamburger" aria-label="Menu" aria-expanded="false" onclick="var n=document.querySelector('.nav-links');n.classList.toggle('open');this.setAttribute('aria-expanded',n.classList.contains('open'))">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
       </button>
       <ul class="nav-links">
         <li><a href="index.html#about">O mnie</a></li>
         <li><a href="index.html#kompetencje">Kompetencje</a></li>
         <li><a href="index.html#projekty">Projekty</a></li>
+        <li><a href="index.html#standardy">Standardy</a></li>
         <li><a href="index.html#artykuly">Artykuły</a></li>
         <li><a href="mapa.html">Mapa</a></li>
         <li><a href="index.html#kontakt">Kontakt</a></li>
@@ -509,9 +512,9 @@
           <li><span class="ch-num">14.</span>Chory miś</li>
           <li><span class="ch-num">15.</span>Podróżować jest bosko</li>
           <li><span class="ch-num">16.</span>Każdego może trafić</li>
-          <li><span class="ch-num">16.</span>Śpij słodko aniołku</li>
-          <li><span class="ch-num">17.</span>Tylko dla nerdów</li>
-          <li><span class="ch-num">18.</span>Na dobry koniec (załączniki)</li>
+          <li><span class="ch-num">17.</span>Śpij słodko aniołku</li>
+          <li><span class="ch-num">18.</span>Tylko dla nerdów</li>
+          <li><span class="ch-num">19.</span>Na dobry koniec (załączniki)</li>
         </ol>
         <ol class="toc-list toc-appendix">
           <li>Troubleshooting terapii CPAP</li>
@@ -529,7 +532,7 @@
 
         <p>Obudziłem się nad ranem wyraźnie czując, że coś nie jest w porządku. Szybko dotarło do mnie, że nie mogę się poruszać, a ledwie sekundę później, że nie mogę także mówić ani oddychać. Żona spała obok, ale nie mogłem jej dać znać, że coś się ze mną dzieje. Najpierw zalało mnie uczucie totalnej paniki i oblał zimny pot.</p>
 
-        <p>Po chwili nieco się uspokoiłem i dokonałem szybkiej analizy sytuacji. To musi być udar! Dwóch dziadków tak zmarło. Nieszczególnie dbałem ostatnio o zdrowie, więc w sumie sam się prosiłem. Życie dosłownie przemknęło mi przed oczami i zdążyłem nawet pomyśleć o tym, co wydarży po moim odejściu.</p>
+        <p>Po chwili nieco się uspokoiłem i dokonałem szybkiej analizy sytuacji. To musi być udar! Dwóch dziadków tak zmarło. Nieszczególnie dbałem ostatnio o zdrowie, więc w sumie sam się prosiłem. Życie dosłownie przemknęło mi przed oczami i zdążyłem nawet pomyśleć o tym, co wydarzy się po moim odejściu.</p>
 
         <p>W pewnym momencie zaczęło robić się ciemno i wtedy opanował mnie totalny spokój. Pogodziłem się ze śmiercią i odpłynąłem w nicość. Pamiętam nawet, że jeszcze w ostatniej sekundzie pomyślałem, że nie jest wcale tak źle...</p>
 

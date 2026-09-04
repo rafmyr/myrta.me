@@ -12,13 +12,36 @@
   <meta property="og:description" content="Dlaczego 80% wdrożeń systemów zarządzania się nie udaje i jak tego uniknąć. Lekcje z rzeczywistych projektów restrukturyzacji sieci handlowych i aptek.">
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://myrta.me/art-80-procent-wdrozen.html">
+  <meta property="og:image" content="https://myrta.me/og-image.png">
   <meta property="og:locale" content="pl_PL">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://myrta.me/art-80-procent-wdrozen.html">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Dlaczego 80% wdrożeń systemów zarządzania się nie udaje",
+    "description": "Dlaczego 80% wdrożeń systemów zarządzania się nie udaje i jak tego uniknąć. Lekcje z rzeczywistych projektów restrukturyzacji sieci handlowych i aptek.",
+    "datePublished": "2026-01-13",
+    "dateModified": "2026-01-13",
+    "inLanguage": "pl",
+    "mainEntityOfPage": "https://myrta.me/art-80-procent-wdrozen.html",
+    "author": {
+      "@type": "Person",
+      "name": "Rafał Myrta",
+      "url": "https://myrta.me"
+    },
+    "publisher": {
+      "@type": "Person",
+      "name": "Rafał Myrta",
+      "url": "https://myrta.me"
+    }
+  }
+  </script>
   <style>
     :root {
       --ink: #1d1d1f;
-      --gray: #86868b;
+      --gray: #6e6e73;
       --gray-light: #d2d2d7;
       --card-bg: #fbfbfd;
       --white: #ffffff;
@@ -330,19 +353,63 @@
       .nav-links li:last-child { padding-top: 0; }
       .nav-links a { font-size: 12px; }
       .article-header h1 { font-size: 48px; }
-    }</style>
+    }
+    /* ── dodatki 07.2026: meta, author box, artnav, progress, checklisty ── */
+    .article-meta { font-size: 13px; color: var(--gray); margin-bottom: 12px; }
+
+    .read-progress { position: fixed; top: 0; left: 0; height: 2px; width: 0; background: var(--ink); z-index: 2000; }
+
+    .author-box { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; max-width: 720px; margin: 48px auto 0; padding: 24px 0 0; border-top: 1px solid #e8e8ed; }
+    .author-photo { width: 56px; height: 56px; object-fit: cover; object-position: center 25%; border-radius: 14px; flex-shrink: 0; }
+    .author-info { flex: 1; min-width: 220px; }
+    .author-name { font-size: 15px; font-weight: 600; color: var(--ink); }
+    .author-desc { font-size: 14px; color: var(--gray); line-height: 1.5; margin-top: 2px; }
+    .author-cta { font-size: 13px; font-weight: 500; color: var(--ink); text-decoration: none; border: 1px solid var(--gray-light); border-radius: 980px; padding: 9px 18px; white-space: nowrap; transition: all 0.3s cubic-bezier(0.4,0,0.2,1); }
+    .author-cta:hover { background: var(--ink); color: var(--white); border-color: var(--ink); }
+
+    .artnav { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; max-width: 720px; margin: 32px auto 0; }
+    .artnav a { display: block; padding: 16px 18px; border: 1px solid #e8e8ed; border-radius: 12px; text-decoration: none; background: var(--card-bg); transition: transform 0.3s cubic-bezier(0.16,1,0.3,1), border-color 0.3s ease; }
+    .artnav a:hover { transform: translateY(-2px); border-color: #c7c7cc; }
+    .artnav a.next { text-align: right; grid-column: 2; }
+    .artnav a.prev { grid-column: 1; }
+    .artnav-dir { font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gray); margin-bottom: 4px; }
+    .artnav-title { font-size: 14px; font-weight: 600; color: var(--ink); }
+
+    .symptom-list { list-style: none; padding: 0; margin: 0 0 20px; max-width: 720px; }
+    .symptom-list li { position: relative; padding: 10px 0 10px 30px; border-bottom: 1px solid #e8e8ed; font-size: 16px; line-height: 1.65; color: var(--ink); }
+    .symptom-list li:last-child { border-bottom: none; }
+    .symptom-list li::before { content: "\2192"; position: absolute; left: 2px; color: var(--gray); }
+
+    @keyframes artIn { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+    .article-header { animation: artIn 0.7s cubic-bezier(0.16,1,0.3,1) both; }
+    .article-body { animation: artIn 0.7s cubic-bezier(0.16,1,0.3,1) 0.15s both; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .article-header, .article-body { animation: none; }
+      .artnav a:hover { transform: none; }
+    }
+
+    @media (max-width: 768px) {
+      .artnav { grid-template-columns: 1fr; }
+      .artnav a.next { grid-column: 1; text-align: left; }
+    }
+    
+    a:focus-visible, button:focus-visible { outline: 2px solid #1d1d1f; outline-offset: 2px; }
+  </style>
 </head>
 <body>
+  <div class="read-progress" aria-hidden="true"></div>
   <nav>
     <div class="nav-content">
       <a href="index.html" class="nav-logo">Rafał Myrta</a>
-      <button class="nav-hamburger" onclick="document.querySelector('.nav-links').classList.toggle('open')">
+      <button class="nav-hamburger" aria-label="Menu" aria-expanded="false" onclick="var n=document.querySelector('.nav-links');n.classList.toggle('open');this.setAttribute('aria-expanded',n.classList.contains('open'))">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
       </button>
       <ul class="nav-links">
         <li><a href="index.html#about">O mnie</a></li>
         <li><a href="index.html#kompetencje">Kompetencje</a></li>
         <li><a href="index.html#projekty">Projekty</a></li>
+        <li><a href="index.html#standardy">Standardy</a></li>
         <li><a href="index.html#artykuly">Artykuły</a></li>
         <li><a href="mapa.html">Mapa</a></li>
         <li><a href="index.html#kontakt">Kontakt</a></li>
@@ -356,7 +423,8 @@
       <div class="lang-only-pl">
         <div class="article-header">
           <h1>Dlaczego 80% wdrożeń systemów zarządzania się nie udaje</h1>
-          <p class="article-lead">Jeśli Twoja firma miała już „projekt wdrożenia systemu zarządzania" i skończyło się na segregatorze w szafie, ten tekst wyjaśni dlaczego.</p>
+          <p class="article-meta">13 stycznia 2026</p>
+          <p class="article-lead">Osiem prób wdrożenia, osiem segregatorów na półce. Dziewiąte podejście zadziałało. Różnica nie leżała w metodyce.</p>
           <div class="article-divider"></div>
         </div>
 
@@ -369,11 +437,17 @@
 
           <h2>Po czym poznać, że Twoje wdrożenie zmierza do szuflady</h2>
 
-          <p>Zanim opowiem co zadziałało, sprawdź u siebie. Jeśli rozpoznajesz dwie lub więcej z tych sytuacji, prawdopodobnie jesteś na tej samej ścieżce co tamte osiem prób:</p>
+          <p>Zanim opowiem co zadziałało: sygnały ostrzegawcze. Dwa trafienia wystarczą, żebyś był na tej samej ścieżce co tamte osiem prób:</p>
 
-          <p>System zarządzania zaprojektował zespół konsultantów lub zarząd, a ludzie na dole dowiedzieli się o nim na szkoleniu. Dokumentacja jest piękna, ale nikt jej nie otwiera w codziennej pracy. Ludzie traktują nowe procesy jako „dodatkową robotę" obok normalnej pracy. Po wyjeździe konsultantów nikt nie pilnuje wdrożenia. Na pytanie „po co nam ten system?" ludzie wzruszają ramionami.</p>
+          <ul class="symptom-list">
+            <li>System zarządzania zaprojektował zespół konsultantów lub zarząd, a ludzie na dole dowiedzieli się o nim na szkoleniu.</li>
+            <li>Dokumentacja jest piękna, ale nikt jej nie otwiera w codziennej pracy.</li>
+            <li>Ludzie traktują nowe procesy jako „dodatkową robotę" obok normalnej pracy.</li>
+            <li>Po wyjeździe konsultantów nikt nie pilnuje wdrożenia.</li>
+            <li>Na pytanie „po co nam ten system?" ludzie wzruszają ramionami.</li>
+          </ul>
 
-          <p>To nie jest kwestia złej metodyki. To jest kwestia złego podejścia do wdrożenia.</p>
+          <p>Metodyka jest zwykle niewinna. Zabija ją sposób wdrożenia.</p>
 
           <h2>Konsultanci wyjechali, segregatory zostały</h2>
 
@@ -422,9 +496,8 @@
           <p>A jeśli Twoje wdrożenie zaczyna się od trzydniowych warsztatów strategicznych z zarządem... to prawdopodobnie skończy się dokładnie tam, gdzie siedem poprzednich. W szufladzie.</p>
         </article>
 
-        <div class="author-bio">
-          Rafał Myrta - buduje działy rozwoju i systemy zarządzania zmianą w dużych i małych organizacjach.
-        </div>
+        <div class="author-box"><img src="profile.jpg" alt="Rafał Myrta" class="author-photo" loading="lazy"><div class="author-info"><div class="author-name">Rafał Myrta</div><div class="author-desc">Buduje działy rozwoju i systemy zarządzania zmianą w dużych i małych organizacjach.</div></div><a href="index.html#kontakt" class="author-cta">Porozmawiajmy →</a></div>
+        <div class="artnav"><a class="prev" href="art-z-operacji-do-strategii.html"><div class="artnav-dir">← Poprzedni</div><div class="artnav-title">Z operacji do strategii</div></a><a class="next" href="art-sieci-male-vs-duze.html"><div class="artnav-dir">Następny →</div><div class="artnav-title">Sieci małe vs duże</div></a></div>
 
         <div class="back-link">
           <a href="index.html#artykuly">← Wszystkie artykuły</a>
@@ -434,7 +507,8 @@
       <div class="en-placeholder">
         <div class="article-header">
           <h1>Why 80% of Management System Implementations Fail</h1>
-          <p class="article-lead">If your company has already had a "management system implementation project" and it ended up in a filing cabinet, this article will explain why.</p>
+          <p class="article-meta">January 13, 2026</p>
+          <p class="article-lead">Eight implementation attempts, eight binders on a shelf. The ninth approach worked. The difference wasn't the methodology.</p>
           <div class="article-divider"></div>
         </div>
 
@@ -449,7 +523,13 @@
 
           <p>Before I explain what worked, take a look at your own situation. If you recognize two or more of these scenarios, you're probably on the same path as those eight failed attempts:</p>
 
-          <p>A management system designed by consultants or the executive team, with people on the ground finding out about it at a training session. The documentation is beautiful, but nobody opens it in their daily work. People treat new processes as "extra work" on top of their normal job. After consultants leave, nobody enforces the implementation. When you ask "why do we need this system?" people just shrug.</p>
+          <ul class="symptom-list">
+            <li>A management system designed by consultants or the executive team, with people on the ground finding out about it at a training session.</li>
+            <li>The documentation is beautiful, but nobody opens it in their daily work.</li>
+            <li>People treat new processes as "extra work" on top of their normal job.</li>
+            <li>After consultants leave, nobody enforces the implementation.</li>
+            <li>When you ask "why do we need this system?" people just shrug.</li>
+          </ul>
 
           <p>It's not a question of bad methodology. It's a question of bad approach to implementation.</p>
 
@@ -500,9 +580,8 @@
           <p>And if your implementation starts with three-day strategic workshops with the executive team... it will probably end up exactly where the seven before it did. In a drawer.</p>
         </article>
 
-        <div class="author-bio">
-          Rafał Myrta - builds growth departments and change management systems in organizations large and small.
-        </div>
+        <div class="author-box"><img src="profile.jpg" alt="Rafał Myrta" class="author-photo" loading="lazy"><div class="author-info"><div class="author-name">Rafał Myrta</div><div class="author-desc">Builds growth departments and change management systems in organizations large and small.</div></div><a href="index.html#kontakt" class="author-cta">Let's talk →</a></div>
+        <div class="artnav"><a class="prev" href="art-z-operacji-do-strategii.html"><div class="artnav-dir">← Previous</div><div class="artnav-title">From Operations to Strategy</div></a><a class="next" href="art-sieci-male-vs-duze.html"><div class="artnav-dir">Next →</div><div class="artnav-title">Small vs. Large Networks</div></a></div>
 
         <div class="back-link">
           <a href="index.html#artykuly">← All articles</a>
@@ -540,6 +619,18 @@
       const btn = document.querySelector('.lang-toggle');
       btn.textContent = preferredLang === 'pl' ? 'EN' : 'PL';
     });
+
+    // Pasek postępu czytania
+    (function() {
+      var bar = document.querySelector('.read-progress');
+      if (!bar) return;
+      function upd() {
+        var h = document.documentElement.scrollHeight - window.innerHeight;
+        bar.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
+      }
+      window.addEventListener('scroll', upd, { passive: true });
+      upd();
+    })();
   </script>
 </body>
 </html>

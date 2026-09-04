@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ORPR: otwarty standard procesów dla handlu detalicznego - Rafał Myrta</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%231d1d1f'/><text x='16' y='22' text-anchor='middle' fill='white' font-family='system-ui' font-size='16' font-weight='600'>RM</text></svg>">
+  <link rel="icon" type="image/x-icon" href="../favicon.ico">
+  <link rel="apple-touch-icon" href="../apple-touch-icon.png">
+  <meta name="description" content="ORPR (Open Retail Process Reference): otwarty, wersjonowany standard procesów dla handlu detalicznego. 74 procesy w 22 obszarach, jedna definicja każdego, dla ludzi, integratorów i agentów AI. Autor: Rafał Myrta.">
+  <meta property="og:title" content="ORPR: otwarty standard procesów dla handlu detalicznego">
+  <meta property="og:description" content="74 procesy w 22 obszarach, jedna definicja każdego, dla ludzi, integratorów i agentów AI. Jak i po co zbudowałem otwarty standard dla retailu.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://myrta.me/orpr/">
+  <meta property="og:image" content="https://myrta.me/og-image.png">
+  <meta property="og:locale" content="pl_PL">
+  <meta property="og:locale:alternate" content="en_US">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://myrta.me/orpr/">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CreativeWork",
+    "name": "ORPR - Open Retail Process Reference",
+    "alternateName": "Otwarty standard referencyjny procesów dla handlu detalicznego",
+    "url": "https://orpr.dev",
+    "mainEntityOfPage": "https://myrta.me/orpr/",
+    "version": "0.1",
+    "datePublished": "2026-09-04",
+    "inLanguage": ["pl", "en"],
+    "license": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "author": { "@type": "Person", "name": "Rafał Myrta", "url": "https://myrta.me" },
+    "publisher": { "@type": "Person", "name": "Rafał Myrta", "url": "https://myrta.me" },
+    "about": ["Retail operations", "Business process reference architecture", "AI agents", "Retail IT systems"]
+  }
+  </script>
+  <style>
+    :root {
+      --ink: #1d1d1f;
+      --gray: #6e6e73;
+      --gray-light: #d2d2d7;
+      --card-bg: #fbfbfd;
+      --white: #ffffff;
+      --sans: -apple-system, "system-ui", "SF Pro Display", "SF Pro Text", "Segoe UI", Roboto, sans-serif;
+      --max-w: 980px;
+      --gap: 24px;
+      --radius: 12px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      font-family: var(--sans);
+      background-color: var(--white);
+      color: var(--ink);
+    }
+
+    /* Navigation — mobile-first */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: 49px;
+      background: rgba(255,255,255,0.8);
+      backdrop-filter: blur(24px);
+      border-bottom: 1px solid var(--gray-light);
+      z-index: 1000;
+    }
+
+    .nav-content {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 var(--gap);
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      font-size: 17px;
+      font-weight: 600;
+      text-decoration: none;
+      color: var(--ink);
+      letter-spacing: -0.3px;
+    }
+
+    .nav-hamburger {
+      display: block;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+      color: var(--ink);
+    }
+
+    .nav-hamburger svg {
+      width: 22px;
+      height: 22px;
+    }
+
+    .nav-links {
+      display: none;
+      position: absolute;
+      top: 49px; left: 0; right: 0;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(20px);
+      flex-direction: column;
+      padding: 16px var(--gap) 24px;
+      gap: 0;
+      list-style: none;
+      border-bottom: 1px solid var(--gray-light);
+    }
+
+    .nav-links.open { display: flex; }
+
+    .nav-links li {
+      padding-top: 12px; padding-bottom: 12px;
+      border-bottom: 1px solid rgba(0,0,0,0.04);
+    }
+
+    .nav-links li:last-child {
+      border-bottom: none;
+      padding-top: 16px;
+    }
+
+    .nav-links a {
+      font-size: 16px;
+      font-weight: 400;
+      color: var(--gray);
+      text-decoration: none;
+      transition: opacity 0.3s cubic-bezier(0.4,0,0.2,1);
+    }
+
+    .nav-links a:hover { opacity: 0.7; }
+
+    .lang-toggle {
+      font-size: 12px;
+      font-weight: 400;
+      color: var(--gray);
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-family: var(--sans);
+      transition: opacity 0.3s cubic-bezier(0.4,0,0.2,1);
+    }
+
+    .lang-toggle:hover { opacity: 0.7; }
+
+    /* Main content */
+    main {
+      padding-top: 49px;
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 var(--gap);
+    }
+
+    /* Article header */
+    .article-header {
+      padding: 80px 0 60px 0;
+    }
+
+    .article-header h1 {
+      font-size: 48px;
+      font-weight: 600;
+      line-height: 1.2;
+      margin-bottom: 24px;
+      color: var(--ink);
+      letter-spacing: -0.5px;
+    }
+
+    .article-lead {
+      font-size: 18px;
+      color: var(--gray);
+      font-style: italic;
+      line-height: 1.7;
+      margin-bottom: 32px;
+      font-weight: 400;
+    }
+
+    .article-divider {
+      height: 1px;
+      background-color: var(--gray-light);
+      margin-bottom: 48px;
+    }
+
+    /* Article body */
+    .article-body {
+      max-width: 720px;
+      margin: 0 auto 100px auto;
+    }
+
+    .article-body p {
+      font-size: 17px;
+      line-height: 1.8;
+      color: var(--ink);
+      margin-bottom: 20px;
+    }
+
+    .article-body h2 {
+      font-size: 24px;
+      font-weight: 600;
+      color: var(--ink);
+      margin-top: 40px;
+      margin-bottom: 16px;
+      letter-spacing: -0.3px;
+    }
+
+    .article-body h2:first-child {
+      margin-top: 0;
+    }
+
+    /* Author bio */
+    .author-bio {
+      max-width: 720px;
+      margin: 80px auto 100px auto;
+      padding-top: 24px;
+      border-top: 1px solid var(--gray-light);
+      font-size: 14px;
+      color: var(--gray);
+      line-height: 1.6;
+      font-style: italic;
+    }
+
+    /* Back link */
+    .back-link {
+      max-width: 720px;
+      margin: 0 auto 60px auto;
+      font-size: 14px;
+    }
+
+    .back-link a {
+      color: var(--gray);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .back-link a:hover {
+      color: var(--ink);
+    }
+
+    /* Footer */
+    footer {
+      background-color: var(--card-bg);
+      border-top: 1px solid var(--gray-light);
+      padding: 48px var(--gap);
+      margin-top: 100px;
+    }
+
+    .footer-content {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 14px;
+      color: var(--gray);
+    }
+
+    .footer-links {
+      display: flex;
+      list-style: none;
+      gap: 32px;
+    }
+
+    .footer-links a {
+      color: var(--gray);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover {
+      color: var(--ink);
+    }
+
+    /* PL/EN toggle handler */
+    .lang-only-en {
+      display: none;
+    }
+
+    html[lang="en"] .lang-only-pl {
+      display: none;
+    }
+
+    html[lang="en"] .lang-only-en {
+      display: block;
+    }
+
+    html[lang="en"] .lang-only-pl .article-body,
+    html[lang="en"] .lang-only-pl .article-header,
+    html[lang="en"] .lang-only-pl .author-bio,
+    html[lang="en"] .lang-only-pl .back-link {
+      display: none;
+    }
+
+    .en-placeholder {
+      display: none;
+    }
+
+    .en-placeholder .article-header,
+    .en-placeholder .article-body,
+    .en-placeholder .author-bio,
+    .en-placeholder .back-link {
+      display: none;
+    }
+
+    html[lang="en"] .en-placeholder {
+      display: block;
+    }
+
+    html[lang="en"] .en-placeholder .article-header,
+    html[lang="en"] .en-placeholder .article-body,
+    html[lang="en"] .en-placeholder .author-bio,
+    html[lang="en"] .en-placeholder .back-link {
+      display: block;
+    }
+    @media (max-width: 768px) {
+      body { overflow-x: hidden; }
+      .container { padding: 0 20px; }
+      .article-header h1 { font-size: 28px; }
+      .article-header { padding: 48px 0 32px 0; }
+      .article-body p { font-size: 16px; }
+      .footer-content { flex-direction: column; gap: 16px; text-align: center; }
+      .footer-links { gap: 16px; }
+    }
+    @media (min-width: 769px) {
+      .nav-hamburger { display: none; }
+      .nav-links {
+        display: flex;
+        position: static;
+        background: none;
+        backdrop-filter: none;
+        flex-direction: row;
+        padding: 0;
+        gap: 32px;
+        border-bottom: none;
+      }
+      .nav-links li {
+        padding: 0;
+        border-bottom: none;
+      }
+      .nav-links li:last-child { padding-top: 0; }
+      .nav-links a { font-size: 12px; }
+      .article-header h1 { font-size: 48px; }
+    }
+    /* ── dodatki 07.2026: meta, author box, artnav, progress, checklisty ── */
+    .article-meta { font-size: 13px; color: var(--gray); margin-bottom: 12px; }
+
+    .read-progress { position: fixed; top: 0; left: 0; height: 2px; width: 0; background: var(--ink); z-index: 2000; }
+
+    .author-box { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; max-width: 720px; margin: 48px auto 0; padding: 24px 0 0; border-top: 1px solid #e8e8ed; }
+    .author-photo { width: 56px; height: 56px; object-fit: cover; object-position: center 25%; border-radius: 14px; flex-shrink: 0; }
+    .author-info { flex: 1; min-width: 220px; }
+    .author-name { font-size: 15px; font-weight: 600; color: var(--ink); }
+    .author-desc { font-size: 14px; color: var(--gray); line-height: 1.5; margin-top: 2px; }
+    .author-cta { font-size: 13px; font-weight: 500; color: var(--ink); text-decoration: none; border: 1px solid var(--gray-light); border-radius: 980px; padding: 9px 18px; white-space: nowrap; transition: all 0.3s cubic-bezier(0.4,0,0.2,1); }
+    .author-cta:hover { background: var(--ink); color: var(--white); border-color: var(--ink); }
+
+    .artnav { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; max-width: 720px; margin: 32px auto 0; }
+    .artnav a { display: block; padding: 16px 18px; border: 1px solid #e8e8ed; border-radius: 12px; text-decoration: none; background: var(--card-bg); transition: transform 0.3s cubic-bezier(0.16,1,0.3,1), border-color 0.3s ease; }
+    .artnav a:hover { transform: translateY(-2px); border-color: #c7c7cc; }
+    .artnav a.next { text-align: right; grid-column: 2; }
+    .artnav a.prev { grid-column: 1; }
+    .artnav-dir { font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gray); margin-bottom: 4px; }
+    .artnav-title { font-size: 14px; font-weight: 600; color: var(--ink); }
+
+    .symptom-list { list-style: none; padding: 0; margin: 0 0 20px; max-width: 720px; }
+    .symptom-list li { position: relative; padding: 10px 0 10px 30px; border-bottom: 1px solid #e8e8ed; font-size: 16px; line-height: 1.65; color: var(--ink); }
+    .symptom-list li:last-child { border-bottom: none; }
+    .symptom-list li::before { content: "\2192"; position: absolute; left: 2px; color: var(--gray); }
+
+    @keyframes artIn { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+    .article-header { animation: artIn 0.7s cubic-bezier(0.16,1,0.3,1) both; }
+    .article-body { animation: artIn 0.7s cubic-bezier(0.16,1,0.3,1) 0.15s both; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .article-header, .article-body { animation: none; }
+      .artnav a:hover { transform: none; }
+    }
+
+    @media (max-width: 768px) {
+      .artnav { grid-template-columns: 1fr; }
+      .artnav a.next { grid-column: 1; text-align: left; }
+    }
+    
+    a:focus-visible, button:focus-visible { outline: 2px solid #1d1d1f; outline-offset: 2px; }
+  
+    .apply-box { background: #fbfbfd; border: 1px solid #d2d2d7; border-radius: 12px;
+      padding: 20px 24px; margin: 28px 0; font-size: 16px; line-height: 1.6; }
+    .apply-label { display: block; font-size: 12px; letter-spacing: 2px;
+      text-transform: uppercase; color: #6e6e73; margin-bottom: 8px; font-weight: 600; }
+    .article-sources { max-width: 720px; margin: 36px auto 0; padding-top: 12px;
+      border-top: 1px solid #e8e8ed; font-size: 12px; line-height: 1.6; color: #6e6e73; }
+    .article-sources a { color: #6e6e73; text-decoration: underline; text-underline-offset: 2px; }
+    .seria-tag { font-size: 12px; letter-spacing: 2px; text-transform: uppercase;
+      color: #6e6e73; margin-bottom: 12px; }
+    .artnav-next { display: none; }
+
+  </style>
+  <style>
+    /* ── ORPR: dodatki do stylu artykułu ── */
+    .orpr-stats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px 16px; max-width: 720px; margin: -16px auto 40px; padding: 0 0 28px; border-bottom: 1px solid #e8e8ed; }
+    .article-body a, .article-lead a, .orpr-note a { color: var(--ink); text-decoration: underline; text-decoration-color: var(--gray-light); text-underline-offset: 3px; transition: text-decoration-color 0.2s; }
+    .article-body a:hover, .article-lead a:hover, .orpr-note a:hover { text-decoration-color: var(--ink); }
+    .back-link { margin-top: 32px; }
+    .orpr-stat-num { font-size: 32px; font-weight: 700; letter-spacing: -1px; line-height: 1; color: var(--ink); }
+    .orpr-stat-label { font-size: 13px; color: var(--gray); margin-top: 6px; line-height: 1.4; }
+    .orpr-links { display: flex; flex-wrap: wrap; gap: 10px; max-width: 720px; margin: 0 auto 8px; }
+    .pill-btn { display: inline-block; font-size: 13px; font-weight: 500; color: var(--ink); text-decoration: none; border: 1px solid var(--gray-light); border-radius: 980px; padding: 9px 18px; transition: all 0.3s cubic-bezier(0.4,0,0.2,1); }
+    .pill-btn:hover { background: var(--ink); color: var(--white); border-color: var(--ink); }
+    .orpr-card { background: var(--card-bg); border: 1px solid #e8e8ed; border-radius: 12px; padding: 22px 24px; margin: 8px 0 28px; }
+    .orpr-card-id { font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: var(--gray); font-weight: 600; margin-bottom: 6px; }
+    .orpr-card-title { font-size: 18px; font-weight: 600; color: var(--ink); margin-bottom: 12px; letter-spacing: -0.2px; }
+    .orpr-card dl { display: grid; grid-template-columns: 110px 1fr; gap: 6px 16px; font-size: 15px; line-height: 1.5; }
+    .orpr-card dt { color: var(--gray); }
+    .orpr-card dd { color: var(--ink); margin: 0; }
+    .orpr-list { list-style: none; padding: 0; margin: 0 0 24px; }
+    .orpr-list li { position: relative; padding: 10px 0 10px 30px; border-bottom: 1px solid #e8e8ed; font-size: 16px; line-height: 1.65; color: var(--ink); }
+    .orpr-list li:last-child { border-bottom: none; }
+    .orpr-list li::before { content: "\2192"; position: absolute; left: 2px; color: var(--gray); }
+    .orpr-list strong { font-weight: 600; }
+    .orpr-uses { display: grid; grid-template-columns: 1fr; gap: 16px; margin: 8px 0 28px; }
+    .orpr-use { background: var(--card-bg); border: 1px solid #e8e8ed; border-radius: 12px; padding: 20px 22px; }
+    .orpr-use-title { font-size: 15px; font-weight: 600; color: var(--ink); margin-bottom: 6px; }
+    .orpr-use-desc { font-size: 14px; color: var(--gray); line-height: 1.55; }
+    .orpr-cta { background: var(--ink); color: var(--white); border-radius: 12px; padding: 32px 28px; margin: 40px 0 0; text-align: center; }
+    .orpr-cta p { color: rgba(255,255,255,0.75); font-size: 16px; margin: 0 auto 20px; max-width: 520px; }
+    .orpr-cta .pill-btn { color: var(--white); border-color: rgba(255,255,255,0.35); }
+    .orpr-cta .pill-btn:hover { background: var(--white); color: var(--ink); border-color: var(--white); }
+    .orpr-note { font-size: 13px; color: var(--gray); max-width: 720px; margin: 20px auto 0; line-height: 1.55; }
+    @media (max-width: 768px) { .orpr-card dl { grid-template-columns: 84px 1fr; font-size: 14px; } }
+    @media (min-width: 769px) {
+      .orpr-stats { grid-template-columns: repeat(4, 1fr); }
+      .orpr-uses { grid-template-columns: repeat(3, 1fr); }
+    }
+    html[lang="en"] .lang-only-pl { display: none; }
+    html[lang="en"] .lang-only-en { display: block; }
+  </style>
+</head>
+<body>
+  <div class="read-progress" aria-hidden="true"></div>
+  <nav>
+    <div class="nav-content">
+      <a href="../index.html" class="nav-logo">Rafał Myrta</a>
+      <button class="nav-hamburger" aria-label="Menu" aria-expanded="false" onclick="var n=document.querySelector('.nav-links');n.classList.toggle('open');this.setAttribute('aria-expanded',n.classList.contains('open'))">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+      <ul class="nav-links">
+        <li><a href="../index.html#about" data-pl="O mnie" data-en="About">O mnie</a></li>
+        <li><a href="../index.html#kompetencje" data-pl="Kompetencje" data-en="Competencies">Kompetencje</a></li>
+        <li><a href="../index.html#projekty" data-pl="Projekty" data-en="Projects">Projekty</a></li>
+        <li><a href="../index.html#standardy" data-pl="Standardy" data-en="Standards">Standardy</a></li>
+        <li><a href="../index.html#artykuly" data-pl="Artykuły" data-en="Articles">Artykuły</a></li>
+        <li><a href="../mapa.html" data-pl="Mapa" data-en="Map">Mapa</a></li>
+        <li><a href="../index.html#kontakt" data-pl="Kontakt" data-en="Contact">Kontakt</a></li>
+        <li><button class="lang-toggle" onclick="toggleLang()">EN</button></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    <div class="container">
+
+      <!-- ═══════════════ PL ═══════════════ -->
+      <div class="lang-only-pl">
+        <div class="article-header">
+          <div class="seria-tag">Standard otwarty · ORPR v0.1 · wrzesień 2026</div>
+          <h1>Retail nie miał wspólnego języka procesów. Napisałem go.</h1>
+          <p class="article-lead">ORPR (Open Retail Process Reference) to otwarty, wersjonowany słownik procesów handlu detalicznego. Każdy proces ma jedną definicję, tę samą dla człowieka, integratora i agenta AI. Standard jest publiczny, na wolnej licencji, dostępny na <a href="https://orpr.dev/pl" target="_blank" rel="noopener">orpr.dev</a>.</p>
+          <div class="article-divider"></div>
+        </div>
+
+        <div class="orpr-stats" aria-label="ORPR w liczbach">
+          <div><div class="orpr-stat-num">74</div><div class="orpr-stat-label">procesy z jedną definicją</div></div>
+          <div><div class="orpr-stat-num">22</div><div class="orpr-stat-label">obszary: 8 przepływów biznesowych i 14 procesów wspólnych</div></div>
+          <div><div class="orpr-stat-num">160</div><div class="orpr-stat-label">wymogów regulacyjnych przypiętych do 66 procesów</div></div>
+          <div><div class="orpr-stat-num">6</div><div class="orpr-stat-label">profili modeli biznesowych: od sklepu po marketplace</div></div>
+        </div>
+
+        <div class="orpr-links">
+          <a href="https://orpr.dev/pl/mapa" target="_blank" rel="noopener" class="pill-btn">Mapa procesów →</a>
+          <a href="https://orpr.dev/pl/proces/CAT-02" target="_blank" rel="noopener" class="pill-btn">Karta CAT-02 „Od ceny do kasy” →</a>
+          <a href="https://orpr.dev/api/orpr" target="_blank" rel="noopener" class="pill-btn">JSON API →</a>
+          <a href="https://orpr.dev/llms-full.txt" target="_blank" rel="noopener" class="pill-btn">Cały standard w jednym pliku →</a>
+        </div>
+
+        <article class="article-body" style="margin-top: 48px;">
+          <h2>Skąd się to wzięło</h2>
+          <p>Logistyka ma SCOR. Telekomunikacja ma eTOM. Gdy dwie firmy z tych branż mówią „przyjęcie dostawy” albo „aktywacja usługi”, mówią o tym samym. Retail powszechnie przyjętego, otwartego modelu procesów nie ma. Każda sieć, każdy dostawca systemu i każdy integrator nosi w głowie własny słownik. Zwykle wychodzi to na jaw dopiero przy wdrożeniu, kiedy „zamówienie” po stronie klienta kończy się w innym miejscu niż „zamówienie” po stronie dostawcy.</p>
+          <p>Trafiłem na to od nietypowej strony. Prowadzę projekty systemów dla sieci aptek metodą Spec-Driven Development: specyfikacja i testy powstają przed kodem, a kod piszą agenci AI pod moim nadzorem. Agent jest świetnym wykonawcą i fatalnym interpretatorem. Żeby dobrze napisał moduł cen, musi dostać jednoznaczną odpowiedź: kto jest właścicielem ceny, gdzie kończy się oferta, a zaczyna kasa, co dokładnie wchodzi i wychodzi z procesu. Szukałem gotowego standardu, na którym mógłbym oprzeć te odpowiedzi. Nie znalazłem. Więc go napisałem.</p>
+          <p>Jest też druga warstwa. Wiedza o tym, jak naprawdę działa sklep, apteka i hurtownia, nie leży w podręcznikach. Siedzi w głowach ludzi, którzy przez lata prowadzili takie firmy: zarządzałem sieciami od kilkunastu do 3&nbsp;800 lokalizacji, dziś wdrażam systemy dla sieci handlowych. ORPR to próba zapisania tej wiedzy w formie, którą da się przeczytać, sprawdzić, zacytować i podać programowi jako punkt odniesienia. Doświadczenie bez takiej formy jest anegdotą. Z nią staje się standardem.</p>
+
+          <h2>Co jest w środku</h2>
+          <ul class="orpr-list">
+            <li><strong>Mapa procesów:</strong> 74 procesy w 22 obszarach, z jasną granicą między przepływami biznesowymi (zakupy, oferta, sprzedaż, zwroty i tak dalej) a procesami wspólnymi (dane podstawowe, stan magazynowy, finanse, zgodność).</li>
+            <li><strong>Karta procesu:</strong> cel, wejścia, wyjścia, właściciel, konsument i przekazania do innych procesów. Jedna struktura dla wszystkich 74 kart. Sześć kart jest wydanych w pełnej wersji, 68 w publicznym skrócie po recenzji.</li>
+            <li><strong>Przekazania:</strong> 16 potwierdzonych połączeń między procesami, czyli miejsca, w których jeden proces oddaje wynik drugiemu. To tam zwykle giną wdrożenia.</li>
+            <li><strong>Warstwa regulacyjna:</strong> 160 wymogów prawnych przypiętych do 66 procesów. Nie jest to porada prawna, tylko kontrolowana projekcja: analityk widzi, których procesów dotyka przepis, zanim zacznie projektować.</li>
+            <li><strong>Profile modeli biznesowych:</strong> sześć wariantów, od pojedynczego sklepu po marketplace, z informacją, które procesy są w danym modelu obowiązkowe.</li>
+            <li><strong>Dostęp dla ludzi i maszyn:</strong> strona, otwarte JSON API bez kluczy, pliki llms.txt dla modeli językowych, dane JSON-LD. Publikacja ma sumy kontrolne SHA-256, więc da się sprawdzić, czy to, co czytasz, jest tym, co wydałem.</li>
+            <li><strong>Licencje:</strong> treść CC BY-SA 4.0, kod Apache-2.0. Można używać i rozwijać. Warunek jest jeden: wskazać źródło.</li>
+          </ul>
+
+          <p>Tak wygląda jedna karta. Proces CAT-02 to jedno z najczęstszych miejsc sporu między siecią a dostawcą systemu:</p>
+          <div class="orpr-card">
+            <div class="orpr-card-id">CAT-02 · karta pełna · wydanie 1.0</div>
+            <div class="orpr-card-title">Od ceny do kasy</div>
+            <dl>
+              <dt>Cel</dt><dd>Cena na paragonie jest ceną zatwierdzoną dla tej lokalizacji, tego momentu i tego towaru.</dd>
+              <dt>Wejście</dt><dd>Zatwierdzona cena towaru.</dd>
+              <dt>Wyjście</dt><dd>Cena operacyjna na kasie.</dd>
+              <dt>Właściciel</dt><dd>Oferta.</dd>
+              <dt>Konsument</dt><dd>Kasa.</dd>
+            </dl>
+          </div>
+          <p>Pięć linijek. Ale kiedy sieć i dostawca podpisują pod nimi umowę, znika połowa późniejszych sporów o to, „czyj to był błąd”.</p>
+
+          <h2>Dla kogo to jest</h2>
+          <div class="orpr-uses">
+            <div class="orpr-use"><div class="orpr-use-title">Zarząd sieci</div><div class="orpr-use-desc">Wdrażasz nowy system albo zmieniasz dostawcę. Zakres umowy, testy odbiorowe i lista „co ma działać” opierają się na jednej mapie procesów, a nie na prezentacji handlowca.</div></div>
+            <div class="orpr-use"><div class="orpr-use-title">Dostawca IT, integrator</div><div class="orpr-use-desc">Mapujesz swój system na standard i od razu widzisz, które procesy obsługujesz w całości, które częściowo, a których wcale. Rozmowa z klientem zaczyna się od luk.</div></div>
+            <div class="orpr-use"><div class="orpr-use-title">Zespół budujący agentów AI</div><div class="orpr-use-desc">Agent dostaje stabilny punkt odniesienia: identyfikatory procesów, właścicieli, granice. Plik llms.txt i API są po to, żeby nie musiał zgadywać, co znaczy „zwrot”.</div></div>
+          </div>
+
+          <h2>Jak to powstało</h2>
+          <p>Większość tekstu standardu napisali agenci AI. Wszystkie decyzje są moje. Sposób pracy jest ten sam, który stosuję w projektach dla klientów, tylko tym razem produktem jest standard:</p>
+          <ul class="orpr-list">
+            <li>Specyfikacja przed treścią. Najpierw powstała struktura karty, reguły notacji i kryteria odbioru. Dopiero potem karty.</li>
+            <li>Agenci jako autorzy, człowiek jako właściciel. Osobiście przeszedłem przez wszystkie 68 kart. Każda ma mój werdykt, nie werdykt modelu.</li>
+            <li>Recenzja niezależna innym modelem. Tekst pisany przez jeden model recenzuje inny, z innej rodziny, w trybie „werdykt, słabe punkty, alternatywa”. Model rzadko widzi własne błędy. Cudze widzi bardzo dobrze.</li>
+            <li>Bramki jakości i zamrożone narzędzia kontrolne. Automatyczne testy spójności spisu, mapy i kart. Zmiana w narzędziu kontrolnym wymaga numerowanego wyjątku wpisanego przed kodem.</li>
+            <li>Rejestr decyzji z odrzuconymi wariantami. Każda decyzja o notacji ma zapisane, co wybrałem, co odrzuciłem i dlaczego. Za rok będę wiedział, czemu mapa wygląda tak, a nie inaczej.</li>
+            <li>Czyste źródło. W standardzie nie ma ani jednego dokumentu klienta. Wiedza domenowa jest moja, forma jest otwarta.</li>
+          </ul>
+
+          <h2>ORPR i macierz regulacyjna</h2>
+          <p>Wcześniej zbudowałem <a href="../art-ai-zrodlo-prawdy.html">macierz 361 wymagań regulacyjnych</a> dla systemów aptecznych: co system musi robić, bo tak każe prawo. ORPR odpowiada na inne pytanie: jak pociąć procesy handlu i kto za który odpowiada. To dwie warstwy tej samej konstrukcji, zbudowane w jednym celu: żeby specyfikacja systemu dla sieci handlowej zaczynała się od procesu i przepisu, a nie od listy funkcji. Macierz mówi „musisz”, ORPR mówi „gdzie i kto”.</p>
+
+          <h2>Co dalej</h2>
+          <p>To wydanie 0.1 i mówię o tym wprost. Większość kart jest w skrócie, część relacji między procesami czeka na walidację, standard ma jawną listę ośmiu znanych ograniczeń i nie daje żadnej gwarancji wdrożeniowej. Mapa jest hipotezą o tym, jak działa retail. Pierwszy realny projekt oparty na ORPR pokaże, gdzie hipoteza się myli, i to jest najciekawsza część.</p>
+          <p>Standard jest otwarty na publiczną recenzję. Jeśli prowadzisz sieć, budujesz dla niej system albo agentów i chcesz sprawdzić mapę na własnych procesach, odezwij się. Pierwsi adopterzy dostają najwięcej: ich uwagi trafiają do wersji 0.2.</p>
+
+          <div class="orpr-cta">
+            <p>Chcesz oprzeć projekt na ORPR albo sprawdzić standard na swojej organizacji?</p>
+            <a href="../index.html#kontakt" class="pill-btn">Napisz do mnie →</a>
+            <a href="https://orpr.dev/pl" target="_blank" rel="noopener" class="pill-btn">Otwórz orpr.dev →</a>
+          </div>
+        </article>
+
+        <p class="orpr-note">Atrybucja: ORPR, Rafał Myrta, 2026, <a href="https://myrta.me/orpr/">myrta.me/orpr</a>. Treść na licencji CC BY-SA 4.0, kod na Apache-2.0. Warstwa regulacyjna wspiera analizę i projektowanie, nie jest poradą prawną.</p>
+
+        <div class="author-box"><img src="../profile.jpg" alt="Rafał Myrta" class="author-photo" loading="lazy" width="558" height="744"><div class="author-info"><div class="author-name">Rafał Myrta</div><div class="author-desc">Porządkuje procesy, role i systemy w firmach wielolokalizacyjnych i regulowanych. Projekty AI prowadzi metodą Spec-Driven Development. Autor ORPR.</div></div><a href="../index.html#kontakt" class="author-cta">Porozmawiajmy →</a></div>
+
+        <div class="back-link">
+          <a href="../index.html#standardy">← Wróć na stronę główną</a>
+        </div>
+      </div>
+
+      <!-- ═══════════════ EN ═══════════════ -->
+      <div class="lang-only-en">
+        <div class="article-header">
+          <div class="seria-tag">Open standard · ORPR v0.1 · September 2026</div>
+          <h1>Retail had no shared language for its processes. So I wrote one.</h1>
+          <p class="article-lead">ORPR (Open Retail Process Reference) is an open, versioned dictionary of retail processes. Each process has one definition, the same for a person, an integrator and an AI agent. The standard is public, freely licensed and available at <a href="https://orpr.dev/en" target="_blank" rel="noopener">orpr.dev</a>.</p>
+          <div class="article-divider"></div>
+        </div>
+
+        <div class="orpr-stats" aria-label="ORPR in numbers">
+          <div><div class="orpr-stat-num">74</div><div class="orpr-stat-label">processes, one definition each</div></div>
+          <div><div class="orpr-stat-num">22</div><div class="orpr-stat-label">areas: 8 business flows and 14 shared processes</div></div>
+          <div><div class="orpr-stat-num">160</div><div class="orpr-stat-label">regulatory requirements bound to 66 processes</div></div>
+          <div><div class="orpr-stat-num">6</div><div class="orpr-stat-label">business model profiles, from a single store to a marketplace</div></div>
+        </div>
+
+        <div class="orpr-links">
+          <a href="https://orpr.dev/en/mapa" target="_blank" rel="noopener" class="pill-btn">Process map →</a>
+          <a href="https://orpr.dev/en/proces/CAT-02" target="_blank" rel="noopener" class="pill-btn">Card CAT-02 "From Price to Checkout" →</a>
+          <a href="https://orpr.dev/api/orpr" target="_blank" rel="noopener" class="pill-btn">JSON API →</a>
+          <a href="https://orpr.dev/llms-full.txt" target="_blank" rel="noopener" class="pill-btn">Whole standard in one file →</a>
+        </div>
+
+        <article class="article-body" style="margin-top: 48px;">
+          <h2>Where it came from</h2>
+          <p>Logistics has SCOR. Telecoms have eTOM. When two companies in those industries say "goods receipt" or "service activation", they mean the same thing. Retail has no widely adopted, open process model like that. Every chain, every software vendor and every integrator carries its own dictionary in its head. It usually surfaces during implementation, when the customer's "order" ends in a different place than the vendor's "order".</p>
+          <p>I ran into this from an unusual angle. I run system projects for pharmacy chains using Spec-Driven Development: specification and tests come before code, and the code is written by AI agents under my supervision. An agent is a superb executor and a terrible interpreter. To write a pricing module well, it needs an unambiguous answer: who owns the price, where the offer ends and the checkout begins, what exactly enters and leaves the process. I looked for a ready standard to base those answers on. There was none. So I wrote one.</p>
+          <p>There is a second layer. Knowledge of how a store, a pharmacy and a wholesaler really work is not in textbooks. It sits in the heads of people who ran such businesses for years: I managed chains from a dozen to 3,800 locations, and today I implement systems for retail chains. ORPR is an attempt to write that knowledge down in a form that can be read, checked, cited and handed to a program as a reference point. Experience without such a form is an anecdote. With it, it becomes a standard.</p>
+
+          <h2>What is inside</h2>
+          <ul class="orpr-list">
+            <li><strong>Process map:</strong> 74 processes in 22 areas, with a clear line between business flows (purchasing, offer, sales, returns and so on) and shared processes (master data, stock, finance, compliance).</li>
+            <li><strong>Process card:</strong> goal, inputs, outputs, owner, consumer and handovers to other processes. One structure for all 74 cards. Six cards are released in full, 68 as reviewed public summaries.</li>
+            <li><strong>Handovers:</strong> 16 confirmed connections between processes, the places where one process hands its result to another. That is where implementations usually go wrong.</li>
+            <li><strong>Regulatory layer:</strong> 160 legal requirements bound to 66 processes. Not legal advice, but a controlled projection: the analyst sees which processes a regulation touches before starting to design.</li>
+            <li><strong>Business model profiles:</strong> six variants, from a single store to a marketplace, stating which processes are mandatory in each model.</li>
+            <li><strong>Access for people and machines:</strong> the website, an open JSON API with no keys, llms.txt files for language models, JSON-LD data. The release carries SHA-256 checksums, so you can verify that what you read is what I published.</li>
+            <li><strong>Licences:</strong> content CC BY-SA 4.0, code Apache-2.0. Use it and build on it. One condition: name the source.</li>
+          </ul>
+
+          <p>This is what a card looks like. Process CAT-02 is one of the most frequent points of dispute between a chain and its software vendor:</p>
+          <div class="orpr-card">
+            <div class="orpr-card-id">CAT-02 · full card · release 1.0</div>
+            <div class="orpr-card-title">From Price to Checkout</div>
+            <dl>
+              <dt>Goal</dt><dd>The price on the receipt is the price approved for this location, this moment and this item.</dd>
+              <dt>Input</dt><dd>Approved item price.</dd>
+              <dt>Output</dt><dd>Checkout operating price.</dd>
+              <dt>Owner</dt><dd>Offer.</dd>
+              <dt>Consumer</dt><dd>Checkout.</dd>
+            </dl>
+          </div>
+          <p>Five lines. But once a chain and a vendor sign a contract underneath them, half of the later arguments about "whose fault was that" disappear.</p>
+
+          <h2>Who it is for</h2>
+          <div class="orpr-uses">
+            <div class="orpr-use"><div class="orpr-use-title">Retail chain management</div><div class="orpr-use-desc">You are implementing a new system or switching vendors. Contract scope, acceptance tests and the "what has to work" list rest on one process map, not on a salesperson's slide deck.</div></div>
+            <div class="orpr-use"><div class="orpr-use-title">Software vendor, integrator</div><div class="orpr-use-desc">You map your system onto the standard and see at once which processes you cover fully, partly or not at all. The conversation with the customer starts from the gaps.</div></div>
+            <div class="orpr-use"><div class="orpr-use-title">Teams building AI agents</div><div class="orpr-use-desc">The agent gets a stable reference: process identifiers, owners, boundaries. The llms.txt file and the API exist so it does not have to guess what "return" means.</div></div>
+          </div>
+
+          <h2>How it was built</h2>
+          <p>Most of the standard's text was written by AI agents. All the decisions are mine. The way of working is the one I use in client projects, except this time the product is a standard:</p>
+          <ul class="orpr-list">
+            <li>Specification before content. The card structure, notation rules and acceptance criteria came first. The cards came after.</li>
+            <li>Agents as authors, a human as owner. I personally went through all 68 cards. Each carries my verdict, not the model's.</li>
+            <li>Independent review by a different model. Text written by one model is reviewed by another, from a different family, in "verdict, weak points, alternative" mode. A model rarely sees its own mistakes. It sees other people's very well.</li>
+            <li>Quality gates and frozen control tools. Automated consistency tests across the register, the map and the cards. A change in a control tool requires a numbered exception written down before the code.</li>
+            <li>A decision log with rejected options. Every notation decision records what I chose, what I rejected and why. A year from now I will know why the map looks the way it does.</li>
+            <li>Clean source. There is not a single client document in the standard. The domain knowledge is mine, the form is open.</li>
+          </ul>
+
+          <h2>ORPR and the regulatory matrix</h2>
+          <p>Earlier I built a <a href="../art-ai-zrodlo-prawdy.html">matrix of 361 regulatory requirements</a> for pharmacy systems: what a system must do because the law says so. ORPR answers a different question: how to cut retail processes and who owns which one. They are two layers of the same construction, built for one purpose: so that a system specification for a retail chain starts from the process and the regulation, not from a feature list. The matrix says "you must", ORPR says "where and who".</p>
+
+          <h2>What comes next</h2>
+          <p>This is release 0.1 and I say so openly. Most cards are summaries, some relations between processes await validation, the standard carries an explicit list of eight known limitations and gives no implementation guarantee. The map is a hypothesis about how retail works. The first real project built on ORPR will show where the hypothesis is wrong, and that is the most interesting part.</p>
+          <p>The standard is open to public review. If you run a chain, build systems or agents for one, and want to test the map against your own processes, get in touch. Early adopters get the most: their remarks go into version 0.2.</p>
+
+          <div class="orpr-cta">
+            <p>Want to base a project on ORPR, or test the standard against your organisation?</p>
+            <a href="../index.html#kontakt" class="pill-btn">Write to me →</a>
+            <a href="https://orpr.dev/en" target="_blank" rel="noopener" class="pill-btn">Open orpr.dev →</a>
+          </div>
+        </article>
+
+        <p class="orpr-note">Attribution: ORPR, Rafał Myrta, 2026, <a href="https://myrta.me/orpr/">myrta.me/orpr</a>. Content under CC BY-SA 4.0, code under Apache-2.0. The regulatory layer supports analysis and design; it is not legal advice.</p>
+
+        <div class="author-box"><img src="../profile.jpg" alt="Rafał Myrta" class="author-photo" loading="lazy" width="558" height="744"><div class="author-info"><div class="author-name">Rafał Myrta</div><div class="author-desc">Brings order to processes, roles and systems in multi-site and regulated companies. Runs AI projects with Spec-Driven Development. Author of ORPR.</div></div><a href="../index.html#kontakt" class="author-cta">Let's talk →</a></div>
+
+        <div class="back-link">
+          <a href="../index.html#standardy">← Back to the home page</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <div>© 2026 Rafał Myrta</div>
+      <ul class="footer-links">
+        <li><a href="https://orpr.dev">orpr.dev</a></li>
+        <li><a href="https://linkedin.com/in/rafalmyrta">LinkedIn</a></li>
+        <li><a href="https://cpapblog.pl">CPAPblog</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script>
+    function applyLang(lang) {
+      document.documentElement.setAttribute('lang', lang);
+      document.querySelectorAll('.nav-links a[data-pl]').forEach(function (a) { a.textContent = a.getAttribute('data-' + lang); });
+      var btn = document.querySelector('.lang-toggle');
+      if (btn) btn.textContent = lang === 'pl' ? 'EN' : 'PL';
+      document.title = lang === 'pl'
+        ? 'ORPR: otwarty standard procesów dla handlu detalicznego - Rafał Myrta'
+        : 'ORPR: an open process standard for retail - Rafał Myrta';
+    }
+    function toggleLang() {
+      var current = document.documentElement.getAttribute('lang') || 'pl';
+      var next = current === 'pl' ? 'en' : 'pl';
+      try { localStorage.setItem('preferredLang', next); } catch (e) {}
+      applyLang(next);
+    }
+    document.addEventListener('DOMContentLoaded', function () {
+      var preferred = 'pl';
+      try { preferred = localStorage.getItem('preferredLang') || 'pl'; } catch (e) {}
+      applyLang(preferred);
+    });
+
+    // Pasek postępu czytania
+    (function () {
+      var bar = document.querySelector('.read-progress');
+      if (!bar) return;
+      function upd() {
+        var h = document.documentElement.scrollHeight - window.innerHeight;
+        bar.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
+      }
+      window.addEventListener('scroll', upd, { passive: true });
+      upd();
+    })();
+  </script>
+</body>
+</html>
