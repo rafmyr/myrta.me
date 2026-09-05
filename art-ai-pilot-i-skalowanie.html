@@ -43,378 +43,12 @@
     }
   }
   </script>
-  <style>
-    :root {
-      --ink: #1d1d1f;
-      --gray: #6e6e73;
-      --gray-light: #d2d2d7;
-      --card-bg: #fbfbfd;
-      --white: #ffffff;
-      --sans: -apple-system, "system-ui", "SF Pro Display", "SF Pro Text", "Segoe UI", Roboto, sans-serif;
-      --max-w: 980px;
-      --gap: 24px;
-      --radius: 12px;
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html, body {
-      font-family: var(--sans);
-      background-color: var(--white);
-      color: var(--ink);
-    }
-
-    /* Navigation — mobile-first */
-    nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      height: 49px;
-      background: rgba(255,255,255,0.8);
-      backdrop-filter: blur(24px);
-      border-bottom: 1px solid var(--gray-light);
-      z-index: 1000;
-    }
-
-    .nav-content {
-      max-width: var(--max-w);
-      margin: 0 auto;
-      padding: 0 var(--gap);
-      height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .nav-logo {
-      font-size: 17px;
-      font-weight: 600;
-      text-decoration: none;
-      color: var(--ink);
-      letter-spacing: -0.3px;
-    }
-
-    .nav-hamburger {
-      display: block;
-      background: none;
-      border: none;
-      cursor: pointer;
-      padding: 4px;
-      color: var(--ink);
-    }
-
-    .nav-hamburger svg {
-      width: 22px;
-      height: 22px;
-    }
-
-    .nav-links {
-      display: none;
-      position: absolute;
-      top: 49px; left: 0; right: 0;
-      background: rgba(255,255,255,0.95);
-      backdrop-filter: blur(20px);
-      flex-direction: column;
-      padding: 16px var(--gap) 24px;
-      gap: 0;
-      list-style: none;
-      border-bottom: 1px solid var(--gray-light);
-    }
-
-    .nav-links.open { display: flex; }
-
-    .nav-links li {
-      padding-top: 12px; padding-bottom: 12px;
-      border-bottom: 1px solid rgba(0,0,0,0.04);
-    }
-
-    .nav-links li:last-child {
-      border-bottom: none;
-      padding-top: 16px;
-    }
-
-    .nav-links a {
-      font-size: 16px;
-      font-weight: 400;
-      color: var(--gray);
-      text-decoration: none;
-      transition: opacity 0.3s cubic-bezier(0.4,0,0.2,1);
-    }
-
-    .nav-links a:hover { opacity: 0.7; }
-
-    .lang-toggle {
-      font-size: 12px;
-      font-weight: 400;
-      color: var(--gray);
-      background: none;
-      border: none;
-      cursor: pointer;
-      font-family: var(--sans);
-      transition: opacity 0.3s cubic-bezier(0.4,0,0.2,1);
-    }
-
-    .lang-toggle:hover { opacity: 0.7; }
-
-    /* Main content */
-    main {
-      padding-top: 49px;
-      min-height: 100vh;
-    }
-
-    .container {
-      max-width: var(--max-w);
-      margin: 0 auto;
-      padding: 0 var(--gap);
-    }
-
-    /* Article header */
-    .article-header {
-      padding: 80px 0 60px 0;
-    }
-
-    .article-header h1 {
-      font-size: 48px;
-      font-weight: 600;
-      line-height: 1.2;
-      margin-bottom: 24px;
-      color: var(--ink);
-      letter-spacing: -0.5px;
-    }
-
-    .article-lead {
-      font-size: 18px;
-      color: var(--gray);
-      font-style: italic;
-      line-height: 1.7;
-      margin-bottom: 32px;
-      font-weight: 400;
-    }
-
-    .article-divider {
-      height: 1px;
-      background-color: var(--gray-light);
-      margin-bottom: 48px;
-    }
-
-    /* Article body */
-    .article-body {
-      max-width: 720px;
-      margin: 0 auto 100px auto;
-    }
-
-    .article-body p {
-      font-size: 17px;
-      line-height: 1.8;
-      color: var(--ink);
-      margin-bottom: 20px;
-    }
-
-    .article-body h2 {
-      font-size: 24px;
-      font-weight: 600;
-      color: var(--ink);
-      margin-top: 40px;
-      margin-bottom: 16px;
-      letter-spacing: -0.3px;
-    }
-
-    .article-body h2:first-child {
-      margin-top: 0;
-    }
-
-    /* Author bio */
-    .author-bio {
-      max-width: 720px;
-      margin: 80px auto 100px auto;
-      padding-top: 24px;
-      border-top: 1px solid var(--gray-light);
-      font-size: 14px;
-      color: var(--gray);
-      line-height: 1.6;
-      font-style: italic;
-    }
-
-    /* Back link */
-    .back-link {
-      max-width: 720px;
-      margin: 0 auto 60px auto;
-      font-size: 14px;
-    }
-
-    .back-link a {
-      color: var(--gray);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-
-    .back-link a:hover {
-      color: var(--ink);
-    }
-
-    /* Footer */
-    footer {
-      background-color: var(--card-bg);
-      border-top: 1px solid var(--gray-light);
-      padding: 48px var(--gap);
-      margin-top: 100px;
-    }
-
-    .footer-content {
-      max-width: var(--max-w);
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 14px;
-      color: var(--gray);
-    }
-
-    .footer-links {
-      display: flex;
-      list-style: none;
-      gap: 32px;
-    }
-
-    .footer-links a {
-      color: var(--gray);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-
-    .footer-links a:hover {
-      color: var(--ink);
-    }
-
-    /* PL/EN toggle handler */
-    .lang-only-en {
-      display: none;
-    }
-
-    html[lang="en"] .lang-only-pl {
-      display: none;
-    }
-
-    html[lang="en"] .lang-only-en {
-      display: block;
-    }
-
-    html[lang="en"] .lang-only-pl .article-body,
-    html[lang="en"] .lang-only-pl .article-header,
-    html[lang="en"] .lang-only-pl .author-bio,
-    html[lang="en"] .lang-only-pl .back-link {
-      display: none;
-    }
-
-    .en-placeholder {
-      display: none;
-    }
-
-    .en-placeholder .article-header,
-    .en-placeholder .article-body,
-    .en-placeholder .author-bio,
-    .en-placeholder .back-link {
-      display: none;
-    }
-
-    html[lang="en"] .en-placeholder {
-      display: block;
-    }
-
-    html[lang="en"] .en-placeholder .article-header,
-    html[lang="en"] .en-placeholder .article-body,
-    html[lang="en"] .en-placeholder .author-bio,
-    html[lang="en"] .en-placeholder .back-link {
-      display: block;
-    }
-    @media (max-width: 768px) {
-      body { overflow-x: hidden; }
-      .container { padding: 0 20px; }
-      .article-header h1 { font-size: 28px; }
-      .article-header { padding: 48px 0 32px 0; }
-      .article-body p { font-size: 16px; }
-      .footer-content { flex-direction: column; gap: 16px; text-align: center; }
-      .footer-links { gap: 16px; }
-    }
-    @media (min-width: 769px) {
-      .nav-hamburger { display: none; }
-      .nav-links {
-        display: flex;
-        position: static;
-        background: none;
-        backdrop-filter: none;
-        flex-direction: row;
-        padding: 0;
-        gap: 32px;
-        border-bottom: none;
-      }
-      .nav-links li {
-        padding: 0;
-        border-bottom: none;
-      }
-      .nav-links li:last-child { padding-top: 0; }
-      .nav-links a { font-size: 12px; }
-      .article-header h1 { font-size: 48px; }
-    }
-    /* ── dodatki 07.2026: meta, author box, artnav, progress, checklisty ── */
-    .article-meta { font-size: 13px; color: var(--gray); margin-bottom: 12px; }
-
-    .read-progress { position: fixed; top: 0; left: 0; height: 2px; width: 0; background: var(--ink); z-index: 2000; }
-
-    .author-box { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; max-width: 720px; margin: 48px auto 0; padding: 24px 0 0; border-top: 1px solid #e8e8ed; }
-    .author-photo { width: 56px; height: 56px; object-fit: cover; object-position: center 25%; border-radius: 14px; flex-shrink: 0; }
-    .author-info { flex: 1; min-width: 220px; }
-    .author-name { font-size: 15px; font-weight: 600; color: var(--ink); }
-    .author-desc { font-size: 14px; color: var(--gray); line-height: 1.5; margin-top: 2px; }
-    .author-cta { font-size: 13px; font-weight: 500; color: var(--ink); text-decoration: none; border: 1px solid var(--gray-light); border-radius: 980px; padding: 9px 18px; white-space: nowrap; transition: all 0.3s cubic-bezier(0.4,0,0.2,1); }
-    .author-cta:hover { background: var(--ink); color: var(--white); border-color: var(--ink); }
-
-    .artnav { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; max-width: 720px; margin: 32px auto 0; }
-    .artnav a { display: block; padding: 16px 18px; border: 1px solid #e8e8ed; border-radius: 12px; text-decoration: none; background: var(--card-bg); transition: transform 0.3s cubic-bezier(0.16,1,0.3,1), border-color 0.3s ease; }
-    .artnav a:hover { transform: translateY(-2px); border-color: #c7c7cc; }
-    .artnav a.next { text-align: right; grid-column: 2; }
-    .artnav a.prev { grid-column: 1; }
-    .artnav-dir { font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gray); margin-bottom: 4px; }
-    .artnav-title { font-size: 14px; font-weight: 600; color: var(--ink); }
-
-    .symptom-list { list-style: none; padding: 0; margin: 0 0 20px; max-width: 720px; }
-    .symptom-list li { position: relative; padding: 10px 0 10px 30px; border-bottom: 1px solid #e8e8ed; font-size: 16px; line-height: 1.65; color: var(--ink); }
-    .symptom-list li:last-child { border-bottom: none; }
-    .symptom-list li::before { content: "\2192"; position: absolute; left: 2px; color: var(--gray); }
-
-    @keyframes artIn { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
-    .article-header { animation: artIn 0.7s cubic-bezier(0.16,1,0.3,1) both; }
-    .article-body { animation: artIn 0.7s cubic-bezier(0.16,1,0.3,1) 0.15s both; }
-
-    @media (prefers-reduced-motion: reduce) {
-      .article-header, .article-body { animation: none; }
-      .artnav a:hover { transform: none; }
-    }
-
-    @media (max-width: 768px) {
-      .artnav { grid-template-columns: 1fr; }
-      .artnav a.next { grid-column: 1; text-align: left; }
-    }
-    
-    a:focus-visible, button:focus-visible { outline: 2px solid #1d1d1f; outline-offset: 2px; }
-  
-    .apply-box { background: #fbfbfd; border: 1px solid #d2d2d7; border-radius: 12px;
-      padding: 20px 24px; margin: 28px 0; font-size: 16px; line-height: 1.6; }
-    .apply-label { display: block; font-size: 12px; letter-spacing: 2px;
-      text-transform: uppercase; color: #6e6e73; margin-bottom: 8px; font-weight: 600; }
-    .article-sources { max-width: 720px; margin: 36px auto 0; padding-top: 12px;
-      border-top: 1px solid #e8e8ed; font-size: 12px; line-height: 1.6; color: #6e6e73; }
-    .article-sources a { color: #6e6e73; text-decoration: underline; text-underline-offset: 2px; }
-    .seria-tag { font-size: 12px; letter-spacing: 2px; text-transform: uppercase;
-      color: #6e6e73; margin-bottom: 12px; }
-    .artnav-next { display: none; }
-
-  </style>
+  <link rel="stylesheet" href="assets/page-24806d2282ed.css">
+<link rel="stylesheet" href="assets/site.css?v=2">
+<script src="assets/site.js?v=2"></script>
 </head>
 <body>
+  <a class="skip-link" href="#main-content" data-pl="Przejdź do treści" data-en="Skip to content">Przejdź do treści</a>
   <div class="read-progress" aria-hidden="true"></div>
   <nav>
     <div class="nav-content">
@@ -435,7 +69,7 @@
     </div>
   </nav>
 
-  <main>
+  <main id="main-content" tabindex="-1">
     <div class="container">
       <div class="lang-only-pl">
         <div class="article-header">
@@ -467,7 +101,7 @@
 
         
 
-        <div class="author-box"><img src="profile.jpg" alt="Rafał Myrta" class="author-photo" loading="lazy" width="558" height="744"><div class="author-info"><div class="author-name">Rafał Myrta</div><div class="author-desc">Porządkuje procesy, role i systemy w firmach wielolokalizacyjnych i regulowanych. Projekty AI prowadzi metodą Spec-Driven Development.</div></div><a href="index.html#kontakt" class="author-cta">Porozmawiajmy →</a></div>
+        <div class="author-box"><picture><source srcset="profile.webp" type="image/webp"><img src="profile.jpg" alt="Rafał Myrta" class="author-photo" loading="lazy" width="558" height="744"></picture><div class="author-info"><div class="author-name">Rafał Myrta</div><div class="author-desc">Porządkuje procesy, role i systemy w firmach wielolokalizacyjnych i regulowanych. Projekty AI prowadzi metodą Spec-Driven Development.</div></div><a href="index.html#kontakt" class="author-cta">Porozmawiajmy →</a></div>
 
         <div class="artnav"><div class="artnav-dir">← Poprzedni w serii</div><div class="artnav-title"><a href="art-ai-zly-projekt.html">AI nie naprawi złego projektu. Szybciej wystawi rachunek</a></div></div>
         <div class="artnav artnav-next" id="artnavNext" data-gate="20260817"><div class="artnav-dir">Następny w serii →</div><div class="artnav-title"><a href="art-ai-mbo-kontra-ai.html">MBO kontra AI: kiedy premia nagradza stary sposób pracy</a></div></div>
@@ -488,6 +122,7 @@
           <a href="index.html#artykuly">← All articles</a>
         </div>
       </div>
+    </div>
 </main>
 
   <footer>
@@ -506,7 +141,7 @@
       const currentLang = html.getAttribute('lang') || 'pl';
       const newLang = currentLang === 'pl' ? 'en' : 'pl';
       html.setAttribute('lang', newLang);
-      localStorage.setItem('preferredLang', newLang);
+      SiteLanguage.set(newLang);
 
       const btn = document.querySelector('.lang-toggle');
       btn.textContent = newLang === 'pl' ? 'EN' : 'PL';
@@ -514,7 +149,7 @@
 
     // Load preferred language on page load
     document.addEventListener('DOMContentLoaded', function() {
-      const preferredLang = localStorage.getItem('preferredLang') || 'pl';
+      const preferredLang = SiteLanguage.get() || 'pl';
       document.documentElement.setAttribute('lang', preferredLang);
       const btn = document.querySelector('.lang-toggle');
       btn.textContent = preferredLang === 'pl' ? 'EN' : 'PL';

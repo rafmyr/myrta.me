@@ -1,0 +1,37 @@
+/* ── ORPR: dodatki do stylu artykułu ── */
+    .orpr-stats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px 16px; max-width: 720px; margin: -16px auto 40px; padding: 0 0 28px; border-bottom: 1px solid #e8e8ed; }
+    .article-body a, .article-lead a, .orpr-note a { color: var(--ink); text-decoration: underline; text-decoration-color: var(--gray-light); text-underline-offset: 3px; transition: text-decoration-color 0.2s; }
+    .article-body a:hover, .article-lead a:hover, .orpr-note a:hover { text-decoration-color: var(--ink); }
+    .back-link { margin-top: 32px; }
+    .orpr-stat-num { font-size: 32px; font-weight: 700; letter-spacing: -1px; line-height: 1; color: var(--ink); }
+    .orpr-stat-label { font-size: 13px; color: var(--gray); margin-top: 6px; line-height: 1.4; }
+    .orpr-links { display: flex; flex-wrap: wrap; gap: 10px; max-width: 720px; margin: 0 auto 8px; }
+    .pill-btn { display: inline-block; font-size: 13px; font-weight: 500; color: var(--ink); text-decoration: none; border: 1px solid var(--gray-light); border-radius: 980px; padding: 9px 18px; transition: all 0.3s cubic-bezier(0.4,0,0.2,1); }
+    .pill-btn:hover { background: var(--ink); color: var(--white); border-color: var(--ink); }
+    .orpr-card { background: var(--card-bg); border: 1px solid #e8e8ed; border-radius: 12px; padding: 22px 24px; margin: 8px 0 28px; }
+    .orpr-card-id { font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: var(--gray); font-weight: 600; margin-bottom: 6px; }
+    .orpr-card-title { font-size: 18px; font-weight: 600; color: var(--ink); margin-bottom: 12px; letter-spacing: -0.2px; }
+    .orpr-card dl { display: grid; grid-template-columns: 110px 1fr; gap: 6px 16px; font-size: 15px; line-height: 1.5; }
+    .orpr-card dt { color: var(--gray); }
+    .orpr-card dd { color: var(--ink); margin: 0; }
+    .orpr-list { list-style: none; padding: 0; margin: 0 0 24px; }
+    .orpr-list li { position: relative; padding: 10px 0 10px 30px; border-bottom: 1px solid #e8e8ed; font-size: 16px; line-height: 1.65; color: var(--ink); }
+    .orpr-list li:last-child { border-bottom: none; }
+    .orpr-list li::before { content: "\2192"; position: absolute; left: 2px; color: var(--gray); }
+    .orpr-list strong { font-weight: 600; }
+    .orpr-uses { display: grid; grid-template-columns: 1fr; gap: 16px; margin: 8px 0 28px; }
+    .orpr-use { background: var(--card-bg); border: 1px solid #e8e8ed; border-radius: 12px; padding: 20px 22px; }
+    .orpr-use-title { font-size: 15px; font-weight: 600; color: var(--ink); margin-bottom: 6px; }
+    .orpr-use-desc { font-size: 14px; color: var(--gray); line-height: 1.55; }
+    .orpr-cta { background: var(--ink); color: var(--white); border-radius: 12px; padding: 32px 28px; margin: 40px 0 0; text-align: center; }
+    .orpr-cta p { color: rgba(255,255,255,0.75); font-size: 16px; margin: 0 auto 20px; max-width: 520px; }
+    .orpr-cta .pill-btn { color: var(--white); border-color: rgba(255,255,255,0.35); }
+    .orpr-cta .pill-btn:hover { background: var(--white); color: var(--ink); border-color: var(--white); }
+    .orpr-note { font-size: 13px; color: var(--gray); max-width: 720px; margin: 20px auto 0; line-height: 1.55; }
+    @media (max-width: 768px) { .orpr-card dl { grid-template-columns: 84px 1fr; font-size: 14px; } }
+    @media (min-width: 769px) {
+      .orpr-stats { grid-template-columns: repeat(4, 1fr); }
+      .orpr-uses { grid-template-columns: repeat(3, 1fr); }
+    }
+    html[lang="en"] .lang-only-pl { display: none; }
+    html[lang="en"] .lang-only-en { display: block; }
