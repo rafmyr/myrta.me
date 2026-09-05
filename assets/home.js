@@ -128,7 +128,7 @@ const content = {
     document.getElementById('langToggle').addEventListener('click', function() {
       currentLang = currentLang === 'pl' ? 'en' : 'pl';
       SiteLanguage.set(currentLang);
-      this.textContent = currentLang === 'pl' ? 'EN' : 'PL';
+      this.textContent = currentLang === 'pl' ? 'ENG' : 'PL';
       updateContent();
     });
 
@@ -278,7 +278,7 @@ const content = {
     }
 
     updateContent();
-    document.getElementById('langToggle').textContent = currentLang === 'pl' ? 'EN' : 'PL';
+    document.getElementById('langToggle').textContent = currentLang === 'pl' ? 'ENG' : 'PL';
 
     const revealElements = document.querySelectorAll('.reveal');
     const revealOnScroll = new IntersectionObserver((entries) => {

@@ -1,13 +1,20 @@
 :root { --site-ink: #1d1d1f; --site-paper: #ffffff; --site-muted: #6e6e73; --site-line: #d2d2d7; --site-surface: #fbfbfd; }
 html { background: var(--site-paper); }
-:root { --sans: system-ui, -apple-system, "Segoe UI", Arial, sans-serif; }
+:root { --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, Helvetica, sans-serif; }
 .nav-logo { flex-shrink: 0; white-space: nowrap; }
 .nav-links a { white-space: nowrap; }
+.nav-links { align-items: stretch; }
+.nav-links li, .nav-links li:last-child { display: flex; align-items: center; padding: 0; }
+.nav-links a, .lang-toggle { display: inline-flex; align-items: center; min-height: 44px; line-height: 1; }
+.lang-toggle { justify-content: center; font-family: inherit; font-weight: 500; padding: 0 8px; }
+.nav-hamburger { align-items: center; justify-content: center; line-height: 0; }
+.nav-hamburger svg { display: block; margin: auto; }
 .author-box > picture { display: block; flex-shrink: 0; }
 .author-photo { display: block; }
-@media (min-width: 769px) {
-  .nav-content { max-width: 1200px; gap: 24px; }
-  .nav-links { gap: 18px; }
+@media (min-width: 1101px) {
+  .nav-content { max-width: 1120px; gap: 32px; }
+  .nav-links { align-items: center; gap: 20px; }
+  .nav-links li, .nav-links li:last-child { padding: 0; }
 }
 @media (min-width: 769px) and (max-width: 1100px) {
   .nav-hamburger { display: block; }
