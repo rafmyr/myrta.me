@@ -80,7 +80,10 @@
         if (label) anchor.textContent = label[lang === 'en' ? 1 : 0];
         else if (/\/mapa(?:-en)?\.html$/.test(target.pathname)) anchor.textContent = lang === 'en' ? 'Map' : 'Mapa';
       });
-      if (languageButton) languageButton.setAttribute('aria-label', lang === 'pl' ? 'Switch to English' : 'Przełącz na polski');
+      if (languageButton) {
+        languageButton.textContent = lang === 'pl' ? 'ENG' : 'PL';
+        languageButton.setAttribute('aria-label', lang === 'pl' ? 'Switch to English' : 'Przełącz na polski');
+      }
       document.querySelectorAll('a[href]').forEach(anchor => {
         const raw = anchor.getAttribute('href');
         if (raw.startsWith('#') || anchor.getAttribute('lang')) return;
