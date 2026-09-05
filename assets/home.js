@@ -56,7 +56,6 @@ const content = {
         articlesDesc: ["Dlaczego każda firma powyżej 50 osób potrzebuje działu, którego jedynym zadaniem jest myślenie do przodu.", "Kiedy właściciel przestaje gasić pożary i zaczyna budować systemy.", "Nie chodzi o technologię. Chodzi o ludzi, którzy mają z nią pracować.", "Inne problemy, inne narzędzia, ten sam cel.", "Jak zarządzać asortymentem tak, żeby każdy metr półki zarabiał.", "Case study: jak uporządkować sieć 1 200 aptek."],
         kontaktTitle: "Kontakt",
         kontaktSubtitle: "Szukasz kogoś, kto ogarnie projekt od strategii po wdrożenie? Odezwij się.",
-        kontaktAvailability: "Równolegle z bieżącymi projektami biorę wybrane zlecenia doradcze: audyty, diagnozy organizacyjne, wsparcie strategiczne. Odpowiadam do 48 godzin.",
         kontaktLocation: "Katowice, Polska",
         footerCopy: "© 2026 Rafał Myrta"
       },
@@ -117,7 +116,6 @@ const content = {
         articlesDesc: ["Why every company above 50 people needs a department whose only job is thinking ahead.", "When the owner stops firefighting and starts building systems.", "It's not about the technology. It's about the people who have to work with it.", "Different problems, different tools, same goal.", "How to manage assortment so every meter of shelf space earns.", "Case study: how to bring order to a network of 1,200 pharmacies."],
         kontaktTitle: "Contact",
         kontaktSubtitle: "Looking for someone to take your project from strategy to execution? Get in touch.",
-        kontaktAvailability: "Alongside my current engagements I take on selected advisory projects: audits, organizational diagnostics, strategic support. I reply within 48 hours.",
         kontaktLocation: "Katowice, Poland",
         footerCopy: "© 2026 Rafał Myrta"
       }
@@ -268,8 +266,7 @@ const content = {
       });
       document.getElementById('kontaktTitle').textContent = data.kontaktTitle;
       document.getElementById('kontaktSubtitle').textContent = data.kontaktSubtitle;
-      const availEl = document.getElementById('kontaktAvailability');
-      if (availEl) availEl.textContent = data.kontaktAvailability;
+
       document.getElementById('kontaktLocation').textContent = data.kontaktLocation;
       document.getElementById('footerCopy').textContent = data.footerCopy;
       const projCta = document.getElementById('projektyCTA');
