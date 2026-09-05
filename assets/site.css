@@ -1,0 +1,29 @@
+:root { --site-ink: #1d1d1f; --site-paper: #ffffff; --site-muted: #6e6e73; --site-line: #d2d2d7; --site-surface: #fbfbfd; }
+html { background: var(--site-paper); }
+:root { --sans: system-ui, -apple-system, "Segoe UI", Arial, sans-serif; }
+.nav-logo { flex-shrink: 0; white-space: nowrap; }
+.nav-links a { white-space: nowrap; }
+.author-box > picture { display: block; flex-shrink: 0; }
+.author-photo { display: block; }
+@media (min-width: 769px) {
+  .nav-content { max-width: 1200px; gap: 24px; }
+  .nav-links { gap: 18px; }
+}
+@media (min-width: 769px) and (max-width: 1100px) {
+  .nav-hamburger { display: block; }
+  .nav-links { display: none; position: absolute; top: 49px; left: 0; right: 0; flex-direction: column; background: var(--site-paper); color: var(--site-ink); padding: 16px 24px; gap: 0; border-bottom: 1px solid var(--site-line); }
+  .nav-links.open { display: flex; }
+  .nav-links li { padding: 10px 0; }
+  .nav-links a { font-size: 16px; }
+}
+.skip-link { position: fixed; top: 8px; left: 12px; z-index: 2000; padding: 12px 20px; background: var(--site-ink); color: var(--site-paper); border-radius: 8px; transform: translateY(-160%); }
+.skip-link:focus { transform: none; }
+a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px solid var(--site-ink); outline-offset: 4px; }
+.nav-hamburger, .lang-toggle { min-width: 44px; min-height: 44px; }
+.lang-toggle, .seria-next, .std-tag, .std-stat-label, .testimonial-role, .stat-label, .artykuly-desc, .hero-label { font-size: 14px; }
+.nav-links.open { max-height: calc(100dvh - 49px); overflow-y: auto; }
+main:focus { outline: none; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto !important; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
