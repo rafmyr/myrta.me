@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kto będzie zarządzał firmą, w której decyzje wykonują agenci AI? - Rafał Myrta</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%231d1d1f'/><text x='16' y='22' text-anchor='middle' fill='white' font-family='system-ui' font-size='16' font-weight='600'>RM</text></svg>">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <meta name="description" content="Delegowanie decyzji agentom AI wymaga reguł, granic, rozdzielenia faktów od przewidywań i realnej zdolności nadzoru. Zadanie dla zarządu, nie dla IT.">
+  <meta property="og:title" content="Kto będzie zarządzał firmą, w której decyzje wykonują agenci AI?">
+  <meta property="og:description" content="Delegowanie decyzji agentom AI wymaga reguł, granic, rozdzielenia faktów od przewidywań i realnej zdolności nadzoru. Zadanie dla zarządu, nie dla IT.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://myrta.me/art-orpr-kto-zarzadza-firma-agentow.html">
+  <meta property="og:image" content="https://myrta.me/og-image.png">
+  <meta property="og:locale" content="pl_PL">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://myrta.me/art-orpr-kto-zarzadza-firma-agentow.html">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Kto będzie zarządzał firmą, w której decyzje wykonują agenci AI?",
+    "description": "Delegowanie decyzji agentom AI wymaga reguł, granic, rozdzielenia faktów od przewidywań i realnej zdolności nadzoru. Zadanie dla zarządu, nie dla IT.",
+    "datePublished": "2026-09-05",
+    "dateModified": "2026-09-05",
+    "inLanguage": "pl",
+    "isPartOf": {
+      "@type": "CreativeWorkSeries",
+      "name": "Doświadczenie, AI i zarządzanie firmą",
+      "url": "https://myrta.me/#artykuly"
+    },
+    "about": {
+      "@type": "CreativeWork",
+      "name": "ORPR, Open Retail Process Reference",
+      "url": "https://myrta.me/orpr/"
+    },
+    "mainEntityOfPage": "https://myrta.me/art-orpr-kto-zarzadza-firma-agentow.html",
+    "author": {
+      "@type": "Person",
+      "name": "Rafał Myrta",
+      "url": "https://myrta.me"
+    },
+    "publisher": {
+      "@type": "Person",
+      "name": "Rafał Myrta",
+      "url": "https://myrta.me"
+    }
+  }
+  </script>
+  <style>
+    :root {
+      --ink: #1d1d1f;
+      --gray: #6e6e73;
+      --gray-light: #d2d2d7;
+      --card-bg: #fbfbfd;
+      --white: #ffffff;
+      --sans: -apple-system, "system-ui", "SF Pro Display", "SF Pro Text", "Segoe UI", Roboto, sans-serif;
+      --max-w: 980px;
+      --gap: 24px;
+      --radius: 12px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      font-family: var(--sans);
+      background-color: var(--white);
+      color: var(--ink);
+    }
+
+    /* Navigation — mobile-first */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: 49px;
+      background: rgba(255,255,255,0.8);
+      backdrop-filter: blur(24px);
+      border-bottom: 1px solid var(--gray-light);
+      z-index: 1000;
+    }
+
+    .nav-content {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 var(--gap);
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      font-size: 17px;
+      font-weight: 600;
+      text-decoration: none;
+      color: var(--ink);
+      letter-spacing: -0.3px;
+    }
+
+    .nav-hamburger {
+      display: block;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+      color: var(--ink);
+    }
+
+    .nav-hamburger svg {
+      width: 22px;
+      height: 22px;
+    }
+
+    .nav-links {
+      display: none;
+      position: absolute;
+      top: 49px; left: 0; right: 0;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(20px);
+      flex-direction: column;
+      padding: 16px var(--gap) 24px;
+      gap: 0;
+      list-style: none;
+      border-bottom: 1px solid var(--gray-light);
+    }
+
+    .nav-links.open { display: flex; }
+
+    .nav-links li {
+      padding-top: 12px; padding-bottom: 12px;
+      border-bottom: 1px solid rgba(0,0,0,0.04);
+    }
+
+    .nav-links li:last-child {
+      border-bottom: none;
+      padding-top: 16px;
+    }
+
+    .nav-links a {
+      font-size: 16px;
+      font-weight: 400;
+      color: var(--gray);
+      text-decoration: none;
+      transition: opacity 0.3s cubic-bezier(0.4,0,0.2,1);
+    }
+
+    .nav-links a:hover { opacity: 0.7; }
+
+    .lang-toggle {
+      font-size: 12px;
+      font-weight: 400;
+      color: var(--gray);
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-family: var(--sans);
+      transition: opacity 0.3s cubic-bezier(0.4,0,0.2,1);
+    }
+
+    .lang-toggle:hover { opacity: 0.7; }
+
+    /* Main content */
+    main {
+      padding-top: 49px;
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 var(--gap);
+    }
+
+    /* Article header */
+    .article-header {
+      padding: 80px 0 60px 0;
+    }
+
+    .article-header h1 {
+      font-size: 48px;
+      font-weight: 600;
+      line-height: 1.2;
+      margin-bottom: 24px;
+      color: var(--ink);
+      letter-spacing: -0.5px;
+    }
+
+    .article-lead {
+      font-size: 18px;
+      color: var(--gray);
+      font-style: italic;
+      line-height: 1.7;
+      margin-bottom: 32px;
+      font-weight: 400;
+    }
+
+    .article-divider {
+      height: 1px;
+      background-color: var(--gray-light);
+      margin-bottom: 48px;
+    }
+
+    /* Article body */
+    .article-body {
+      max-width: 720px;
+      margin: 0 auto 100px auto;
+    }
+
+    .article-body p {
+      font-size: 17px;
+      line-height: 1.8;
+      color: var(--ink);
+      margin-bottom: 20px;
+    }
+
+    .article-body h2 {
+      font-size: 24px;
+      font-weight: 600;
+      color: var(--ink);
+      margin-top: 40px;
+      margin-bottom: 16px;
+      letter-spacing: -0.3px;
+    }
+
+    .article-body h2:first-child {
+      margin-top: 0;
+    }
+
+    /* Author bio */
+    .author-bio {
+      max-width: 720px;
+      margin: 80px auto 100px auto;
+      padding-top: 24px;
+      border-top: 1px solid var(--gray-light);
+      font-size: 14px;
+      color: var(--gray);
+      line-height: 1.6;
+      font-style: italic;
+    }
+
+    /* Back link */
+    .back-link {
+      max-width: 720px;
+      margin: 0 auto 60px auto;
+      font-size: 14px;
+    }
+
+    .back-link a {
+      color: var(--gray);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .back-link a:hover {
+      color: var(--ink);
+    }
+
+    /* Footer */
+    footer {
+      background-color: var(--card-bg);
+      border-top: 1px solid var(--gray-light);
+      padding: 48px var(--gap);
+      margin-top: 100px;
+    }
+
+    .footer-content {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 14px;
+      color: var(--gray);
+    }
+
+    .footer-links {
+      display: flex;
+      list-style: none;
+      gap: 32px;
+    }
+
+    .footer-links a {
+      color: var(--gray);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover {
+      color: var(--ink);
+    }
+
+    /* PL/EN toggle handler */
+    .lang-only-en {
+      display: none;
+    }
+
+    html[lang="en"] .lang-only-pl {
+      display: none;
+    }
+
+    html[lang="en"] .lang-only-en {
+      display: block;
+    }
+
+    html[lang="en"] .lang-only-pl .article-body,
+    html[lang="en"] .lang-only-pl .article-header,
+    html[lang="en"] .lang-only-pl .author-bio,
+    html[lang="en"] .lang-only-pl .back-link {
+      display: none;
+    }
+
+    @media (max-width: 768px) {
+      body { overflow-x: hidden; }
+      .container { padding: 0 20px; }
+      .article-header h1 { font-size: 28px; }
+      .article-header { padding: 48px 0 32px 0; }
+      .article-body p { font-size: 16px; }
+      .footer-content { flex-direction: column; gap: 16px; text-align: center; }
+      .footer-links { gap: 16px; }
+    }
+    @media (min-width: 769px) {
+      .nav-hamburger { display: none; }
+      .nav-links {
+        display: flex;
+        position: static;
+        background: none;
+        backdrop-filter: none;
+        flex-direction: row;
+        padding: 0;
+        gap: 32px;
+        border-bottom: none;
+      }
+      .nav-links li {
+        padding: 0;
+        border-bottom: none;
+      }
+      .nav-links li:last-child { padding-top: 0; }
+      .nav-links a { font-size: 12px; }
+      .article-header h1 { font-size: 48px; }
+    }
+    /* ── dodatki 07.2026: meta, author box, artnav, progress, checklisty ── */
+    .article-meta { font-size: 13px; color: var(--gray); margin-bottom: 12px; }
+
+    .read-progress { position: fixed; top: 0; left: 0; height: 2px; width: 0; background: var(--ink); z-index: 2000; }
+
+    .author-box { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; max-width: 720px; margin: 48px auto 0; padding: 24px 0 0; border-top: 1px solid #e8e8ed; }
+    .author-photo { width: 56px; height: 56px; object-fit: cover; object-position: center 25%; border-radius: 14px; flex-shrink: 0; }
+    .author-info { flex: 1; min-width: 220px; }
+    .author-name { font-size: 15px; font-weight: 600; color: var(--ink); }
+    .author-desc { font-size: 14px; color: var(--gray); line-height: 1.5; margin-top: 2px; }
+    .author-cta { font-size: 13px; font-weight: 500; color: var(--ink); text-decoration: none; border: 1px solid var(--gray-light); border-radius: 980px; padding: 9px 18px; white-space: nowrap; transition: all 0.3s cubic-bezier(0.4,0,0.2,1); }
+    .author-cta:hover { background: var(--ink); color: var(--white); border-color: var(--ink); }
+
+    .artnav { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; max-width: 720px; margin: 32px auto 0; }
+    .artnav a { display: block; padding: 16px 18px; border: 1px solid #e8e8ed; border-radius: 12px; text-decoration: none; background: var(--card-bg); transition: transform 0.3s cubic-bezier(0.16,1,0.3,1), border-color 0.3s ease; }
+    .artnav a:hover { transform: translateY(-2px); border-color: #c7c7cc; }
+    .artnav a.next { text-align: right; grid-column: 2; }
+    .artnav a.prev { grid-column: 1; }
+    .artnav-dir { font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gray); margin-bottom: 4px; }
+    .artnav-title { font-size: 14px; font-weight: 600; color: var(--ink); }
+
+    .symptom-list { list-style: none; padding: 0; margin: 0 0 20px; max-width: 720px; }
+    .symptom-list li { position: relative; padding: 10px 0 10px 30px; border-bottom: 1px solid #e8e8ed; font-size: 16px; line-height: 1.65; color: var(--ink); }
+    .symptom-list li:last-child { border-bottom: none; }
+    .symptom-list li::before { content: "\2192"; position: absolute; left: 2px; color: var(--gray); }
+
+    @keyframes artIn { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+    .article-header { animation: artIn 0.7s cubic-bezier(0.16,1,0.3,1) both; }
+    .article-body { animation: artIn 0.7s cubic-bezier(0.16,1,0.3,1) 0.15s both; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .article-header, .article-body { animation: none; }
+      .artnav a:hover { transform: none; }
+    }
+
+    @media (max-width: 768px) {
+      .artnav { grid-template-columns: 1fr; }
+      .artnav a.next { grid-column: 1; text-align: left; }
+    }
+    
+    a:focus-visible, button:focus-visible { outline: 2px solid #1d1d1f; outline-offset: 2px; }
+  
+    .apply-box { background: #fbfbfd; border: 1px solid #d2d2d7; border-radius: 12px;
+      padding: 20px 24px; margin: 28px 0; font-size: 16px; line-height: 1.6; }
+    .apply-label { display: block; font-size: 12px; letter-spacing: 2px;
+      text-transform: uppercase; color: #6e6e73; margin-bottom: 8px; font-weight: 600; }
+    .article-sources { max-width: 720px; margin: 36px auto 0; padding-top: 12px;
+      border-top: 1px solid #e8e8ed; font-size: 12px; line-height: 1.6; color: #6e6e73; }
+    .article-sources a { color: #6e6e73; text-decoration: underline; text-underline-offset: 2px; }
+    .seria-tag { font-size: 12px; letter-spacing: 2px; text-transform: uppercase;
+      color: #6e6e73; margin-bottom: 12px; }
+    .artnav-next { display: none; }
+
+    .article-body a, .article-lead a { color: var(--ink); text-decoration: underline; text-decoration-color: var(--gray-light); text-underline-offset: 3px; transition: text-decoration-color 0.2s; }
+    .article-body a:hover, .article-lead a:hover { text-decoration-color: var(--ink); }
+    .artnav a { color: var(--ink); }
+    .artnav a:hover .artnav-title { text-decoration: underline; text-underline-offset: 3px; }
+  </style>
+</head>
+<body>
+  <div class="read-progress" aria-hidden="true"></div>
+  <nav>
+    <div class="nav-content">
+      <a href="index.html" class="nav-logo">Rafał Myrta</a>
+      <button class="nav-hamburger" aria-label="Menu" aria-expanded="false" onclick="var n=document.querySelector('.nav-links');n.classList.toggle('open');this.setAttribute('aria-expanded',n.classList.contains('open'))">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+      <ul class="nav-links">
+        <li><a href="index.html#about" data-pl="O mnie" data-en="About">O mnie</a></li>
+        <li><a href="index.html#kompetencje" data-pl="Kompetencje" data-en="Competencies">Kompetencje</a></li>
+        <li><a href="index.html#projekty" data-pl="Projekty" data-en="Projects">Projekty</a></li>
+        <li><a href="index.html#standardy" data-pl="Standardy" data-en="Standards">Standardy</a></li>
+        <li><a href="index.html#artykuly" data-pl="Artykuły" data-en="Articles">Artykuły</a></li>
+        <li><a href="mapa.html" data-pl="Mapa" data-en="Map">Mapa</a></li>
+        <li><a href="index.html#kontakt" data-pl="Kontakt" data-en="Contact">Kontakt</a></li>
+        <li><button class="lang-toggle" onclick="toggleLang()">EN</button></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    <div class="container">
+
+      <!-- ═══════════════ PL ═══════════════ -->
+      <div class="lang-only-pl">
+        <div class="article-header">
+          <div class="seria-tag">Seria: Doświadczenie, AI i zarządzanie firmą · 3/4</div>
+          <h1>Kto będzie zarządzał firmą, w której decyzje wykonują agenci AI?</h1>
+          <p class="article-meta">5 września 2026</p>
+          <p class="article-lead">Trzy systemy, jeden błąd, wykonany bardzo szybko. Zarządzanie przesuwa się w stronę projektowania reguł, granic i dowodów.</p>
+          <div class="article-divider"></div>
+        </div>
+
+        <article class="article-body">
+<p>Firma, która przekazuje agentom coraz więcej pracy, musi zmienić sposób zarządzania. Pozostawienie dotychczasowych zasad przy znacznie szybszym wykonaniu zwiększy skalę tego, co było w nich niejasne, sprzeczne albo zależne od ludzkiej improwizacji. A skala problemu może was zaskoczyć.</p>
+<p>Przewagę zbudują organizacje, które będą potrafiły wyznaczyć systemom zakres samodzielnego działania, sprawdzić skutki i zmienić zasady bez utraty kontroli nad firmą. To jest zadanie dla zarządzających biznesem. IT dostarcza jedynie istotną część możliwości wykonania.</p>
+<p>Nie trzeba czekać na firmę obsługiwaną niemal w całości przez AI. Problem pojawia się za każdym razem, gdy system może samodzielnie uruchomić zakup, zmienić ofertę albo złożyć klientowi obietnicę wymagającą późniejszego wykonania.</p>
+<p>Wyobraźmy sobie sieć sprzedającą sprzęt domowy. Agent cenowy widzi w systemie kilkadziesiąt sztuk odkurzacza, uznaje zapas za zbyt wysoki i obniża cenę. Oferta trafia do gazetki. Tyle że większość tych sztuk była już sprzedana z odbiorem w przyszłym tygodniu. Fizycznie stały na magazynie, więc system pokazywał je jako dostępne. Klient przychodzi do salonu, płaci przy kasie i wybiera odbiór z magazynu. Dopiero przy przygotowaniu wydania okazuje się, że towaru dla niego nie ma.</p>
+<p>Silnik cenowy potwierdza zmianę ceny. Kasa potwierdza sprzedaż. Magazyn poprawnie pokazuje stan fizyczny. Każdy potrafi wykazać, że wykonał swoje zadanie. Klient został z opłaconym zakupem i obietnicą, której firma nie potrafi dotrzymać. Pozostaje wręczyć mu trzy raporty o sukcesie zamiast towaru.</p>
+<p>Trzy systemy, jeden błąd, wykonany szybko. Nikt nie rozróżnił zapasu dostępnego od zobowiązanego, więc agent obiecał klientom towar, który firma już wcześniej komuś sprzedała. Sprawne połączenie aplikacji nie zastąpiło ustalenia, jaki dowód dostępności jest potrzebny, zanim firma cokolwiek obieca.</p>
+<p>Takie rozstrzygnięcie należy do zarządzania biznesem. Kto może obiecać dostępność, na jakim dowodzie i co ma się wydarzyć, gdy dowód jest nieaktualny? Bez odpowiedzi integracja tylko szybciej przenosi problem między systemami.</p>
+
+<h2>Zarządzanie przesunie się w stronę projektowania reguł i granic działania</h2>
+<p>Dzisiaj pozycja menedżera bywa związana z liczbą spraw, które przechodzą przez jego akceptację. W organizacji z szeroką automatyzacją taki sposób pracy stanie się ograniczeniem. Trzeba ustalić, które decyzje rzeczywiście wymagają indywidualnego rozstrzygnięcia, a które są kolejnym wykonaniem tej samej polityki.</p>
+<p>Rolą zarządzającego będzie określenie tej polityki, jej granic i sposobu oceny. Człowiek pozostanie potrzebny tam, gdzie trzeba wybrać cel, zmienić dopuszczalny kompromis, rozstrzygnąć nową klasę sytuacji lub przyjąć odpowiedzialność za skutek wykraczający poza delegację.</p>
+<p>To wymaga większej precyzji niż ogólne polecenie „maksymalizuj marżę”. Trzeba określić także zobowiązania wobec klientów, ograniczenia płynności, zdolność fizycznego wykonania i ryzyka, których organizacja nie akceptuje.</p>
+<p>Dobry system zarządczy powinien więc umieć odpowiedzieć na kilka podstawowych pytań. Co firma chce osiągnąć? Na co ją obecnie stać? Jakie zobowiązania już podjęła i kto ma prawo podejmować kolejne?</p>
+
+<h2>Do tego potrzebne jest rozdzielenie faktów, przewidywań i decyzji</h2>
+<p>Towar znajdujący się w planowanej dostawie nie jest towarem przyjętym. Prognozowany wpływ nie jest pieniędzmi na rachunku. Duże prawdopodobieństwo wykonania usługi nie oznacza, że firma już ją wykonała.</p>
+<p>Przewidywania mogą być bardzo użyteczne. Nie mogą jednak niepostrzeżenie zmieniać się w fakty tylko dlatego, że kilka agentów powołuje się na tę samą odpowiedź. System powinien zachowywać informację o źródle, aktualności i rodzaju każdego istotnego stwierdzenia.</p>
+<p>W przeciwnym razie powstanie organizacja, która bardzo sprawnie działa na podstawie własnych przypuszczeń. Błąd będzie wyglądał wiarygodnie, bo kolejne elementy firmy będą go wzajemnie potwierdzały. Dokładnie tak, jak w przykładzie z odkurzaczem.</p>
+<p>Największym ryzykiem jest wspólny błąd wykonany konsekwentnie i w dużej skali. Niezależna kontrola jest odpowiedzią projektową na to ryzyko. Musi korzystać z dowodów, które pozwalają zakwestionować wynik wykonawcy.</p>
+
+<h2>Nadzór ma być realną zdolnością organizacji</h2>
+<p>Wyznaczenie człowieka „do kontroli AI” niczego nie rozwiązuje, jeśli ta osoba nie ma czasu, wiedzy, informacji i uprawnienia do zatrzymania działania. Jeżeli napływ wyjątków przekracza możliwości nadzoru, trzeba ograniczyć zakres samodzielnych decyzji. Przegląd szkód po miesiącu będzie już musztardą po obiedzie.</p>
+<p>To może oznaczać wstrzymanie nowych zakupów określonej kategorii, zawężenie obietnic dostawy albo zatrzymanie kolejnej publikacji cen. Firma musi umieć działać w ograniczonym zakresie i mieć sposób, żeby później wyjść na prostą. Szczególnie wtedy, gdy wcześniej zmniejszyła liczbę ludzi wykonujących rutynę.</p>
+<p>Plan awaryjny oparty na zdaniu „w razie problemów wrócimy do ręcznej obsługi” trzeba sprawdzić na rzeczywistej obsadzie. Jeśli tych pracowników i kompetencji już nie ma, taki plan jest fikcją.</p>
+
+<h2>Zmieni się również sposób wprowadzania zmian</h2>
+<p>Gdy agenci wykonują proces na podstawie reguł i uprawnień, aktualizacja tych reguł jest zmianą sposobu działania firmy. Powinna mieć właściciela biznesowego, określony cel, ograniczony zakres pierwszego zastosowania i warunek wycofania.</p>
+<p>Nie wystarczy sprawdzić, czy system wykonał nowe polecenie. Trzeba ocenić, czy poprawił wynik, jakie koszty wywołał w innych procesach i czy nie naruszył warunków, które miały pozostać prawdziwe.</p>
+<p>Stabilna podstawa działania nabiera tu większej wartości. Firma musi wiedzieć, które elementy mogą się często zmieniać, a które chronią jej wiarygodność. Politykę uzupełniania zapasu można modyfikować co tydzień. Rozróżnienie zapasu dostępnego, zobowiązanego i wydanego ma zostać na miejscu.</p>
+<p>Tak przygotowana organizacja może działać szybko bez zamykania oczu na ryzyka. Nowe rozwiązania da się sprawdzać szybko, jeżeli zakres próby jest ograniczony, wynik obserwowalny, a droga odwrotu wykonalna. Bez tych warunków nawet drobna zmiana może stać się ryzykiem dla całej organizacji.</p>
+<p>Dla zarządów oznacza to potrzebę rozpoczęcia pracy jeszcze przed kolejną dużą inwestycją w agentów. Najpierw trzeba opisać, kto ma prawo podejmować istotne zobowiązania. Następnie ustalić, na jakich dowodach opieramy decyzje i skąd wiemy, że wykonanie jest poprawne. Potem wybrać zakres, w którym można sprawdzić większą autonomię bez narażania całej firmy.</p>
+<p>Takie przygotowanie ma sens również przy wolniejszym rozwoju AI. Więcej pracy pozostanie wtedy przy ludziach, a większy udział automatyzacji oprze się na klasycznych regułach. Nadal będzie potrzebna jasność celu, uprawnień i odpowiedzialności. Nie trzeba trafnie przewidzieć daty technologicznego przełomu, żeby zacząć lepiej organizować firmę.</p>
+<p>W tym świecie doświadczenie menedżera będzie oceniane przez jakość zasad, które pomaga ustalić, oraz zdolność przeprowadzenia ich przez rzeczywistą organizację. Dostęp do podobnych narzędzi nie zapewni firmom podobnych wyników. O wyniku zdecydują także wybór oferty, zdolność wykonania i tempo sprawdzania, czy przyjęty sposób działania nadal się opłaca.</p>
+<p>Przyszłość <a href="https://orpr.dev/pl/standard" target="_blank" rel="noopener">ORPR</a> widzę w roli podstawy wspólnych kontraktów wykonania i kontroli. Proces musi mieć nazwany wynik, granice, warunki poprawności i relacje z innymi procesami, niezależnie od tego, czy prowadzi go człowiek, reguła systemowa czy agent. Obecne wydanie daje referencyjny opis tych elementów. Żeby zarządzać na nim pracą agentów, trzeba dołożyć rzeczywiste zasady firmy, uprawnienia, dowody wykonania i zdolność nadzoru. To jest kierunek: od wspólnego opisu procesów do podstawy, na której organizacja potrafi świadomie delegować działanie i nadal odpowiadać za jego wynik.</p>
+        </article>
+
+        <div class="author-box"><img src="profile.jpg" alt="Rafał Myrta" class="author-photo" loading="lazy" width="558" height="744"><div class="author-info"><div class="author-name">Rafał Myrta</div><div class="author-desc">Porządkuje procesy, role i systemy w firmach wielolokalizacyjnych i regulowanych. Projekty AI prowadzi metodą Spec-Driven Development. Autor ORPR.</div></div><a href="index.html#kontakt" class="author-cta">Porozmawiajmy →</a></div>
+
+        <div class="artnav">
+          <a class="prev" href="art-orpr-mniej-pracy-w-handlu.html"><div class="artnav-dir">← Poprzedni w serii</div><div class="artnav-title">Handel będzie musiał generować mniej pracy. AI tego za nas nie policzy</div></a>
+          <a class="next" href="art-orpr-wartosc-eksperta.html"><div class="artnav-dir">Następny w serii →</div><div class="artnav-title">Za co będziemy płacić ekspertom, gdy AI potrafi przygotować analizę?</div></a>
+          </div>
+
+        <div class="back-link">
+          <a href="index.html#artykuly">← Wszystkie artykuły</a>
+          &nbsp;·&nbsp; <a href="orpr/">Standard ORPR →</a>
+        </div>
+      </div>
+
+      <!-- ═══════════════ EN ═══════════════ -->
+      <div class="lang-only-en">
+        <div class="article-header">
+          <div class="seria-tag">Series: Experience, AI and running a company · 3/4</div>
+          <h1>Who will run a company where the decisions are executed by AI agents?</h1>
+          <p class="article-meta">5 September 2026</p>
+          <p class="article-lead">Three systems, one error, executed very fast. Management shifts towards designing rules, boundaries and evidence.</p>
+          <div class="article-divider"></div>
+        </div>
+
+        <article class="article-body">
+<p>A company that hands more and more work to agents has to change the way it is managed. Keeping the existing rules while execution gets much faster will only scale up whatever was unclear, contradictory or dependent on human improvisation. And the scale of the problem may surprise you.</p>
+<p>The advantage will go to organisations able to set how far systems may act on their own, check the effects, and change the rules without losing control of the company. That is a job for the people running the business. IT supplies an important part of the capacity to execute, and no more.</p>
+<p>There is no need to wait for a company run almost entirely by AI. The problem appears every time a system can start a purchase on its own, change the offer, or make a customer a promise that has to be fulfilled later.</p>
+<p>Picture a chain selling home appliances. The pricing agent sees a few dozen units of a vacuum cleaner in the system, decides the stock is too high and cuts the price. The offer goes into the leaflet. Except that most of those units had already been sold for collection next week. Physically they were standing in the warehouse, so the system showed them as available. The customer walks into the showroom, pays at the till and chooses warehouse collection. Only when the release is being prepared does it turn out there are no goods for them.</p>
+<p>The pricing engine confirms the price change. The till confirms the sale. The warehouse correctly shows the physical stock. Each of them can demonstrate that it did its job. The customer is left with a paid purchase and a promise the company cannot keep. All that remains is to hand them three success reports instead of the goods.</p>
+<p>Three systems, one error, executed fast. Nobody separated available stock from committed stock, so the agent promised customers goods the company had already sold to someone else. A smooth connection between applications did not replace the decision about what proof of availability is required before the company promises anything.</p>
+<p>That decision belongs to running the business. Who may promise availability, on what evidence, and what is supposed to happen when the evidence is out of date? Without answers, integration merely moves the problem between systems faster.</p>
+
+<h2>Management will shift towards designing rules and boundaries</h2>
+<p>Today a manager's standing is often tied to the number of items that pass through their approval. In an organisation with wide automation that way of working becomes a constraint. You have to establish which decisions genuinely require an individual ruling, and which are one more execution of the same policy.</p>
+<p>The manager's role will be to define that policy, its boundaries and the way it is assessed. People will still be needed wherever a goal has to be chosen, an acceptable trade-off changed, a new class of situation settled, or responsibility taken for an outcome that reaches beyond the delegation.</p>
+<p>This demands more precision than a general instruction to "maximise margin". It also means stating commitments to customers, liquidity constraints, the capacity to execute physically, and the risks the organisation does not accept.</p>
+<p>A good management system should therefore be able to answer a few basic questions. What does the company want to achieve? What can it currently afford? What commitments has it already made, and who has the right to make more?</p>
+
+<h2>Which requires separating facts, forecasts and decisions</h2>
+<p>Goods in a planned delivery are not goods received. Forecast income is not money in the account. A high probability that a service will be performed does not mean the company has performed it.</p>
+<p>Forecasts can be very useful. What they cannot do is quietly turn into facts merely because several agents cite the same answer. The system should preserve information about the source, the currency and the type of every significant statement.</p>
+<p>Otherwise you get an organisation that operates very efficiently on the basis of its own guesses. The error will look credible, because one part of the company after another will confirm it. Exactly as in the vacuum cleaner example.</p>
+<p>The greatest risk is a shared error executed consistently and at scale. Independent control is the design answer to that risk. It has to draw on evidence that makes it possible to challenge the performer's result.</p>
+
+<h2>Supervision has to be a real capability</h2>
+<p>Appointing a person "to supervise the AI" solves nothing if that person lacks the time, the knowledge, the information and the authority to stop the process. If exceptions arrive faster than supervision can handle them, the scope of autonomous decisions has to be narrowed. Reviewing the damage a month later is closing the stable door after the horse has bolted.</p>
+<p>That can mean suspending new purchases in a given category, narrowing delivery promises, or holding back the next price publication. A company has to be able to operate in a reduced mode and to have a way back afterwards. Especially if it has already cut the number of people doing the routine work.</p>
+<p>A contingency plan resting on the sentence "if there are problems we will go back to manual" has to be tested against actual staffing. If those employees and those skills are gone, the plan is fiction.</p>
+
+<h2>The way changes are introduced will change too</h2>
+<p>When agents run a process on the basis of rules and permissions, updating those rules is a change to how the company operates. It should have a business owner, a stated goal, a limited scope for its first application and a condition for rollback.</p>
+<p>Checking whether the system carried out the new instruction is not enough. You have to assess whether it improved the result, what costs it caused in other processes, and whether it breached conditions that were supposed to remain true.</p>
+<p>A stable foundation gains value here. The company has to know which elements may change often and which protect its credibility. A replenishment policy can be modified every week. The distinction between available, committed and released stock stays where it is.</p>
+<p>An organisation prepared this way can move fast without closing its eyes to risk. New solutions can be tested quickly if the trial is limited in scope, the result is observable and the way back is workable. Without those conditions even a small change can become a risk to the whole organisation.</p>
+<p>For boards this means starting the work before the next large investment in agents. First, describe who has the right to make significant commitments. Then establish what evidence decisions rest on and how we know that execution is correct. Then choose an area where greater autonomy can be tested without exposing the whole company.</p>
+<p>That preparation makes sense even if AI develops more slowly. More work would then stay with people, and a larger share of the automation would rest on conventional rules. Clarity of purpose, authority and responsibility would still be needed. You do not have to predict the date of a technological breakthrough correctly in order to start organising a company better.</p>
+<p>In that world a manager's experience will be judged by the quality of the rules they help to set, and by their ability to carry those rules through a real organisation. Access to similar tools will not give companies similar results. The outcome will also be decided by the choice of offer, the capacity to execute, and how quickly the company checks whether its way of working still pays.</p>
+<p>I see the future of <a href="https://orpr.dev/en/standard" target="_blank" rel="noopener">ORPR</a> as the basis for shared contracts of execution and control. A process must have a named outcome, boundaries, conditions of correctness and relations to other processes, whether it is run by a person, a system rule or an agent. The current release provides a reference description of those elements. To manage the work of agents on top of it, you have to add the company's real rules, permissions, evidence of execution and supervisory capacity. That is the direction: from a shared description of processes to a foundation on which an organisation can delegate deliberately and still answer for the result.</p>
+        </article>
+
+        <div class="author-box"><img src="profile.jpg" alt="Rafał Myrta" class="author-photo" loading="lazy" width="558" height="744"><div class="author-info"><div class="author-name">Rafał Myrta</div><div class="author-desc">Brings order to processes, roles and systems in multi-site and regulated companies. Runs AI projects with Spec-Driven Development. Author of ORPR.</div></div><a href="index.html#kontakt" class="author-cta">Let's talk →</a></div>
+
+        <div class="artnav">
+          <a class="prev" href="art-orpr-mniej-pracy-w-handlu.html"><div class="artnav-dir">← Previous in the series</div><div class="artnav-title">Retail will have to generate less work. AI will not do that calculation for us</div></a>
+          <a class="next" href="art-orpr-wartosc-eksperta.html"><div class="artnav-dir">Next in the series →</div><div class="artnav-title">What will we pay experts for, once AI can prepare the analysis?</div></a>
+          </div>
+
+        <div class="back-link">
+          <a href="index.html#artykuly">← All articles</a>
+          &nbsp;·&nbsp; <a href="orpr/">The ORPR standard →</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <div>© 2026 Rafał Myrta</div>
+      <ul class="footer-links">
+        <li><a href="https://linkedin.com/in/rafalmyrta">LinkedIn</a></li>
+        <li><a href="https://cpapblog.pl">CPAPblog</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script>
+    function applyLang(lang) {
+      document.documentElement.setAttribute('lang', lang);
+      document.querySelectorAll('.nav-links a[data-pl]').forEach(function (a) { a.textContent = a.getAttribute('data-' + lang); });
+      var btn = document.querySelector('.lang-toggle');
+      if (btn) btn.textContent = lang === 'pl' ? 'EN' : 'PL';
+      document.title = lang === 'pl' ? "Kto będzie zarządzał firmą, w której decyzje wykonują agenci AI? - Rafał Myrta" : "Who will run a company where the decisions are executed by AI agents? - Rafał Myrta";
+    }
+    function toggleLang() {
+      var current = document.documentElement.getAttribute('lang') || 'pl';
+      var next = current === 'pl' ? 'en' : 'pl';
+      try { localStorage.setItem('preferredLang', next); } catch (e) {}
+      applyLang(next);
+    }
+    document.addEventListener('DOMContentLoaded', function () {
+      var preferred = 'pl';
+      try { preferred = localStorage.getItem('preferredLang') || 'pl'; } catch (e) {}
+      applyLang(preferred);
+    });
+
+    // Pasek postępu czytania
+    (function () {
+      var bar = document.querySelector('.read-progress');
+      if (!bar) return;
+      function upd() {
+        var h = document.documentElement.scrollHeight - window.innerHeight;
+        bar.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
+      }
+      window.addEventListener('scroll', upd, { passive: true });
+      upd();
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Handel będzie musiał generować mniej pracy. AI tego za nas nie policzy - Rafał Myrta</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%231d1d1f'/><text x='16' y='22' text-anchor='middle' fill='white' font-family='system-ui' font-size='16' font-weight='600'>RM</text></svg>">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <meta name="description" content="Ile pracy wytwarza sama oferta handlowa, które decyzje lokalne powinny zniknąć i dlaczego oszczędność czasu to nie to samo co oszczędność pieniędzy.">
+  <meta property="og:title" content="Handel będzie musiał generować mniej pracy. AI tego za nas nie policzy">
+  <meta property="og:description" content="Ile pracy wytwarza sama oferta handlowa, które decyzje lokalne powinny zniknąć i dlaczego oszczędność czasu to nie to samo co oszczędność pieniędzy.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://myrta.me/art-orpr-mniej-pracy-w-handlu.html">
+  <meta property="og:image" content="https://myrta.me/og-image.png">
+  <meta property="og:locale" content="pl_PL">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://myrta.me/art-orpr-mniej-pracy-w-handlu.html">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Handel będzie musiał generować mniej pracy. AI tego za nas nie policzy",
+    "description": "Ile pracy wytwarza sama oferta handlowa, które decyzje lokalne powinny zniknąć i dlaczego oszczędność czasu to nie to samo co oszczędność pieniędzy.",
+    "datePublished": "2026-09-05",
+    "dateModified": "2026-09-05",
+    "inLanguage": "pl",
+    "isPartOf": {
+      "@type": "CreativeWorkSeries",
+      "name": "Doświadczenie, AI i zarządzanie firmą",
+      "url": "https://myrta.me/#artykuly"
+    },
+    "about": {
+      "@type": "CreativeWork",
+      "name": "ORPR, Open Retail Process Reference",
+      "url": "https://myrta.me/orpr/"
+    },
+    "mainEntityOfPage": "https://myrta.me/art-orpr-mniej-pracy-w-handlu.html",
+    "author": {
+      "@type": "Person",
+      "name": "Rafał Myrta",
+      "url": "https://myrta.me"
+    },
+    "publisher": {
+      "@type": "Person",
+      "name": "Rafał Myrta",
+      "url": "https://myrta.me"
+    }
+  }
+  </script>
+  <style>
+    :root {
+      --ink: #1d1d1f;
+      --gray: #6e6e73;
+      --gray-light: #d2d2d7;
+      --card-bg: #fbfbfd;
+      --white: #ffffff;
+      --sans: -apple-system, "system-ui", "SF Pro Display", "SF Pro Text", "Segoe UI", Roboto, sans-serif;
+      --max-w: 980px;
+      --gap: 24px;
+      --radius: 12px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      font-family: var(--sans);
+      background-color: var(--white);
+      color: var(--ink);
+    }
+
+    /* Navigation — mobile-first */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: 49px;
+      background: rgba(255,255,255,0.8);
+      backdrop-filter: blur(24px);
+      border-bottom: 1px solid var(--gray-light);
+      z-index: 1000;
+    }
+
+    .nav-content {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 var(--gap);
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      font-size: 17px;
+      font-weight: 600;
+      text-decoration: none;
+      color: var(--ink);
+      letter-spacing: -0.3px;
+    }
+
+    .nav-hamburger {
+      display: block;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+      color: var(--ink);
+    }
+
+    .nav-hamburger svg {
+      width: 22px;
+      height: 22px;
+    }
+
+    .nav-links {
+      display: none;
+      position: absolute;
+      top: 49px; left: 0; right: 0;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(20px);
+      flex-direction: column;
+      padding: 16px var(--gap) 24px;
+      gap: 0;
+      list-style: none;
+      border-bottom: 1px solid var(--gray-light);
+    }
+
+    .nav-links.open { display: flex; }
+
+    .nav-links li {
+      padding-top: 12px; padding-bottom: 12px;
+      border-bottom: 1px solid rgba(0,0,0,0.04);
+    }
+
+    .nav-links li:last-child {
+      border-bottom: none;
+      padding-top: 16px;
+    }
+
+    .nav-links a {
+      font-size: 16px;
+      font-weight: 400;
+      color: var(--gray);
+      text-decoration: none;
+      transition: opacity 0.3s cubic-bezier(0.4,0,0.2,1);
+    }
+
+    .nav-links a:hover { opacity: 0.7; }
+
+    .lang-toggle {
+      font-size: 12px;
+      font-weight: 400;
+      color: var(--gray);
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-family: var(--sans);
+      transition: opacity 0.3s cubic-bezier(0.4,0,0.2,1);
+    }
+
+    .lang-toggle:hover { opacity: 0.7; }
+
+    /* Main content */
+    main {
+      padding-top: 49px;
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 var(--gap);
+    }
+
+    /* Article header */
+    .article-header {
+      padding: 80px 0 60px 0;
+    }
+
+    .article-header h1 {
+      font-size: 48px;
+      font-weight: 600;
+      line-height: 1.2;
+      margin-bottom: 24px;
+      color: var(--ink);
+      letter-spacing: -0.5px;
+    }
+
+    .article-lead {
+      font-size: 18px;
+      color: var(--gray);
+      font-style: italic;
+      line-height: 1.7;
+      margin-bottom: 32px;
+      font-weight: 400;
+    }
+
+    .article-divider {
+      height: 1px;
+      background-color: var(--gray-light);
+      margin-bottom: 48px;
+    }
+
+    /* Article body */
+    .article-body {
+      max-width: 720px;
+      margin: 0 auto 100px auto;
+    }
+
+    .article-body p {
+      font-size: 17px;
+      line-height: 1.8;
+      color: var(--ink);
+      margin-bottom: 20px;
+    }
+
+    .article-body h2 {
+      font-size: 24px;
+      font-weight: 600;
+      color: var(--ink);
+      margin-top: 40px;
+      margin-bottom: 16px;
+      letter-spacing: -0.3px;
+    }
+
+    .article-body h2:first-child {
+      margin-top: 0;
+    }
+
+    /* Author bio */
+    .author-bio {
+      max-width: 720px;
+      margin: 80px auto 100px auto;
+      padding-top: 24px;
+      border-top: 1px solid var(--gray-light);
+      font-size: 14px;
+      color: var(--gray);
+      line-height: 1.6;
+      font-style: italic;
+    }
+
+    /* Back link */
+    .back-link {
+      max-width: 720px;
+      margin: 0 auto 60px auto;
+      font-size: 14px;
+    }
+
+    .back-link a {
+      color: var(--gray);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .back-link a:hover {
+      color: var(--ink);
+    }
+
+    /* Footer */
+    footer {
+      background-color: var(--card-bg);
+      border-top: 1px solid var(--gray-light);
+      padding: 48px var(--gap);
+      margin-top: 100px;
+    }
+
+    .footer-content {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 14px;
+      color: var(--gray);
+    }
+
+    .footer-links {
+      display: flex;
+      list-style: none;
+      gap: 32px;
+    }
+
+    .footer-links a {
+      color: var(--gray);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover {
+      color: var(--ink);
+    }
+
+    /* PL/EN toggle handler */
+    .lang-only-en {
+      display: none;
+    }
+
+    html[lang="en"] .lang-only-pl {
+      display: none;
+    }
+
+    html[lang="en"] .lang-only-en {
+      display: block;
+    }
+
+    html[lang="en"] .lang-only-pl .article-body,
+    html[lang="en"] .lang-only-pl .article-header,
+    html[lang="en"] .lang-only-pl .author-bio,
+    html[lang="en"] .lang-only-pl .back-link {
+      display: none;
+    }
+
+    @media (max-width: 768px) {
+      body { overflow-x: hidden; }
+      .container { padding: 0 20px; }
+      .article-header h1 { font-size: 28px; }
+      .article-header { padding: 48px 0 32px 0; }
+      .article-body p { font-size: 16px; }
+      .footer-content { flex-direction: column; gap: 16px; text-align: center; }
+      .footer-links { gap: 16px; }
+    }
+    @media (min-width: 769px) {
+      .nav-hamburger { display: none; }
+      .nav-links {
+        display: flex;
+        position: static;
+        background: none;
+        backdrop-filter: none;
+        flex-direction: row;
+        padding: 0;
+        gap: 32px;
+        border-bottom: none;
+      }
+      .nav-links li {
+        padding: 0;
+        border-bottom: none;
+      }
+      .nav-links li:last-child { padding-top: 0; }
+      .nav-links a { font-size: 12px; }
+      .article-header h1 { font-size: 48px; }
+    }
+    /* ── dodatki 07.2026: meta, author box, artnav, progress, checklisty ── */
+    .article-meta { font-size: 13px; color: var(--gray); margin-bottom: 12px; }
+
+    .read-progress { position: fixed; top: 0; left: 0; height: 2px; width: 0; background: var(--ink); z-index: 2000; }
+
+    .author-box { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; max-width: 720px; margin: 48px auto 0; padding: 24px 0 0; border-top: 1px solid #e8e8ed; }
+    .author-photo { width: 56px; height: 56px; object-fit: cover; object-position: center 25%; border-radius: 14px; flex-shrink: 0; }
+    .author-info { flex: 1; min-width: 220px; }
+    .author-name { font-size: 15px; font-weight: 600; color: var(--ink); }
+    .author-desc { font-size: 14px; color: var(--gray); line-height: 1.5; margin-top: 2px; }
+    .author-cta { font-size: 13px; font-weight: 500; color: var(--ink); text-decoration: none; border: 1px solid var(--gray-light); border-radius: 980px; padding: 9px 18px; white-space: nowrap; transition: all 0.3s cubic-bezier(0.4,0,0.2,1); }
+    .author-cta:hover { background: var(--ink); color: var(--white); border-color: var(--ink); }
+
+    .artnav { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; max-width: 720px; margin: 32px auto 0; }
+    .artnav a { display: block; padding: 16px 18px; border: 1px solid #e8e8ed; border-radius: 12px; text-decoration: none; background: var(--card-bg); transition: transform 0.3s cubic-bezier(0.16,1,0.3,1), border-color 0.3s ease; }
+    .artnav a:hover { transform: translateY(-2px); border-color: #c7c7cc; }
+    .artnav a.next { text-align: right; grid-column: 2; }
+    .artnav a.prev { grid-column: 1; }
+    .artnav-dir { font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gray); margin-bottom: 4px; }
+    .artnav-title { font-size: 14px; font-weight: 600; color: var(--ink); }
+
+    .symptom-list { list-style: none; padding: 0; margin: 0 0 20px; max-width: 720px; }
+    .symptom-list li { position: relative; padding: 10px 0 10px 30px; border-bottom: 1px solid #e8e8ed; font-size: 16px; line-height: 1.65; color: var(--ink); }
+    .symptom-list li:last-child { border-bottom: none; }
+    .symptom-list li::before { content: "\2192"; position: absolute; left: 2px; color: var(--gray); }
+
+    @keyframes artIn { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+    .article-header { animation: artIn 0.7s cubic-bezier(0.16,1,0.3,1) both; }
+    .article-body { animation: artIn 0.7s cubic-bezier(0.16,1,0.3,1) 0.15s both; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .article-header, .article-body { animation: none; }
+      .artnav a:hover { transform: none; }
+    }
+
+    @media (max-width: 768px) {
+      .artnav { grid-template-columns: 1fr; }
+      .artnav a.next { grid-column: 1; text-align: left; }
+    }
+    
+    a:focus-visible, button:focus-visible { outline: 2px solid #1d1d1f; outline-offset: 2px; }
+  
+    .apply-box { background: #fbfbfd; border: 1px solid #d2d2d7; border-radius: 12px;
+      padding: 20px 24px; margin: 28px 0; font-size: 16px; line-height: 1.6; }
+    .apply-label { display: block; font-size: 12px; letter-spacing: 2px;
+      text-transform: uppercase; color: #6e6e73; margin-bottom: 8px; font-weight: 600; }
+    .article-sources { max-width: 720px; margin: 36px auto 0; padding-top: 12px;
+      border-top: 1px solid #e8e8ed; font-size: 12px; line-height: 1.6; color: #6e6e73; }
+    .article-sources a { color: #6e6e73; text-decoration: underline; text-underline-offset: 2px; }
+    .seria-tag { font-size: 12px; letter-spacing: 2px; text-transform: uppercase;
+      color: #6e6e73; margin-bottom: 12px; }
+    .artnav-next { display: none; }
+
+    .article-body a, .article-lead a { color: var(--ink); text-decoration: underline; text-decoration-color: var(--gray-light); text-underline-offset: 3px; transition: text-decoration-color 0.2s; }
+    .article-body a:hover, .article-lead a:hover { text-decoration-color: var(--ink); }
+    .artnav a { color: var(--ink); }
+    .artnav a:hover .artnav-title { text-decoration: underline; text-underline-offset: 3px; }
+  </style>
+</head>
+<body>
+  <div class="read-progress" aria-hidden="true"></div>
+  <nav>
+    <div class="nav-content">
+      <a href="index.html" class="nav-logo">Rafał Myrta</a>
+      <button class="nav-hamburger" aria-label="Menu" aria-expanded="false" onclick="var n=document.querySelector('.nav-links');n.classList.toggle('open');this.setAttribute('aria-expanded',n.classList.contains('open'))">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+      <ul class="nav-links">
+        <li><a href="index.html#about" data-pl="O mnie" data-en="About">O mnie</a></li>
+        <li><a href="index.html#kompetencje" data-pl="Kompetencje" data-en="Competencies">Kompetencje</a></li>
+        <li><a href="index.html#projekty" data-pl="Projekty" data-en="Projects">Projekty</a></li>
+        <li><a href="index.html#standardy" data-pl="Standardy" data-en="Standards">Standardy</a></li>
+        <li><a href="index.html#artykuly" data-pl="Artykuły" data-en="Articles">Artykuły</a></li>
+        <li><a href="mapa.html" data-pl="Mapa" data-en="Map">Mapa</a></li>
+        <li><a href="index.html#kontakt" data-pl="Kontakt" data-en="Contact">Kontakt</a></li>
+        <li><button class="lang-toggle" onclick="toggleLang()">EN</button></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    <div class="container">
+
+      <!-- ═══════════════ PL ═══════════════ -->
+      <div class="lang-only-pl">
+        <div class="article-header">
+          <div class="seria-tag">Seria: Doświadczenie, AI i zarządzanie firmą · 2/4</div>
+          <h1>Handel będzie musiał generować mniej pracy. AI tego za nas nie policzy</h1>
+          <p class="article-meta">5 września 2026</p>
+          <p class="article-lead">Model przygotuje rachunek. Założenia i wybór tego, z czego firma rezygnuje, jeszcze długo zostaną po stronie zarządzających.</p>
+          <div class="article-divider"></div>
+        </div>
+
+        <article class="article-body">
+<p>Handel będzie musiał ograniczyć ilość pracy potrzebnej do obsłużenia swojej oferty. Automatyzacja pomoże, ale równie ważne będą decyzje o asortymencie, logistyce i zakresie usług. Model AI może przygotować rachunek. Założenia i wybór tego, z czego firma jest gotowa zrezygnować, jeszcze długo należeć będą do zarządzających.</p>
+<p>Dzisiejszy proces może być dobrze opisany i wykonywany zgodnie z instrukcją, a mimo to przestać się opłacać. Wystarczy, że zmieni się koszt wykonawcy, marża albo ilość pracy przypadającej na obsłużony koszyk.</p>
+<p>Presję widać w danych. Według GUS przeciętne miesięczne wynagrodzenie brutto w handlu detalicznym wzrosło z 6335,35 zł w 2024 roku do 6811,24 zł w 2025 roku, czyli o 7,51%. To wzrost nominalny średniej dla przedsiębiorstw objętych badaniem, z co najmniej dziesięcioma pracującymi. Nie jest to jednak pełny koszt pracodawcy ani stawka kasjera w małym sklepie. <a href="https://stat.gov.pl/download/gfx/portalinformacyjny/pl/defaultaktualnosci/5498/4/176/1/tabl19_przecietne_miesieczne_wynagrodzenia_brutto_w_sektorze_przedsiebiorstw.xlsx" target="_blank" rel="noopener">GUS, Biuletyn Statystyczny 7/2026, tablica 19</a>.</p>
+<p>Nie trzeba przy tym zakładać, że nagle zabraknie sprzedawców. Barometr Zawodów na 2026 rok przewiduje dla sprzedawców i kasjerów równowagę w skali kraju, a deficyt między innymi magazynierów i samodzielnych księgowych. Presja zależy od roli i lokalizacji. <a href="https://barometrzawodow.pl/forecast-card-zip/2026/report_pl/raport_ogolnopolski_2026.pdf" target="_blank" rel="noopener">Prognoza Barometru Zawodów 2026</a>.</p>
+<p>Problem zaczyna się, gdy marża przestaje pokrywać obsadę potrzebną do wykonania pracy. Wtedy kolejna poprawka w instrukcji już nie wystarczy.</p>
+
+<h2>Wyzwanie: policzyć, ile pracy wytwarza sama oferta</h2>
+<p>Każda dodatkowa pozycja wymaga obsługi. Zmiana ekspozycji oznacza pracę fizyczną. Promocję trzeba zastosować, wyjaśnić i rozliczyć. Szybki odbiór zamówienia wymaga przygotowania go wtedy, kiedy klient chce odebrać towar, a nie wtedy, kiedy sklep ma wolną rękę.</p>
+<p>Rozważmy akcję, która zwiększa sprzedaż kategorii. Trzeba częściej uzupełniać półkę, przyjąć dodatkową dostawę i zmienić ekspozycję. Część zakupów przesuwa się z następnego tygodnia, a część klientów wybiera przeceniony produkt zamiast bardziej marżowego. W arkuszu dodatkowa praca oczywiście wykonuje się sama.</p>
+<p>W sklepie jej koszt może realnie zjeść korzyść z akcji. Jeżeli AI pozwoli przygotować więcej podobnych promocji, firma będzie szybciej generować sobie pracę. Tanieje opracowanie pomysłu. Jego fizyczne wykonanie nadal jednak wymaga ludzi, czasu i miejsca.</p>
+<p>Oferta musi więc powstawać razem z planem wykonania. To może oznaczać mniej zmian ekspozycji, inne opakowania dostaw, koncentrację kompletacji w wybranych placówkach albo ograniczenie usług, których klient nie finansuje swoją marżą. Pracochłonność powinna wejść do decyzji handlowej, zanim sklep zacznie, kolokwialnie mówiąc, robić bokami.</p>
+<p>Mniej pozycji nie musi oznaczać lepszego wyniku. Pracochłonny produkt może przyciągać klienta, który zostawia marżę na całym koszyku. Dlatego zakres oferty trzeba oceniać razem z zachowaniem klientów, dostępnością i kosztem obsługi, a nie wyłącznie marżą pojedynczej pozycji.</p>
+
+<h2>Część lokalnych decyzji powinna po prostu zniknąć</h2>
+<p>Jeżeli ludzie w wielu sklepach codziennie zatwierdzają podobne potrzeby zakupowe, warto sprawdzić, co naprawdę rozstrzygają. Część przypadków wymaga znajomości lokalnej sytuacji. Inne są kolejnym wykonaniem tej samej reguły.</p>
+<p>Dla tych drugich należy zatwierdzić regułę, wyznaczyć granice i zostawić człowiekowi wyjątki. Agent klikający każdą dawną akceptację zachowuje niepotrzebną konstrukcję procesu.</p>
+<p>W <a href="https://orpr.dev/pl/proces/DEM-02" target="_blank" rel="noopener">DEM-02, ręcznej ścieżce zwalniania zapotrzebowania w ORPR</a>, widać to konkretnie. Przeniesienie określonej klasy potrzeb na dopuszczoną ścieżkę automatyczną zmniejsza udział pracy ręcznej. Prawo do zakupu i granice zobowiązania nadal trzeba ustalić, inaczej automatyzacja zwielokrotni zły zakup.</p>
+<p>Podobna zmiana czeka administrację. Wspólna obsługa poprawnych dokumentów ogranicza potrzebę odtwarzania zaplecza w każdej placówce. Specjaliści skupiają się na rozbieżnościach i wyniku. Warunkiem są wiarygodne dane o wykonaniu, bo cyfrowa faktura przecież nie potwierdza jeszcze przyjęcia towaru.</p>
+<p>Duża sieć łatwiej rozłoży koszty integracji, urządzeń i nadzoru. Część tej przewagi mogą jednak udostępnić niezależnym sklepom wspólne usługi. Grupa zakupowa, jeden z sześciu modeli operacyjnych opisanych w ORPR, od sklepu niezależnego po sieć własną, może rozszerzyć zaplecze o dane, rozliczenia i wiedzę. Dla właściciela małego sklepu korzyścią będzie także odzyskany czas. Praca po godzinach nie jest darmowa tylko dlatego, że nie widać jej na liście płac.</p>
+<p>Koszty społeczne będą realne. Część stanowisk lub godzin straci uzasadnienie, a pozostałym pracownikom może przypaść większy udział reklamacji i trudnych wyjątków. Automatyzacja nie gwarantuje jeszcze lepszej pracy. Trzeba świadomie pilnować obciążenia ludzi i zostawić drogę, którą początkujący zdobywają doświadczenie potrzebne później do nadzoru.</p>
+
+<h2>Oszczędność czasu trzeba oddzielić od oszczędności pieniędzy</h2>
+<p>Kilka minut mniej na zadanie nie zawsze pozwala zmniejszyć obsadę. Utrzymanie działania mimo wakatu jest inną korzyścią niż redukcja kosztu. Możliwość obsługi większej liczby sklepów bez rozrostu administracji to jeszcze inny rezultat.</p>
+<p>W każdym przypadku trzeba policzyć także nadzór. Kamera wykrywająca brak nie dostawia produktu. Agent zgłaszający niezgodność nie zapewnia osoby, która ją rozstrzygnie. Kolejka wyjątków potrafi rosnąć szybciej niż zdolność ich obsługi.</p>
+<p><a href="https://orpr.dev/pl/mapa" target="_blank" rel="noopener">ORPR</a> jest dla mnie mapą takiego przeprojektowania. Pomaga wskazać, gdzie zmienia się wykonawca, dokąd przesuwa się obowiązek i jakie warunki nadal muszą być spełnione. Organizacja może zmieniać sposób działania, zachowując odpowiedzialność za towar, pieniądze i obietnice złożone klientowi.</p>
+<p>Już dzisiaj można ustalić, gdzie oferta wytwarza najwięcej pracy i które decyzje są powtarzalne. Potem zmienić wybrany zakres i sprawdzić wynik całej zmiany, także koszty powstające poza miejscem automatyzacji. Dopiero wtedy wiadomo, jakie narzędzie kupić. Kupowanie w odwrotnej kolejności jedynie utrwala proces, który przestał się opłacać.</p>
+        </article>
+
+        <div class="author-box"><img src="profile.jpg" alt="Rafał Myrta" class="author-photo" loading="lazy" width="558" height="744"><div class="author-info"><div class="author-name">Rafał Myrta</div><div class="author-desc">Porządkuje procesy, role i systemy w firmach wielolokalizacyjnych i regulowanych. Projekty AI prowadzi metodą Spec-Driven Development. Autor ORPR.</div></div><a href="index.html#kontakt" class="author-cta">Porozmawiajmy →</a></div>
+
+        <div class="artnav">
+          <a class="prev" href="art-orpr-doswiadczenie-w-standard.html"><div class="artnav-dir">← Poprzedni w serii</div><div class="artnav-title">Jak zamieniłem doświadczenie w ORPR</div></a>
+          <a class="next" href="art-orpr-kto-zarzadza-firma-agentow.html"><div class="artnav-dir">Następny w serii →</div><div class="artnav-title">Kto będzie zarządzał firmą, w której decyzje wykonują agenci AI?</div></a>
+          </div>
+
+        <div class="back-link">
+          <a href="index.html#artykuly">← Wszystkie artykuły</a>
+          &nbsp;·&nbsp; <a href="orpr/">Standard ORPR →</a>
+        </div>
+      </div>
+
+      <!-- ═══════════════ EN ═══════════════ -->
+      <div class="lang-only-en">
+        <div class="article-header">
+          <div class="seria-tag">Series: Experience, AI and running a company · 2/4</div>
+          <h1>Retail will have to generate less work. AI will not do that calculation for us</h1>
+          <p class="article-meta">5 September 2026</p>
+          <p class="article-lead">A model will prepare the calculation. The assumptions, and the choice of what to give up, will stay with management for a long time yet.</p>
+          <div class="article-divider"></div>
+        </div>
+
+        <article class="article-body">
+<p>Retail will have to cut the amount of work needed to serve its own offer. Automation will help, but decisions about assortment, logistics and the scope of services will matter just as much. An AI model can prepare the calculation. The assumptions, and the choice of what a company is willing to give up, will belong to management for a long time yet.</p>
+<p>Today's process can be well documented and executed exactly as written, and still stop paying for itself. All it takes is a change in the cost of the person doing it, in the margin, or in the amount of work per basket served.</p>
+<p>The pressure shows in the data. According to Poland's statistical office, the average gross monthly wage in retail rose from 6,335.35 zloty in 2024 to 6,811.24 zloty in 2025, an increase of 7.51%. That is a nominal increase in the average for surveyed enterprises with at least ten employees. It is not the employer's full cost, nor the rate of a cashier in a small store. <a href="https://stat.gov.pl/download/gfx/portalinformacyjny/pl/defaultaktualnosci/5498/4/176/1/tabl19_przecietne_miesieczne_wynagrodzenia_brutto_w_sektorze_przedsiebiorstw.xlsx" target="_blank" rel="noopener">GUS, Statistical Bulletin 7/2026, table 19</a>.</p>
+<p>None of this assumes shop assistants will suddenly run out. The Occupational Barometer for 2026 forecasts a national balance for shop assistants and cashiers, with shortages among warehouse workers and qualified accountants, among others. The pressure depends on the role and the location. <a href="https://barometrzawodow.pl/forecast-card-zip/2026/report_pl/raport_ogolnopolski_2026.pdf" target="_blank" rel="noopener">Occupational Barometer forecast 2026</a>.</p>
+<p>The problem starts when the margin stops covering the staffing needed to do the work. At that point one more amendment to the procedure will not help.</p>
+
+<h2>The challenge: count how much work the offer itself creates</h2>
+<p>Every additional item needs handling. Changing a display means physical work. A promotion has to be applied, explained and settled. Fast order collection means preparing the order when the customer wants to pick it up, not when the store happens to have a free hand.</p>
+<p>Consider a campaign that lifts sales in a category. The shelf has to be replenished more often, an extra delivery received, the display changed. Part of the purchases shift forward from next week, and some customers pick the discounted product instead of the higher-margin one. In the spreadsheet the extra work does itself, of course.</p>
+<p>In the store its cost can eat the benefit of the campaign outright. If AI makes it easier to prepare more promotions like this, the company will generate work for itself faster. Coming up with the idea gets cheaper. Carrying it out physically still takes people, time and space.</p>
+<p>So the offer has to be created together with the plan for executing it. That can mean fewer display changes, different delivery packaging, concentrating order picking in selected locations, or dropping services the customer is not funding with their margin. Labour intensity should enter the commercial decision before the store starts, to put it plainly, running on fumes.</p>
+<p>Fewer items does not automatically mean a better result. A labour-intensive product can attract a customer who leaves margin across the whole basket. That is why the scope of the offer has to be judged together with customer behaviour, availability and the cost of service, not by the margin on a single item.</p>
+
+<h2>Some local decisions should simply disappear</h2>
+<p>If people in many stores approve similar purchase requirements every day, it is worth checking what they are really deciding. Some cases require knowledge of the local situation. Others are one more execution of the same rule.</p>
+<p>For the latter, approve the rule, set its boundaries and leave the exceptions to a person. An agent clicking through every former approval preserves a process structure that is no longer needed.</p>
+<p>In <a href="https://orpr.dev/en/proces/DEM-02" target="_blank" rel="noopener">DEM-02, the manual path for releasing a requirement in ORPR</a>, you can see this concretely. Moving a defined class of requirements onto a permitted automatic path reduces the share of manual work. The right to purchase and the limits of the commitment still have to be established, otherwise automation will simply multiply a bad purchase.</p>
+<p>A similar change awaits administration. Handling correct documents centrally reduces the need to rebuild a back office in every location. Specialists concentrate on discrepancies and on the result. The condition is trustworthy data about execution, because a digital invoice does not yet confirm that goods were received.</p>
+<p>A large chain finds it easier to spread the cost of integration, devices and supervision. Part of that advantage can be made available to independent stores through shared services. A buying group, one of the six operating models described in ORPR, from an independent store to a fully owned chain, can extend that back office with data, settlements and know-how. For the owner of a small store the benefit also includes time recovered. Work done after hours is not free just because it does not appear on the payroll.</p>
+<p>The social costs will be real. Some positions or hours will lose their justification, and the employees who remain may end up with a larger share of complaints and difficult exceptions. Automation does not guarantee better work. Workload has to be watched deliberately, and a path has to be left by which beginners gain the experience they will later need in order to supervise.</p>
+
+<h2>Saving time is not the same as saving money</h2>
+<p>A few minutes less per task does not always allow you to reduce staffing. Keeping things running despite an unfilled position is a different benefit from cutting cost. Serving more stores without growing the administration is yet another result.</p>
+<p>In every case supervision has to be counted too. A camera that detects a gap does not restock the product. An agent that reports a discrepancy does not supply the person who will resolve it. A queue of exceptions can grow faster than the capacity to handle them.</p>
+<p><a href="https://orpr.dev/en/mapa" target="_blank" rel="noopener">ORPR</a> is, for me, the map of that kind of redesign. It helps show where the performer changes, where an obligation moves to, and which conditions still have to hold. An organisation can change how it works while keeping responsibility for goods, money and the promises made to the customer.</p>
+<p>Even today you can establish where the offer creates the most work and which decisions are repeatable. Then change a selected part and check the result of the whole change, including costs arising outside the place that was automated. Only then do you know which tool to buy. Buying in the reverse order merely cements a process that has stopped paying for itself.</p>
+        </article>
+
+        <div class="author-box"><img src="profile.jpg" alt="Rafał Myrta" class="author-photo" loading="lazy" width="558" height="744"><div class="author-info"><div class="author-name">Rafał Myrta</div><div class="author-desc">Brings order to processes, roles and systems in multi-site and regulated companies. Runs AI projects with Spec-Driven Development. Author of ORPR.</div></div><a href="index.html#kontakt" class="author-cta">Let's talk →</a></div>
+
+        <div class="artnav">
+          <a class="prev" href="art-orpr-doswiadczenie-w-standard.html"><div class="artnav-dir">← Previous in the series</div><div class="artnav-title">How I turned experience into ORPR</div></a>
+          <a class="next" href="art-orpr-kto-zarzadza-firma-agentow.html"><div class="artnav-dir">Next in the series →</div><div class="artnav-title">Who will run a company where the decisions are executed by AI agents?</div></a>
+          </div>
+
+        <div class="back-link">
+          <a href="index.html#artykuly">← All articles</a>
+          &nbsp;·&nbsp; <a href="orpr/">The ORPR standard →</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <div>© 2026 Rafał Myrta</div>
+      <ul class="footer-links">
+        <li><a href="https://linkedin.com/in/rafalmyrta">LinkedIn</a></li>
+        <li><a href="https://cpapblog.pl">CPAPblog</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script>
+    function applyLang(lang) {
+      document.documentElement.setAttribute('lang', lang);
+      document.querySelectorAll('.nav-links a[data-pl]').forEach(function (a) { a.textContent = a.getAttribute('data-' + lang); });
+      var btn = document.querySelector('.lang-toggle');
+      if (btn) btn.textContent = lang === 'pl' ? 'EN' : 'PL';
+      document.title = lang === 'pl' ? "Handel będzie musiał generować mniej pracy. AI tego za nas nie policzy - Rafał Myrta" : "Retail will have to generate less work. AI will not do that calculation for us - Rafał Myrta";
+    }
+    function toggleLang() {
+      var current = document.documentElement.getAttribute('lang') || 'pl';
+      var next = current === 'pl' ? 'en' : 'pl';
+      try { localStorage.setItem('preferredLang', next); } catch (e) {}
+      applyLang(next);
+    }
+    document.addEventListener('DOMContentLoaded', function () {
+      var preferred = 'pl';
+      try { preferred = localStorage.getItem('preferredLang') || 'pl'; } catch (e) {}
+      applyLang(preferred);
+    });
+
+    // Pasek postępu czytania
+    (function () {
+      var bar = document.querySelector('.read-progress');
+      if (!bar) return;
+      function upd() {
+        var h = document.documentElement.scrollHeight - window.innerHeight;
+        bar.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
+      }
+      window.addEventListener('scroll', upd, { passive: true });
+      upd();
+    })();
+  </script>
+</body>
+</html>

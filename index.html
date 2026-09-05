@@ -620,6 +620,9 @@
 
     /* ── STANDARDY (mobile: 1 col) ── */
     .standardy { padding-top: 48px; padding-bottom: 48px; }
+    .std-more { font-size: 14px; color: var(--gray); margin-top: 22px; line-height: 1.6; }
+    .std-more a { color: var(--ink); text-decoration: underline; text-decoration-color: var(--gray-light); text-underline-offset: 3px; }
+    .std-more a:hover { text-decoration-color: var(--ink); }
     .standardy-grid { display: grid; grid-template-columns: 1fr; gap: 24px; }
     .std-item { display: block; padding: 28px; background: var(--card-bg); border-radius: var(--radius); border: 1px solid var(--hairline); text-decoration: none; color: var(--ink); transition: transform 0.3s cubic-bezier(0.16,1,0.3,1), border-color 0.3s ease, box-shadow 0.3s ease; }
     .std-item:hover { transform: translateY(-2px); border-color: #c7c7cc; box-shadow: 0 4px 24px rgba(0,0,0,0.06); }
@@ -1245,6 +1248,7 @@
           <span class="std-link" id="std2-link">Jak powstała →</span>
         </a>
       </div>
+      <p class="std-more" id="stdMore">Jak ORPR powstał i co zmienia w codziennej pracy handlu, opisałem w <a href="#artykuly">czterech tekstach</a>.</p>
     </section>
 
     <!-- SOCIAL PROOF -->
@@ -1294,6 +1298,9 @@
     <section class="artykuly container reveal" id="artykuly">
       <h2 class="section-header" id="artykulyTitle">Artykuły</h2>
       <p class="section-subtitle" id="artykulySubtitle">Piszę o strategii, zarządzaniu i transformacji AI w firmach, które działają w realnym świecie.</p>
+      <h3 class="artykuly-group" id="cyklTitle">Seria: Doświadczenie, AI i zarządzanie firmą</h3>
+      <ul class="artykuly-list" id="cyklList"></ul>
+      <p class="seria-next" id="cyklNote"></p>
       <h3 class="artykuly-group" id="seriaTitle">Seria: AI, procesy, transformacja</h3>
       <ul class="artykuly-list" id="seriaList"></ul>
       <p class="seria-next" id="seriaNext"></p>
@@ -1406,6 +1413,9 @@
         cpapMiniText: "Od 2020 roku prowadzę też <a href=\"https://cpapblog.pl\" target=\"_blank\" rel=\"noopener\">CPAPblog.pl</a> - największy w Polsce niezależny serwis o bezdechu sennym (50 000+ odwiedzin/mies.).<br>Napisałem <a href=\"ksiazka.html\">książkę</a> o terapii CPAP.",
         artykulyTitle: "Artykuły",
         artykulySubtitle: "Piszę o strategii, zarządzaniu i transformacji AI w firmach, które działają w realnym świecie.",
+        cyklTitle: "Seria: Doświadczenie, AI i zarządzanie firmą",
+        cyklNote: "Cztery teksty i jeden wątek: od zbudowania standardu do tego, za co firmy będą płacić ludziom. Każdy da się czytać osobno.",
+        stdMore: 'Jak ORPR powstał i co zmienia w codziennej pracy handlu, opisałem w <a href="#artykuly">czterech tekstach</a>.',
         seriaTitle: "Seria: AI, procesy, transformacja",
         artOldTitle: "Strategia i zarządzanie",
         seriaNextPrefix: "Kolejny tekst serii: ",
@@ -1464,6 +1474,9 @@
         cpapMiniText: "Since 2020, I also run <a href=\"https://cpapblog.pl\" target=\"_blank\" rel=\"noopener\">CPAPblog.pl</a> - Poland\'s largest independent resource on sleep apnea (50,000+ visits/month).<br>I wrote a <a href=\"ksiazka.html\">book</a> on CPAP therapy.",
         artykulyTitle: "Articles",
         artykulySubtitle: "I write about strategy, management, and AI transformation in real-world companies.",
+        cyklTitle: "Series: Experience, AI and running a company",
+        cyklNote: "Four texts and one thread: from building the standard to what companies will pay people for. Each one can be read on its own.",
+        stdMore: 'How ORPR came about, and what it changes in the daily work of retail, is covered in <a href="#artykuly">four articles</a>.',
         seriaTitle: "Series: AI, processes, transformation (in Polish)",
         artOldTitle: "Strategy and management",
         seriaNextPrefix: "Next in the series: ",
@@ -1527,6 +1540,30 @@
 
     renderSeria();  // pierwszy render listy serii przy załadowaniu strony
 
+    // ── Seria "Doświadczenie, AI i zarządzanie firmą": cały cykl opublikowany 05.09.2026 ──
+    const CYKL = [
+      { slug: "art-orpr-doswiadczenie-w-standard", titlePl: "Jak zamieniłem doświadczenie w ORPR", titleEn: "How I turned experience into ORPR", descPl: "Po co retailowi wspólny słownik procesów i jak jest zbudowany: wynik, granice, niezmienniki i pytania do rozstrzygnięcia.", descEn: "Why retail needs a shared process dictionary and how it is built: outcome, boundaries, invariants and the questions still to be settled." },
+      { slug: "art-orpr-mniej-pracy-w-handlu", titlePl: "Handel będzie musiał generować mniej pracy. AI tego za nas nie policzy", titleEn: "Retail will have to generate less work. AI will not do that calculation for us", descPl: "Pracochłonność oferty jako pozycja w rachunku handlowym, a nie skutek uboczny kolejnej promocji.", descEn: "The labour intensity of the offer as a line in the commercial calculation, not a side effect of the next promotion." },
+      { slug: "art-orpr-kto-zarzadza-firma-agentow", titlePl: "Kto będzie zarządzał firmą, w której decyzje wykonują agenci AI?", titleEn: "Who will run a company where the decisions are executed by AI agents?", descPl: "Zapas dostępny kontra zobowiązany: jak trzy poprawnie działające systemy razem zawodzą klienta.", descEn: "Available stock versus committed stock: how three correctly working systems together fail the customer." },
+      { slug: "art-orpr-wartosc-eksperta", titlePl: "Za co będziemy płacić ekspertom, gdy AI potrafi przygotować analizę?", titleEn: "What will we pay experts for, once AI can prepare the analysis?", descPl: "Za co klient płaci, gdy analizę potrafi przygotować model. Trzy zdolności, które zostają.", descEn: "What the client pays for once a model can prepare the analysis. The three abilities that remain." }
+    ];
+    function renderCykl() {
+      const list = document.getElementById("cyklList");
+      if (!list) return;
+      const en = currentLang === "en";
+      list.innerHTML = CYKL.map((a, n) =>
+        '<li class="artykuly-item"><a href="' + a.slug + '.html" class="artykuly-link">' +
+        '<div class="artykuly-title-row"><span class="artykuly-title">' +
+        '<span class="seria-num">' + (n + 1) + '</span>' + (en ? a.titleEn : a.titlePl) +
+        '</span><span class="artykuly-arrow">→</span></div>' +
+        '<p class="artykuly-desc">' + (en ? a.descEn : a.descPl) + '</p></a></li>').join("");
+      const note = document.getElementById("cyklNote");
+      if (note) { note.textContent = content[currentLang].cyklNote; note.style.display = "block"; }
+    }
+
+    renderCykl();  // cykl ORPR: cztery teksty, bez bramkowania datą
+
+
     function updateContent() {
       const data = content[currentLang];
       document.documentElement.lang = currentLang;
@@ -1582,9 +1619,13 @@
       if (document.getElementById('cpapText')) document.getElementById('cpapText').textContent = data.cpapText;
       document.getElementById('artykulyTitle').textContent = data.artykulyTitle;
       document.getElementById('artykulySubtitle').textContent = data.artykulySubtitle;
+      document.getElementById('cyklTitle').textContent = data.cyklTitle;
       document.getElementById('seriaTitle').textContent = data.seriaTitle;
       document.getElementById('artOldTitle').textContent = data.artOldTitle;
+      const stdMoreEl = document.getElementById('stdMore');
+      if (stdMoreEl) stdMoreEl.innerHTML = data.stdMore;
       renderSeria();
+      renderCykl();
       data.articles.forEach((article, index) => {
         const el = document.getElementById(`art${index + 1}`);
         const textSpan = el.querySelector('.artykuly-title');
