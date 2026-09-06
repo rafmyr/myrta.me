@@ -17,7 +17,7 @@ RewriteRule ^(.*)$ https://myrta.me/$1 [L,R=301]
     Header set Referrer-Policy "strict-origin-when-cross-origin"
     Header always set Strict-Transport-Security "max-age=63072000; includeSubDomains; preload"
     Header set Permissions-Policy "camera=(), microphone=(), geolocation=()"
-    Header set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'self'"
+    Header set Content-Security-Policy "default-src 'self'; script-src 'self' 'sha256-Nx2uQ7G3a8Mw5+6EVHvt+rJ/KCB9R1HPqWlcqEiVA9E=' 'sha256-H4pANOpduJ2K1x5Vu1ex042i0UTFQPSslbqTUs80YBk=' 'sha256-ldKrFFYU3G8LjQh1Rs0pxySPnWB8GcSw2zLJBJ/+6Bk=' 'sha256-rYILEocFwCe/Pq3EQat2dVffjWrnZQDJExN+UOM4sPg='; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'self'"
 </IfModule>
 
 # Cache static assets (images, CSS, JS)

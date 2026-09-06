@@ -7,6 +7,10 @@ Zrodlo strony [myrta.me](https://myrta.me). Statyczny HTML, bez buildu i bez fra
 Hosting: OVH, Apache. Pliki wgrywane bezposrednio na serwer.
 Plik `.htaccess` obsluguje przekierowanie na HTTPS, kanoniczny adres bez www,
 naglowki bezpieczenstwa (HSTS, CSP), cache assetow i kompresje gzip.
+
+CSP: `script-src 'self'` plus hashe SHA-256 czterech inline skryptow (mapa.html, mapa-en.html,
+mapa-light.html, wizytowka.html). Zadnych atrybutow `onclick=` w HTML; handlery podpina JS.
+Po zmianie ktoregokolwiek inline skryptu `scripts/check-site.py` zglosi nowy hash do wpisania w `.htaccess`.
 Gating artykulow po dacie zostal usuniety: cala seria AI jest publiczna od 17.08.2026.
 
 ## Struktura

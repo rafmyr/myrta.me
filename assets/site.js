@@ -101,12 +101,35 @@
         anchor.href = url.pathname + url.search + url.hash;
       });
     }
+    // Podstrony (artykuły, /orpr/): język z ?lang, tytuł z data-title-*, przełącznik. index.html robi to w home.js.
+    const root = document.documentElement;
+    const subpage = !home && (root.hasAttribute('data-title-pl') || !!document.querySelector('.lang-only-en, .en-placeholder'));
+    function applyPageLang(lang) {
+      root.lang = lang;
+      const title = root.getAttribute('data-title-' + lang);
+      if (title) document.title = title;
+      if (languageButton) languageButton.textContent = lang === 'pl' ? 'EN' : 'PL';
+    }
+    if (subpage) {
+      applyPageLang(SiteLanguage.get());
+      if (languageButton) languageButton.addEventListener('click', () => {
+        const next = root.lang === 'pl' ? 'en' : 'pl';
+        SiteLanguage.set(next);
+        applyPageLang(next);
+      });
+    }
+    const bar = document.querySelector('.read-progress');
+    if (bar) {
+      const upd = () => { const h = root.scrollHeight - window.innerHeight; bar.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%'; };
+      window.addEventListener('scroll', upd, { passive: true });
+      upd();
+    }
     synchronize();
     new MutationObserver(synchronize).observe(document.documentElement, { attributes: true, attributeFilter: ['lang'] });
     window.addEventListener('popstate', () => {
       if (SiteLanguage.get() !== document.documentElement.lang) location.reload();
     });
-    if (bilingual && languageButton) languageButton.addEventListener('click', () => {
+    if (home && languageButton) languageButton.addEventListener('click', () => {
       SiteLanguage.set(document.documentElement.lang);
       synchronize();
     });

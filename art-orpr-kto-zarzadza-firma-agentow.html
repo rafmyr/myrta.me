@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="pl">
+<html lang="pl" data-title-pl="Kto będzie zarządzał firmą agentów AI? - Rafał Myrta" data-title-en="Who will run a company of AI agents? - Rafał Myrta">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#1d1d1f">
   <title>Kto będzie zarządzał firmą agentów AI? - Rafał Myrta</title>
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%231d1d1f'/><text x='16' y='22' text-anchor='middle' fill='white' font-family='system-ui' font-size='16' font-weight='600'>RM</text></svg>">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2032%2032'%3E%3Crect%20width='32'%20height='32'%20rx='6'%20fill='%231d1d1f'/%3E%3Ctext%20x='16'%20y='22'%20text-anchor='middle'%20fill='white'%20font-family='system-ui'%20font-size='16'%20font-weight='600'%3ERM%3C/text%3E%3C/svg%3E">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <meta name="description" content="Delegowanie decyzji agentom AI wymaga reguł, granic, rozdzielenia faktów od przewidywań i realnej zdolności nadzoru. Zadanie dla zarządu, nie dla IT.">
@@ -57,8 +57,8 @@
   }
   </script>
   <link rel="stylesheet" href="assets/page-ad06b73d9b7b.css">
-<link rel="stylesheet" href="assets/site.css?v=4">
-<script src="assets/site.js?v=4" defer></script>
+<link rel="stylesheet" href="assets/site.css?v=6">
+<script src="assets/site.js?v=6" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main-content" data-pl="Przejdź do treści" data-en="Skip to content">Przejdź do treści</a>
@@ -66,7 +66,7 @@
   <nav>
     <div class="nav-content">
       <a href="index.html" class="nav-logo">Rafał Myrta</a>
-      <button class="nav-hamburger" aria-label="Menu" aria-expanded="false" onclick="var n=document.querySelector('.nav-links');n.classList.toggle('open');this.setAttribute('aria-expanded',n.classList.contains('open'))">
+      <button class="nav-hamburger" aria-label="Menu" aria-expanded="false">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
       </button>
       <ul class="nav-links">
@@ -77,7 +77,7 @@
         <li><a href="index.html#artykuly" data-pl="Artykuły" data-en="Articles">Artykuły</a></li>
         <li><a href="mapa.html" data-pl="Mapa" data-en="Map">Mapa</a></li>
         <li><a href="index.html#kontakt" data-pl="Kontakt" data-en="Contact">Kontakt</a></li>
-        <li><button class="lang-toggle" onclick="toggleLang()">EN</button></li>
+        <li><button class="lang-toggle">EN</button></li>
       </ul>
     </div>
   </nav>
@@ -219,37 +219,5 @@
     </div>
   </footer>
 
-  <script>
-    function applyLang(lang) {
-      document.documentElement.setAttribute('lang', lang);
-      document.querySelectorAll('.nav-links a[data-pl]').forEach(function (a) { a.textContent = a.getAttribute('data-' + lang); });
-      var btn = document.querySelector('.lang-toggle');
-      if (btn) btn.textContent = lang === 'pl' ? 'EN' : 'PL';
-      document.title = lang === 'pl' ? "Kto będzie zarządzał firmą agentów AI? - Rafał Myrta" : "Who will run a company of AI agents? - Rafał Myrta";
-    }
-    function toggleLang() {
-      var current = document.documentElement.getAttribute('lang') || 'pl';
-      var next = current === 'pl' ? 'en' : 'pl';
-      try { SiteLanguage.set(next); } catch (e) {}
-      applyLang(next);
-    }
-    document.addEventListener('DOMContentLoaded', function () {
-      var preferred = 'pl';
-      try { preferred = SiteLanguage.get() || 'pl'; } catch (e) {}
-      applyLang(preferred);
-    });
-
-    // Pasek postępu czytania
-    (function () {
-      var bar = document.querySelector('.read-progress');
-      if (!bar) return;
-      function upd() {
-        var h = document.documentElement.scrollHeight - window.innerHeight;
-        bar.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
-      }
-      window.addEventListener('scroll', upd, { passive: true });
-      upd();
-    })();
-  </script>
 </body>
 </html>

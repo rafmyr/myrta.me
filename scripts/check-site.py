@@ -67,7 +67,24 @@ for path in files:
     for url in re.findall(r'(?:og:image|twitter:image)" content="https://myrta\.me/([^"]+)"', text):
         if not (ROOT / url).exists(): errors.append(f'{path.name}: brak pliku og:image {url}')
 if len(versions) > 1: errors.append(f'niespójne wersje assets/site.*?v= : {sorted(versions)}')
+
+# CSP: brak atrybutów on*=, każdy inline <script> ma hash w .htaccess; lastmod artykułów = data z JSON-LD
+import hashlib, base64
+htaccess = (ROOT / '.htaccess').read_text()
+csp = re.search(r'Content-Security-Policy "([^"]*)"', htaccess)
+sitemap = (ROOT / 'sitemap.xml').read_text()
+for path in files:
+    text = path.read_text()
+    for attr in re.findall(r'\son(?:click|error|load|mouseover|mouseout|submit|change|input)=', text):
+        errors.append(f'{path.relative_to(ROOT)}: atrybut {attr.strip()} (CSP bez unsafe-inline go zablokuje)')
+    for block in re.findall(r'<script(?![^>]*\bsrc=)(?![^>]*ld\+json)[^>]*>(.*?)</script>', text, re.S):
+        h = "'sha256-" + base64.b64encode(hashlib.sha256(block.encode('utf-8')).digest()).decode() + "'"
+        if not csp or h not in csp.group(1): errors.append(f'{path.relative_to(ROOT)}: inline <script> bez hasha w CSP ({h})')
+    if path.name.startswith('art-'):
+        d = re.search(r'"dateModified": "(\d{4}-\d{2}-\d{2})"', text) or re.search(r'"datePublished": "(\d{4}-\d{2}-\d{2})"', text)
+        lm = re.search(r'<loc>https://myrta\.me/' + re.escape(path.name) + r'</loc>\s*<lastmod>([^<]+)', sitemap)
+        if d and lm and d.group(1) != lm.group(1): errors.append(f'{path.name}: lastmod {lm.group(1)} != JSON-LD {d.group(1)}')
 if errors:
     print('\n'.join(errors))
     raise SystemExit(1)
-print(f'PASS: {len(files)} HTML pages; unique IDs, local links/assets, image alt, JS syntax, XML sitemap, asset versions, title/description length, JSON-LD, og:image files.')
+print(f'PASS: {len(files)} HTML pages; unique IDs, local links/assets, image alt, JS syntax, XML sitemap, asset versions, title/description length, JSON-LD, og:image files, CSP (no on*=, inline script hashes), sitemap lastmod.')

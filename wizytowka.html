@@ -186,8 +186,8 @@
         <div style="margin-top:8px;">
           <div class="midi-player">
             <span>macarena_final_FINAL2.mid</span>
-            <button class="midi-btn" onclick="document.getElementById('midiStatus').textContent='&#9835; Gra!'">&#9654;</button>
-            <button class="midi-btn" onclick="document.getElementById('midiStatus').textContent='Stop'">&#9632;</button>
+            <button class="midi-btn" data-midi="play">&#9654;</button>
+            <button class="midi-btn" data-midi="stop">&#9632;</button>
             <span id="midiStatus" style="color:#800000;">Stop</span>
           </div>
         </div>
@@ -212,7 +212,7 @@
         <tr>
           <td style="width:160px;">
             <div class="photo-frame">
-              <picture><source srcset="profile-retro.webp" type="image/webp"><img src="profile-retro.jpg" alt="Rafal Myrta" onerror="this.src='profile.jpg'"></picture>
+              <picture><source srcset="profile-retro.webp" type="image/webp"><img src="profile-retro.jpg" alt="Rafal Myrta" data-fallback="profile.jpg"></picture>
             </div>
             <div class="photo-caption">* to ja! (serio) *</div>
           </td>
@@ -374,7 +374,7 @@
         </div>
       </div>
       <div style="margin-top:10px; text-align:center;">
-        <button class="midi-btn midi-btn-big" onclick="alert('Niestety CGI-BIN nie dziala na tym serwerze :(\n\nAle mozesz napisac na rafalmyrta@gmail.com\ni powiedziec ze tu byles!')">PODPISZ KSIEGE!</button>
+        <button class="midi-btn midi-btn-big" data-guestbook>PODPISZ KSIEGE!</button>
       </div>
     </div>
   </div>
@@ -446,6 +446,14 @@
 <a href="index.html" class="back-link" title="Powrot do normalnosci">&#8592; normalnosc</a>
 
 <script>
+  document.querySelectorAll('[data-midi]').forEach(function (b) {
+    b.addEventListener('click', function () { document.getElementById('midiStatus').textContent = b.getAttribute('data-midi') === 'play' ? '\u266B Gra!' : 'Stop'; });
+  });
+  document.querySelectorAll('img[data-fallback]').forEach(function (img) {
+    img.addEventListener('error', function () { img.src = img.getAttribute('data-fallback'); }, { once: true });
+  });
+  var gb = document.querySelector('[data-guestbook]');
+  if (gb) gb.addEventListener('click', function () { alert('Niestety CGI-BIN nie dziala na tym serwerze :(\n\nAle mozesz napisac na rafalmyrta@gmail.com\ni powiedziec ze tu byles!'); });
   // Counter animation
   (function() {
     var target = 1337;

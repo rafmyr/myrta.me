@@ -315,22 +315,22 @@
     <a href="index.html" class="topbar-back">← Strona główna</a>
   </div>
   <div class="topbar-filters">
-    <button onclick="setFilter(null)" class="active" id="f-all">Wszystko</button>
-    <button onclick="setFilter('dna')" id="f-dna">DNA</button>
-    <button onclick="setFilter('biznes')" id="f-biznes">Biznesy</button>
-    <button onclick="setFilter('skill')" id="f-skill">Skills</button>
-    <button onclick="setFilter('misja')" id="f-misja">Misja</button>
-    <button onclick="setFilter('meta')" id="f-meta">Meta</button>
+    <button data-filter="all" class="active" id="f-all">Wszystko</button>
+    <button data-filter="dna" id="f-dna">DNA</button>
+    <button data-filter="biznes" id="f-biznes">Biznesy</button>
+    <button data-filter="skill" id="f-skill">Skills</button>
+    <button data-filter="misja" id="f-misja">Misja</button>
+    <button data-filter="meta" id="f-meta">Meta</button>
   </div>
 </header>
 
 <div class="mobile-filters" id="mobileFilters">
-  <button onclick="setFilter(null)" class="active" data-f="all">Wszystko</button>
-  <button onclick="setFilter('dna')" data-f="dna">DNA</button>
-  <button onclick="setFilter('biznes')" data-f="biznes">Biznesy</button>
-  <button onclick="setFilter('skill')" data-f="skill">Skills</button>
-  <button onclick="setFilter('misja')" data-f="misja">Misja</button>
-  <button onclick="setFilter('meta')" data-f="meta">Meta</button>
+  <button data-filter="all" class="active" data-f="all">Wszystko</button>
+  <button data-filter="dna" data-f="dna">DNA</button>
+  <button data-filter="biznes" data-f="biznes">Biznesy</button>
+  <button data-filter="skill" data-f="skill">Skills</button>
+  <button data-filter="misja" data-f="misja">Misja</button>
+  <button data-filter="meta" data-f="meta">Meta</button>
 </div>
 
 <main id="main-content">
@@ -340,7 +340,7 @@
 </div>
 
 <div class="panel" id="panel">
-  <button class="panel-close" onclick="closePanel()">×</button>
+  <button class="panel-close" data-close-panel>×</button>
   <div class="panel-cat" id="pCat"></div>
   <div class="panel-title" id="pTitle"></div>
   <div class="panel-section">
@@ -894,6 +894,11 @@ function render() {
   var n = nodes.filter(function (x) { return x.id === id; })[0];
   if (n) setTimeout(function () { openPanel(n); }, 400);
 })();
+// Handlery bez atrybutów onclick (CSP bez 'unsafe-inline')
+document.querySelectorAll('[data-filter]').forEach(function (b) {
+  b.addEventListener('click', function () { var f = b.getAttribute('data-filter'); setFilter(f === 'all' ? null : f); });
+});
+document.querySelectorAll('[data-close-panel]').forEach(function (b) { b.addEventListener('click', closePanel); });
 render();
 </script>
 </body>
