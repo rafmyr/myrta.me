@@ -203,6 +203,8 @@
       color: var(--gray);
       text-decoration: none;
       transition: color 0.2s;
+      display: inline-block;
+      padding: 10px 0;
     }
 
     .back-link a:hover {

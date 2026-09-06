@@ -134,16 +134,16 @@ const content = {
     // ── Seria "AI, procesy, transformacja": lista sterowana datami ──
     // Cała seria opublikowana 17.08.2026; lista zachowuje kolejność czytania.
     const SERIA = [
-      { slug: "art-ai-zrodlo-prawdy", date: "2026-08-17", title: "Zanim agent napisze kod, ktoś musi ustalić, co jest prawdą", desc: "SDD okiem PM-a: 361 reguł, 1\u00a0083 testy i dlaczego źródło prawdy jest ważniejsze niż prompt." },
-      { slug: "art-ai-feature-to-nie-strategia", date: "2026-08-17", title: "AI feature to nie strategia", desc: "Trzy pytania do dostawcy systemu, zanim podpiszesz aneks z modułem AI." },
-      { slug: "art-ai-czego-agent-nie-wie-o-aptece", date: "2026-08-17", title: "Czego agent nie wie o aptece", desc: "Reklama, refundacja, recepta: trzy pułapki systemu projektowanego jak dla zwykłego retailu." },
-      { slug: "art-ai-falszywe-i-gotowe", date: "2026-08-17", title: "Najgroźniejsza odpowiedź AI? Fałszywa i oznaczona jako „gotowe”", desc: "Cztery reguły wiarygodności w pracy z agentami." },
-      { slug: "art-ai-zarzadzanie-agentami", date: "2026-08-17", title: "Agentów nie wystarczy uruchomić. Trzeba nimi zarządzać", desc: "Onboarding, delegowanie, kontrola jakości i pamięć drugiego zespołu." },
-      { slug: "art-ai-zly-projekt", date: "2026-08-17", title: "AI nie naprawi złego projektu. Szybciej wystawi rachunek", desc: "Dlaczego stare kompetencje projektowe właśnie zdrożały." },
-      { slug: "art-ai-pilot-i-skalowanie", date: "2026-08-17", title: "Pilot AI nie skaluje się od prezentacji dla zarządu", desc: "Cztery powody śmierci pilotów i pięć bramek przed rolloutem." },
-      { slug: "art-ai-mbo-kontra-ai", date: "2026-08-17", title: "MBO kontra AI: kiedy premia nagradza stary sposób pracy", desc: "Jak systemy premiowe cichutko karzą ludzi za używanie agentów." },
-      { slug: "art-ai-sredni-szczebel", date: "2026-08-17", title: "Średni szczebel nie hamuje AI", desc: "Hamuje zmianę, w której nie ma dla niego roli. Trzy rzeczy, które działają." },
-      { slug: "art-ai-restrukturyzacja", date: "2026-08-17", title: "Transformacja AI to restrukturyzacja", desc: "Tylko nikt nie chce jej tak nazwać. Warsztat przebudowy firmy zastosowany do AI." }
+      { slug: "art-ai-zrodlo-prawdy", date: "2026-08-17", title: "Zanim agent napisze kod, ktoś musi ustalić, co jest prawdą", desc: "SDD okiem PM-a: 361 reguł, 1\u00a0083 testy i dlaczego źródło prawdy jest ważniejsze niż prompt.", titleEn: "Before an agent writes code, someone must establish the truth", descEn: "SDD from a PM's perspective: 361 rules, 1,083 tests, and why the source of truth matters more than the prompt." },
+      { slug: "art-ai-feature-to-nie-strategia", date: "2026-08-17", title: "AI feature to nie strategia", desc: "Trzy pytania do dostawcy systemu, zanim podpiszesz aneks z modułem AI.", titleEn: "An AI feature is not a strategy", descEn: "Three questions for your system vendor before you sign the AI module addendum." },
+      { slug: "art-ai-czego-agent-nie-wie-o-aptece", date: "2026-08-17", title: "Czego agent nie wie o aptece", desc: "Reklama, refundacja, recepta: trzy pułapki systemu projektowanego jak dla zwykłego retailu.", titleEn: "What an AI agent does not know about pharmacies", descEn: "Advertising, reimbursement, prescriptions: three traps of a system designed as if for ordinary retail." },
+      { slug: "art-ai-falszywe-i-gotowe", date: "2026-08-17", title: "Najgroźniejsza odpowiedź AI? Fałszywa i oznaczona jako „gotowe”", desc: "Cztery reguły wiarygodności w pracy z agentami.", titleEn: "The most dangerous AI answer? False and marked as done", descEn: "Four rules of credibility when working with agents." },
+      { slug: "art-ai-zarzadzanie-agentami", date: "2026-08-17", title: "Agentów nie wystarczy uruchomić. Trzeba nimi zarządzać", desc: "Onboarding, delegowanie, kontrola jakości i pamięć drugiego zespołu.", titleEn: "Launching AI agents is not enough. They need to be managed", descEn: "Onboarding, delegation, quality control and the memory of a second team." },
+      { slug: "art-ai-zly-projekt", date: "2026-08-17", title: "AI nie naprawi złego projektu. Szybciej wystawi rachunek", desc: "Dlaczego stare kompetencje projektowe właśnie zdrożały.", titleEn: "AI will not fix a bad project. It will just send the bill faster", descEn: "Why the old project skills just got more expensive." },
+      { slug: "art-ai-pilot-i-skalowanie", date: "2026-08-17", title: "Pilot AI nie skaluje się od prezentacji dla zarządu", desc: "Cztery powody śmierci pilotów i pięć bramek przed rolloutem.", titleEn: "An AI pilot does not scale from a board presentation", descEn: "Four reasons pilots die and five gates before rollout." },
+      { slug: "art-ai-mbo-kontra-ai", date: "2026-08-17", title: "MBO kontra AI: kiedy premia nagradza stary sposób pracy", desc: "Jak systemy premiowe cichutko karzą ludzi za używanie agentów.", titleEn: "MBO vs AI: when bonuses reward the old way of working", descEn: "How bonus systems quietly punish people for using agents." },
+      { slug: "art-ai-sredni-szczebel", date: "2026-08-17", title: "Średni szczebel nie hamuje AI", desc: "Hamuje zmianę, w której nie ma dla niego roli. Trzy rzeczy, które działają.", titleEn: "Middle management is not blocking AI", descEn: "It blocks a change that has no role for it. Three things that work." },
+      { slug: "art-ai-restrukturyzacja", date: "2026-08-17", title: "Transformacja AI to restrukturyzacja", desc: "Tylko nikt nie chce jej tak nazwać. Warsztat przebudowy firmy zastosowany do AI.", titleEn: "AI transformation is restructuring", descEn: "Nobody wants to call it that. The company-rebuild workshop applied to AI." }
     ];
     function renderSeria() {
       const list = document.getElementById('seriaList');
@@ -157,8 +157,8 @@ const content = {
       list.innerHTML = out.map((a, n) =>
         '<li class="artykuly-item"><a href="' + a.slug + '.html" class="artykuly-link">' +
         '<div class="artykuly-title-row"><span class="artykuly-title">' +
-        '<span class="seria-num">' + (n + 1) + '</span>' + a.title + '</span><span class="artykuly-arrow">→</span></div>' +
-        '<p class="artykuly-desc">' + a.desc + '</p></a></li>').join('');
+        '<span class="seria-num">' + (n + 1) + '</span>' + (currentLang === 'en' && a.titleEn ? a.titleEn : a.title) + '</span><span class="artykuly-arrow">→</span></div>' +
+        '<p class="artykuly-desc">' + (currentLang === 'en' && a.descEn ? a.descEn : a.desc) + '</p></a></li>').join('');
       const data = content[currentLang];
       if (coming) {
         const d = coming.date.split('-');

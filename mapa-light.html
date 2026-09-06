@@ -273,7 +273,7 @@
       .mobile-filters {
         display: flex !important;
         position: fixed;
-        bottom: 56px;
+        bottom: 16px;
         left: 12px;
         right: 12px;
         z-index: 100;
@@ -301,12 +301,7 @@
         padding: 64px 20px 20px;
       }
       .legend { display: none; }
-      .hint {
-        bottom: 14px;
-        right: 50%;
-        transform: translateX(50%);
-        text-align: center;
-      }
+      .hint { display: none; }
     }
 
     .mobile-filters { display: none; }
@@ -314,7 +309,7 @@
 </head>
 <body>
 
-<div class="topbar">
+<header class="topbar">
   <div class="topbar-left">
     <a href="index.html" class="topbar-logo">Rafał Myrta</a>
     <a href="index.html" class="topbar-back">← Strona główna</a>
@@ -327,7 +322,7 @@
     <button onclick="setFilter('misja')" id="f-misja">Misja</button>
     <button onclick="setFilter('meta')" id="f-meta">Meta</button>
   </div>
-</div>
+</header>
 
 <div class="mobile-filters" id="mobileFilters">
   <button onclick="setFilter(null)" class="active" data-f="all">Wszystko</button>
@@ -338,6 +333,7 @@
   <button onclick="setFilter('meta')" data-f="meta">Meta</button>
 </div>
 
+<main id="main-content">
 <div class="center-title" id="centerTitle">
   <h1>Mapa kompetencji<br>i doświadczeń</h1>
   <p>Obróć kulę i kliknij węzeł</p>
@@ -378,7 +374,8 @@
   klik = szczegóły
 </div>
 
-<canvas id="c"></canvas>
+<canvas id="c" role="img" aria-label="Interaktywna mapa kompetencji i doświadczeń"></canvas>
+</main>
 
 <script>
 // ═══════════════════════════════════════
@@ -556,7 +553,8 @@ window.addEventListener('resize', resize);
 // ═══════════════════════════════════════
 var rotX = -0.3, rotY = 0.4;
 var autoRotY = 0;
-var zoom = 1;
+var COMPACT = Math.min(W, H) < 700;
+var zoom = COMPACT ? Math.max(0.45, Math.min(1, Math.min(W, H) / 760)) : 1;
 var isDrag = false, lastMX, lastMY, dragStartMX, dragStartMY;
 var hovered = null;
 var activeFilter = null;
@@ -872,7 +870,7 @@ function render() {
     }
 
     // Label - dark text on white
-    if (alpha > 0.15 && n.scale * zoom > 0.25) {
+    if (alpha > 0.15 && n.scale * zoom > 0.25 && (!COMPACT || n.size >= 24 || isHov || isSel)) {
       var lines = n.label.split('\n');
       var fontSize = Math.max(11, Math.min(15, n.size * n.scale * 0.045 * (isHov ? 1.1 : 1)));
       ctx.font = (isHov ? '600 ' : '400 ') + fontSize + 'px -apple-system, system-ui, sans-serif';

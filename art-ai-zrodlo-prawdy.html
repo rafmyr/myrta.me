@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#1d1d1f">
-  <title>Zanim agent napisze kod, ktoś musi ustalić, co jest prawdą - Rafał Myrta</title>
+  <title>Zanim agent napisze kod: kto ustala prawdę - Rafał Myrta</title>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%231d1d1f'/><text x='16' y='22' text-anchor='middle' fill='white' font-family='system-ui' font-size='16' font-weight='600'>RM</text></svg>">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -13,11 +13,13 @@
   <meta property="og:description" content="Spec-Driven Development okiem PM-a: 361 reguł, 1083 testy i dlaczego źródło prawdy jest ważniejsze niż prompt.">
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://myrta.me/art-ai-zrodlo-prawdy.html">
-  <meta property="og:image" content="https://myrta.me/og-image.png">
+  <meta property="og:image" content="https://myrta.me/og/art-ai-zrodlo-prawdy.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Zanim agent napisze kod, ktoś musi ustalić, co jest prawdą">
   <meta name="twitter:description" content="Spec-Driven Development okiem PM-a: 361 reguł, 1083 testy i dlaczego źródło prawdy jest ważniejsze niż prompt.">
-  <meta name="twitter:image" content="https://myrta.me/og-image.png">
+  <meta name="twitter:image" content="https://myrta.me/og/art-ai-zrodlo-prawdy.png">
   <meta property="og:locale" content="pl_PL">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://myrta.me/art-ai-zrodlo-prawdy.html">
@@ -25,6 +27,7 @@
   {
     "@context": "https://schema.org",
     "@type": "Article",
+    "image": "https://myrta.me/og/art-ai-zrodlo-prawdy.png",
     "headline": "Zanim agent napisze kod, ktoś musi ustalić, co jest prawdą",
     "description": "Spec-Driven Development okiem PM-a: 361 reguł, 1083 testy i dlaczego źródło prawdy jest ważniejsze niż prompt.",
     "datePublished": "2026-08-17",
@@ -44,8 +47,8 @@
   }
   </script>
   <link rel="stylesheet" href="assets/page-24806d2282ed.css">
-<link rel="stylesheet" href="assets/site.css?v=2">
-<script src="assets/site.js?v=2"></script>
+<link rel="stylesheet" href="assets/site.css?v=4">
+<script src="assets/site.js?v=4" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main-content" data-pl="Przejdź do treści" data-en="Skip to content">Przejdź do treści</a>
@@ -75,7 +78,7 @@
         <div class="article-header">
           <div class="seria-tag">Seria: AI, procesy, transformacja · 1/10</div>
           <h1>Zanim agent napisze kod, ktoś musi ustalić, co jest prawdą</h1>
-          <p class="article-meta">17 sierpnia 2026</p>
+          <p class="article-meta"><time datetime="2026-08-17">17 sierpnia 2026</time></p>
           <p class="article-lead">361 reguł. 1083 scenariusze testowe. 122 karty źródłowe. I jedna jawna luka, której nie pozwoliłem zamalować domysłem.</p>
           <div class="article-divider"></div>
         </div>
@@ -110,7 +113,9 @@
         <div class="author-box"><picture><source srcset="profile.webp" type="image/webp"><img src="profile.jpg" alt="Rafał Myrta" class="author-photo" loading="lazy" width="558" height="744"></picture><div class="author-info"><div class="author-name">Rafał Myrta</div><div class="author-desc">Porządkuje procesy, role i systemy w firmach wielolokalizacyjnych i regulowanych. Projekty AI prowadzi metodą Spec-Driven Development.</div></div><a href="index.html#kontakt" class="author-cta">Porozmawiajmy →</a></div>
 
         
-        <div class="artnav artnav-next" id="artnavNext" data-gate="20260817"><div class="artnav-dir">Następny w serii →</div><div class="artnav-title"><a href="art-ai-feature-to-nie-strategia.html">AI feature to nie strategia. Trzy pytania przed podpisaniem aneksu</a></div></div>
+        <div class="artnav">
+          <a class="next" href="art-ai-feature-to-nie-strategia.html"><div class="artnav-dir">Następny w serii →</div><div class="artnav-title">AI feature to nie strategia. Trzy pytania przed podpisaniem aneksu</div></a>
+        </div>
 
         <div class="back-link">
           <a href="index.html#artykuly">← Wszystkie artykuły</a>
@@ -136,7 +141,9 @@
       <div>© 2026 Rafał Myrta</div>
       <ul class="footer-links">
         <li><a href="https://linkedin.com/in/rafalmyrta">LinkedIn</a></li>
+        <li><a href="https://orpr.dev">orpr.dev</a></li>
         <li><a href="https://cpapblog.pl">CPAPblog</a></li>
+        <li><a href="mailto:rafal@myrta.me">rafal@myrta.me</a></li>
       </ul>
     </div>
   </footer>
@@ -174,14 +181,5 @@
     })();
   </script>
 
-  <script>
-    (function () {
-      var el = document.getElementById('artnavNext');
-      if (!el) return;
-      var now = new Date();
-      var stamp = now.getFullYear() * 10000 + (now.getMonth() + 1) * 100 + now.getDate();
-      if (stamp >= parseInt(el.getAttribute('data-gate'), 10)) { el.style.display = 'block'; }
-    })();
-  </script>
 </body>
 </html>

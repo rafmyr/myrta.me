@@ -6,8 +6,8 @@ Zrodlo strony [myrta.me](https://myrta.me). Statyczny HTML, bez buildu i bez fra
 
 Hosting: OVH, Apache. Pliki wgrywane bezposrednio na serwer.
 Plik `.htaccess` obsluguje przekierowanie na HTTPS, kanoniczny adres bez www,
-naglowki bezpieczenstwa, cache assetow, kompresje gzip oraz gating publikacji
-artykulow po dacie (reguly na `art-ai-*.html`, wygasaja 27.10.2026).
+naglowki bezpieczenstwa (HSTS, CSP), cache assetow i kompresje gzip.
+Gating artykulow po dacie zostal usuniety: cala seria AI jest publiczna od 17.08.2026.
 
 ## Struktura
 
@@ -21,4 +21,8 @@ artykulow po dacie (reguly na `art-ai-*.html`, wygasaja 27.10.2026).
 | `orpr/index.html` | podstrona myrta.me/orpr o standardzie ORPR |
 | `404.html` | strona bledu |
 | `.htaccess` | konfiguracja Apache |
+| `assets/` | wspolny CSS/JS (`site.css`, `site.js`, `home.js`) i style per szablon (`page-<hash>.css`) |
+| `og/` | obrazy Open Graph per artykul, generowane przez `scripts/make-og.py` |
+| `scripts/check-site.py` | kontrola: linki, ID, alt, JS, sitemap, wersje assetow, dlugosci title/description, JSON-LD, og:image |
+| `scripts/make-og.py` | generator OG (1200x630) z tytulu i etykiety serii; fonty Inter w `scripts/fonts/` |
 | `robots.txt`, `sitemap.xml` | SEO |

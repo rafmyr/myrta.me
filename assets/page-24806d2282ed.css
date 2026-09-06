@@ -203,6 +203,8 @@
       color: var(--gray);
       text-decoration: none;
       transition: color 0.2s;
+      display: inline-block;
+      padding: 10px 0;
     }
 
     .back-link a:hover {
@@ -327,10 +329,12 @@
     .author-cta:hover { background: var(--ink); color: var(--white); border-color: var(--ink); }
 
     .artnav { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; max-width: 720px; margin: 32px auto 0; }
-    .artnav a { display: block; padding: 16px 18px; border: 1px solid #e8e8ed; border-radius: 12px; text-decoration: none; background: var(--card-bg); transition: transform 0.3s cubic-bezier(0.16,1,0.3,1), border-color 0.3s ease; }
+    .artnav a { color: var(--ink); display: block; padding: 16px 18px; border: 1px solid #e8e8ed; border-radius: 12px; text-decoration: none; background: var(--card-bg); transition: transform 0.3s cubic-bezier(0.16,1,0.3,1), border-color 0.3s ease; }
     .artnav a:hover { transform: translateY(-2px); border-color: #c7c7cc; }
     .artnav a.next { text-align: right; grid-column: 2; }
     .artnav a.prev { grid-column: 1; }
+    .article-body a, .article-lead a { color: var(--ink); text-decoration: underline; text-decoration-color: var(--gray-light); text-underline-offset: 3px; transition: text-decoration-color 0.2s; }
+    .article-body a:hover, .article-lead a:hover { text-decoration-color: var(--ink); }
     .artnav-dir { font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gray); margin-bottom: 4px; }
     .artnav-title { font-size: 14px; font-weight: 600; color: var(--ink); }
 
@@ -364,4 +368,3 @@
     .article-sources a { color: #6e6e73; text-decoration: underline; text-underline-offset: 2px; }
     .seria-tag { font-size: 12px; letter-spacing: 2px; text-transform: uppercase;
       color: #6e6e73; margin-bottom: 12px; }
-    .artnav-next { display: none; }

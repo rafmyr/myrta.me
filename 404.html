@@ -2,55 +2,74 @@
 <html lang="pl">
 <head>
   <meta charset="UTF-8">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#1d1d1f">
-  <title>404 - Strona nie znaleziona | Rafał Myrta</title>
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%231d1d1f'/%3E%3Ctext x='16' y='22' font-family='system-ui' font-size='14' font-weight='700' fill='white' text-anchor='middle'%3ERM%3C/text%3E%3C/svg%3E">
+  <title>404: tej strony nie ma - Rafał Myrta</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2032%2032'%3E%3Crect%20width='32'%20height='32'%20rx='6'%20fill='%231d1d1f'/%3E%3Ctext%20x='16'%20y='22'%20text-anchor='middle'%20fill='white'%20font-family='system-ui'%20font-size='16'%20font-weight='600'%3ERM%3C/text%3E%3C/svg%3E">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="stylesheet" href="/assets/page-24806d2282ed.css">
+  <link rel="stylesheet" href="/assets/site.css?v=4">
+  <script src="/assets/site.js?v=4" defer></script>
   <style>
-    :root { --ink: #1d1d1f; --gray: #6e6e73; --gray-light: #d2d2d7; }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      color: var(--ink);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
-      text-align: center;
-      padding: 24px;
-    }
-    .container { max-width: 480px; }
-    .code { font-size: 96px; font-weight: 700; letter-spacing: -4px; line-height: 1; }
-    .message { font-size: 18px; color: var(--gray); margin: 16px 0 32px; line-height: 1.5; }
-    .links { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
-    .links a {
-      color: var(--ink);
-      text-decoration: none;
-      font-size: 15px;
-      font-weight: 500;
-      padding: 10px 20px;
-      border: 1px solid var(--gray-light);
-      border-radius: 8px;
-      transition: background 0.2s;
-    }
-    .links a:hover { background: #f5f5f7; }
-  
-    a:focus-visible, button:focus-visible { outline: 2px solid #1d1d1f; outline-offset: 2px; }
+    .notfound { min-height: calc(100vh - 49px - 120px); display: flex; align-items: center; justify-content: center; text-align: center; padding: 64px 24px; }
+    .notfound-inner { max-width: 520px; }
+    .notfound-code { font-size: clamp(72px, 14vw, 120px); font-weight: 700; letter-spacing: -0.04em; line-height: 1; color: var(--ink); }
+    .notfound-text { font-size: 19px; line-height: 1.5; color: var(--gray); margin: 20px 0 32px; text-wrap: balance; }
+    .notfound-links { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .notfound-links a { display: inline-flex; align-items: center; min-height: 44px; padding: 10px 22px; border: 1px solid var(--gray-light); border-radius: 980px; color: var(--ink); text-decoration: none; font-size: 15px; font-weight: 500; transition: background 0.2s, border-color 0.2s; }
+    .notfound-links a:hover { background: #f5f5f7; border-color: var(--gray); }
+    .notfound-links a.primary { background: var(--ink); color: var(--white); border-color: var(--ink); }
+    .notfound-links a.primary:hover { opacity: .85; }
+    .notfound-egg { margin-top: 48px; font-size: 12px; color: var(--gray); }
+    .notfound-egg a { color: var(--gray); text-decoration: underline; text-decoration-style: dotted; text-underline-offset: 3px; }
   </style>
-<link rel="stylesheet" href="assets/site.css?v=2">
-<script src="assets/site.js?v=2"></script>
 </head>
 <body>
-  <div class="container">
-    <div class="code">404</div>
-    <p class="message">Tej strony nie ma. Może przeniosła się w lepsze miejsce.</p>
-    <div class="links">
-      <a href="index.html">Strona główna</a>
-      <a href="ksiazka.html">Książka</a>
+  <nav>
+    <div class="nav-content">
+      <a href="/" class="nav-logo">Rafał Myrta</a>
+      <button class="nav-hamburger" aria-label="Menu" aria-expanded="false" onclick="var n=document.querySelector('.nav-links');n.classList.toggle('open');this.setAttribute('aria-expanded',n.classList.contains('open'))">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+      <ul class="nav-links">
+        <li><a href="/#about">O mnie</a></li>
+        <li><a href="/#kompetencje">Kompetencje</a></li>
+        <li><a href="/#projekty">Projekty</a></li>
+        <li><a href="/#standardy">Standardy</a></li>
+        <li><a href="/#artykuly">Artykuły</a></li>
+        <li><a href="/mapa.html">Mapa</a></li>
+        <li><a href="/#kontakt">Kontakt</a></li>
+      </ul>
     </div>
-    <p style="margin-top:48px; font-size:11px; color:#d2d2d7;">Hmm, chyba że szukasz <a href="wizytowka.html" style="color:#d2d2d7; text-decoration:underline; text-decoration-style:dotted;">starej wersji tej strony</a>...</p>
-  </div>
+  </nav>
+
+  <main id="main-content" tabindex="-1">
+    <section class="notfound">
+      <div class="notfound-inner">
+        <h1 class="notfound-code">404</h1>
+        <p class="notfound-text">Tej strony nie ma. Może przeniosła się w lepsze miejsce, a może nigdy jej nie było.</p>
+        <div class="notfound-links">
+          <a href="/" class="primary">Strona główna</a>
+          <a href="/#artykuly">Artykuły</a>
+          <a href="/orpr/">Standard ORPR</a>
+        </div>
+        <p class="notfound-egg">Chyba że szukasz <a href="/wizytowka.html">starej wersji tej strony</a>.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <div>&copy; 2026 Rafał Myrta</div>
+      <ul class="footer-links">
+        <li><a href="https://linkedin.com/in/rafalmyrta">LinkedIn</a></li>
+        <li><a href="https://orpr.dev">orpr.dev</a></li>
+        <li><a href="https://cpapblog.pl">CPAPblog</a></li>
+        <li><a href="mailto:rafal@myrta.me">rafal@myrta.me</a></li>
+      </ul>
+    </div>
+  </footer>
 </body>
 </html>
