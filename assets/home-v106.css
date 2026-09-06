@@ -8,6 +8,8 @@ main { font-variant-numeric: tabular-nums; }
 .hero-subtitle { font-size: 18px; line-height: 1.6; max-width: 560px; }
 .hero-subtitle::after { width: 32px; height: 1px; background: var(--gray-light); }
 .section-header { letter-spacing: -0.02em; line-height: 1.12; margin-bottom: 12px; }
+.projekty .section-header { margin-bottom: 40px; }
+.section-header + .section-subtitle { margin-top: 0; }
 .section-subtitle { line-height: 1.6; max-width: 620px; }
 .about-title { letter-spacing: -0.02em; line-height: 1.15; }
 .about-text p { max-width: 62ch; font-size: 17px; line-height: 1.7; color: var(--ink-2); }
@@ -21,11 +23,11 @@ a { text-underline-offset: 3px; }
   .hero-headline { font-size: clamp(52px, 5.6vw, 76px); line-height: 1.04; letter-spacing: -0.04em; max-width: 900px; }
   .hero-subtitle { font-size: 20px; }
   .section-header { font-size: 40px; }
-  .about-title { font-size: 38px; }
+  .about-title { font-size: 44px; margin-bottom: 32px; }
   .section-subtitle { font-size: 18px; margin-bottom: 48px; }
-  .about, .kompetencje, .projekty, .standardy, .artykuly { padding-top: 104px; padding-bottom: 104px; }
-  .offer { padding-top: 72px; padding-bottom: 80px; }
-  .kontakt { padding-top: 104px; padding-bottom: 112px; }
+  .offer, .about, .kompetencje, .orbit, .projekty, .standardy, .social-proof, .artykuly, .kontakt { padding-top: 104px; padding-bottom: 104px; }
+  .statement { padding-top: 96px; padding-bottom: 96px; }
+  .cpap-mini { padding-top: 32px; padding-bottom: 32px; }
 }
 @media (min-width: 1101px) {
   .hero-headline { font-size: 80px; }
@@ -34,14 +36,14 @@ a { text-underline-offset: 3px; }
 
 /* ── 2. Konstelacja: hero wyraźniejsza, kula kompetencji jako sekcja ── */
 .hero::before { background: radial-gradient(ellipse 58% 52% at 50% 46%, rgba(255,255,255,.9) 0%, rgba(255,255,255,.55) 55%, rgba(255,255,255,0) 100%); }
-.orbit { padding-top: 40px; padding-bottom: 72px; display: grid; grid-template-columns: 1fr; gap: 24px; align-items: center; }
+.orbit { padding-top: 64px; padding-bottom: 64px; display: grid; grid-template-columns: 1fr; gap: 24px; align-items: center; }
 .orbit .section-subtitle { margin-bottom: 20px; }
 .orbit-link { display: inline-block; color: var(--ink); font-size: 16px; font-weight: 500; text-decoration: underline; text-decoration-color: var(--gray-light); text-underline-offset: 5px; transition: text-decoration-color .2s; }
 .orbit-link:hover { text-decoration-color: var(--ink); }
 .orbit-stage { position: relative; border-radius: var(--radius); background: radial-gradient(ellipse 70% 70% at 50% 50%, #fbfbfd 0%, #f5f5f7 100%); border: 1px solid var(--hairline); overflow: hidden; }
 #orbitCanvas { display: block; width: 100%; height: 420px; touch-action: none; }
 @media (min-width: 769px) {
-  .orbit { grid-template-columns: 5fr 7fr; gap: 56px; padding-top: 48px; padding-bottom: 96px; }
+  .orbit { grid-template-columns: 5fr 7fr; gap: 64px; padding-top: 104px; padding-bottom: 104px; }
   #orbitCanvas { height: 560px; }
 }
 
@@ -67,7 +69,12 @@ a { text-underline-offset: 3px; }
 .photo-wrapper { display: flex; }
 .about-photo { border-radius: 10px; box-shadow: 0 32px 64px -40px rgba(0,0,0,.45); filter: grayscale(1) contrast(1.04); }
 .about-photo { height: 100%; max-height: none; aspect-ratio: auto; object-position: 50% 15%; }
-@media (max-width: 768px) { .about-photo { aspect-ratio: 4 / 5; max-height: 560px; } }
+@media (max-width: 768px) {
+  .about-photo { aspect-ratio: 4 / 5; max-height: 560px; }
+  .offer, .about, .kompetencje, .orbit, .projekty, .standardy, .social-proof, .artykuly, .kontakt { padding-top: 64px; padding-bottom: 64px; }
+  .statement { padding-top: 64px; padding-bottom: 64px; }
+  .projekty .section-header { margin-bottom: 28px; }
+}
 
 /* ── 5. Pas statement: jasny manifest zamiast czarnego banera (decyzja Rafała 06.09) ── */
 .statement { background: var(--card-bg); color: var(--ink); border-top: 1px solid var(--hairline); border-bottom: 1px solid var(--hairline); }
@@ -77,7 +84,6 @@ a { text-underline-offset: 3px; }
 .stat-num { letter-spacing: -0.03em; white-space: nowrap; color: var(--ink); }
 .stat-label { font-size: 13px; letter-spacing: .01em; color: var(--gray); }
 @media (min-width: 769px) {
-  .statement { padding-top: 104px; padding-bottom: 104px; }
   .statement-blockquote { font-size: 34px; }
   .stat-num { font-size: 46px; }
   .stat { padding: 0 16px; }
@@ -85,37 +91,40 @@ a { text-underline-offset: 3px; }
 }
 
 /* ── 6. Referencje: jeden duży cytat i dwa mniejsze, bez karuzeli ── */
-.social-proof { text-align: left; }
+.social-proof { text-align: center; }
 .testimonials { max-width: none; margin: 0 0 40px; display: grid; grid-template-columns: 1fr; gap: 32px; }
 .testimonial-slide { position: static; opacity: 1; transform: none; pointer-events: auto; visibility: visible; padding-top: 22px; border-top: 1px solid var(--gray-light); }
-.testimonial-slide.lead { grid-column: 1 / -1; border-top: 1px solid var(--ink); padding-top: 28px; }
+.testimonial-slide.lead { grid-column: 1 / -1; border-top: 0; padding-top: 0; max-width: 780px; margin: 0 auto; }
+.testimonial-slide.lead .testimonial-author { align-items: center; margin-top: 4px; }
+.testimonial-slide:not(.lead) { text-align: left; }
 .testimonial-quote { font-size: 16px; line-height: 1.65; color: var(--ink-2); font-style: normal; }
-.testimonial-slide.lead .testimonial-quote { font-size: 22px; line-height: 1.5; letter-spacing: -0.01em; color: var(--ink); max-width: 30em; }
+.testimonial-slide.lead .testimonial-quote { font-size: 24px; line-height: 1.5; letter-spacing: -0.015em; color: var(--ink); margin-bottom: 20px; }
 .testimonial-quote::before, .testimonial-quote::after { color: #c7c7cc; }
 .testimonial-name { font-size: 14px; }
-.client-logos { justify-content: flex-start; padding-top: 28px; }
+.client-logos { justify-content: center; padding-top: 32px; gap: 20px 40px; flex-wrap: wrap; }
+.client-logo-text { font-size: 13px; letter-spacing: .18em; white-space: nowrap; }
 @media (min-width: 769px) {
-  .testimonials { grid-template-columns: 1fr 1fr; gap: 40px 56px; }
-  .social-proof { padding-top: 96px; padding-bottom: 80px; }
+  .testimonials { grid-template-columns: 1fr 1fr; gap: 48px 64px; }
 }
 
-/* ── 7. Artykuły: spis wg serii, trzy kolumny ── */
-.artykuly-groups { display: grid; grid-template-columns: 1fr; gap: 40px; }
-.artykuly-col .artykuly-group { font-size: 15px; font-weight: 600; color: var(--ink); letter-spacing: 0; text-transform: none; margin: 0 0 6px; padding-bottom: 12px; border-bottom: 1px solid var(--ink); }
-.artykuly-col .artykuly-list { grid-template-columns: 1fr; gap: 0; }
+/* ── 7. Artykuły: trzy grupy pod sobą, pozycje w dwóch kolumnach, bez numeracji ── */
+.artykuly-groups { display: grid; grid-template-columns: 1fr; gap: 56px; }
+.artykuly-col .artykuly-group { font-size: 15px; font-weight: 600; color: var(--gray); letter-spacing: .02em; text-transform: none; margin: 0 0 8px; padding-bottom: 12px; border-bottom: 1px solid var(--ink); }
+.artykuly-col .artykuly-list { grid-template-columns: 1fr; gap: 0 48px; }
 .artykuly-col .artykuly-item { margin: 0; padding: 0; border-radius: 0; border-bottom: 1px solid var(--gray-light); }
-.artykuly-col .artykuly-link { padding: 14px 0; margin: 0; border-radius: 0; background: none; }
+.artykuly-col .artykuly-link { padding: 18px 0; margin: 0; border-radius: 0; background: none; }
+.artykuly-col .artykuly-title-row { align-items: baseline; gap: 16px; }
+.artykuly-col .artykuly-title { font-size: 17px; font-weight: 600; letter-spacing: -0.01em; line-height: 1.35; text-wrap: pretty; }
 .artykuly-col .artykuly-link:hover .artykuly-title { text-decoration: underline; text-decoration-color: var(--gray-light); text-underline-offset: 4px; }
-.artykuly-col .artykuly-title { font-size: 16.5px; font-weight: 600; letter-spacing: -0.01em; line-height: 1.35; text-wrap: pretty; }
-.artykuly-col .artykuly-desc { font-size: 14px; line-height: 1.5; margin-top: 4px; }
-.artykuly-col .seria-num { min-width: 22px; font-weight: 400; color: var(--gray); }
-.artykuly-col .seria-next { margin: 12px 0 0; font-size: 13px; }
-.artykuly-col .artykuly-arrow { color: var(--gray-light); transition: color .2s, transform .2s; }
+.artykuly-col .artykuly-desc { font-size: 15px; line-height: 1.5; margin-top: 6px; color: var(--gray); }
+.artykuly-col .artykuly-desc + .artykuly-desc { display: none; }
+.artykuly-col .seria-num { display: none; }
+.artykuly-col .seria-next { margin: 16px 0 0; font-size: 14px; color: var(--gray); }
+.artykuly-col .artykuly-arrow { color: var(--gray-light); flex-shrink: 0; transition: color .2s, transform .2s; }
 .artykuly-col .artykuly-link:hover .artykuly-arrow { color: var(--ink); transform: translateX(3px); }
 @media (min-width: 769px) {
-  .artykuly-groups { grid-template-columns: 1fr 1fr; gap: 48px 64px; }
-  .artykuly-col:nth-child(2) { grid-column: 2; grid-row: 1 / 3; }
-  .artykuly-col:nth-child(3) { grid-column: 1; }
+  .artykuly-col .artykuly-list { grid-template-columns: 1fr 1fr; }
+  .artykuly-col .artykuly-list > :nth-child(2) { transition-delay: 0s; }
 }
 
 /* ── 8. Mikrodetale: nav, linki, focus ── */
