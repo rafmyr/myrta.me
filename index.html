@@ -47,7 +47,8 @@
   <link rel="stylesheet" href="assets/page-c84c1f422700.css">
 <link rel="stylesheet" href="assets/site.css?v=4">
 <script src="assets/site.js?v=4" defer></script>
-<link rel="stylesheet" href="assets/home-improvements.css?v=4">
+<link rel="stylesheet" href="assets/home-improvements.css?v=5">
+<link rel="stylesheet" href="assets/home-v106.css?v=5">
 </head>
 <body>
   <a class="skip-link" href="#main-content" data-pl="Przejdź do treści" data-en="Skip to content">Przejdź do treści</a>
@@ -182,17 +183,17 @@
       </div>
     </section>
 
-    <!-- MAPA CARD -->
-    <div class="mapa-card container reveal">
-      <a href="mapa.html">
-        <canvas class="mapa-card-canvas" id="mapaPreview" aria-hidden="true"></canvas>
-        <div class="mapa-card-text">
-          <div class="mapa-card-title" id="mapaCardTitle">Jak to wszystko się łączy?</div>
-          <div class="mapa-card-desc" id="mapaCardDesc">Kompetencje, biznesy, projekty i misja - na interaktywnej mapie powiązań. Kliknij i obróć.</div>
-          <div class="mapa-card-link" id="mapaCardLink">Otwórz mapę →</div>
-        </div>
-      </a>
-    </div>
+    <!-- MAPA: kula kompetencji -->
+    <section class="orbit container reveal" id="mapa-kompetencji" aria-labelledby="mapaCardTitle">
+      <div class="orbit-text">
+        <h2 class="section-header" id="mapaCardTitle">Jak to wszystko się łączy?</h2>
+        <p class="section-subtitle" id="mapaCardDesc">Kompetencje, biznesy, projekty i misja tworzą jedną sieć powiązań. Obróć kulę, najedź na węzeł, kliknij: otworzy się pełna mapa.</p>
+        <a href="mapa.html" class="orbit-link" id="mapaCardLink">Otwórz pełną mapę →</a>
+      </div>
+      <div class="orbit-stage">
+        <canvas id="orbitCanvas" data-map="mapa.html" role="img" aria-label="Interaktywna kula kompetencji i doświadczeń"></canvas>
+      </div>
+    </section>
 
     <!-- PROJEKTY -->
     <section class="projekty container reveal" id="projekty">
@@ -272,8 +273,8 @@
 
     <!-- SOCIAL PROOF -->
     <div class="social-proof container reveal" id="socialproof">
-      <div class="testimonial-carousel" id="testimonialCarousel">
-        <div class="testimonial-slide active">
+      <div class="testimonials" id="testimonialCarousel">
+        <div class="testimonial-slide lead">
           <blockquote class="testimonial-quote" data-pl="Ambitny i skuteczny menedżer, mocno zorientowany na cele. Bez wątpienia osoba bardzo dobrze znająca rynek farmaceutyczny w Polsce. Bardzo merytoryczny i analityczny. Potrafiący w unikalny sposób łączyć praktykę i doświadczenie biznesowe z wiedzą teoretyczną." data-en="An ambitious and effective manager, strongly goal-oriented. Without doubt a person with excellent knowledge of the Polish pharmaceutical market. Highly substantive and analytical, with a rare ability to combine business practice and experience with theoretical knowledge.">Ambitny i skuteczny menedżer, mocno zorientowany na cele. Bez wątpienia osoba bardzo dobrze znająca rynek farmaceutyczny w Polsce. Bardzo merytoryczny i analityczny. Potrafiący w unikalny sposób łączyć praktykę i doświadczenie biznesowe z wiedzą teoretyczną.</blockquote>
           <div class="testimonial-author">
             <span class="testimonial-name">Piotr Sucharski</span>
@@ -294,11 +295,6 @@
             <span class="testimonial-role" data-pl="NEUCA S.A." data-en="NEUCA S.A.">NEUCA S.A.</span>
           </div>
         </div>
-        <div class="testimonial-dots">
-          <button class="testimonial-dot active" aria-label="Referencja 1" onclick="goToSlide(0)"></button>
-          <button class="testimonial-dot" aria-label="Referencja 2" onclick="goToSlide(1)"></button>
-          <button class="testimonial-dot" aria-label="Referencja 3" onclick="goToSlide(2)"></button>
-        </div>
       </div>
       <div class="client-logos" id="clientLogos">
         <span class="client-logo-text">NEUCA</span>
@@ -317,21 +313,18 @@
     <section class="artykuly container reveal" id="artykuly">
       <h2 class="section-header" id="artykulyTitle">Artykuły</h2>
       <p class="section-subtitle" id="artykulySubtitle">Piszę o strategii, zarządzaniu i transformacji AI w firmach, które działają w realnym świecie.</p>
-<ul class="artykuly-list"><li class="artykuly-item"><a class="artykuly-link" href="art-z-operacji-do-strategii.html"><div class="artykuly-title-row"><span class="artykuly-title" data-pl="Z operacji do strategii" data-en="From operations to strategy">Z operacji do strategii</span><span aria-hidden="true">→</span></div><p class="artykuly-desc" data-pl="Kiedy właściciel przestaje gasić pożary i zaczyna budować systemy." data-en="When an owner stops firefighting and starts building systems.">Kiedy właściciel przestaje gasić pożary i zaczyna budować systemy.</p></a></li><li class="artykuly-item"><a class="artykuly-link" href="art-80-procent-wdrozen.html"><div class="artykuly-title-row"><span class="artykuly-title" data-pl="Dlaczego 80% wdrożeń się nie udaje" data-en="Why 80% of implementations fail">Dlaczego 80% wdrożeń się nie udaje</span><span aria-hidden="true">→</span></div><p class="artykuly-desc" data-pl="O ludziach, którzy mają pracować z nową technologią." data-en="About the people who need to work with new technology.">O ludziach, którzy mają pracować z nową technologią.</p></a></li><li class="artykuly-item"><a class="artykuly-link" href="art-orpr-doswiadczenie-w-standard.html"><div class="artykuly-title-row"><span class="artykuly-title" data-pl="Jak zamieniłem doświadczenie w ORPR" data-en="How I turned experience into ORPR">Jak zamieniłem doświadczenie w ORPR</span><span aria-hidden="true">→</span></div><p class="artykuly-desc" data-pl="Od praktyki zarządzania do otwartego standardu procesów." data-en="From management practice to an open process standard.">Od praktyki zarządzania do otwartego standardu procesów.</p></a></li>
-        <li class="artykuly-item">
-          <a class="artykuly-link" href="art-restrukturyzacja.html">
-            <div class="artykuly-title-row"><span class="artykuly-title" data-pl="Restrukturyzacja: Świat Zdrowia" data-en="Restructuring: Świat Zdrowia">Restrukturyzacja: Świat Zdrowia</span><span aria-hidden="true">→</span></div>
-            <p class="artykuly-desc" data-pl="Case study: jak uporządkować sieć 1 200 aptek." data-en="Case study: bringing order to a network of 1,200 pharmacies.">Case study: jak uporządkować sieć 1 200 aptek.</p>
-          </a>
-        </li>
-      </ul>
-<details class="content-details" id="articleArchive"><summary data-pl="Wszystkie artykuły i serie" data-en="All articles and series">Wszystkie artykuły i serie</summary>
+<div class="artykuly-groups">
+<div class="artykuly-col">
       <h3 class="artykuly-group" id="cyklTitle">Seria: Doświadczenie, AI i zarządzanie firmą</h3>
       <ul class="artykuly-list" id="cyklList"></ul>
       <p class="seria-next" id="cyklNote"></p>
+</div>
+<div class="artykuly-col">
       <h3 class="artykuly-group" id="seriaTitle">Seria: AI, procesy, transformacja</h3>
       <ul class="artykuly-list" id="seriaList"></ul>
       <p class="seria-next" id="seriaNext"></p>
+</div>
+<div class="artykuly-col">
       <h3 class="artykuly-group" id="artOldTitle">Strategia i zarządzanie</h3>
       <ul class="artykuly-list">
         <li class="artykuly-item">
@@ -371,7 +364,8 @@
           </a>
         </li>
       </ul>
-      </details>
+</div>
+</div>
     </section>
 
     <!-- KONTAKT -->
@@ -399,7 +393,8 @@
     </div>
   </footer>
 
-  <script src="assets/home.js?v=4" defer></script>
+  <script src="assets/home.js?v=5" defer></script>
+  <script src="assets/orbit.js?v=5" defer></script>
   <!-- Licznik odwiedzin (GoatCounter): odkomentuj po założeniu darmowego konta
        na goatcounter.com i podmień TWOJ-KOD na własny kod strony.
   <script data-goatcounter="https://TWOJ-KOD.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>

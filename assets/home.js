@@ -22,8 +22,8 @@ const content = {
         komp6: { title: "Farmacja i rynek zdrowia", desc: "Sieci aptek, sprzęt medyczny, CPAP, regulacje." },
         komp7: { title: "Transformacja AI", desc: "Od pilotów do portfela zmian: praca z agentami (SDD), macierze wymagań, przebudowa procesów, ról i zachęt." },
         mapaCardTitle: "Jak to wszystko się łączy?",
-        mapaCardDesc: "Kompetencje, biznesy, projekty i misja - na interaktywnej mapie powiązań. Kliknij i obróć.",
-        mapaCardLink: "Otwórz mapę →",
+        mapaCardDesc: "Kompetencje, biznesy, projekty i misja tworzą jedną sieć powiązań. Obróć kulę, najedź na węzeł, kliknij: otworzy się pełna mapa.",
+        mapaCardLink: "Otwórz pełną mapę →",
         projektyTitle: "Wybrane projekty",
         proj1: { title: "Pierwsza apteka click-and-collect w Polsce", company: "Pelion / PGF S.A. · 2003", desc: "Wyzwanie: uruchomienie nowego kanału sprzedaży aptecznej. Moja rola: zaprojektowanie i wdrożenie doz.pl od zera. Rezultat: uruchomiona w 2003 roku apteka internetowa w modelu click-and-collect." },
         proj2: { title: "Sieć partnerska i franczyzowa", company: "NEUCA S.A. · 2007–2013", desc: "Skala: około 3 800 aptek, 60 przedstawicieli terenowych i 200 osób w telesales. Moja rola: zarządzanie siecią i budowa strategii. Zakres wdrożenia: PMO, system MBO i marka własna, w tym sieć Świat Zdrowia." },
@@ -82,8 +82,8 @@ const content = {
         komp6: { title: "Pharma & Health", desc: "Pharmacy networks, medical devices, CPAP, regulations." },
         komp7: { title: "AI transformation", desc: "From pilots to a portfolio of change: working with AI agents (SDD), requirement matrices, redesigning processes, roles and incentives." },
         mapaCardTitle: "How does it all connect?",
-        mapaCardDesc: "Competencies, businesses, projects and mission - on an interactive map of connections. Click and rotate.",
-        mapaCardLink: "Open map →",
+        mapaCardDesc: "Competencies, businesses, projects and mission form one network. Rotate the sphere, hover a node, click: the full map opens.",
+        mapaCardLink: "Open the full map →",
         projektyTitle: "Selected projects",
         proj1: { title: "First click-and-collect pharmacy in Poland", company: "Pelion / PGF S.A. · 2003", desc: "Challenge: launching a new pharmacy sales channel. My role: designing and implementing doz.pl from scratch. Result: an online click-and-collect pharmacy launched in 2003." },
         proj2: { title: "Partner and franchise network", company: "NEUCA S.A. · 2007–2013", desc: "Scale: around 3,800 pharmacies, 60 field representatives and 200 telesales staff. My role: network management and strategy. Implementation scope: PMO, an MBO system and a private label, including the Świat Zdrowia network." },
@@ -521,7 +521,7 @@ const content = {
           var z1 = n.x * Math.sin(ry) + n.z * Math.cos(ry);
           var y1 = n.y * Math.cos(rx) - z1 * Math.sin(rx);
           var z2 = n.y * Math.sin(rx) + z1 * Math.cos(rx);
-          var sc = persp / (persp + z2 * R);
+          var sc = persp / Math.max(persp * 0.2, persp + z2 * R);  // clamp: przy wysokim hero R > persp dawało ujemny promień
           return { x: cx + x1 * R * sc, y: cy + y1 * R * sc, z: z2, sc: sc };
         }
 
@@ -625,61 +625,20 @@ const content = {
       });
     })();
 
-    // ── Testimonial carousel ──
-    let currentSlide = 0;
-    const slides = document.querySelectorAll('.testimonial-slide');
-    const dots = document.querySelectorAll('.testimonial-dot');
+    // Referencje: statyczny układ (jeden duży cytat + dwa mniejsze), bez karuzeli od v106.
 
-    function goToSlide(n) {
-      slides[currentSlide].classList.remove('active');
-      dots[currentSlide].classList.remove('active');
-      currentSlide = n;
-      slides[currentSlide].classList.add('active');
-      dots[currentSlide].classList.add('active');
-    }
-
-    function nextSlide() {
-      goToSlide((currentSlide + 1) % slides.length);
-    }
-
-    const carousel = document.getElementById('testimonialCarousel');
-    const carouselMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-    let carouselTimer = null;
-    let carouselPaused = carouselMotion.matches;
-    let carouselHovered = false;
-    let carouselVisible = false;
-    const pauseButton = document.createElement('button');
-    pauseButton.className = 'carousel-pause';
-    pauseButton.type = 'button';
-    pauseButton.setAttribute('aria-controls', 'testimonialCarousel');
-    carousel.append(pauseButton);
-
-    function syncCarousel() {
-      clearInterval(carouselTimer);
-      carouselTimer = null;
-      pauseButton.textContent = currentLang === 'pl'
-        ? (carouselPaused ? 'Wznów zmianę referencji' : 'Wstrzymaj zmianę referencji')
-        : (carouselPaused ? 'Resume testimonial rotation' : 'Pause testimonial rotation');
-      slides.forEach((slide, i) => slide.setAttribute('aria-hidden', String(i !== currentSlide)));
-      dots.forEach((dot, i) => {
-        dot.setAttribute('aria-label', (currentLang === 'pl' ? 'Referencja ' : 'Testimonial ') + (i + 1));
-        dot.setAttribute('aria-pressed', String(i === currentSlide));
-      });
-      if (!carouselPaused && !carouselHovered && !carouselMotion.matches && carouselVisible && !document.hidden && !carousel.contains(document.activeElement)) {
-        carouselTimer = setInterval(() => { nextSlide(); syncCarousel(); }, 25000);
-      }
-    }
-    pauseButton.addEventListener('click', () => { carouselPaused = !carouselPaused; syncCarousel(); });
-    carousel.addEventListener('mouseenter', () => { carouselHovered = true; syncCarousel(); });
-    carousel.addEventListener('mouseleave', () => { carouselHovered = false; syncCarousel(); });
-    carousel.addEventListener('focusin', syncCarousel);
-    carousel.addEventListener('focusout', () => setTimeout(syncCarousel, 0));
-    document.addEventListener('visibilitychange', syncCarousel);
-    carouselMotion.addEventListener('change', () => { carouselPaused = carouselMotion.matches; syncCarousel(); });
-    document.getElementById('langToggle').addEventListener('click', syncCarousel);
-    new IntersectionObserver(entries => { carouselVisible = entries[0].isIntersecting; syncCarousel(); }).observe(carousel);
-    dots.forEach((dot, i) => {
-      dot.removeAttribute('onclick');
-      dot.addEventListener('click', () => { goToSlide(i); syncCarousel(); });
-    });
-    syncCarousel();
+    // ── Scrollspy: aktywna sekcja w nawigacji (v106) ──
+    (function () {
+      var links = Array.prototype.slice.call(document.querySelectorAll('.nav-links a[href^="#"]'));
+      if (!links.length || !('IntersectionObserver' in window)) return;
+      var byId = {};
+      links.forEach(function (a) { var el = document.getElementById(a.getAttribute('href').slice(1)); if (el) byId[el.id] = a; });
+      var current = null;
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) { current = e.target.id; }
+        });
+        links.forEach(function (a) { a.classList.toggle('is-active', current !== null && a === byId[current]); });
+      }, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
+      Object.keys(byId).forEach(function (id) { io.observe(document.getElementById(id)); });
+    })();

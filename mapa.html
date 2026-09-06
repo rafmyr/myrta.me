@@ -926,6 +926,13 @@ function render() {
   requestAnimationFrame(render);
 }
 
+// Węzeł z kotwicy (#id), np. z kuli na stronie głównej
+(function () {
+  var id = (location.hash || '').slice(1);
+  if (!id) return;
+  var n = nodes.filter(function (x) { return x.id === id; })[0];
+  if (n) setTimeout(function () { openPanel(n); }, 400);
+})();
 render();
 </script>
 </body>

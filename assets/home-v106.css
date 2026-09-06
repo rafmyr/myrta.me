@@ -1,0 +1,134 @@
+/* v106: szlif strony głównej. Ładowany po home-improvements.css. Ten sam system, dokręcone detale. */
+
+/* ── 1. Typografia i rytm ── */
+:root { --ink-2: #3a3a3c; }
+::selection { background: var(--ink); color: var(--white); }
+main { font-variant-numeric: tabular-nums; }
+.hero-label { font-size: 12px; letter-spacing: .22em; color: #8a8a8f; margin-bottom: 24px; }
+.hero-subtitle { font-size: 18px; line-height: 1.6; max-width: 560px; }
+.hero-subtitle::after { width: 32px; height: 1px; background: var(--gray-light); }
+.section-header { letter-spacing: -0.02em; line-height: 1.12; margin-bottom: 12px; }
+.section-subtitle { line-height: 1.6; max-width: 620px; }
+.about-title { letter-spacing: -0.02em; line-height: 1.15; }
+.about-text p { max-width: 62ch; font-size: 17px; line-height: 1.7; color: var(--ink-2); }
+.about-text p:first-of-type { color: var(--ink); }
+.content-details > summary { font-size: 15px; color: var(--gray); text-decoration-color: var(--gray-light); }
+.content-details > summary:hover { color: var(--ink); text-decoration-color: var(--ink); }
+a { text-underline-offset: 3px; }
+
+@media (min-width: 769px) {
+  .hero { padding-top: 112px; padding-bottom: 80px; }
+  .hero-headline { font-size: clamp(52px, 5.6vw, 76px); line-height: 1.04; letter-spacing: -0.04em; max-width: 900px; }
+  .hero-subtitle { font-size: 20px; }
+  .section-header { font-size: 40px; }
+  .about-title { font-size: 38px; }
+  .section-subtitle { font-size: 18px; margin-bottom: 48px; }
+  .about, .kompetencje, .projekty, .standardy, .artykuly { padding-top: 104px; padding-bottom: 104px; }
+  .offer { padding-top: 72px; padding-bottom: 80px; }
+  .kontakt { padding-top: 104px; padding-bottom: 112px; }
+}
+@media (min-width: 1101px) {
+  .hero-headline { font-size: 80px; }
+  .section-header { font-size: 44px; }
+}
+
+/* ── 2. Konstelacja: hero wyraźniejsza, kula kompetencji jako sekcja ── */
+.hero::before { background: radial-gradient(ellipse 58% 52% at 50% 46%, rgba(255,255,255,.9) 0%, rgba(255,255,255,.55) 55%, rgba(255,255,255,0) 100%); }
+.orbit { padding-top: 40px; padding-bottom: 72px; display: grid; grid-template-columns: 1fr; gap: 24px; align-items: center; }
+.orbit .section-subtitle { margin-bottom: 20px; }
+.orbit-link { display: inline-block; color: var(--ink); font-size: 16px; font-weight: 500; text-decoration: underline; text-decoration-color: var(--gray-light); text-underline-offset: 5px; transition: text-decoration-color .2s; }
+.orbit-link:hover { text-decoration-color: var(--ink); }
+.orbit-stage { position: relative; border-radius: var(--radius); background: radial-gradient(ellipse 70% 70% at 50% 50%, #fbfbfd 0%, #f5f5f7 100%); border: 1px solid var(--hairline); overflow: hidden; }
+#orbitCanvas { display: block; width: 100%; height: 420px; touch-action: none; }
+@media (min-width: 769px) {
+  .orbit { grid-template-columns: 5fr 7fr; gap: 56px; padding-top: 48px; padding-bottom: 96px; }
+  #orbitCanvas { height: 560px; }
+}
+
+/* ── 3. Karty: kompetencje bez ramek, projekty z cieniem na hover, jedna reguła ── */
+.kompetencje-grid { gap: 12px; }
+.kompetencje-item { border-color: transparent; background: var(--card-bg); padding: 26px 30px; }
+.kompetencje-title { font-size: 19px; letter-spacing: -0.01em; margin-bottom: 8px; }
+.kompetencje-desc { font-size: 15px; line-height: 1.55; }
+.kompetencje-item-featured { background: var(--card-bg); border: 1px solid var(--hairline); padding: 34px 36px; }
+.kompetencje-item-featured .kompetencje-title { font-size: 24px; }
+.kompetencje-item-featured .kompetencje-desc { color: var(--ink-2); font-size: 16px; max-width: 680px; }
+.projekt-item { transition: transform .35s cubic-bezier(.16,1,.3,1), box-shadow .35s ease, border-color .35s ease; }
+@media (hover: hover) {
+  .kompetencje-item:hover { transform: none; border-color: var(--hairline); }
+  .projekt-item:hover { transform: translateY(-3px); box-shadow: 0 18px 40px -24px rgba(0,0,0,.28); border-color: #c7c7cc; }
+}
+.projekt-title { font-size: 20px; letter-spacing: -0.015em; line-height: 1.25; }
+.projekt-company { font-size: 13px; letter-spacing: .02em; }
+.projekt-desc { font-size: 15px; line-height: 1.6; }
+
+/* ── 4. Zdjęcie: pełna wysokość sekcji, mniejszy promień, winieta; mały portret w kontakcie ── */
+.about-content { align-items: stretch; }
+.photo-wrapper { display: flex; }
+.about-photo { border-radius: 10px; box-shadow: 0 32px 64px -40px rgba(0,0,0,.45); filter: grayscale(1) contrast(1.04); }
+.about-photo { height: 100%; max-height: none; aspect-ratio: auto; object-position: 50% 15%; }
+@media (max-width: 768px) { .about-photo { aspect-ratio: 4 / 5; max-height: 560px; } }
+
+/* ── 5. Pas statement: jasny manifest zamiast czarnego banera (decyzja Rafała 06.09) ── */
+.statement { background: var(--card-bg); color: var(--ink); border-top: 1px solid var(--hairline); border-bottom: 1px solid var(--hairline); }
+.statement-blockquote { font-weight: 500; letter-spacing: -0.02em; line-height: 1.4; max-width: 820px; color: var(--ink); }
+.statement-stats { border-top: 1px solid var(--gray-light); gap: 32px 0; }
+.stat { padding: 0 24px; }
+.stat-num { letter-spacing: -0.03em; white-space: nowrap; color: var(--ink); }
+.stat-label { font-size: 13px; letter-spacing: .01em; color: var(--gray); }
+@media (min-width: 769px) {
+  .statement { padding-top: 104px; padding-bottom: 104px; }
+  .statement-blockquote { font-size: 34px; }
+  .stat-num { font-size: 46px; }
+  .stat { padding: 0 16px; }
+  .stat + .stat { border-left: 1px solid var(--gray-light); }
+}
+
+/* ── 6. Referencje: jeden duży cytat i dwa mniejsze, bez karuzeli ── */
+.social-proof { text-align: left; }
+.testimonials { max-width: none; margin: 0 0 40px; display: grid; grid-template-columns: 1fr; gap: 32px; }
+.testimonial-slide { position: static; opacity: 1; transform: none; pointer-events: auto; visibility: visible; padding-top: 22px; border-top: 1px solid var(--gray-light); }
+.testimonial-slide.lead { grid-column: 1 / -1; border-top: 1px solid var(--ink); padding-top: 28px; }
+.testimonial-quote { font-size: 16px; line-height: 1.65; color: var(--ink-2); font-style: normal; }
+.testimonial-slide.lead .testimonial-quote { font-size: 22px; line-height: 1.5; letter-spacing: -0.01em; color: var(--ink); max-width: 30em; }
+.testimonial-quote::before, .testimonial-quote::after { color: #c7c7cc; }
+.testimonial-name { font-size: 14px; }
+.client-logos { justify-content: flex-start; padding-top: 28px; }
+@media (min-width: 769px) {
+  .testimonials { grid-template-columns: 1fr 1fr; gap: 40px 56px; }
+  .social-proof { padding-top: 96px; padding-bottom: 80px; }
+}
+
+/* ── 7. Artykuły: spis wg serii, trzy kolumny ── */
+.artykuly-groups { display: grid; grid-template-columns: 1fr; gap: 40px; }
+.artykuly-col .artykuly-group { font-size: 15px; font-weight: 600; color: var(--ink); letter-spacing: 0; text-transform: none; margin: 0 0 6px; padding-bottom: 12px; border-bottom: 1px solid var(--ink); }
+.artykuly-col .artykuly-list { grid-template-columns: 1fr; gap: 0; }
+.artykuly-col .artykuly-item { margin: 0; padding: 0; border-radius: 0; border-bottom: 1px solid var(--gray-light); }
+.artykuly-col .artykuly-link { padding: 14px 0; margin: 0; border-radius: 0; background: none; }
+.artykuly-col .artykuly-link:hover .artykuly-title { text-decoration: underline; text-decoration-color: var(--gray-light); text-underline-offset: 4px; }
+.artykuly-col .artykuly-title { font-size: 16.5px; font-weight: 600; letter-spacing: -0.01em; line-height: 1.35; text-wrap: pretty; }
+.artykuly-col .artykuly-desc { font-size: 14px; line-height: 1.5; margin-top: 4px; }
+.artykuly-col .seria-num { min-width: 22px; font-weight: 400; color: var(--gray); }
+.artykuly-col .seria-next { margin: 12px 0 0; font-size: 13px; }
+.artykuly-col .artykuly-arrow { color: var(--gray-light); transition: color .2s, transform .2s; }
+.artykuly-col .artykuly-link:hover .artykuly-arrow { color: var(--ink); transform: translateX(3px); }
+@media (min-width: 769px) {
+  .artykuly-groups { grid-template-columns: 1fr 1fr; gap: 48px 64px; }
+  .artykuly-col:nth-child(2) { grid-column: 2; grid-row: 1 / 3; }
+  .artykuly-col:nth-child(3) { grid-column: 1; }
+}
+
+/* ── 8. Mikrodetale: nav, linki, focus ── */
+.nav-links a { position: relative; }
+.nav-links a::after { content: ""; position: absolute; left: 0; right: 0; bottom: 8px; height: 1px; background: var(--ink); transform: scaleX(0); transform-origin: left; transition: transform .3s cubic-bezier(.16,1,.3,1); }
+.nav-links a:hover::after, .nav-links a.is-active::after { transform: scaleX(1); }
+.nav-links a.is-active { color: var(--ink); }
+.pill-btn, .hero-cta { transition: background .25s ease, color .25s ease, transform .25s cubic-bezier(.16,1,.3,1), box-shadow .25s ease; }
+.hero-cta:hover, .contact-primary:hover { opacity: 1; background: #000; transform: translateY(-1px); box-shadow: 0 12px 24px -14px rgba(0,0,0,.5); }
+.std-link, .mapa-card-link, .artykuly-link, .projekt-item, .kompetencje-item { outline-offset: 4px; }
+.cpap-mini { padding-top: 28px; padding-bottom: 28px; }
+.cpap-mini-text a { text-decoration-color: var(--gray-light); text-underline-offset: 4px; }
+.cpap-mini-text a:hover { text-decoration-color: var(--ink); }
+.kontakt .section-header { font-size: clamp(36px, 4.6vw, 56px); letter-spacing: -0.03em; }
+.contact-address a, .contact-address { color: var(--gray); }
+@media (prefers-reduced-motion: reduce) { .projekt-item, .nav-links a::after, .pill-btn, .hero-cta { transition: none !important; } }
